@@ -38,20 +38,19 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(default ((t (:family "Fira Code" :foundry "unknown" :slant normal :weight normal :height 98 :width normal)))))
-(require 'package)
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
-(package-initialize)
+(package-install-selected-packages)
 (load-theme 'dracula t)
 (sml/setup)
 
-(package-install-selected-packages)
 (counsel-projectile-mode +1)
 (ivy-mode +1)
 (counsel-mode +1)
 (company-mode +1)
 (electric-pair-mode +1)
+
 (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
-(setq projectile-project-search-path '("~/repos/"))
+
 (let ((path (shell-command-to-string ". ~/.zshrc; echo -n $PATH")))
   (setenv "PATH" path)
   (setq exec-path
@@ -173,3 +172,6 @@
          (concat (buffer-file-name) ":" (number-to-string (line-number-at-pos)))))
     (kill-new path-with-line-number)
     (message (concat path-with-line-number " copied to clipboard"))))
+
+(setq projectile-project-search-path '("~/repos/"))
+(put 'dired-find-alternate-file 'disabled nil)
