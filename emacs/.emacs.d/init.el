@@ -77,6 +77,12 @@
 (add-hook 'text-mode-hook (company-mode -1))
 (setq erlang-indent-level 4)
 
+(add-hook 'erlang-mode-hook 'my-erlang-imenu-hook)
+
+(defun my-erlang-imenu-hook ()
+  (if (and window-system (fboundp 'imenu-add-to-menubar))
+      (imenu-add-to-menubar "Functions")))
+
 (define-globalized-minor-mode global-highlight-parentheses-mode
   highlight-parentheses-mode
   (lambda ()
@@ -84,8 +90,7 @@
 (global-highlight-parentheses-mode t)
 (add-hook 'text-mode-hook (highlight-parentheses-mode -1))
 
-(setq large-file-warning-threshold 50000000)
-
+(setq large-file-warning-threshold 80000000)
                                         ; tramp settings
 (require 'tramp)
 (setq tramp-default-method "scp")
