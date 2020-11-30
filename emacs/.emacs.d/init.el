@@ -28,7 +28,7 @@
      ("XXX+" . "#dc752f")
      ("\\?\\?\\?+" . "#dc752f")))
  '(package-selected-packages
-   '(highlight-parentheses smart-mode-line undo-tree ggtags ag ibuffer-vc neotree company-erlang company counsel-projectile ivy fzf projectile dracula-theme))
+   '(markdown-mode+ markdown-mode highlight-parentheses smart-mode-line undo-tree ggtags ag ibuffer-vc neotree company-erlang company counsel-projectile ivy fzf projectile dracula-theme))
  '(pdf-view-midnight-colors '("#b2b2b2" . "#292b2e"))
  '(size-indication-mode t)
  '(tool-bar-mode nil))
