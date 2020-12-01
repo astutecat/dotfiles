@@ -8,7 +8,7 @@
       (ibuffer-jump-to-buffer recent-buffer-name)))
 (ad-activate 'ibuffer)
 
-(set-default 'truncate-lines t)
+;; (set-default 'truncate-lines t)
 (global-set-key "\C-c$" 'toggle-truncate-lines)
 
 
