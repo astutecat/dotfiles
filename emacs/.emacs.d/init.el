@@ -66,7 +66,7 @@
     (highlight-symbol-at-point)))
 (global-set-key (kbd "s-.") 'jpt-toggle-mark-word-at-point)
 
-(setq large-file-warning-threshold 80000000)
+(setq large-file-warning-threshold 85000000)
                                         ; tramp settings
 (require 'tramp)
 (setq tramp-default-method "scp")
