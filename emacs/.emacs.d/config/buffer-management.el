@@ -44,3 +44,10 @@
          (concat (buffer-file-name) ":" (number-to-string (line-number-at-pos)))))
     (kill-new path-with-line-number)
     (message (concat path-with-line-number " copied to clipboard"))))
+
+;; Set new window buffer to another available one rather than
+;; the currently open one
+(defun switch-to-next-window-in-split ()
+  (set-window-buffer (next-window) (other-buffer)))
+
+(advice-add 'split-window-below :before #'switch-to-next-window-in-split)

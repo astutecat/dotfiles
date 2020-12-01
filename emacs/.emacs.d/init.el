@@ -78,4 +78,3 @@
 (load-directory "~/.emacs.d/config")
 
 (setq projectile-project-search-path '("~/repos/"))
-
