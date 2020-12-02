@@ -77,4 +77,6 @@
 
 (load-directory (concat user-emacs-directory "config"))
 
-(setq projectile-project-search-path '("~/repos/"))
+(let ((local-settings (concat user-emacs-directory "init-local.el")))
+  (when (file-exists-p local-settings)
+    (load-file local-settings)))
