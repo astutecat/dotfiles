@@ -75,6 +75,6 @@
 (setq display-time-24hr-format t)
 ;;(setq display-time-day-and-date t)
 
-(load-directory "~/.emacs.d/config")
+(load-directory (concat user-emacs-directory "config"))
 
 (setq projectile-project-search-path '("~/repos/"))
