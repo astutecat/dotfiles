@@ -7,6 +7,23 @@
       ad-do-it
       (ibuffer-jump-to-buffer recent-buffer-name)))
 (ad-activate 'ibuffer)
+(setq ibuffer-expert t)
+(setq ibuffer-show-empty-filter-groups nil)
+(require 'ibuf-ext)
+(add-to-list 'ibuffer-never-show-predicates "^\\*")
+
+(setq ibuffer-formats
+      '((mark modified read-only " "
+              (name 20 20 :left :elide) " "
+              (size 8 -1 :right) " "
+              (mode 8 16 :left :elide) " " filename-and-process)
+        (mark " " (name 16 -1) " " filename)))
+
+(add-hook 'ibuffer-hook
+    (lambda ()
+      (ibuffer-vc-set-filter-groups-by-vc-root)
+      (unless (eq ibuffer-sorting-mode 'alphabetic)
+        (ibuffer-do-sort-by-alphabetic))))
 
 ;; (set-default 'truncate-lines t)
 (global-set-key "\C-c$" 'toggle-truncate-lines)
