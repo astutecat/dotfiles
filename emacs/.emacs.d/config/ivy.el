@@ -10,6 +10,8 @@
 (counsel-mode +1)
 (setq ivy-use-virtual-buffers t)
 (setq enable-recursive-minibuffers t)
+(minibuffer-depth-indicate-mode t)
+
 (global-set-key "\C-s" 'swiper)
 (setq ivy-display-style 'fancy)
 
