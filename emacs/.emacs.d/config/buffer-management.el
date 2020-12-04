@@ -9,9 +9,6 @@
 (ad-activate 'ibuffer)
 (setq ibuffer-expert t)
 (setq ibuffer-show-empty-filter-groups nil)
-(require 'ibuf-ext)
-(add-to-list 'ibuffer-never-show-predicates "^\\*")
-
 (setq ibuffer-formats
       '((mark modified read-only " "
               (name 20 20 :left :elide) " "
@@ -22,6 +19,7 @@
 (add-hook 'ibuffer-hook
     (lambda ()
       (ibuffer-vc-set-filter-groups-by-vc-root)
+      (ibuffer-auto-mode 1)
       (unless (eq ibuffer-sorting-mode 'alphabetic)
         (ibuffer-do-sort-by-alphabetic))))
 
@@ -68,3 +66,5 @@
   (set-window-buffer (next-window) (other-buffer)))
 
 (advice-add 'split-window-below :before #'switch-to-next-window-in-split)
+
+(setq require-final-newline 'visit)
