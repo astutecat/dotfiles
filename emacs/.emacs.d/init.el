@@ -74,6 +74,7 @@
 (display-time)
 (setq display-time-24hr-format t)
 ;;(setq display-time-day-and-date t)
+(setq use-dialog-box nil)
 
 (load-directory (concat user-emacs-directory "config"))
 
