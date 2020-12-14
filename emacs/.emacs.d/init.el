@@ -28,7 +28,7 @@
      ("XXX+" . "#dc752f")
      ("\\?\\?\\?+" . "#dc752f")))
  '(package-selected-packages
-   '(gitignore-mode initsplit auctex markdown-mode highlight-parentheses smart-mode-line undo-tree ggtags ag ibuffer-vc company-erlang company counsel-projectile ivy fzf projectile dracula-theme))
+   '(magit gitignore-mode initsplit auctex markdown-mode highlight-parentheses smart-mode-line undo-tree ggtags ag ibuffer-vc company-erlang company counsel-projectile ivy fzf projectile dracula-theme))
  '(pdf-view-midnight-colors '("#b2b2b2" . "#292b2e"))
  '(size-indication-mode t)
  '(tool-bar-mode nil))
@@ -74,7 +74,9 @@
 (display-time)
 (setq display-time-24hr-format t)
 ;;(setq display-time-day-and-date t)
+
 (global-set-key (kbd "C-x SPC") 'cua-rectangle-mark-mode)
+(setq use-dialog-box nil)
 
 (load-directory (concat user-emacs-directory "config"))
 
