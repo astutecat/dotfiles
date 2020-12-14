@@ -74,6 +74,7 @@
 (display-time)
 (setq display-time-24hr-format t)
 ;;(setq display-time-day-and-date t)
+(global-set-key (kbd "C-x SPC") 'cua-rectangle-mark-mode)
 
 (load-directory (concat user-emacs-directory "config"))
 
