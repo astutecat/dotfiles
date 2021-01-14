@@ -32,6 +32,9 @@
  '(pdf-view-midnight-colors '("#b2b2b2" . "#292b2e"))
  '(size-indication-mode t)
  '(tool-bar-mode nil))
+
+(delete-selection-mode 1)
+
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
