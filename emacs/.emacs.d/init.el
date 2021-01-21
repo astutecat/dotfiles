@@ -27,6 +27,7 @@
      ("FIXME" . "#dc752f")
      ("XXX+" . "#dc752f")
      ("\\?\\?\\?+" . "#dc752f")))
+ '(indicate-empty-lines t)
  '(package-selected-packages
    '(racer magit gitignore-mode initsplit auctex markdown-mode highlight-parentheses smart-mode-line undo-tree ggtags ag ibuffer-vc company-erlang company counsel-projectile ivy fzf projectile dracula-theme))
  '(pdf-view-midnight-colors '("#b2b2b2" . "#292b2e"))
