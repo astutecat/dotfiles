@@ -30,13 +30,13 @@
      ("\\?\\?\\?+" . "#dc752f")))
  '(indicate-empty-lines t)
  '(package-selected-packages
-   '(company-racer rustic racer magit gitignore-mode initsplit auctex markdown-mode highlight-parentheses smart-mode-line undo-tree ggtags ag ibuffer-vc company-erlang company counsel-projectile ivy fzf projectile dracula-theme))
+   '(centered-cursor-mode racer magit gitignore-mode initsplit auctex markdown-mode highlight-parentheses smart-mode-line undo-tree ggtags ag ibuffer-vc company-erlang company counsel-projectile ivy fzf projectile dracula-theme))
  '(pdf-view-midnight-colors '("#b2b2b2" . "#292b2e"))
  '(size-indication-mode t)
  '(tool-bar-mode nil))
 
 (delete-selection-mode 1)
-
+(centered-cursor-mode 1)
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
