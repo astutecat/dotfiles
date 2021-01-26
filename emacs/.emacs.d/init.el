@@ -1,4 +1,3 @@
-(setq gnutls-algorithm-priority "NORMAL:-VERS-TLS1.3")
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -30,7 +29,7 @@
      ("\\?\\?\\?+" . "#dc752f")))
  '(indicate-empty-lines t)
  '(package-selected-packages
-   '(centered-cursor-mode racer magit gitignore-mode initsplit auctex markdown-mode highlight-parentheses smart-mode-line undo-tree ggtags ag ibuffer-vc company-erlang company counsel-projectile ivy fzf projectile dracula-theme))
+   '(racer centered-cursor-mode gitignore-mode initsplit auctex markdown-mode highlight-parentheses smart-mode-line undo-tree ggtags ag ibuffer-vc company-erlang company counsel-projectile ivy fzf projectile dracula-theme))
  '(pdf-view-midnight-colors '("#b2b2b2" . "#292b2e"))
  '(size-indication-mode t)
  '(tool-bar-mode nil))
@@ -43,11 +42,14 @@
  ;; If there is more than one, they won't work right.
  '(default ((t (:family "Fira Code" :foundry "unknown" :slant normal :weight normal :height 98 :width normal)))))
 
+; Set up melpa package repository
 (require 'package)
-(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
-;; Comment/uncomment this line to enable MELPA Stable if desired.  See `package-archive-priorities`
-;; and `package-pinned-packages`. Most users will not need or want to do this.
-;;(add-to-list 'package-archives '("melpa-stable" . "https://stable.melpa.org/packages/") t)
+(setq package-enable-at-startup nil)
+
+(add-to-list 'package-archives
+         '("gnu" . "https://elpa.gnu.org/packages/"))
+(add-to-list 'package-archives
+         '("melpa" . "https://melpa.org/packages/"))
 (package-initialize)
 (when (not package-archive-contents)
   (package-refresh-contents))
