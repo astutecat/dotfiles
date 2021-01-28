@@ -28,6 +28,7 @@ Plugin 'vim-airline/vim-airline'
 Plugin 'mbbill/undotree'
 Plugin 'editorconfig/editorconfig-vim'
 Plugin 'tmsvg/pear-tree'
+Plugin 'lifepillar/vim-mucomplete'
 
 if iCanHazVundle == 0
   echo "Installing Vundles, please ignore key map error messages"
@@ -45,6 +46,7 @@ colorscheme dracula
 if has('gui_running')
   set guioptions-=T  " no toolbar
   colorscheme dracula
+  set lines=50 columns=100 
   if has('gui_win32')
     set guifont=DejaVu_Sans_Mono:h10:cANSI
   else
@@ -91,6 +93,15 @@ let g:fzf_layout = { 'down': '~35%' }
 let $FZF_DEFAULT_COMMAND = 'rg --files --hidden'
 let g:fzf_buffers_jump = 1
 let g:airline_powerline_fonts = 1
+set tags=./tags;,tags;
+
+" Completion settings
+set completeopt-=preview
+set completeopt+=menuone,noselect
+let g:mucomplete#completion_delay = 250			
+let g:mucomplete#enable_auto_at_startup = 1
+let g:mucomplete#minimum_prefix_length = 3
+
 
 " Customize fzf colors to match your color scheme
 " - fzf#wrap translates this to a set of `--color` options
