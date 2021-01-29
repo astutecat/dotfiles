@@ -17,6 +17,8 @@ Plugin 'junegunn/fzf.vim'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-commentary'
 Plugin 'dracula/vim', { 'name': 'dracula' }
+Plugin 'joshdick/onedark.vim'
+
 "Plugin 'dense-analysis/ale'
 Plugin 'preservim/nerdtree'
 Plugin 'vim-erlang/vim-erlang-runtime'
@@ -29,6 +31,8 @@ Plugin 'mbbill/undotree'
 Plugin 'editorconfig/editorconfig-vim'
 Plugin 'tmsvg/pear-tree'
 Plugin 'lifepillar/vim-mucomplete'
+Plugin 'jiangmiao/auto-pairs'
+Plugin 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKey!'] }
 
 if iCanHazVundle == 0
   echo "Installing Vundles, please ignore key map error messages"
@@ -43,17 +47,23 @@ set rtp+=~/.fzf/
 filetype plugin indent on    " required
 
 colorscheme dracula
+
 if has('gui_running')
   set guioptions-=T  " no toolbar
-  colorscheme dracula
-  set lines=50 columns=100 
+  set lines=55 columns=120
+  set scrolloff=10
+  set guicursor+=a:blinkon0
+
   if has('gui_win32')
     set guifont=DejaVu_Sans_Mono:h10:cANSI
   else
-    set guifont=Fira\ Code\ Regular\ 10
+    set guifont=Hasklig\ Regular\ 10
   endif
 endif
 
+let g:erlang_old_style_highlight = 0
+
+set hidden
 set number
 set mouse=a
 syntax on
@@ -62,7 +72,7 @@ let g:WhiplashProjectsDir = "~/repos/"
 let g:WhiplashCommandName = "Project"
 set backspace=indent,eol,start
 set virtualedit+=onemore
-set clipboard=unnamedplus
+"set clipboard=unnamedplus
 set grepprg=rg\ --vimgrep\ --smart-case\ --follow
 
 fun! TrimWhitespace()
@@ -72,11 +82,12 @@ fun! TrimWhitespace()
 endfun
 command! TrimWhitespace call TrimWhitespace()
 
+nnoremap <silent> <leader> :WhichKey '\'<CR>
 nnoremap <C-P> :Files<CR>
 nnoremap <Leader>v :sp ~/.vimrc<CR>
 nnoremap <silent> <Leader>b :Buffers<CR>
 nnoremap <silent> <Leader>f :Rg<CR>
-nnoremap <Leader>/ :TrimWhitespace<CR>
+nnoremap <Leader>/ :TrimWhitespace<CR>:w<CR>
 nnoremap <Leader>w :w<CR>
 nnoremap <Leader>q :q<CR>
 nnoremap <Leader>n :n<CR>
@@ -88,6 +99,8 @@ nnoremap <Leader>p "*gP
 nnoremap <Leader>X "+x
 nnoremap <Leader>Y "+y
 nnoremap <Leader>P "+gP
+nnoremap <Leader>h :set hlsearch!<CR>
+nnoremap <Leader>v :e ~/.vimrc<CR>
 
 let g:fzf_layout = { 'down': '~35%' }
 let $FZF_DEFAULT_COMMAND = 'rg --files --hidden'
@@ -95,12 +108,15 @@ let g:fzf_buffers_jump = 1
 let g:airline_powerline_fonts = 1
 set tags=./tags;,tags;
 
+
 " Completion settings
 set completeopt-=preview
 set completeopt+=menuone,noselect
-let g:mucomplete#completion_delay = 250			
+let g:mucomplete#completion_delay = 500
 let g:mucomplete#enable_auto_at_startup = 1
 let g:mucomplete#minimum_prefix_length = 3
+set shortmess+=c   " Shut off completion messages
+set belloff+=ctrlg " If Vim beeps during completion
 
 
 " Customize fzf colors to match your color scheme
