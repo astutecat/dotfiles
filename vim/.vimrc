@@ -1,3 +1,9 @@
+function! SourceIfExists(file)
+  if filereadable(expand(a:file))
+    exe 'source' a:file
+  endif
+endfunction
+
 let iCanHazVundle=1
 let vundle_readme=expand('~/.vim/bundle/Vundle.vim/README.md')
 if !filereadable(vundle_readme)
@@ -11,28 +17,33 @@ set nocompatible              " be iMproved, required
 filetype off                  " required
 set rtp+=~/.vim/bundle/Vundle.vim/
 call vundle#begin()
-Plugin 'VundleVim/Vundle.vim'
-
-Plugin 'junegunn/fzf.vim'
-Plugin 'tpope/vim-surround'
-Plugin 'tpope/vim-commentary'
-Plugin 'dracula/vim', { 'name': 'dracula' }
-Plugin 'joshdick/onedark.vim'
 
 "Plugin 'dense-analysis/ale'
-Plugin 'preservim/nerdtree'
-Plugin 'vim-erlang/vim-erlang-runtime'
-Plugin 'vim-erlang/vim-erlang-omnicomplete'
-Plugin 'vim-erlang/vim-erlang-tags'
+Plugin 'VundleVim/Vundle.vim'
 Plugin 'arkwright/vim-whiplash'
-Plugin 'szw/vim-tags'
-Plugin 'vim-airline/vim-airline'
-Plugin 'mbbill/undotree'
+Plugin 'christoomey/vim-sort-motion'
+Plugin 'christoomey/vim-system-copy'
+Plugin 'dracula/vim', { 'name': 'dracula' }
 Plugin 'editorconfig/editorconfig-vim'
-Plugin 'tmsvg/pear-tree'
-Plugin 'lifepillar/vim-mucomplete'
 Plugin 'jiangmiao/auto-pairs'
+Plugin 'joshdick/onedark.vim'
+Plugin 'junegunn/fzf.vim'
+Plugin 'lifepillar/vim-mucomplete'
 Plugin 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKey!'] }
+Plugin 'mbbill/undotree'
+Plugin 'preservim/nerdtree'
+Plugin 'szw/vim-tags'
+Plugin 'tmsvg/pear-tree'
+Plugin 'tpope/vim-commentary'
+Plugin 'tpope/vim-eunuch'
+Plugin 'tpope/vim-repeat'
+Plugin 'tpope/vim-surround'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-erlang/vim-erlang-omnicomplete'
+Plugin 'vim-erlang/vim-erlang-runtime'
+Plugin 'vim-erlang/vim-erlang-tags'
+Plugin 'vim-syntastic/syntastic'
+
 
 if iCanHazVundle == 0
   echo "Installing Vundles, please ignore key map error messages"
@@ -66,6 +77,8 @@ let g:erlang_old_style_highlight = 0
 set hidden
 set number
 set mouse=a
+set mousehide
+set incsearch
 syntax on
 "set ttymouse=sgr
 let g:WhiplashProjectsDir = "~/repos/"
@@ -75,32 +88,40 @@ set virtualedit+=onemore
 "set clipboard=unnamedplus
 set grepprg=rg\ --vimgrep\ --smart-case\ --follow
 
+
+
 fun! TrimWhitespace()
     let l:save = winsaveview()
     keeppatterns %s/\s\+$//e
     call winrestview(l:save)
+    write
 endfun
 command! TrimWhitespace call TrimWhitespace()
+
+fun! HighlightCurrentWord()
+  let @/='\<<C-R>=expand("<cword>")<CR>\>'
+  set hls
+endfun
+command! HighlightCurrentWord call HighlightCurrentWord()
 
 nnoremap <silent> <leader> :WhichKey '\'<CR>
 nnoremap <C-P> :Files<CR>
 nnoremap <Leader>v :sp ~/.vimrc<CR>
 nnoremap <silent> <Leader>b :Buffers<CR>
 nnoremap <silent> <Leader>f :Rg<CR>
-nnoremap <Leader>/ :TrimWhitespace<CR>:w<CR>
+nnoremap <Leader>/ :TrimWhitespace<CR>
 nnoremap <Leader>w :w<CR>
 nnoremap <Leader>q :q<CR>
 nnoremap <Leader>n :n<CR>
 nnoremap <Leader>e :NERDTree<CR>
 nnoremap <Leader>t :terminal<CR>
-nnoremap <Leader>x "*x
-nnoremap <Leader>y "*y
-nnoremap <Leader>p "*gP
-nnoremap <Leader>X "+x
-nnoremap <Leader>Y "+y
-nnoremap <Leader>P "+gP
-nnoremap <Leader>h :set hlsearch!<CR>
+nnoremap <Leader>x "+x
+nnoremap <Leader>y "+y
+nnoremap <Leader>p "+gP
+nnoremap <Leader>h :HighlightCurrentWord<CR>
 nnoremap <Leader>v :e ~/.vimrc<CR>
+nnoremap <CR> :nohlsearch<CR><CR>
+nnoremap <Leader>r :set relativenumber!<CR>
 
 let g:fzf_layout = { 'down': '~35%' }
 let $FZF_DEFAULT_COMMAND = 'rg --files --hidden'
@@ -108,6 +129,8 @@ let g:fzf_buffers_jump = 1
 let g:airline_powerline_fonts = 1
 set tags=./tags;,tags;
 
+
+let g:pear_tree_repeatable_expand = 0
 
 " Completion settings
 set completeopt-=preview
@@ -117,6 +140,16 @@ let g:mucomplete#enable_auto_at_startup = 1
 let g:mucomplete#minimum_prefix_length = 3
 set shortmess+=c   " Shut off completion messages
 set belloff+=ctrlg " If Vim beeps during completion
+
+"set statusline+=%#warningmsg#
+"set statusline+=%{SyntasticStatuslineFlag()}
+"set statusline+=%*
+
+let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes': [],'passive_filetypes': [] }
+"let g:syntastic_always_populate_loc_list = 1
+"let g:syntastic_auto_loc_list = 1
+"let g:syntastic_check_on_open = 1
+"let g:syntastic_check_on_wq = 0
 
 
 " Customize fzf colors to match your color scheme
@@ -135,3 +168,8 @@ let g:fzf_colors =
   \ 'marker':  ['fg', 'Keyword'],
   \ 'spinner': ['fg', 'Label'],
   \ 'header':  ['fg', 'Comment'] }
+
+call SourceIfExists("~/.vimrc.local")
+call SourceIfExists("~/.gvimrc.local")
+
+
