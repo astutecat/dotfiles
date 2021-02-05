@@ -40,7 +40,7 @@ Plugin 'tpope/vim-eunuch'
 Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-surround'
 Plugin 'vim-airline/vim-airline'
-" Plugin 'vim-erlang/vim-erlang-omnicomplete'
+Plugin 'vim-erlang/vim-erlang-omnicomplete'
 Plugin 'vim-erlang/vim-erlang-runtime'
 Plugin 'vim-erlang/vim-erlang-tags'
 Plugin 'vim-syntastic/syntastic'
@@ -82,6 +82,7 @@ set number
 set mouse=a
 set mousehide
 set incsearch
+set updatetime=750
 syntax on
 "set ttymouse=sgr
 let g:WhiplashProjectsDir = "~/repos/"
@@ -90,8 +91,6 @@ set backspace=indent,eol,start
 set virtualedit+=onemore
 "set clipboard=unnamedplus
 set grepprg=rg\ --vimgrep\ --smart-case\ --follow
-
-
 
 fun! TrimWhitespace()
     let l:save = winsaveview()
@@ -136,10 +135,11 @@ set tags=./tags;,tags;
 let g:pear_tree_repeatable_expand = 0
 
 " Completion settings
+set completeopt-=preview
 set completeopt+=popup
 set belloff+=ctrlg " If Vim beeps during completion
 let g:mucomplete#completion_delay = 500
-let g:mucomplete#enable_auto_at_startup = 1
+let g:mucomplete#enable_auto_at_startup = 0
 let g:mucomplete#minimum_prefix_length = 3
 set shortmess+=c   " Shut off completion messages
 
