@@ -29,6 +29,7 @@ Plugin 'jiangmiao/auto-pairs'
 Plugin 'joshdick/onedark.vim'
 Plugin 'junegunn/fzf.vim'
 Plugin 'lifepillar/vim-mucomplete'
+" Plugin 'ycm-core/YouCompleteMe'
 Plugin 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKey!'] }
 Plugin 'mbbill/undotree'
 Plugin 'preservim/nerdtree'
@@ -39,11 +40,13 @@ Plugin 'tpope/vim-eunuch'
 Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-surround'
 Plugin 'vim-airline/vim-airline'
-Plugin 'vim-erlang/vim-erlang-omnicomplete'
+" Plugin 'vim-erlang/vim-erlang-omnicomplete'
 Plugin 'vim-erlang/vim-erlang-runtime'
 Plugin 'vim-erlang/vim-erlang-tags'
 Plugin 'vim-syntastic/syntastic'
-
+Plugin 'SirVer/ultisnips'
+Plugin 'honza/vim-snippets'
+Plugin 'junegunn/vim-easy-align'
 
 if iCanHazVundle == 0
   echo "Installing Vundles, please ignore key map error messages"
@@ -133,13 +136,12 @@ set tags=./tags;,tags;
 let g:pear_tree_repeatable_expand = 0
 
 " Completion settings
-set completeopt-=preview
-set completeopt+=menuone,noselect
+set completeopt+=popup
+set belloff+=ctrlg " If Vim beeps during completion
 let g:mucomplete#completion_delay = 500
 let g:mucomplete#enable_auto_at_startup = 1
 let g:mucomplete#minimum_prefix_length = 3
 set shortmess+=c   " Shut off completion messages
-set belloff+=ctrlg " If Vim beeps during completion
 
 "set statusline+=%#warningmsg#
 "set statusline+=%{SyntasticStatuslineFlag()}
@@ -172,4 +174,7 @@ let g:fzf_colors =
 call SourceIfExists("~/.vimrc.local")
 call SourceIfExists("~/.gvimrc.local")
 
-
+" Start interactive EasyAlign in visual mode (e.g. vipga)
+xmap ga <Plug>(EasyAlign)
+" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+nmap ga <Plug>(EasyAlign)
