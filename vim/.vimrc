@@ -26,10 +26,8 @@ Plugin 'christoomey/vim-system-copy'
 Plugin 'dracula/vim', { 'name': 'dracula' }
 Plugin 'editorconfig/editorconfig-vim'
 Plugin 'jiangmiao/auto-pairs'
-Plugin 'joshdick/onedark.vim'
 Plugin 'junegunn/fzf.vim'
 Plugin 'lifepillar/vim-mucomplete'
-" Plugin 'ycm-core/YouCompleteMe'
 Plugin 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKey!'] }
 Plugin 'mbbill/undotree'
 Plugin 'preservim/nerdtree'
