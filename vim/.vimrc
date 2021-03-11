@@ -19,17 +19,20 @@ set rtp+=~/.vim/bundle/Vundle.vim/
 call vundle#begin()
 
 "Plugin 'dense-analysis/ale'
+Plugin 'SirVer/ultisnips'
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'arkwright/vim-whiplash'
 Plugin 'christoomey/vim-sort-motion'
 Plugin 'christoomey/vim-system-copy'
 Plugin 'dracula/vim', { 'name': 'dracula' }
 Plugin 'editorconfig/editorconfig-vim'
+Plugin 'honza/vim-snippets'
+Plugin 'jeffkreeftmeijer/vim-numbertoggle'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'joshdick/onedark.vim'
 Plugin 'junegunn/fzf.vim'
+Plugin 'junegunn/vim-easy-align'
 Plugin 'lifepillar/vim-mucomplete'
-" Plugin 'ycm-core/YouCompleteMe'
 Plugin 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKey!'] }
 Plugin 'mbbill/undotree'
 Plugin 'preservim/nerdtree'
@@ -44,9 +47,6 @@ Plugin 'vim-erlang/vim-erlang-omnicomplete'
 Plugin 'vim-erlang/vim-erlang-runtime'
 Plugin 'vim-erlang/vim-erlang-tags'
 Plugin 'vim-syntastic/syntastic'
-Plugin 'SirVer/ultisnips'
-Plugin 'honza/vim-snippets'
-Plugin 'junegunn/vim-easy-align'
 
 if iCanHazVundle == 0
   echo "Installing Vundles, please ignore key map error messages"
@@ -83,6 +83,7 @@ set mouse=a
 set mousehide
 set incsearch
 set updatetime=750
+set tabstop=2 shiftwidth=2 expandtab
 syntax on
 "set ttymouse=sgr
 let g:WhiplashProjectsDir = "~/repos/"
@@ -131,27 +132,27 @@ let g:fzf_buffers_jump = 1
 let g:airline_powerline_fonts = 1
 set tags=./tags;,tags;
 
-
 let g:pear_tree_repeatable_expand = 0
 
 " Completion settings
 set completeopt-=preview
 set completeopt+=popup
+set completeopt+=noselect
 set belloff+=ctrlg " If Vim beeps during completion
 let g:mucomplete#completion_delay = 500
-let g:mucomplete#enable_auto_at_startup = 0
-let g:mucomplete#minimum_prefix_length = 3
+let g:mucomplete#minimum_prefix_length = 2
+let g:mucomplete#enable_auto_at_startup = 1
 set shortmess+=c   " Shut off completion messages
 
 "set statusline+=%#warningmsg#
 "set statusline+=%{SyntasticStatuslineFlag()}
 "set statusline+=%*
 
-let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes': [],'passive_filetypes': [] }
-"let g:syntastic_always_populate_loc_list = 1
-"let g:syntastic_auto_loc_list = 1
-"let g:syntastic_check_on_open = 1
-"let g:syntastic_check_on_wq = 0
+"let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes': [],'passive_filetypes': [] }
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
 
 
 " Customize fzf colors to match your color scheme
