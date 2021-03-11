@@ -100,6 +100,7 @@ source $ZSH/oh-my-zsh.sh
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 [ -f ~/.asdf/asdf.sh ] && . $HOME/.asdf/asdf.sh
+command -v keychain --version >/dev/null && eval $(keychain --eval --quiet)
 # append completions to fpath
 fpath=(${ASDF_DIR}/completions $fpath)
 # initialise completions with ZSH's compinit
