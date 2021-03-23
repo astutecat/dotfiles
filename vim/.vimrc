@@ -46,6 +46,7 @@ Plugin 'vim-erlang/vim-erlang-omnicomplete'
 Plugin 'vim-erlang/vim-erlang-runtime'
 Plugin 'vim-erlang/vim-erlang-tags'
 Plugin 'vim-syntastic/syntastic'
+Plugin 'justinmk/vim-sneak'
 
 if iCanHazVundle == 0
   echo "Installing Vundles, please ignore key map error messages"
@@ -142,6 +143,8 @@ let g:mucomplete#completion_delay = 500
 let g:mucomplete#minimum_prefix_length = 2
 let g:mucomplete#enable_auto_at_startup = 1
 set shortmess+=c   " Shut off completion messages
+imap <c-j> <plug>(MUcompleteFwd)
+imap <c-k> <plug>(MUcompleteBwd)
 
 "set statusline+=%#warningmsg#
 "set statusline+=%{SyntasticStatuslineFlag()}
