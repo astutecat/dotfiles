@@ -39,6 +39,7 @@ WhiplashEchoProjectName
 """
 
 NERDTreeCWD
+NERDTreeClose 
 
 
 
@@ -53,6 +54,6 @@ NERDTreeCWD
 " as a 'reset everything' utility.
 """
 
-CommandTFlush
-CtrlPClearCache
+" CommandTFlush
+" CtrlPClearCache
 

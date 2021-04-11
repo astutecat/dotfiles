@@ -48,6 +48,7 @@ Plugin 'vim-erlang/vim-erlang-runtime'
 Plugin 'vim-erlang/vim-erlang-tags'
 Plugin 'vim-syntastic/syntastic'
 Plugin 'justinmk/vim-sneak'
+Plugin 'rust-lang/rust.vim'
 
 call SourceIfExists("~/.vim/packages.local")
 
@@ -176,3 +177,7 @@ call SourceIfExists("~/.gvimrc.local")
 xmap ga <Plug>(EasyAlign)
 " Start interactive EasyAlign for a motion/text object (e.g. gaip)
 nmap ga <Plug>(EasyAlign)
+
+" If another buffer tries to replace NERDTree, put it in the other window, and bring back NERDTree.
+autocmd BufEnter * if bufname('#') =~ 'NERD_tree_\d\+' && bufname('%') !~ 'NERD_tree_\d\+' && winnr('$') > 1 |
+    \ let buf=bufnr() | buffer# | execute "normal! \<C-W>w" | execute 'buffer'.buf | endif
