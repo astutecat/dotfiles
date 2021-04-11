@@ -93,6 +93,7 @@ syntax enable
 "set ttymouse=sgr
 let g:WhiplashProjectsDir = "~/repos/"
 let g:WhiplashCommandName = "Project"
+let g:WhiplashConfigDir = "~/dotfiles/vim/whiplash/"
 set backspace=indent,eol,start
 set virtualedit+=onemore
 "set clipboard=unnamedplus
