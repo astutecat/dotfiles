@@ -29,6 +29,7 @@ Plugin 'editorconfig/editorconfig-vim'
 Plugin 'honza/vim-snippets'
 Plugin 'jeffkreeftmeijer/vim-numbertoggle'
 Plugin 'jiangmiao/auto-pairs'
+Plugin 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plugin 'junegunn/fzf.vim'
 Plugin 'junegunn/vim-easy-align'
 Plugin 'lifepillar/vim-mucomplete'
@@ -47,6 +48,8 @@ Plugin 'vim-erlang/vim-erlang-runtime'
 Plugin 'vim-erlang/vim-erlang-tags'
 Plugin 'vim-syntastic/syntastic'
 Plugin 'justinmk/vim-sneak'
+
+call SourceIfExists("~/.vim/packages.local")
 
 if iCanHazVundle == 0
   echo "Installing Vundles, please ignore key map error messages"
@@ -72,7 +75,7 @@ if has('gui_running')
     set guifont=DejaVu_Sans_Mono:h10:cANSI
   elseif has('gui_macvim')
     set guifont=Hack-Regular:h11     " OSX.
-  else 
+  else
     set guifont=Hack\ Regular\ 10
   endif
 endif
@@ -86,7 +89,7 @@ set mousehide
 set incsearch
 set updatetime=750
 set tabstop=2 shiftwidth=2 expandtab
-syntax on
+syntax enable
 "set ttymouse=sgr
 let g:WhiplashProjectsDir = "~/repos/"
 let g:WhiplashCommandName = "Project"
@@ -147,17 +150,6 @@ let g:mucomplete#enable_auto_at_startup = 1
 set shortmess+=c   " Shut off completion messages
 imap <c-j> <plug>(MUcompleteFwd)
 imap <c-k> <plug>(MUcompleteBwd)
-
-"set statusline+=%#warningmsg#
-"set statusline+=%{SyntasticStatuslineFlag()}
-"set statusline+=%*
-
-"let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes': [],'passive_filetypes': [] }
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-
 
 " Customize fzf colors to match your color scheme
 " - fzf#wrap translates this to a set of `--color` options
