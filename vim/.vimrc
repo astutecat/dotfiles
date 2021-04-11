@@ -70,8 +70,10 @@ if has('gui_running')
 
   if has('gui_win32')
     set guifont=DejaVu_Sans_Mono:h10:cANSI
-  else
-    set guifont=Hasklig\ Regular\ 10
+  elseif has('gui_macvim')
+    set guifont=Hack-Regular:h11     " OSX.
+  else 
+    set guifont=Hack\ Regular\ 10
   endif
 endif
 
