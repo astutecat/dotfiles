@@ -18,25 +18,19 @@ filetype off                  " required
 set rtp+=~/.vim/bundle/Vundle.vim/
 call vundle#begin()
 
-"Plugin 'dense-analysis/ale'
-Plugin 'SirVer/ultisnips'
+Plugin 'sheerun/vim-polyglot'
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'arkwright/vim-whiplash'
 Plugin 'christoomey/vim-sort-motion'
-Plugin 'christoomey/vim-system-copy'
 Plugin 'dracula/vim', { 'name': 'dracula' }
 Plugin 'editorconfig/editorconfig-vim'
-Plugin 'honza/vim-snippets'
-Plugin 'jeffkreeftmeijer/vim-numbertoggle'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plugin 'junegunn/fzf.vim'
 Plugin 'junegunn/vim-easy-align'
-Plugin 'lifepillar/vim-mucomplete'
 Plugin 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKey!'] }
 Plugin 'mbbill/undotree'
 Plugin 'preservim/nerdtree'
-Plugin 'szw/vim-tags'
 Plugin 'tmsvg/pear-tree'
 Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-eunuch'
@@ -47,10 +41,13 @@ Plugin 'vim-erlang/vim-erlang-omnicomplete'
 Plugin 'vim-erlang/vim-erlang-runtime'
 Plugin 'vim-erlang/vim-erlang-tags'
 Plugin 'vim-syntastic/syntastic'
-Plugin 'justinmk/vim-sneak'
 Plugin 'rust-lang/rust.vim'
+Plugin 'elixir-lang/vim-elixir',              { 'for': ['elixir', 'eelixir'] }
+Plugin 'slashmili/alchemist.vim',             { 'for': ['elixir', 'eelixir'] }
+Plugin 'mhinz/vim-mix-format'
+Plugin 'ludovicchabant/vim-gutentags'
 
-call SourceIfExists("~/.vim/packages.local")
+call SourceIfExists("~/.vim/packages.local.vim")
 
 if iCanHazVundle == 0
   echo "Installing Vundles, please ignore key map error messages"
@@ -90,6 +87,7 @@ set mousehide
 set incsearch
 set updatetime=750
 set tabstop=2 shiftwidth=2 expandtab
+set shell=/bin/zsh\ -l
 syntax enable
 "set ttymouse=sgr
 let g:WhiplashProjectsDir = "~/repos/"
@@ -113,6 +111,9 @@ fun! HighlightCurrentWord()
   set hls
 endfun
 command! HighlightCurrentWord call HighlightCurrentWord()
+
+
+set completeopt=menuone,noinsert,noselect,preview
 
 nnoremap <silent> <leader> :WhichKey '\'<CR>
 nnoremap <C-P> :Files<CR>
@@ -140,18 +141,6 @@ let g:airline_powerline_fonts = 1
 set tags=./tags;,tags;
 
 let g:pear_tree_repeatable_expand = 0
-
-" Completion settings
-set completeopt-=preview
-set completeopt+=popup
-set completeopt+=noselect
-set belloff+=ctrlg " If Vim beeps during completion
-let g:mucomplete#completion_delay = 500
-let g:mucomplete#minimum_prefix_length = 2
-let g:mucomplete#enable_auto_at_startup = 1
-set shortmess+=c   " Shut off completion messages
-imap <c-j> <plug>(MUcompleteFwd)
-imap <c-k> <plug>(MUcompleteBwd)
 
 " Customize fzf colors to match your color scheme
 " - fzf#wrap translates this to a set of `--color` options
