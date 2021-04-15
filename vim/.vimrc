@@ -46,6 +46,7 @@ Plugin 'elixir-lang/vim-elixir',              { 'for': ['elixir', 'eelixir'] }
 Plugin 'slashmili/alchemist.vim',             { 'for': ['elixir', 'eelixir'] }
 Plugin 'mhinz/vim-mix-format'
 Plugin 'ludovicchabant/vim-gutentags'
+Plugin 'jeffkreeftmeijer/vim-numbertoggle'
 
 call SourceIfExists("~/.vim/packages.local.vim")
 
