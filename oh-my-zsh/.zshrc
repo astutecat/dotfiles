@@ -111,6 +111,11 @@ export PATH=$PATH:~/.cache/rebar3/bin
 alias hl='printf %"$COLUMNS"s |tr " " "-"'
 alias lcl='hl && clear'
 
+if [[ "$(uname -s)" == "Darwin" ]]
+then
+  alias macvim='open -a MacVim $@'
+fi
+
 HISTFILE="$HOME/.zsh_history"
 HISTSIZE=10000
 SAVEHIST=10000
