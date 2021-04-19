@@ -64,11 +64,15 @@ filetype plugin indent on    " required
 
 colorscheme dracula
 
+set guicursor+=i:block-Cursor
+set guicursor+=a:blinkon0
+set guicursor+=i:blinkon0
+
+
 if has('gui_running')
   set guioptions-=T  " no toolbar
   set lines=55 columns=120
   set scrolloff=10
-  set guicursor+=a:blinkon0
   let g:airline_powerline_fonts = 1
 
   if has('gui_win32')
