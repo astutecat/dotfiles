@@ -98,9 +98,10 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-[ -f ~/.asdf/asdf.sh ] && . $HOME/.asdf/asdf.sh
-command -v keychain --version >/dev/null && eval $(keychain --eval --quiet)
+[ -f "$HOME/.fzf.zsh" ] && source "$HOME/.fzf.zsh"
+[ -f "$HOME/.asdf/asdf.sh" ] && . "$HOME/.asdf/asdf.sh"
+command -v keychain --version >/dev/null && eval $(keychain --agents gpg --gpg4 --eval D571E8F6)
+
 # append completions to fpath
 fpath=(${ASDF_DIR}/completions $fpath)
 # initialise completions with ZSH's compinit
@@ -116,9 +117,13 @@ then
   alias macvim='open -a MacVim $@'
 fi
 
+command -v rustc >/dev/null && export RUST_SRC_PATH=$(rustc --print sysroot)/lib/rustlib/src/rust/library
+
+[ -f "$HOME/.zshrc.local" ] && source "$HOME/.zshrc.local"
+
 HISTFILE="$HOME/.zsh_history"
-HISTSIZE=10000
-SAVEHIST=10000
+HISTSIZE=100000
+SAVEHIST=100000
 setopt BANG_HIST                 # Treat the '!' character specially during expansion.
 setopt EXTENDED_HISTORY          # Write the history file in the ":start:elapsed;command" format.
 setopt INC_APPEND_HISTORY        # Write to the history file immediately, not when the shell exits.
@@ -132,4 +137,3 @@ setopt HIST_SAVE_NO_DUPS         # Don't write duplicate entries in the history 
 setopt HIST_REDUCE_BLANKS        # Remove superfluous blanks before recording entry.
 setopt HIST_VERIFY               # Don't execute immediately upon history expansion.
 
-command -v rustc >/dev/null && export RUST_SRC_PATH=$(rustc --print sysroot)/lib/rustlib/src/rust/library
