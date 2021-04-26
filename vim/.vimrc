@@ -64,11 +64,16 @@ filetype plugin indent on    " required
 
 colorscheme dracula
 
+set guicursor+=i:block-Cursor
+set guicursor+=a:blinkon0
+set guicursor+=i:blinkon0
+
+
 if has('gui_running')
   set guioptions-=T  " no toolbar
   set lines=55 columns=120
   set scrolloff=10
-  set guicursor+=a:blinkon0
+  let g:airline_powerline_fonts = 1
 
   if has('gui_win32')
     set guifont=DejaVu_Sans_Mono:h10:cANSI
@@ -77,6 +82,8 @@ if has('gui_running')
   else
     set guifont=Hack\ Regular\ 10
   endif
+else
+  let g:airline_powerline_fonts = 0
 endif
 
 let g:erlang_old_style_highlight = 0
@@ -138,7 +145,6 @@ nnoremap <Leader>r :set relativenumber!<CR>
 let g:fzf_layout = { 'down': '~35%' }
 let $FZF_DEFAULT_COMMAND = 'rg --files --hidden'
 let g:fzf_buffers_jump = 1
-let g:airline_powerline_fonts = 1
 set tags=./tags;,tags;
 
 let g:pear_tree_repeatable_expand = 0
