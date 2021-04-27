@@ -117,7 +117,10 @@ then
   alias macvim='open -a MacVim $@'
 fi
 
-command -v rustc >/dev/null && export RUST_SRC_PATH=$(rustc --print sysroot)/lib/rustlib/src/rust/library
+if [[ -n $(command -v rustc) ]]
+then
+  export RUST_SRC_PATH=$(rustc --print sysroot)/lib/rustlib/src/rust/library
+fi
 
 [ -f "$HOME/.zshrc.local" ] && source "$HOME/.zshrc.local"
 
