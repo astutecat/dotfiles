@@ -143,7 +143,7 @@ nnoremap <CR> :nohlsearch<CR><CR>
 nnoremap <Leader>r :set relativenumber!<CR>
 
 let g:fzf_layout = { 'down': '~35%' }
-let $FZF_DEFAULT_COMMAND = 'rg --files --hidden'
+" let $FZF_DEFAULT_COMMAND = 'rg --files --hidden'
 let g:fzf_buffers_jump = 1
 set tags=./tags;,tags;
 

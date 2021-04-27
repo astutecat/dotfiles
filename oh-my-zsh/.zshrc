@@ -121,6 +121,12 @@ command -v rustc >/dev/null && export RUST_SRC_PATH=$(rustc --print sysroot)/lib
 
 [ -f "$HOME/.zshrc.local" ] && source "$HOME/.zshrc.local"
 
+if [[ -n $(command -v fd) ]] 
+then
+  export FZF_DEFAULT_COMMAND="fd --type file --follow --color=always"
+  export FZF_DEFAULT_OPTS="--ansi"
+fi
+
 HISTFILE="$HOME/.zsh_history"
 HISTSIZE=100000
 SAVEHIST=100000
