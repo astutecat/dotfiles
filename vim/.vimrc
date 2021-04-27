@@ -138,7 +138,7 @@ nnoremap <Leader>x "+x
 nnoremap <Leader>y "+y
 nnoremap <Leader>p "+gP
 nnoremap <Leader>h :HighlightCurrentWord<CR>
-nnoremap <Leader>v :e ~/.vimrc<CR>
+nnoremap <Leader>v :tabedit ~/.vimrc<CR>
 nnoremap <CR> :nohlsearch<CR><CR>
 nnoremap <Leader>r :set relativenumber!<CR>
 
