@@ -100,7 +100,6 @@ source $ZSH/oh-my-zsh.sh
 
 [ -f "$HOME/.fzf.zsh" ] && source "$HOME/.fzf.zsh"
 [ -f "$HOME/.asdf/asdf.sh" ] && . "$HOME/.asdf/asdf.sh"
-command -v keychain --version >/dev/null && eval $(keychain --agents gpg --gpg4 --eval D571E8F6)
 
 # append completions to fpath
 fpath=(${ASDF_DIR}/completions $fpath)
@@ -126,8 +125,9 @@ fi
 
 if [[ -n $(command -v fd) ]] 
 then
-  export FZF_DEFAULT_COMMAND="fd --type file --follow --color=always"
+  export FZF_DEFAULT_COMMAND="fd --type file --follow --color=always --exclude .git"
   export FZF_DEFAULT_OPTS="--ansi"
+  export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 fi
 
 HISTFILE="$HOME/.zsh_history"

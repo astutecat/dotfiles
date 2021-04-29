@@ -143,7 +143,14 @@ nnoremap <CR> :nohlsearch<CR><CR>
 nnoremap <Leader>r :set relativenumber!<CR>
 
 let g:fzf_layout = { 'down': '~35%' }
-" let $FZF_DEFAULT_COMMAND = 'rg --files --hidden'
+
+if executable('fd')
+  let $FZF_DEFAULT_COMMAND = 'fd --type file --follow --color=always'
+  let $FZF_DEFAULT_OPTS='--ansi'
+elseif executable('rg')
+  let $FZF_DEFAULT_COMMAND = 'rg --files --hidden'
+endif
+
 let g:fzf_buffers_jump = 1
 set tags=./tags;,tags;
 
