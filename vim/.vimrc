@@ -30,6 +30,7 @@ Plugin 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plugin 'junegunn/fzf.vim'
 Plugin 'junegunn/vim-easy-align'
 Plugin 'kana/vim-textobj-indent'
+Plugin 'kana/vim-textobj-user'
 Plugin 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKey!'] }
 Plugin 'ludovicchabant/vim-gutentags'
 Plugin 'mattn/vim-lsp-settings'
@@ -149,6 +150,7 @@ nnoremap <Leader>h :HighlightCurrentWord<CR>
 nnoremap <Leader>v :tabedit ~/.vimrc<CR>
 nnoremap <CR> :nohlsearch<CR><CR>
 nnoremap <Leader>r :set relativenumber!<CR>
+nnoremap <Leader>a :ALEToggle<CR>
 
 let g:fzf_layout = { 'down': '~35%' }
 
