@@ -4,6 +4,7 @@ nnoremap <Leader>2 :cd ~/repos/NOC-Stable<CR>
 nnoremap <Leader>3 :cd ~/repos/sentinel<CR>
 
 let g:WhiplashProjectsDir = "~/dev/"
-let g:ale_completion_enabled = 1
+let g:ale_completion_enabled = 0
 let g:ale_sign_column_always = 1
+let g:ale_enabled = 0
 

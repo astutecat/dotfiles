@@ -18,35 +18,42 @@ filetype off                  " required
 set rtp+=~/.vim/bundle/Vundle.vim/
 call vundle#begin()
 
-Plugin 'sheerun/vim-polyglot'
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'arkwright/vim-whiplash'
 Plugin 'christoomey/vim-sort-motion'
+Plugin 'dense-analysis/ale'
 Plugin 'dracula/vim', { 'name': 'dracula' }
 Plugin 'editorconfig/editorconfig-vim'
+Plugin 'jeffkreeftmeijer/vim-numbertoggle'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plugin 'junegunn/fzf.vim'
 Plugin 'junegunn/vim-easy-align'
+Plugin 'kana/vim-textobj-indent'
 Plugin 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKey!'] }
+Plugin 'ludovicchabant/vim-gutentags'
+Plugin 'mattn/vim-lsp-settings'
 Plugin 'mbbill/undotree'
+Plugin 'prabirshrestha/vim-lsp'
 Plugin 'preservim/nerdtree'
+Plugin 'rhysd/vim-lsp-ale'
+Plugin 'sheerun/vim-polyglot'
 Plugin 'tmsvg/pear-tree'
 Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-eunuch'
 Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-surround'
 Plugin 'vim-airline/vim-airline'
-Plugin 'vim-erlang/vim-erlang-omnicomplete'
-Plugin 'vim-erlang/vim-erlang-runtime'
-Plugin 'vim-erlang/vim-erlang-tags'
-" Plugin 'vim-syntastic/syntastic'
-Plugin 'rust-lang/rust.vim'
-Plugin 'elixir-lang/vim-elixir',              { 'for': ['elixir', 'eelixir'] }
-Plugin 'slashmili/alchemist.vim',             { 'for': ['elixir', 'eelixir'] }
-Plugin 'mhinz/vim-mix-format'
-Plugin 'ludovicchabant/vim-gutentags'
-Plugin 'jeffkreeftmeijer/vim-numbertoggle'
+
+Plugin 'vim-erlang/vim-erlang-omnicomplete', { 'for': ['erlang'] }
+Plugin 'vim-erlang/vim-erlang-runtime', { 'for': ['erlang'] }
+Plugin 'vim-erlang/vim-erlang-tags', { 'for': ['erlang'] }
+
+Plugin 'rust-lang/rust.vim', {'for': ['rust']}
+
+Plugin 'elixir-lang/vim-elixir', { 'for': ['elixir', 'eelixir'] }
+Plugin 'slashmili/alchemist.vim', { 'for': ['elixir', 'eelixir'] }
+Plugin 'mhinz/vim-mix-format', {'for': ['elixir', 'eelixir']}
 
 call SourceIfExists("~/.vim/packages.local.vim")
 
