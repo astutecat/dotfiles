@@ -1,6 +1,4 @@
-Plugin 'mattn/vim-lsp-settings'
-Plugin 'prabirshrestha/async.vim'
-Plugin 'prabirshrestha/asyncomplete.vim'
+Plugin 'dense-analysis/ale'
 Plugin 'prabirshrestha/vim-lsp'
-Plugin 'prabirshrestha/asyncomplete-lsp.vim'
-
+Plugin 'mattn/vim-lsp-settings'
+Plugin 'rhysd/vim-lsp-ale'
