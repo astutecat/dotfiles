@@ -1,14 +1,51 @@
-nnoremap <Leader>` :e ~/dev/useful-commands.erl<CR>
+nnoremap <Leader>` :tabedit ~/dev/useful-commands.erl<CR>
 nnoremap <Leader>1 :cd ~/repos/NOC-Devel<CR>
 nnoremap <Leader>2 :cd ~/repos/NOC-Stable<CR>
 nnoremap <Leader>3 :cd ~/repos/sentinel<CR>
 
-let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes': [],'passive_filetypes': [] }
-let g:mucomplete#enable_auto_at_startup = 1
-let g:mucomplete#chains = {
-                         \ 'default' : ['path', 'omni', 'keyn', 'dict', 'uspl'],
-                         \ 'erlang'     : ['path', 'incl', 'ulti'],
-                         \ 'vim'     : ['path', 'cmd', 'keyn']
-             \ }
+let g:syntastic_mode_map = { 'mode': 'active', 'active_filetypes': [],'passive_filetypes': ['erlang'] }
 
 
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+"let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes': [],'passive_filetypes': [] }
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 3
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
+
+function! SyntasticToggle()
+  let g:wi = getloclist(2, {'winid' : 1})
+  if g:wi != {}
+    lclose
+  else
+    Errors
+  endif
+endfunction
+command! SyntasticToggle call SyntasticToggle()
+
+let g:WhiplashProjectsDir = "~/repos/"
+let g:syntastic_aggregate_errors = 1
+
+au User asyncomplete_setup call asyncomplete#register_source({
+    \ 'name': 'alchemist',
+    \ 'whitelist': ['elixir'],
+    \ 'completor': function('asyncomplete#sources#elixir#completor'),
+    \ 'config': { },
+    \ })
+
+"If you decided to go for prabirshrestha/asyncomplete-buffer.vim, this is an example settting
+au User asyncomplete_setup call asyncomplete#register_source({
+    \ 'name': 'buffer',
+    \ 'whitelist': ['*'],
+    \ 'blacklist': ['go'],
+    \ 'completor': function('asyncomplete#sources#buffer#completor'),
+    \ 'config': {
+    \    'max_buffer_size': 5000000,
+    \  },
+    \ })
+
+nnoremap <Leader>s :SyntasticToggle<CR>
