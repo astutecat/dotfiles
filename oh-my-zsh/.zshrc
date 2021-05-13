@@ -121,9 +121,15 @@ then
   export RUST_SRC_PATH=$(rustc --print sysroot)/lib/rustlib/src/rust/library
 fi
 
+if [[ -n $(command -v go) ]]
+then
+  export PATH=$PATH:$(go env GOPATH)/bin
+  export GOPATH=$(go env GOPATH)
+fi
+
 [ -f "$HOME/.zshrc.local" ] && source "$HOME/.zshrc.local"
 
-if [[ -n $(command -v fd) ]] 
+if [[ -n $(command -v fd) ]]
 then
   export FZF_DEFAULT_COMMAND="fd --type file --follow --color=always --exclude .git"
   export FZF_DEFAULT_OPTS="--ansi"

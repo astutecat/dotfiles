@@ -130,7 +130,9 @@ endfun
 command! HighlightCurrentWord call HighlightCurrentWord()
 
 
-set completeopt=menuone,noinsert,noselect,preview
+"set completeopt=menuone,noinsert,noselect,preview
+set completeopt=menu,menuone,noselect,noinsert
+
 
 nnoremap <silent> <leader> :WhichKey '\'<CR>
 nnoremap <C-P> :Files<CR>
