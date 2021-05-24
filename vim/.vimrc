@@ -81,7 +81,7 @@ if has('gui_running')
   set guioptions-=T  " no toolbar
   set lines=55 columns=120
   set scrolloff=10
-  let g:airline_powerline_fonts = 1
+  let g:airline_powerline_fonts = 0
 
   if has('gui_win32')
     set guifont=DejaVu_Sans_Mono:h10:cANSI
