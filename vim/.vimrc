@@ -47,6 +47,8 @@ Plugin 'tpope/vim-surround'
 Plugin 'vim-airline/vim-airline'
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
+Plugin 'nathanaelkane/vim-indent-guides'
+Plugin 'vim-scripts/BufOnly.vim'
 
 Plugin 'vim-erlang/vim-erlang-omnicomplete', { 'for': ['erlang'] }
 Plugin 'vim-erlang/vim-erlang-runtime', { 'for': ['erlang'] }
