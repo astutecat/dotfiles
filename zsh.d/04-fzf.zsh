@@ -1,4 +1,5 @@
-[[-f "$HOME/.fzf.zsh" ]] || return
+
+[[ -f "$HOME/.fzf.zsh" ]] || return;
 
 source "$HOME/.fzf.zsh"
 antigen bundle fzf
