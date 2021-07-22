@@ -8,4 +8,3 @@ if !filereadable(vundle_readme)
   let iCanHazVundle=0
 endif
 set rtp+=~/.vim/bundle/Vundle.vim/
-call vundle#begin()

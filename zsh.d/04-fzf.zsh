@@ -1,8 +1,10 @@
+if [[ ! -f "$HOME/.fzf.zsh"  ]]
+then
+  git clone --depth 1 https://github.com/junegunn/fzf.git "$HOME/.fzf"
+  ~/.fzf/install --key-bindings --completion --no-update-rc
+fi
 
-[[ -f "$HOME/.fzf.zsh" ]] || return;
-
-source "$HOME/.fzf.zsh"
-antigen bundle fzf
+antigen bundle asdf
 
 if [[ -n $(command -v fd) ]]
 then

@@ -17,3 +17,5 @@ if [ -d "$HOME/.zsh.d.local" ]; then
     done
   popd > /dev/null
 fi
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
