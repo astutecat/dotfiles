@@ -57,7 +57,7 @@ Plugin 'vim-erlang/vim-erlang-tags', { 'for': ['erlang'] }
 Plugin 'rust-lang/rust.vim', {'for': ['rust']}
 
 Plugin 'elixir-lang/vim-elixir', { 'for': ['elixir', 'eelixir'] }
-Plugin 'slashmili/alchemist.vim', { 'for': ['elixir', 'eelixir'] }
+" Plugin 'slashmili/alchemist.vim', { 'for': ['elixir', 'eelixir'] }
 Plugin 'mhinz/vim-mix-format', {'for': ['elixir', 'eelixir']}
 
 call SourceIfExists("~/.vim/packages.local.vim")
