@@ -10,3 +10,10 @@ fi
 if is_cmd vim; then
   export EDITOR='vim'
 fi
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+if is_cmd brew; then
+  FPATH=$(brew --prefix)/share/zsh/site-functions:$FPATH
+fi
+
