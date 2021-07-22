@@ -20,3 +20,5 @@ let g:lsp_completion_documentation_enabled = 1
 let g:ale_hover_cursor = 1
 let g:ale_completion_autoimport = 0
 set omnifunc=ale#completion#OmniFunc
+
+" set shell=/usr/bin/zsh

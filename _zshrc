@@ -1,0 +1,19 @@
+if [ -e "$HOME/.dotfiles-dir" ]; then
+  source "$HOME/.dotfiles-dir"
+else
+  echo "\$DOTFILES not set, please run install again"
+fi
+
+pushd $DOTFILES/zsh.d/ > /dev/null
+    for config in *.zsh; do
+        source $config
+    done
+popd > /dev/null
+
+if [ -d "$HOME/.zsh.d.local" ]; then
+  pushd $DOTFILES/.zsh.d.local/ > /dev/null
+    for config in "*.zsh"; do
+        source $config
+    done
+  popd > /dev/null
+fi

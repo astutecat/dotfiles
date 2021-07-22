@@ -1,0 +1,7 @@
+#!zsh
+
+cd "${0%/*}" || exit
+DOTFILES=$(pwd)
+echo "export DOTFILES=$DOTFILES" > "$HOME/.dotfiles-dir"
+source ./zsh.d/install.zsh
+install_dotfiles
