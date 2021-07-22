@@ -1,4 +1,6 @@
-source "$DOTFILES/antigen/antigen.zsh"
+qpushd "$DOTFILES/antigen/"
+    source "$DOTFILES/antigen/antigen.zsh"
+qpopd
 
 COMPLETION_WAITING_DOTS="true"
 

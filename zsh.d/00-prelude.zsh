@@ -6,6 +6,14 @@ is_macos() {
   [ -d /Library ]
 }
 
+qpushd() {
+    pushd $1 > /dev/null
+}
+
+qpopd() {
+    popd > /dev/null
+}
+
 HISTFILE="$HOME/.zsh_history"
 HISTSIZE=100000
 SAVEHIST=100000
