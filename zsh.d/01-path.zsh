@@ -17,3 +17,6 @@ if is_cmd brew; then
   FPATH=$(brew --prefix)/share/zsh/site-functions:$FPATH
 fi
 
+if [[ -d ~/.local/bin ]]; then
+  export PATH=$PATH:~/.local/bin
+fi
