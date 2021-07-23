@@ -16,8 +16,6 @@ if has('gui_running')
   else
     set guifont=Hack\ Regular\ 10
   endif
-else
-  let g:airline_powerline_fonts = 0
 endif
 
 set hidden
@@ -34,3 +32,5 @@ set backspace=indent,eol,start
 set virtualedit+=onemore
 
 set grepprg=rg\ --vimgrep\ --smart-case\ --follow
+
+let &t_ut=''

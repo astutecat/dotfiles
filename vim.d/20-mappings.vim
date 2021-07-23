@@ -8,7 +8,6 @@ nnoremap <Leader>w :w<CR>
 nnoremap <Leader>q :q<CR>
 nnoremap <Leader>n :n<CR>
 nnoremap <Leader>e :NERDTree<CR>
-nnoremap <Leader>t :terminal<CR>
 nnoremap <Leader>x "+x
 nnoremap <Leader>y "+y
 nnoremap <Leader>p "+gP
@@ -17,6 +16,7 @@ nnoremap <Leader>v :tabedit ~/.vimrc<CR>
 nnoremap <CR> :nohlsearch<CR><CR>
 nnoremap <Leader>r :set relativenumber!<CR>
 nnoremap <Leader>a :ALEToggle<CR>
+nnoremap <Leader>w :set wrap!<CR>
 
 xmap ga <Plug>(EasyAlign)
 nmap ga <Plug>(EasyAlign)
