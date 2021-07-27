@@ -21,4 +21,6 @@ nnoremap <Leader>w :set wrap!<CR>
 xmap ga <Plug>(EasyAlign)
 nmap ga <Plug>(EasyAlign)
 
+call SetupCommandAlias("W","w")
+
 call SourceIfExists("~/.vim/mappings.local.vim")
