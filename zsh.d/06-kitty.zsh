@@ -2,9 +2,11 @@ if [[ -d /Library && ! -d /Applications/kitty.app ]]; then
   brew install kitty
 fi
 
+alias install_kitty="curl -L https://sw.kovidgoyal.net/kitty/installer.sh | sh /dev/stdin launch=n"
+
 if [[ ! -d /Library && ! -d ~/.local/kitty.app ]]; then
   # Kitty doesn't exist, install it.
-  curl -L https://sw.kovidgoyal.net/kitty/installer.sh | sh /dev/stdin launch=n
+  install_kitty
 
   mkdir -p ~/.local/bin
   ln -s ~/.local/kitty.app/bin/kitty ~/.local/bin/
