@@ -1,3 +1,7 @@
+if [[ -f ~/.cargo/env ]]; then
+  source ~/.cargo/env
+fi
+
 if is_cmd rustc; then
   export RUST_SRC_PATH=$(rustc --print sysroot)/lib/rustlib/src/rust/library
 fi
