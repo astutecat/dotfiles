@@ -11,8 +11,8 @@ pushd $DOTFILES/zsh.d/ > /dev/null
 popd > /dev/null
 
 if [ -d "$HOME/.zsh.d.local" ]; then
-  pushd $DOTFILES/.zsh.d.local/ > /dev/null
-    for config in "*.zsh"; do
+  pushd $HOME/.zsh.d.local/ > /dev/null
+    for config in *.zsh; do
         source $config
     done
   popd > /dev/null
