@@ -5,16 +5,16 @@ set guicursor+=i:blinkon0
 
 if has('gui_running')
   set guioptions-=T  " no toolbar
-  set lines=55 columns=120
+  set lines=50 columns=120
   set scrolloff=10
   let g:airline_powerline_fonts = 0
 
   if has('gui_win32')
     set guifont=DejaVu_Sans_Mono:h10:cANSI
   elseif has('gui_macvim')
-    set guifont=Hack-Regular:h11     " OSX.
+    set guifont=FiraCode-Regular:h11     " OSX.
   else
-    set guifont=Hack\ Regular\ 10
+    set guifont=FiraCode\ Regular\ 10
   endif
 endif
 
