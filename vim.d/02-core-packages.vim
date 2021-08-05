@@ -45,3 +45,5 @@ Plugin 'elixir-lang/vim-elixir', { 'for': ['elixir', 'eelixir'] }
 "Plugin 'nathanaelkane/vim-indent-guides'
 
 call SourceIfExists("~/.vim/packages.local.vim")
+
+Plugin 'ryanoasis/vim-devicons'
