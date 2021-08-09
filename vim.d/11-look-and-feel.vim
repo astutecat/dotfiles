@@ -14,8 +14,10 @@ if has('gui_running')
   elseif has('gui_macvim')
     set guifont=FiraCode-Regular:h11     " OSX.
   else
-    set guifont=FiraCode\ Regular\ 10
+    set guifont=Fira\ Code\ Retina\ Nerd\ Font\ Complete\ 10
   endif
+else
+" let g:airline_powerline_fonts = 1
 endif
 
 set hidden
@@ -30,6 +32,8 @@ set signcolumn=yes
 syntax enable
 set backspace=indent,eol,start
 set virtualedit+=onemore
+
+set encoding=utf8
 
 set grepprg=rg\ --vimgrep\ --smart-case\ --follow
 

@@ -28,7 +28,7 @@ Plugin 'preservim/nerdtree'
 
 Plugin 'vim-erlang/vim-erlang-omnicomplete', { 'for': ['erlang'] }
 Plugin 'vim-erlang/vim-erlang-runtime', { 'for': ['erlang'] }
-Plugin 'vim-erlang/vim-erlang-tags', { 'for': ['erlang'] }
+Plugin 'vim-erlang/vim-erlang-tags'
 
 Plugin 'rust-lang/rust.vim', {'for': ['rust']}
 Plugin 'elixir-lang/vim-elixir', { 'for': ['elixir', 'eelixir'] }
