@@ -1,0 +1,8 @@
+{{ if eq .location "personal" }}
+home_work.nix
+{{ end }}
+
+{{ if eq .location "work" }}
+home_personal.nix
+{{ end }}
+
