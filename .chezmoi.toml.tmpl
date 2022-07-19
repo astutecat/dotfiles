@@ -1,0 +1,34 @@
+# vim:ft=toml.chezmoitmpl
+
+{{- $osid := .chezmoi.os -}}
+{{- if hasKey .chezmoi.osRelease "id" -}}
+{{-   $osid = printf "%s-%s" .chezmoi.os .chezmoi.osRelease.id -}}
+{{- end -}}
+
+encryption = "gpg"
+format = "yaml"
+
+[diff]
+  exclude = ["scripts"]
+
+[gpg]
+  recipient = "F0353ACE2BC156F795D707E03BD453E1C45430E8"
+
+[git]
+  autoAdd = true
+
+[data]
+  {{- if eq .chezmoi.fqdnHostname "debian9.ntls.local" "debian11.ntls.local"}}
+  location = "work"
+  {{ else if eq .chezmoi.fqdnHostname "AstuteMBP" "astutecat-manjaro" }}
+  location = "personal"
+  {{ else }}
+  location = "other"
+  {{ end -}}
+  osid = {{ $osid | quote }}
+  is_macos = {{ eq .chezmoi.os "darwin" }}
+
+[data.git]
+  name = "Will R"
+  email = "github@astutecat.dev"
+  signing_key = "3BD453E1C45430E8"

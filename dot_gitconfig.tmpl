@@ -1,0 +1,28 @@
+# vim:ft=gitconfig.chezmoitmpl
+
+# This is Git's per-user configuration file.
+[user]
+	name = {{ .git.name }}
+	email = {{ .git.email }}
+	signingKey = {{ .git.signing_key }}
+[diff]
+	tool = bc3
+[difftool]
+	prompt = false
+[difftool "meld"]
+	cmd = meld "$LOCAL" "$REMOTE"
+[difftool "bc3"]
+	trustExitCode = true
+[merge]
+	tool = bc3
+[mergetool "bc3"]
+	trustExitCode = true
+[gc]
+	autoDetach = false
+[include]
+	path = {{ .chezmoi.homeDir }}/.gitconfig-delta
+[init]
+	defaultBranch = main
+
+[core]
+	editor = nvim
