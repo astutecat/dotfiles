@@ -1,0 +1,2 @@
+#!/bin/zsh
+[[ -n $(command -v $1) ]]

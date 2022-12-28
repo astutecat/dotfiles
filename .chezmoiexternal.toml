@@ -1,0 +1,20 @@
+# git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.10.2
+[".asdf"]
+type = "git-repo"
+url = "https://github.com/asdf-vm/asdf.git"
+refreshPeriod = "168h"
+[".asdf".clone]
+args = ["--branch", "v0.10.2", "--depth", "1", "--quiet"]
+[".asdf".pull]
+args = ["--quiet"]
+
+# git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+[".fzf"]
+type = "git-repo"
+url = "https://github.com/junegunn/fzf.git"
+refreshPeriod = "168h"
+[".fzf".clone]
+args = ["--depth", "1", "--quiet"]
+[".fzf".pull]
+args = ["--quiet"]
+

@@ -10,7 +10,20 @@ let
 in {
   home.packages = with pkgs;
     [
-      nixpkgs-fmt
+    ] ++ optionals (location != "other") [
+    ]
+    ++ optionals isLinux [
+      plocate
+      qmk
+      gcc
+    ] ++ optionals workConfig [
+      terraform
+      visidata
+      rustup
+      cargo-edit
+      cargo-udeps
+      nix-prefetch-github
+      graphicsmagick
       fira-mono
       fira
       tealdeer
@@ -31,21 +44,22 @@ in {
       just
       asciinema
       agg
-    ] ++ optionals (location == "personal") [
-      elixir
-      erlang
-    ]
-    ++ optionals (location != "other") [
-      terraform
-      visidata
-      rustup
-      cargo-edit
-      cargo-udeps
-      nix-prefetch-github
-      graphicsmagick
-    ]
-    ++ optionals isLinux [
-      plocate
-      qmk
+      nixpkgs-fmt
+      shellcheck
+      rnix-lsp
+      nodePackages.markdownlint-cli
+      rust-analyzer
+      yaml-language-server
+      yamllint
+      ripgrep
+      fd
+      fzy
+      tree-sitter
+      yamllint
+      dprint
+      universal-ctags
+      proselint
+      par
+      curl
     ];
    }

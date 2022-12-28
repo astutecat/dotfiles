@@ -1,0 +1,13 @@
+alias hl='printf %"$COLUMNS"s |tr " " "-"'
+alias lcl='hl && clear'
+alias dotfiles="chezmoi cd"
+alias ls='ls --color=auto'
+
+{{if eq .location "work"}}
+alias devel="cd ~/repos/NOC-Devel/Erlnoc"
+alias stable="cd ~/repos/NOC-Stable/Erlnoc"
+alias zebra="cd ~/repos/Zebra"
+alias repos="cd ~/repos/"
+alias thg="tortoisehg 2>/dev/null&"
+{{ end }}
+
