@@ -27,6 +27,7 @@ format = "yaml"
   {{ end -}}
   osid = {{ $osid | quote }}
   is_macos = {{ eq .chezmoi.os "darwin" }}
+  zdotdir = "{{.chezmoi.homeDir}}/.config/zsh"
 
 [data.git]
   name = "Will R"

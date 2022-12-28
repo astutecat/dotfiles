@@ -135,7 +135,7 @@ in {
       "qmk-toolbox"
     ];
   };
-  homebrew.onActivation.cleanup = "zap";
+  homebrew.onActivation.cleanup = "none";
   homebrew.onActivation.upgrade = true;
   homebrew.global.autoUpdate = false;
 }
