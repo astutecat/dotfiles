@@ -57,6 +57,14 @@ require("mason-lspconfig").setup_handlers {
       }
     }
   end,
+  ["elixirls"] = function ()
+    require'lspconfig'.elixirls.setup {
+      on_attach = on_attach,
+      capabilities = capabilities,
+      flags = { debounce_text_changes = 150 },
+      cmd = {vim.fn.stdpath('data') .. "/mason/bin/elixir-ls"}
+    }
+  end,
   -- Next, you can provide a dedicated handler for specific servers.
   -- For example, a handler override for the `rust_analyzer`:
   ["sumneko_lua"] = function ()
