@@ -34,7 +34,7 @@ zstyle ':prezto:load' pmodule \
   'autosuggestions' \
   {{- if eq .chezmoi.os "linux"}}
   'ssh' \
-  {{ else if eq .chezmoi.os "darwin" -}}
+  {{ else if eq .chezmoi.os "darwin" }}
   'osx' \
   {{ end -}}
   'wakeonlan' \
