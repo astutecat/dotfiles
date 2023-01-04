@@ -1,0 +1,12 @@
+{
+  "default": {
+    "prefix": "default",
+    "body": [
+      "[private]",
+      "default:",
+      "  @just --justfile '{{justfile()}}' --list",
+      ""
+    ],
+    "description": "default justfile"
+  }
+}

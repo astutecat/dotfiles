@@ -19,6 +19,25 @@ require("todo-comments").setup {
 }
 
 local kopts = {noremap = true, silent = true}
-vim.api.nvim_set_keymap('n', '<leader>tl', '<cmd>TodoLocList<CR>',kopts)
-vim.api.nvim_set_keymap('n', '<leader>tt', '<cmd>TodoTelescope<CR>',kopts)
-vim.api.nvim_set_keymap('n', '<leader>tq', '<cmd>TodoQuickFix<CR>',kopts)
+
+local mappings = {
+    {
+        '<leader>ttl',
+        '<cmd>TodoLocList<CR>',
+        description = "TODO Comments: Show in Location List",
+        opts = kopts
+    },
+    {
+        '<leader>ttq',
+        '<cmd>TodoQuickFix<CR>',
+        description = "TODO Comments: Show in QuickFix List",
+        opts = kopts
+    },
+    {
+        '<leader>fd',
+        '<cmd>TodoTelescope<CR>',
+        description = "Telescope Show TODO Comments",
+        opts = kopts
+    },
+}
+require('legendary').keymaps(mappings)

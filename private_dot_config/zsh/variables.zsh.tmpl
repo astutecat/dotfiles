@@ -1,0 +1,26 @@
+if is_cmd nvim; then
+  export EDITOR="nvim"
+  export VISUAL="nvim"
+fi
+if is_cmd bat; then
+  export BAT_THEME="Dracula"
+fi
+if is_cmd most; then
+  export PAGER="most"
+fi
+
+export ASDF_PYTHON_DEFAULT_PACKAGES_FILE="$HOME/.config/asdf/.default-python-packages"
+export ASDF_PERL_DEFAULT_PACKAGES_FILE="$HOME/.config/asdf/.default-perl-modules"
+
+# Erlang Related Stuff
+{{- if eq .chezmoi.os "darwin" }}
+export CPPFLAGS="-I$(brew --prefix unixodbc)/include"
+export LDFLAGS="-L$(brew --prefix unixodbc)/lib"
+export KERL_CONFIGURE_OPTIONS="
+      --enable-wx \
+      --without-javac \
+      --with-odbc=$(brew --prefix unixodbc)
+      "
+{{ end -}}
+export KERL_BUILD_DOCS="yes"
+export ERL_AFLAGS="+pc unicode -kernel shell_history enabled -enable-feature all"

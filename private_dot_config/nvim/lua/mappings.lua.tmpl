@@ -1,24 +1,14 @@
 vim.cmd([[
-  nnoremap <leader>/ <cmd>TrimWhitespace<cr>
-  nnoremap <cr> <cmd>nohlsearch<cr><cr>
-  nnoremap <leader>r <cmd>set relativenumber!<cr>
-  nnoremap <leader>w <cmd>set wrap!<cr>
-  nnoremap <leader>x <cmd>BufOnly<cr>
   nnoremap <leader>zz :let &scrolloff=25-&scrolloff<CR><cmd>echo "Scrolloff is now: ".&scrolloff<CR>
-
-  nmap <leader>q {v}!par -w80<CR>
-  vmap <leader>q !par -w80<CR>
-
   nnoremap <Leader>0 :cd ~/repos/dotfiles<CR>
 ]])
 
 {{if eq .location "work"}}
 vim.cmd([[
   nnoremap <Leader>` :e ~/dev/useful-commands.erl<CR>
-  nnoremap <Leader>1 :cd ~/repos/NOC-Devel<CR>
-  nnoremap <Leader>2 :cd ~/repos/NOC-Stable<CR>
-  nnoremap <Leader>3 :cd ~/repos/sentinel<CR>
-  nnoremap <Leader>4 :cd ~/repos/Zebra<CR>
+  nnoremap <Leader>1 :cd ~/repos/RTS<CR>
+  nnoremap <Leader>2 :cd ~/repos/sentinel<CR>
+  nnoremap <Leader>3 :cd ~/repos/Zebra<CR>
 ]])
 {{ end }}
 

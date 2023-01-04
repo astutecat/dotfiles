@@ -1,13 +1,34 @@
 alias hl='printf %"$COLUMNS"s |tr " " "-"'
 alias lcl='hl && clear'
-alias dotfiles="chezmoi cd"
+
 alias ls='ls --color=auto'
+alias ll='ls --color=auto -l'
+alias lal='ls --color=auto -al'
+alias la='ls --color=auto -a'
+alias dir='dir --color=auto'
+alias vdir='vdir --color=auto'
+
+alias grep='grep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias egrep='egrep --color=auto'
+
+if [[ -n $(command -v "just") ]]; then
+  alias j='just'
+
+  if [[ -f "$HOME/.user.justfile" ]]; then
+    alias .just="just --justfile $HOME/.user.justfile --working-directory ."
+    alias .j=".just"
+  fi
+
+  alias dotfiles=".j dotfiles"
+  alias lg=".j lazygit"
+fi
+
 
 {{if eq .location "work"}}
-alias devel="cd ~/repos/NOC-Devel/Erlnoc"
-alias stable="cd ~/repos/NOC-Stable/Erlnoc"
-alias zebra="cd ~/repos/Zebra"
+alias rts="cd ~/repos/RTS; .just ns"
+alias zebra="cd ~/repos/Zebra/; .just ns"
 alias repos="cd ~/repos/"
-alias thg="tortoisehg 2>/dev/null&"
+alias wiki="cd ~/repos/DemandResponse.wiki; .just ns"
 {{ end }}
 

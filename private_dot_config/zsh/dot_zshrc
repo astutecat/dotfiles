@@ -1,3 +1,5 @@
+#!/bin/zsh
+
 # Source Prezto.
 if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
@@ -6,10 +8,10 @@ fi
 # Customize to your needs...
 
 source "${ZDOTDIR:-$HOME}/functions.zsh"
-source "${ZDOTDIR:-$HOME}/aliases.zsh"
 source "${ZDOTDIR:-$HOME}/variables.zsh"
 source "${ZDOTDIR:-$HOME}/path.zsh"
 source "${ZDOTDIR:-$HOME}/fzf-setup.zsh"
+source "${ZDOTDIR:-$HOME}/aliases.zsh"
 
 if [[ -f "${XDG_CONFIG_HOME:-$HOME/.config}/asdf-direnv/zshrc" ]]; then
   source "${XDG_CONFIG_HOME:-$HOME/.config}/asdf-direnv/zshrc"
@@ -17,3 +19,6 @@ fi
 
 source "${ZDOTDIR:-$HOME}/completion.zsh"
 
+if is_cmd fastfetch; then
+  fastfetch
+fi

@@ -1,4 +1,3 @@
-local navic = require("nvim-navic")
 local function multiple_tabs_exist()
   return vim.fn.tabpagenr("$") > 1
 end
@@ -13,7 +12,7 @@ end
 require('lualine').setup {
     options = {
         icons_enabled = true,
-        theme = 'ayu_mirage',
+        theme = 'tokyonight',
         component_separators = { left = '', right = ''},
         section_separators = { left = '', right = ''},
         disabled_filetypes = {
@@ -77,15 +76,11 @@ require('lualine').setup {
         }
       },
     },
-    winbar = {
-      lualine_b = {
-        { navic.get_location, cond = navic.is_available }
-      },
-    },
+    winbar = {},
   inactive_winbar = {
   },
   extensions = {
-      'nvim-tree',
+      'neo-tree',
       'fugitive'
     }
 }

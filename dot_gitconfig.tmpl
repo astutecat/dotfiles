@@ -5,6 +5,7 @@
 	name = {{ .git.name }}
 	email = {{ .git.email }}
 	signingKey = {{ .git.signing_key }}
+{{- if ne .location "other" }}
 [diff]
 	tool = bc3
 [difftool]
@@ -17,15 +18,28 @@
 	tool = bc3
 [mergetool "bc3"]
 	trustExitCode = true
+[gui]
+  pruneduringfetch = true
+[smartgit "submodule"]
+  fetchalways = false
+  update = true
+  initializenew = true
+{{ end -}}
 [gc]
 	autoDetach = false
-[include]
-	path = {{ .chezmoi.homeDir }}/.gitconfig-delta
 [init]
 	defaultBranch = main
-
 [core]
 	editor = nvim
-
 [advice]
 	detachedHead = false
+[rebase]
+	autoStash = true
+[push]
+	recurseSubmodules = check
+	default = current
+	autoSetupRemote = true
+[commit]
+  gpgSign = false
+[pull]
+	rebase = false

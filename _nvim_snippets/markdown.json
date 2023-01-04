@@ -1,0 +1,32 @@
+{
+  "Class": {
+    "prefix": ["incident-report"],
+    "body": [
+      "# Title (incident #)",
+      "",
+      "## Summary",
+      "",
+      "## Impact",
+      "",
+      "## Follow-up Actions",
+      "",
+      "## Contributing Factors",
+      "",
+      "## Narrative",
+      "",
+      "## Incident Timeline",
+      "",
+      "## Lessons Identified",
+      "",
+      "### What went well",
+      "",
+      "### What went wrong",
+      "",
+      "### Where we got lucky",
+      "",
+      "## Appendices",
+      ""
+    ],
+    "description": "incident report template"
+  }
+}

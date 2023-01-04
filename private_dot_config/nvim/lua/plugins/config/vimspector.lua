@@ -1,7 +1,7 @@
 vim.g.vimspector_sidebar_width = 85
 vim.g.vimspector_bottombar_height = 15
 vim.g.vimspector_terminal_maxwidth = 70
-vim.g.vimspector_base_dir = "$HOME/.config/nvim.d/vimspector"
+vim.g.vimspector_base_dir = "$HOME/.config/nvim/vimspector"
 -- vim.g.vimspector_enable_mappings = 'VISUAL_STUDIO'
 local opts = { noremap=true, silent=true }
 local nvim_set_keymap = vim.api.nvim_set_keymap;

@@ -1,1 +1,12 @@
-nvim_snippets
+_nvim_snippets
+tags
+{{ if eq .chezmoi.os "darwin" }}
+.local/share/fonts
+{{ end }}
+
+{{ if eq .chezmoi.arch "arm" "arm64"}}
+.local/bin/nvim
+{{ end }}
+
+justfile
+.wakatime-project
