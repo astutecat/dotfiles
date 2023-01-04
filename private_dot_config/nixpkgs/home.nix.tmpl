@@ -6,15 +6,6 @@ let
   workConfig = location == "work";
 in {
   imports = [
-    ./programs
-    (import ./terminal {
-      inherit pkgs;
-      inherit workConfig;
-    })
-    (import ./editors {
-      inherit pkgs;
-      inherit workConfig;
-    })
     (import ./common.nix {
       inherit pkgs;
       inherit workConfig;
