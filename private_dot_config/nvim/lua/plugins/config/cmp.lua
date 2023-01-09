@@ -67,10 +67,11 @@ cmp.setup({
   }),
   sources = {
     { name = 'vsnip', keyword_length = 2, priority = 6 },
-    { name = 'nvim_lsp', priority = 8 },
+    { name = 'nvim_lsp', priority = 3 },
     { name = 'buffer', max_item_count = 5, priority = 7 },
     { name = 'tags', keyword_length = 3, max_item_count = 5, priority = 6 },
-    { name = 'latex_symbols', keyword_length = 2, priority = 5, max_item_count = 5 }
+    { name = 'latex_symbols', keyword_length = 3, priority = 5, max_item_count = 5 },
+    { name = 'nvim_lsp_signature_help', priority = 1 }
   },
   sorting = {
     comparators = {
@@ -89,9 +90,13 @@ cmp.setup({
 
 cmp.setup.cmdline('/', {
   mapping = cmp.mapping.preset.cmdline(),
-  sources = {
-    { name = 'buffer' }
-  }
+  sources = cmp.config.sources({
+    { name = 'nvim_lsp_document_symbol' }
+  },
+    {
+      { name = 'buffer' }
+    }
+  )
 })
 
 cmp.setup.cmdline(':', {

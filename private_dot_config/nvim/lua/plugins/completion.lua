@@ -19,6 +19,7 @@ M.load = function(use)
       'hrsh7th/cmp-nvim-lsp',
       'onsails/lspkind.nvim',
       { 'hrsh7th/cmp-nvim-lsp-signature-help', after = 'nvim-cmp' },
+      { 'hrsh7th/cmp-nvim-lsp-document-symbol', after = 'nvim-cmp' },
       { 'hrsh7th/cmp-path', after = 'nvim-cmp' },
       { 'hrsh7th/cmp-nvim-lua', after = 'nvim-cmp' },
       { 'hrsh7th/cmp-vsnip', after = 'nvim-cmp' },
