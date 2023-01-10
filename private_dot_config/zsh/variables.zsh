@@ -9,3 +9,4 @@ if is_cmd most; then
 fi
 
 export ASDF_PYTHON_DEFAULT_PACKAGES_FILE="$HOME/.config/asdf/.default-python-packages"
+export ASDF_PERL_DEFAULT_PACKAGES_FILE="$HOME/.config/asdf/.default-perl-modules"
