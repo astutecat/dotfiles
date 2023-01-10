@@ -41,14 +41,12 @@ return require('packer').startup(function(use)
   use 'tpope/vim-fugitive'
   use 'tpope/vim-sleuth'
   use 'christoomey/vim-sort-motion'
-  use 'junegunn/vim-easy-align'
 
   use 'machakann/vim-swap'
 
   use {
     'tommcdo/vim-lion',
-    config = [[require('plugins.config.lion')]],
-    event = 'VimEnter'
+    config = [[require('plugins.config.lion')]]
   }
 
   use {
