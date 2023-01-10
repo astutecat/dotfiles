@@ -34,6 +34,13 @@ use {
   event = 'VimEnter'
 }
 
+use {
+  'preservim/vim-markdown',
+  requires = {
+    {'godlygeek/tabular'}
+  }
+}
+
 -- TODO:
  -- vim-nix
  -- rust-vim
