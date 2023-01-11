@@ -3,17 +3,15 @@
 [".asdf"]
 type = "git-repo"
 url = "https://github.com/asdf-vm/asdf.git"
-refreshPeriod = "168h"
+refreshPeriod = 0
 [".asdf".clone]
 args = ["--branch", "v{{ $asdfVersion }}", "--depth", "1"]
-[".asdf".pull]
-args = ["--quiet"]
 
 # git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 [".fzf"]
 type = "git-repo"
 url = "https://github.com/junegunn/fzf.git"
-refreshPeriod = "168h"
+refreshPeriod = "672h"
 [".fzf".clone]
 args = ["--depth", "1"]
 [".fzf".pull]
@@ -30,3 +28,6 @@ args = ["--quiet"]
   url = "https://dl.filippo.io/age/latest?for={{.chezmoi.os}}/{{.chezmoi.arch}}"
   refreshPeriod = "672h"
   executable = true
+[".local/bin/age".filter]
+  command = "tar"
+  args = ["--extract", "--file", "/dev/stdin", "--gzip", "--to-stdout", "age/age"]
