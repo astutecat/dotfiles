@@ -2,7 +2,7 @@
 [".zprezto"]
 type = "git-repo"
 url = "https://github.com/sorin-ionescu/prezto.git"
-refreshPeriod = "168h"
+refreshPeriod = "672h"
 [".zprezto".clone]
 args = ["--recursive", "--depth", "1", "--quiet"]
 [".zprezto".pull]

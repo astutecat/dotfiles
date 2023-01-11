@@ -1,10 +1,11 @@
 # git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.10.2
+{{ $asdfVersion := "0.10.2" -}}
 [".asdf"]
 type = "git-repo"
 url = "https://github.com/asdf-vm/asdf.git"
 refreshPeriod = "168h"
 [".asdf".clone]
-args = ["--branch", "v0.10.2", "--depth", "1", "--quiet"]
+args = ["--branch", "v{{ $asdfVersion }}", "--depth", "1"]
 [".asdf".pull]
 args = ["--quiet"]
 
@@ -14,7 +15,18 @@ type = "git-repo"
 url = "https://github.com/junegunn/fzf.git"
 refreshPeriod = "168h"
 [".fzf".clone]
-args = ["--depth", "1", "--quiet"]
+args = ["--depth", "1"]
 [".fzf".pull]
 args = ["--quiet"]
 
+[".local/bin/nvim"]
+  type = "file"
+  url = "https://github.com/neovim/neovim/releases/latest/download/nvim.appimage"
+  refreshPeriod = "672h"
+  executable = true
+
+[".local/bin/age"]
+  type = "file"
+  url = "https://dl.filippo.io/age/latest?for={{.chezmoi.os}}/{{.chezmoi.arch}}"
+  refreshPeriod = "672h"
+  executable = true

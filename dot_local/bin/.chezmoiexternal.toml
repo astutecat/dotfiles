@@ -1,5 +1,0 @@
-["nvim.appimage"]
-  type = "file"
-  url = "https://github.com/neovim/neovim/releases/latest/download/nvim.appimage"
-  refreshPeriod = "168h"
-  executable = true
