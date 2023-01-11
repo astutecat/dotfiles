@@ -1,4 +1,4 @@
-nvim_snippets
+_nvim_snippets
 tags
 
 {{ if eq .chezmoi.os "darwin" }}

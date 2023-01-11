@@ -1,3 +1,0 @@
-{{if not .is_macos}}
-darwin-configuration.nix
-{{end}}
