@@ -18,6 +18,8 @@ if [[ -f "${XDG_CONFIG_HOME:-$HOME/.config}/asdf-direnv/zshrc" ]]; then
 fi
 
 source "${ZDOTDIR:-$HOME}/completion.zsh"
-if is_cmd neofetch; then
+if is_cmd fastfetch; then
+  fastfetch
+elif is_cmd neofetch; then
   neofetch --config "$HOME/.config/neofetch/config.conf"
 fi
