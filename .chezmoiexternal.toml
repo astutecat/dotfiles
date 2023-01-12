@@ -17,6 +17,17 @@ args = ["--depth", "1"]
 [".fzf".pull]
 args = ["--quiet"]
 
+# git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
+[".config/zsh/.zprezto"]
+type = "git-repo"
+url = "https://github.com/sorin-ionescu/prezto.git"
+refreshPeriod = "672h"
+[".config/zsh/.zprezto".clone]
+args = ["--recursive", "--depth", "1", "--quiet"]
+[".config/zsh/.zprezto".pull]
+args = ["--recurse-submodules", "--quiet"]
+
+
 [".local/bin/nvim"]
   type = "file"
   url = "https://github.com/neovim/neovim/releases/latest/download/nvim.appimage"
@@ -31,11 +42,3 @@ args = ["--quiet"]
 [".local/bin/age".filter]
   command = "tar"
   args = ["--extract", "--file", "/dev/stdin", "--gzip", "--to-stdout", "age/age"]
-
-{{- $lnavVersion := "0.11.1"}}
-{{ if eq .chezmoi.os linux }}
-{{- $lnavFileSuffix := "linux-musl" }}
-{{ else }}
-{{- $lnavFileSuffix := "darwin"}}
-{{end -}}
-
