@@ -2,6 +2,9 @@ _nvim_snippets
 tags
 
 {{ if eq .chezmoi.os "darwin" }}
-.local/bin/nvim
 .local/share/fonts
+{{ end }}
+
+{{ if eq .chezmoi.arch "arm" "arm64"}}
+.local/bin/nvim
 {{ end }}
