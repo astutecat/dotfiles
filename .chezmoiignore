@@ -1,6 +1,5 @@
 _nvim_snippets
 tags
-
 {{ if eq .chezmoi.os "darwin" }}
 .local/share/fonts
 {{ end }}

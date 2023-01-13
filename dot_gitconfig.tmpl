@@ -5,8 +5,10 @@
 	name = {{ .git.name }}
 	email = {{ .git.email }}
 	signingKey = {{ .git.signing_key }}
+{{- if ne .location "other" }}
 [diff]
 	tool = bc3
+{{ end -}}
 [difftool]
 	prompt = false
 [difftool "meld"]
@@ -19,13 +21,9 @@
 	trustExitCode = true
 [gc]
 	autoDetach = false
-[include]
-	path = {{ .chezmoi.homeDir }}/.gitconfig-delta
 [init]
 	defaultBranch = main
-
 [core]
 	editor = nvim
-
 [advice]
 	detachedHead = false
