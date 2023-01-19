@@ -41,11 +41,10 @@ use {
   }
 }
 
+
+
 -- TODO:
- -- vim-nix
- -- rust-vim
  -- vim-elixir
- -- vim-markdown
  -- vim-erlang-runtime
 
  end

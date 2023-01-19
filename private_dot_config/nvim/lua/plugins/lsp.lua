@@ -33,6 +33,16 @@ M.load = function(use)
     end
   }
 
+use {
+  'simrat39/rust-tools.nvim',
+  requires = {
+    {'mfussenegger/nvim-dap'},
+    {'neovim/nvim-lspconfig'}
+  },
+  after = 'nvim-lspconfig',
+  config = [[require('plugins.config.rust-tools')]]
+}
+
 end
 
 return M
