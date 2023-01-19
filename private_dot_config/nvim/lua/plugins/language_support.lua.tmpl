@@ -41,11 +41,14 @@ use {
   }
 }
 
-
+{{- if eq .chezmoi.fqdnHostname "debian9.ntls.local"}}
+  use {
+    'vim-erlang/vim-erlang-runtime'
+  }
+{{ end }}
 
 -- TODO:
  -- vim-elixir
- -- vim-erlang-runtime
 
  end
 
