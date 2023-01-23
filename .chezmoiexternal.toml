@@ -34,11 +34,10 @@ args = ["--recurse-submodules", "--quiet"]
   refreshPeriod = "672h"
   executable = true
 
-[".local/bin/age"]
-  type = "file"
+[".local/bin"]
+  type = "archive"
   url = "https://dl.filippo.io/age/latest?for={{.chezmoi.os}}/{{.chezmoi.arch}}"
   refreshPeriod = "672h"
   executable = true
-[".local/bin/age".filter]
-  command = "tar"
-  args = ["--extract", "--file", "/dev/stdin", "--gzip", "--to-stdout", "age/age"]
+  stripComponents = 1
+  exclude = ["**/LICENSE"]
