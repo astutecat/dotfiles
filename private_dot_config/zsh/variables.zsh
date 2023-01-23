@@ -1,5 +1,6 @@
 if is_cmd nvim; then
   export EDITOR="nvim"
+  export VISUAL="nvim"
 fi
 if is_cmd bat; then
   export BAT_THEME="Dracula"
