@@ -17,9 +17,8 @@ if is_cmd just; then
   alias j='just'
 
   if [[ -f "$HOME/.user.justfile" ]]; then
-    for recipe in $(just --justfile "$HOME/.user.justfile" --summary); do
-      alias $recipe="just --justfile $HOME/.user.justfile --working-directory . $recipe"
-    done
+    alias .just="just --justfile $HOME/.user.justfile --working-directory ."
+    alias .j=".just"
   fi
 fi
 
