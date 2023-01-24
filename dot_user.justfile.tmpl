@@ -1,4 +1,8 @@
 # vim: set ft=just.chezmoitmpl:
+[private]
+default:
+  @just --list
+
 update:
   chezmoi update --apply
   asdf plugin update --all
