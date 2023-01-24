@@ -13,6 +13,10 @@ alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
 
+if is_cmd just; then
+  alias j='just'
+fi
+
 {{if eq .location "work"}}
 alias devel="cd ~/repos/NOC-Devel/Erlnoc"
 alias stable="cd ~/repos/NOC-Stable/Erlnoc"
