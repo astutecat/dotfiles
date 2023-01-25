@@ -1,7 +1,6 @@
-# vim: set ft=just.chezmoitmpl:
 [private]
 default:
-  @just --list
+  @just --justfile "{{justfile()}}" --list
 
 update:
   chezmoi update --apply
