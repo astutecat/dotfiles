@@ -6,3 +6,4 @@ update:
   chezmoi update --apply
   asdf plugin update --all
   asdf update
+  update_asdf_tools

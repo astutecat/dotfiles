@@ -1,7 +1,9 @@
 fpath=("${ZDOTDIR:-$HOME}/.zfunc" $fpath)
 autoload -Uz is_cmd
 autoload -Uz fix_zsh_history
-autoload -Uz test-dircolors
+autoload -Uz test_dircolors
+autoload -Uz install_asdf_tools
+autoload -Uz update_asdf_tools
 
 qpushd() {
     pushd $1 > /dev/null
