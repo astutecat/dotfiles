@@ -18,3 +18,9 @@ if [[ -z $(command -v just) ]]; then
   asdf install just latest
   asdf global just latest
 fi
+
+if [[ -z $(command -v fd) ]]; then
+  asdf plugin add fd
+  asdf install fd latest
+  asdf global fd latest
+fi
