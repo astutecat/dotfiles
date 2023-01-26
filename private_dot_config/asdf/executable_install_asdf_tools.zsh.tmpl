@@ -1,7 +1,11 @@
+# vim: ft=zsh.chezmoitmpl:
+
 #!/bin/zsh
 [[ -n $(command -v asdf) ]] || return;
 run() {
   source "$HOME/.config/asdf/utils.zsh"
+
+  tools_to_install={{.asdf_tools_to_install}}
 
   for tool in "${tools_to_install[@]}"; do
     [[ -n $(command -v "$tool") ]] && continue
