@@ -5,7 +5,16 @@ set shell := ["zsh", "-uc"]
 default:
   @just --justfile "{{justfile()}}" --list
 
-update: chezmoi-update asdf-update
+update: chezmoi-update brew-update asdf-update
+
+[macos]
+brew-update:
+  brew update
+  brew upgrade
+
+[private]
+brew-update:
+  @ echo -n ""
 
 chezmoi-update:
   chezmoi update --apply --init
