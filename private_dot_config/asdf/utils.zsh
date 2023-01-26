@@ -9,4 +9,4 @@ get_plugin_name() {
   esac
 }
 
-tools_to_install=('adr' 'sops' 'just' 'fd')
+
