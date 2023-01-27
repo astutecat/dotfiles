@@ -109,6 +109,8 @@ return require('packer').startup(function(use)
 
   use 'ryanoasis/vim-devicons'
 
+  use 'monaqa/dial.nvim'
+
   if packer_bootstrap then
     require('packer').sync()
   end
