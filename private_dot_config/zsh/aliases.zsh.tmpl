@@ -1,6 +1,6 @@
 alias hl='printf %"$COLUMNS"s |tr " " "-"'
 alias lcl='hl && clear'
-alias dotfiles="chezmoi cd"
+alias dotfiles=".j dotfiles"
 
 alias ls='ls --color=auto'
 alias ll='ls --color=auto -l'
@@ -23,9 +23,9 @@ if is_cmd just; then
 fi
 
 {{if eq .location "work"}}
-alias devel="cd ~/repos/NOC-Devel/Erlnoc"
-alias stable="cd ~/repos/NOC-Stable/Erlnoc"
-alias zebra="cd ~/repos/Zebra"
+alias devel="cd ~/repos/NOC-Devel/; tmux_rename NOC\ Devel"
+alias stable="cd ~/repos/NOC-Stable/; tmux_rename NOC\ Stable"
+alias zebra="cd ~/repos/Zebra/; tmux_rename Zebra"
 alias repos="cd ~/repos/"
 alias thg="tortoisehg 2>/dev/null&"
 {{ end }}

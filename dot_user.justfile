@@ -24,3 +24,7 @@ asdf-update:
   asdf plugin update --all
   asdf update
   @source $HOME/.config/asdf/update_asdf_tools.zsh
+
+@dotfiles:
+  [[ -n $TMUX ]] && tmux rename-window dotfiles
+  chezmoi cd
