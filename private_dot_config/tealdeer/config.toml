@@ -23,7 +23,7 @@ underline = true
 bold = false
 
 [display]
-compact = false
+compact = true
 use_pager = false
 
 [updates]
