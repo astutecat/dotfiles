@@ -25,7 +25,7 @@ asdf-update:
   asdf update
   @source $HOME/.config/asdf/update_asdf_tools.zsh
 
-tldr +args:
+@tldr +args:
   [[ -n $TMUX ]] && tmux split-window -vb -d tldr --pager "{{args}}" || tldr --pager "{{args}}"
 
 @dotfiles:
