@@ -5,6 +5,13 @@
 {{-   $osid = printf "%s-%s" .chezmoi.os .chezmoi.osRelease.id -}}
 {{- end -}}
 
+{{- $location := "other" -}}
+{{- if eq .chezmoi.fqdnHostname "debian9.ntls.local" "debian11.ntls.local" -}}
+{{-   $location = "work" -}}
+{{- else if eq .chezmoi.fqdnHostname "AstuteMBP" "astutecat-manjaro" -}}
+{{-   $location = "personal" -}}
+{{- end -}}
+
 encryption = "gpg"
 format = "yaml"
 
@@ -18,13 +25,7 @@ format = "yaml"
   autoAdd = true
 
 [data]
-  {{- if eq .chezmoi.fqdnHostname "debian9.ntls.local" "debian11.ntls.local"}}
-  location = "work"
-  {{ else if eq .chezmoi.fqdnHostname "AstuteMBP" "astutecat-manjaro" }}
-  location = "personal"
-  {{ else }}
-  location = "other"
-  {{ end -}}
+  location = {{ $location | quote }}
   osid = {{ $osid | quote }}
   is_macos = {{ eq .chezmoi.os "darwin" }}
   zdotdir = "{{.chezmoi.homeDir}}/.config/zsh"
