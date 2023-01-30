@@ -5,9 +5,8 @@ set shell := ["zsh", "-uc"]
 default:
   @just --justfile "{{justfile()}}" --list
 
-alias dt := dev-tmux
-
-dev-tmux:
+alias sn := split-nvim
+@split-nvim:
   tmux split-window -hd
   nvim
 

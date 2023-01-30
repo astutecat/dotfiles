@@ -1,4 +1,4 @@
-
+# vim: ft=zsh.chezmoitmpl
 #
 # General
 #
@@ -183,7 +183,11 @@ zstyle ':prezto:module:syntax-highlighting' styles \
 #
 {{if eq .chezmoi.os "darwin"}}
 zstyle ':prezto:module:tmux:iterm' integrate 'yes'
+{{else}}
+zstyle ':prezto:module:tmux:auto-start' local 'yes'
 {{end}}
+
+zstyle ':prezto:module:tmux:session' name 'main'
 
 #
 # Utility
