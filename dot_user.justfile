@@ -13,6 +13,7 @@ brew-update:
   brew upgrade
 
 [linux]
+[private]
 brew-update:
   @ echo -n ""
 
