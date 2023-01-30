@@ -5,28 +5,28 @@ set shell := ["zsh", "-uc"]
 default:
   @just --justfile "{{justfile()}}" --list
 
-update: chezmoi-update brew-update asdf-update
+update-all: update-chezmoi update-brew update-asdf update-cargo
 
 [macos]
-brew-update:
+update-brew:
   brew update
   brew upgrade
 
 [linux]
 [private]
-brew-update:
+update-brew:
   @ echo -n ""
 
-chezmoi-update:
+update-chezmoi:
   chezmoi update --apply --init
 
-asdf-update:
+update-asdf:
   asdf plugin update --all
   asdf update
   @source $HOME/.config/asdf/update_asdf_tools.zsh
 
-cargo-update-result := ``` cargo install --list | grep cargo-update\ v || true`
-cargo-update +crates="-a":
+cargo-update-result := `cargo install --list | grep cargo-update\ v || true`
+update-cargo +crates="-a":
   @[[ -n $(echo "{{cargo-update-result}}") ]] || cargo install cargo-update
   cargo install-update {{crates}}
 
