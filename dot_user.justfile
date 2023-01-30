@@ -25,6 +25,11 @@ asdf-update:
   asdf update
   @source $HOME/.config/asdf/update_asdf_tools.zsh
 
+cargo-update-result := ``` cargo install --list | grep cargo-update\ v || true`
+cargo-update +crates="-a":
+  @[[ -n $(echo "{{cargo-update-result}}") ]] || cargo install cargo-update
+  cargo install-update {{crates}}
+
 @tldr +args:
   [[ -n $TMUX ]] && tmux split-window -vb -d tldr --pager "{{args}}" || tldr --pager "{{args}}"
 
