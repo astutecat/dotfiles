@@ -28,7 +28,11 @@ format = "yaml"
   osid = {{ $osid | quote }}
   is_macos = {{ eq .chezmoi.os "darwin" }}
   zdotdir = "{{.chezmoi.homeDir}}/.config/zsh"
+  {{- if ne .location "other" }}
   asdf_tools_to_install = "('adr' 'sops' 'just' 'fd')"
+  {{ else }}
+  asdf_tools_to_install = "('just')"
+  {{ end -}}
 
 [data.git]
   name = "Will R"
