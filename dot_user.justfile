@@ -5,6 +5,11 @@ set shell := ["zsh", "-uc"]
 default:
   @just --justfile "{{justfile()}}" --list
 
+dev-tmux:
+  tmux split-window -h
+  tmux select-pane -t:.1
+  nvim
+
 update-all: update-chezmoi update-brew update-asdf update-cargo
 
 [macos]
