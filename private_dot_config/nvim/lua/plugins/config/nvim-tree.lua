@@ -28,6 +28,8 @@ require'nvim-tree'.setup {
       "shell.nix",
       "default.nix",
       "justfile",
+      "Justfile",
+      ".justfile",
       "Procfile"
     },
   },
