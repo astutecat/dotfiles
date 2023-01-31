@@ -5,8 +5,13 @@ set shell := ["zsh", "-uc"]
 default:
   @just --justfile "{{justfile()}}" --list
 
-alias sn := split-nvim
-@split-nvim:
+alias n := nvim
+@nvim: # nvim
+  nvim
+
+alias nvs := split-nvim
+@split-nvim: # launch nvim in a tmux split
+  [[ -n $TMUX ]] || tmux
   tmux split-window -hd
   nvim
 
