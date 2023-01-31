@@ -9,7 +9,7 @@ alias n := nvim
 @nvim: # nvim
   nvim
 
-alias nvs := split-nvim
+alias ns := split-nvim
 @split-nvim: # launch nvim in a tmux split
   [[ -n $TMUX ]] || tmux
   tmux split-window -hd
