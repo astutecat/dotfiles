@@ -1,5 +1,5 @@
 # vim: ft=just:
-set shell := ["zsh", "-uc"]
+set shell := ["zsh", "-c"]
 
 [private]
 default:
