@@ -25,7 +25,7 @@ update-brew:
 [linux]
 [private]
 update-brew:
-  @ echo -n ""
+  @ :
 
 update-chezmoi:
   chezmoi update --apply --init
@@ -44,5 +44,5 @@ update-cargo +crates="-a":
   [[ -n $TMUX ]] && tmux split-window -vb -d tldr --pager "{{args}}" || tldr --pager "{{args}}"
 
 @dotfiles:
-  [[ -n $TMUX ]] && tmux rename-window dotfiles
+  [[ -n $TMUX ]] && tmux rename-window dotfiles || :
   chezmoi cd
