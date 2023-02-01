@@ -1,3 +1,4 @@
+-- vim: ft=lua.chezmoi :
 M = {}
 M.load = function(use)
 
@@ -39,6 +40,10 @@ use {
   requires = {
     {'godlygeek/tabular'}
   }
+}
+
+use {
+  'ziglang/zig.vim'
 }
 
 {{- if eq .chezmoi.fqdnHostname "debian9.ntls.local"}}

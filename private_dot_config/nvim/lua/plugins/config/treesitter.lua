@@ -20,7 +20,8 @@ require'nvim-treesitter.configs'.setup {
     "r",
     "cpp",
     "javascript",
-    "julia"
+    "julia",
+    "zig"
   },
 
   highlight = {
