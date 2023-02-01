@@ -61,7 +61,8 @@ local handler = function(virtText, lnum, endLnum, width, truncate)
 end
 
 require('ufo').setup({
-    provider_selector = function(bufnr, filetype, buftype)
+    -- bufnr, filetype, buftype
+    provider_selector = function(_, filetype, _)
       return ftMap[filetype] or customizeSelector
     end,
     fold_virt_text_handler = handler
