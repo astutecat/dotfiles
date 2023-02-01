@@ -1,5 +1,5 @@
 # git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.10.2
-{{ $asdfVersion := "0.10.2" -}}
+{{ $asdfVersion := "0.11.1" -}}
 [".asdf"]
 type = "git-repo"
 url = "https://github.com/asdf-vm/asdf.git"
