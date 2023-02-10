@@ -11,27 +11,38 @@ end
 
 local packer_bootstrap = ensure_packer()
 
-return require('packer').startup(function(use)
+local startup_function = function(use)
   use 'wbthomason/packer.nvim'
   use 'alker0/chezmoi.vim'
 
   require('plugins.look_and_feel').load(use)
   require('plugins.completion').load(use)
   require('plugins.lsp').load(use)
-  -- Language Support
   require('plugins.language_support').load(use)
-  --
 
   use 'nvim-lua/plenary.nvim'
 
   use {
-    "nvim-telescope/telescope.nvim",
-    config = [[require('plugins.config.telescope')]],
+      "nvim-telescope/telescope.nvim",
+      config = [[require('plugins.config.telescope')]],
   }
 
   use {
-    'ahmedkhalf/project.nvim',
-    config = [[require('plugins.config.project-nvim')]]
+      "nvim-telescope/telescope-frecency.nvim",
+      config = function()
+        require "telescope".load_extension("frecency")
+      end,
+      requires = { "kkharji/sqlite.lua", "nvim-telescope/telescope.nvim" }
+  }
+
+  use {
+      'mrjones2014/legendary.nvim',
+      requires = 'kkharji/sqlite.lua'
+  }
+
+  use {
+      'ahmedkhalf/project.nvim',
+      config = [[require('plugins.config.project-nvim')]]
   }
 
   use 'kshenoy/vim-signature'
@@ -45,38 +56,38 @@ return require('packer').startup(function(use)
   use 'machakann/vim-swap'
 
   use {
-    'tommcdo/vim-lion',
-    config = [[require('plugins.config.lion')]]
+      'tommcdo/vim-lion',
+      config = [[require('plugins.config.lion')]]
   }
 
   use {
-    'folke/which-key.nvim',
-    config = function()
-      require('which-key').setup {}
-    end,
-    event = 'VimEnter'
+      'folke/which-key.nvim',
+      config = function()
+        require('which-key').setup {}
+      end,
+      event = 'VimEnter'
   }
 
   use 'jeffkreeftmeijer/vim-numbertoggle'
 
   use {
-    'windwp/nvim-autopairs',
-    config = function() require("nvim-autopairs").setup {} end,
-    event = 'VimEnter'
+      'windwp/nvim-autopairs',
+      config = function() require("nvim-autopairs").setup {} end,
+      event = 'VimEnter'
   }
 
   use 'AndrewRadev/splitjoin.vim'
 
 
   use {
-    'milkypostman/vim-togglelist',
-    config = function()
-      vim.g.toggle_list_no_mappings = 1
-      local opts = { silent = true }
-      vim.api.nvim_set_keymap('n', '<leader>o', '<cmd>call ToggleLocationList()<CR>', opts)
-      vim.api.nvim_set_keymap('n', '<leader>o', '<cmd>call ToggleQuickFixList()<CR>', opts)
-    end,
-    event = 'VimEnter'
+      'milkypostman/vim-togglelist',
+      config = function()
+        vim.g.toggle_list_no_mappings = 1
+        local opts = { silent = true }
+        vim.api.nvim_set_keymap('n', '<leader>o', '<cmd>call ToggleLocationList()<CR>', opts)
+        vim.api.nvim_set_keymap('n', '<leader>o', '<cmd>call ToggleQuickFixList()<CR>', opts)
+      end,
+      event = 'VimEnter'
   }
 
 
@@ -88,21 +99,21 @@ return require('packer').startup(function(use)
 
 
   use {
-    'ujihisa/nclipper.vim',
-    config = [[require('plugins.config.nclipper')]],
-    event = 'VimEnter'
+      'ujihisa/nclipper.vim',
+      config = [[require('plugins.config.nclipper')]],
+      event = 'VimEnter'
   }
 
   use {
-    'kevinhwang91/nvim-ufo',
-    requires = 'kevinhwang91/promise-async',
-    event = 'BufEnter',
-    config = [[require('plugins.config.nvim-ufo')]]
+      'kevinhwang91/nvim-ufo',
+      requires = 'kevinhwang91/promise-async',
+      event = 'BufEnter',
+      config = [[require('plugins.config.nvim-ufo')]]
   }
 
   use {
-    'puremourning/vimspector',
-    config = [[require('plugins.config.vimspector')]]
+      'puremourning/vimspector',
+      config = [[require('plugins.config.vimspector')]]
   }
 
   use { 'ludovicchabant/vim-gutentags' }
@@ -114,5 +125,6 @@ return require('packer').startup(function(use)
   if packer_bootstrap then
     require('packer').sync()
   end
+end
 
-end)
+return require('packer').startup(startup_function)
