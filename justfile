@@ -10,3 +10,7 @@ default:
 
 watch:
   watchexec -- just apply
+
+commit message:
+  git add .
+  git commit -m "{{message}}"
