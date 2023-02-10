@@ -91,7 +91,6 @@ local startup_function = function(use)
 
     use 'rbgrouleff/bclose.vim'
 
-
     use {
         'ujihisa/nclipper.vim',
         config = [[require('plugins.config.nclipper')]],
@@ -114,7 +113,10 @@ local startup_function = function(use)
 
     use 'ryanoasis/vim-devicons'
 
-    use 'monaqa/dial.nvim'
+    use {
+        'monaqa/dial.nvim',
+        config = [[require('plugins.config.dial')]]
+    }
 
     use {
         'folke/which-key.nvim',

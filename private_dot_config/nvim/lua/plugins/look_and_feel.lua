@@ -52,7 +52,6 @@ M.load = function(use)
     "petertriho/nvim-scrollbar",
     config = [[require("scrollbar").setup({})]]
   }
-
 end
 
 return M

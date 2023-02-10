@@ -10,7 +10,6 @@ vim.cmd([[
     call winrestview(l:save)
     write
   endfun
-  command! TrimWhitespace call TrimWhitespace()
 
   fun! SetupCommandAlias(from, to)
     exec 'cnoreabbrev <expr> '.a:from
