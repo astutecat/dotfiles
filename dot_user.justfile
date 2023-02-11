@@ -15,7 +15,7 @@ alias ns := split-nvim
   tmux split-window -hd
   nvim
 
-update-all: update-chezmoi update-brew update-asdf update-cargo
+update-all: update-chezmoi update-brew update-asdf update-rust update-cargo
 
 [macos]
 update-brew:
@@ -34,6 +34,9 @@ update-asdf:
   asdf plugin update --all
   asdf update
   @source $HOME/.config/asdf/update_asdf_tools.zsh
+
+update-rust:
+  rustup update
 
 cargo-update-result := `cargo install --list | grep cargo-update\ v || true`
 update-cargo +crates="-a":
