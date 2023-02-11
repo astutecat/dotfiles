@@ -1,5 +1,3 @@
-
-local autocmds = require("plugins.config.legendary.autocmds")
 local keymaps = require("plugins.config.legendary.keymaps")
 
 require('legendary').setup({
