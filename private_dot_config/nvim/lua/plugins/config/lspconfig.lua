@@ -56,8 +56,8 @@ require("mason-lspconfig").setup_handlers {
     end,
     -- Next, you can provide a dedicated handler for specific servers.
     -- For example, a handler override for the `rust_analyzer`:
-    ["sumneko_lua"] = function()
-        require 'lspconfig'.sumneko_lua.setup {
+    ["lua_ls"] = function()
+        require 'lspconfig'.lua_ls.setup {
             on_attach = on_attach,
             capabilities = capabilities,
             flags = { debounce_text_changes = 150 },
@@ -68,7 +68,6 @@ require("mason-lspconfig").setup_handlers {
                         enable = true,
                         defaultConfig = {
                             indent_style = "space",
-                            indent_size = "2",
                         }
                     }
                 }
