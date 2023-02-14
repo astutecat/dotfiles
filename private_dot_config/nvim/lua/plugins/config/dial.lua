@@ -42,7 +42,7 @@ require("dial.config").augends:on_filetype {
         augend.date.alias["%H:%M"],
         augend.constant.alias.bool,
         augend.semver.alias.semver,
-        augend.constant.new { elements = { ',', '.', ';' }, cyclic = true, pattern_regexp = '\V\(%s\)\s+$' },
+        augend.constant.new { elements = { ',', '.', ';' }, word = false, cyclic = true },
     },
 }
 
