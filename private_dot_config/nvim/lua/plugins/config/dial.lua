@@ -1,6 +1,6 @@
 local augend = require("dial.augend")
 
-require("dial.config").augends:register_group{
+require("dial.config").augends:register_group {
     default = {
         augend.integer.alias.decimal,
         augend.integer.alias.hex,
@@ -10,7 +10,18 @@ require("dial.config").augends:register_group{
         augend.date.alias["%H:%M"],
         augend.constant.alias.bool,
         augend.semver.alias.semver,
+        augend.paren.alias.quote,
+        augend.paren.alias.brackets
     },
+}
+
+require("dial.config").augends:on_filetype {
+    markdown = {
+        augend.integer.alias.decimal,
+        augend.misc.alias.markdown_header,
+        augend.date.alias["%Y-%m-%d"],
+        augend.semver.alias.semver,
+	  },
     elixir = {
         augend.integer.alias.decimal,
         augend.integer.alias.hex,
@@ -20,8 +31,7 @@ require("dial.config").augends:register_group{
         augend.date.alias["%H:%M"],
         augend.constant.alias.bool,
         augend.semver.alias.semver,
-        augend.constant.new{ elements = {",", ".", ";"} },
-        augend.constant.new{ elements = {"def", "defp"} },
+        augend.constant.new { elements = { "def", "defp" }},
     },
     erlang = {
         augend.integer.alias.decimal,
@@ -32,13 +42,12 @@ require("dial.config").augends:register_group{
         augend.date.alias["%H:%M"],
         augend.constant.alias.bool,
         augend.semver.alias.semver,
-        augend.constant.new{ elements = {",", ".", ";"} },
-    }
-
+        augend.constant.new { elements = { ',', '.', ';' }, cyclic = true, pattern_regexp = '\V\(%s\)\s+$' },
+    },
 }
 
 local mappings = {
-       {
+    {
         "<C-a>",
         "<Plug>(dial-increment)",
         mode = { 'n', 'v' },
@@ -65,10 +74,3 @@ local mappings = {
 }
 
 require('legendary').keymaps(mappings)
-vim.cmd[[
-autocmd FileType elixir lua vim.api.nvim_buf_set_keymap(0, "n", "<C-a>", require("dial.map").inc_normal("elixir"), {noremap = true})
-autocmd FileType elixir lua vim.api.nvim_buf_set_keymap(0, "n", "<C-x>", require("dial.map").dec_normal("elixir"), {noremap = true})
-autocmd FileType erlang lua vim.api.nvim_buf_set_keymap(0, "n", "<C-a>", require("dial.map").inc_normal("erlang"), {noremap = true})
-autocmd FileType erlang lua vim.api.nvim_buf_set_keymap(0, "n", "<C-x>", require("dial.map").dec_normal("erlang"), {noremap = true})
-]]
-
