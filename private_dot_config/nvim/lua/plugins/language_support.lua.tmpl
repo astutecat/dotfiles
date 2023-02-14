@@ -56,8 +56,9 @@ use {
   }
 {{ end }}
 
--- TODO:
- -- vim-elixir
+-- {{- if ne .location "work"}}
+--   use({ "mhanberg/elixir.nvim", requires = { "nvim-lua/plenary.nvim" }})
+-- {{end}}
 
  end
 
