@@ -53,7 +53,10 @@ local startup_function = function(use)
     use 'tpope/vim-unimpaired'
     use 'tpope/vim-fugitive'
     use 'tpope/vim-sleuth'
-    use 'tpope/vim-projectionist'
+    use {
+        'tpope/vim-projectionist',
+        config = [[require('plugins.config.projectionist')]]
+    }
     use 'christoomey/vim-sort-motion'
 
     use 'machakann/vim-swap'
