@@ -12,13 +12,13 @@ end
 local packer_bootstrap = ensure_packer()
 
 local startup_function = function(use)
-    use 'wbthomason/packer.nvim'
-    use 'alker0/chezmoi.vim'
-
     require('plugins.look_and_feel').load(use)
     require('plugins.completion').load(use)
     require('plugins.lsp').load(use)
     require('plugins.language_support').load(use)
+
+    use 'wbthomason/packer.nvim'
+    use 'alker0/chezmoi.vim'
 
     use 'nvim-lua/plenary.nvim'
 
@@ -37,6 +37,21 @@ local startup_function = function(use)
         end,
         after = { "telescope.nvim" },
         requires = { "kkharji/sqlite.lua", "nvim-telescope/telescope.nvim" }
+    }
+
+    use {
+        'folke/which-key.nvim',
+        config = function()
+            require('which-key').setup {}
+        end
+    }
+
+    use {
+        'mrjones2014/legendary.nvim',
+        requires = { 'kkharji/sqlite.lua', "nvim-telescope/telescope.nvim", "folke/which-key.nvim" },
+        config = [[require('plugins.config.legendary')]],
+        after = { "which-key.nvim" },
+        module = { 'legendary' }
     }
 
 
@@ -121,21 +136,6 @@ local startup_function = function(use)
         'monaqa/dial.nvim',
         config = [[require('plugins.config.dial')]]
     }
-
-    use {
-        'folke/which-key.nvim',
-        config = function()
-            require('which-key').setup {}
-        end
-    }
-
-    use {
-        'mrjones2014/legendary.nvim',
-        requires = { 'kkharji/sqlite.lua', "nvim-telescope/telescope.nvim", "folke/which-key.nvim" },
-        config = [[require('plugins.config.legendary')]],
-        after = { "which-key.nvim" }
-    }
-
 
     if packer_bootstrap then
         require('packer').sync()

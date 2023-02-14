@@ -14,3 +14,31 @@ require("dial.config").augends:register_group{
         augend.constant.new{ elements = {"def", "defp"} },
     }
 }
+
+local mappings = {
+       {
+        "<C-a>",
+        "<Plug>(dial-increment)",
+        mode = { 'n', 'v' },
+        description = "Increment"
+    },
+    {
+        "<C-x>",
+        '<Plug>(dial-decrement)',
+        mode = { 'n', 'v' },
+        description = "Decrement"
+    },
+    {
+        "g<C-a>",
+        "g<Plug>(dial-increment)",
+        mode = { 'n', 'v' },
+        description = "Increment (g)"
+    },
+    {
+        "g<C-x>",
+        'g<Plug>(dial-decrement)',
+        mode = { 'n', 'v' },
+        description = "Decrement (g)"
+    },
+}
+require('legendary').keymaps(mappings)
