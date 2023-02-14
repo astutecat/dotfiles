@@ -110,7 +110,7 @@ local mappings = {
     },
     {
         '<space>ca',
-        '<cmd>lua vim.lsp.buf.code_actions()<CR>',
+        '<cmd>lua vim.lsp.buf.code_action()<CR>',
         description = "LSP: Code Actions",
         opts = { silent = true }
     },
