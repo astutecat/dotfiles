@@ -24,9 +24,16 @@ local startup_function = function(use)
 
     use { 'stevearc/dressing.nvim' }
 
+    use { 'nvim-telescope/telescope-fzy-native.nvim',
+        after = { "telescope.nvim" },
+        config = function()
+            require('telescope').load_extension('fzy_native')
+        end
+    }
+
     use {
         "nvim-telescope/telescope.nvim",
-        requires = { { 'nvim-lua/plenary.nvim' } },
+        requires = { { 'nvim-lua/plenary.nvim' }, { 'nvim-telescope/telescope-fzy-native.nvim' } },
         config = [[require('plugins.config.telescope')]]
     }
 
