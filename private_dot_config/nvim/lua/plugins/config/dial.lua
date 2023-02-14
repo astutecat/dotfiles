@@ -10,9 +10,31 @@ require("dial.config").augends:register_group{
         augend.date.alias["%H:%M"],
         augend.constant.alias.bool,
         augend.semver.alias.semver,
+    },
+    elixir = {
+        augend.integer.alias.decimal,
+        augend.integer.alias.hex,
+        augend.date.alias["%Y/%m/%d"],
+        augend.date.alias["%Y-%m-%d"],
+        augend.date.alias["%m/%d"],
+        augend.date.alias["%H:%M"],
+        augend.constant.alias.bool,
+        augend.semver.alias.semver,
         augend.constant.new{ elements = {",", ".", ";"} },
         augend.constant.new{ elements = {"def", "defp"} },
+    },
+    erlang = {
+        augend.integer.alias.decimal,
+        augend.integer.alias.hex,
+        augend.date.alias["%Y/%m/%d"],
+        augend.date.alias["%Y-%m-%d"],
+        augend.date.alias["%m/%d"],
+        augend.date.alias["%H:%M"],
+        augend.constant.alias.bool,
+        augend.semver.alias.semver,
+        augend.constant.new{ elements = {",", ".", ";"} },
     }
+
 }
 
 local mappings = {
@@ -41,4 +63,12 @@ local mappings = {
         description = "Decrement (g)"
     },
 }
+
 require('legendary').keymaps(mappings)
+vim.cmd[[
+autocmd FileType elixir lua vim.api.nvim_buf_set_keymap(0, "n", "<C-a>", require("dial.map").inc_normal("elixir"), {noremap = true})
+autocmd FileType elixir lua vim.api.nvim_buf_set_keymap(0, "n", "<C-x>", require("dial.map").dec_normal("elixir"), {noremap = true})
+autocmd FileType erlang lua vim.api.nvim_buf_set_keymap(0, "n", "<C-a>", require("dial.map").inc_normal("erlang"), {noremap = true})
+autocmd FileType erlang lua vim.api.nvim_buf_set_keymap(0, "n", "<C-x>", require("dial.map").dec_normal("erlang"), {noremap = true})
+]]
+
