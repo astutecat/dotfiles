@@ -7,3 +7,5 @@ tags
 {{ if eq .chezmoi.arch "arm" "arm64"}}
 .local/bin/nvim
 {{ end }}
+
+justfile
