@@ -49,3 +49,34 @@ update-cargo +crates="-a":
 @dotfiles:
   [[ -n $TMUX ]] && tmux rename-window dotfiles || :
   chezmoi cd
+
+pull-notebooks:
+  docker pull jupyter/datascience-notebook
+
+rm-notebooks:
+  -docker rm notebooks
+
+home := `echo $HOME`
+uid := `echo $UID`
+gid := `echo $GID`
+user := `echo $USER`
+run-notebooks:
+  docker run -d \
+    --name notebooks \
+    -p 8888:8888 \
+    --user root \
+    -e NB_UID={{uid}} \
+    -e NB_GID={{uid}} \
+    -e NB_USER={{user}} \
+    -e CHOWN_HOME=yes \
+    -w "/home/{{user}}" \
+    -v {{home}}/notebooks:/home/{{user}} \
+    --restart=always \
+    jupyter/datascience-notebook \
+    start-notebook.sh --NotebookApp.password='argon2:$argon2id$v=19$m=10240,t=10,p=8$PcUNXQ+xDS+gw9BaJgbDrg$HSbxAbje0q8PGJnmgMwaFraKBuAvTIVrhitBuIpAVs8'
+
+stop-notebooks:
+  -docker stop notebooks
+
+update-notebooks: pull-notebooks stop-notebooks rm-notebooks run-notebooks
+
