@@ -60,7 +60,8 @@ home := `echo $HOME`
 uid := `echo $UID`
 gid := `echo $GID`
 user := `echo $USER`
-run-notebooks:
+default_dir := `echo $PWD`
+run-notebooks dir=default_dir:
   docker run -d \
     --name notebooks \
     -p 8888:8888 \
@@ -70,11 +71,12 @@ run-notebooks:
     -e NB_USER={{user}} \
     -e CHOWN_HOME=yes \
     -w "/home/{{user}}" \
-    -v {{home}}/notebooks:/home/{{user}} \
+    -v {{dir}}:/home/{{user}} \
     --restart=always \
     jupyter/datascience-notebook \
     start-notebook.sh --NotebookApp.password='argon2:$argon2id$v=19$m=10240,t=10,p=8$PcUNXQ+xDS+gw9BaJgbDrg$HSbxAbje0q8PGJnmgMwaFraKBuAvTIVrhitBuIpAVs8'
 
+alias nb-stop := stop-notebooks
 stop-notebooks:
   -docker stop notebooks
 
