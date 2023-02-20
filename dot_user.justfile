@@ -74,6 +74,7 @@ run-notebooks dir=default_dir:
     -v {{dir}}:/home/{{user}} \
     jupyter/datascience-notebook \
     start-notebook.sh --NotebookApp.password='argon2:$argon2id$v=19$m=10240,t=10,p=8$PcUNXQ+xDS+gw9BaJgbDrg$HSbxAbje0q8PGJnmgMwaFraKBuAvTIVrhitBuIpAVs8'
+  docker exec -it notebooks-local conda install -y -c conda-forge jupyterlab-git
 
 alias nb-stop := stop-notebooks
 stop-notebooks:
