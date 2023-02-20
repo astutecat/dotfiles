@@ -54,13 +54,13 @@ pull-notebooks:
   docker pull jupyter/datascience-notebook
 
 rm-notebooks:
-  -docker rm notebooks
+  -docker rm notebooks-local
 
 home := `echo $HOME`
 uid := `echo $UID`
 gid := `echo $GID`
 user := `echo $USER`
-default_dir := `echo $HOME`
+default_dir := `echo $PWD`
 run-notebooks dir=default_dir:
   docker run -d \
     --name notebooks-local \
@@ -78,7 +78,7 @@ run-notebooks dir=default_dir:
 
 alias nb-stop := stop-notebooks
 stop-notebooks:
-  -docker stop notebooks
+  -docker stop notebooks-local
 
 update-notebooks: pull-notebooks stop-notebooks rm-notebooks run-notebooks
 
