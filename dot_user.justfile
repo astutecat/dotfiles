@@ -60,7 +60,7 @@ home := `echo $HOME`
 uid := `echo $UID`
 gid := `echo $GID`
 user := `echo $USER`
-default_dir := `echo $PWD`
+default_dir := `echo $HOME`
 run-notebooks dir=default_dir:
   docker run -d \
     --name notebooks-local \
