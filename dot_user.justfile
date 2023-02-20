@@ -53,15 +53,15 @@ update-cargo +crates="-a":
 pull-notebooks:
   docker pull jupyter/datascience-notebook
 
-rm-notebooks:
+rm-notebooks: stop-notebooks
   -docker rm notebooks-local
 
 home := `echo $HOME`
 uid := `echo $UID`
 gid := `echo $GID`
 user := `echo $USER`
-default_dir := `echo $PWD`
-run-notebooks dir=default_dir:
+repo_dir := "~/repos"
+run-notebooks dir=repo_dir:
   docker run -d \
     --name notebooks-local \
     -p 8888:8888 \
@@ -80,5 +80,5 @@ alias nb-stop := stop-notebooks
 stop-notebooks:
   -docker stop notebooks-local
 
-update-notebooks: pull-notebooks stop-notebooks rm-notebooks run-notebooks
+update-notebooks dir=repo_dir: pull-notebooks stop-notebooks rm-notebooks (run-notebooks dir)
 
