@@ -23,10 +23,8 @@ if [[ -n $(command -v "just") ]]; then
 fi
 
 {{if eq .location "work"}}
-alias devel="cd ~/repos/NOC-Devel/; tmux_rename NOC\ Devel"
-alias stable="cd ~/repos/NOC-Stable/; tmux_rename NOC\ Stable"
+alias rts="cd ~/repos/RTS; tmux_rename RTS"
 alias zebra="cd ~/repos/Zebra/; tmux_rename Zebra"
 alias repos="cd ~/repos/"
-alias thg="tortoisehg 2>/dev/null&"
 {{ end }}
 
