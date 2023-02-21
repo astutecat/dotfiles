@@ -8,7 +8,6 @@
 {{- if ne .location "other" }}
 [diff]
 	tool = bc3
-{{ end -}}
 [difftool]
 	prompt = false
 [difftool "meld"]
@@ -19,6 +18,13 @@
 	tool = bc3
 [mergetool "bc3"]
 	trustExitCode = true
+[gui]
+  pruneduringfetch = true
+[smartgit "submodule"]
+  fetchalways = false
+  update = true
+  initializenew = true
+{{ end -}}
 [gc]
 	autoDetach = false
 [init]
@@ -29,3 +35,9 @@
 	detachedHead = false
 [rebase]
 	autoStash = true
+[push]
+	recurseSubmodules = check
+[commit]
+  gpgSign = false
+[pull]
+	rebase = false
