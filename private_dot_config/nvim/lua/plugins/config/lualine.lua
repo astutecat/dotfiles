@@ -1,4 +1,3 @@
-local navic = require("nvim-navic")
 local function multiple_tabs_exist()
   return vim.fn.tabpagenr("$") > 1
 end
@@ -77,11 +76,7 @@ require('lualine').setup {
         }
       },
     },
-    winbar = {
-      lualine_b = {
-        { navic.get_location, cond = navic.is_available }
-      },
-    },
+    winbar = {},
   inactive_winbar = {
   },
   extensions = {
