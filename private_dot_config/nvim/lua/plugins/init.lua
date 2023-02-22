@@ -144,6 +144,10 @@ local startup_function = function(use)
         config = [[require('plugins.config.dial')]]
     }
 
+    use {
+        'rbong/vim-buffest'
+    }
+
     if packer_bootstrap then
         require('packer').sync()
     end
