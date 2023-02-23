@@ -13,10 +13,9 @@ local packer_bootstrap = ensure_packer()
 
 local startup_function = function(use)
     require('plugins.look_and_feel').load(use)
-    require('plugins.completion').load(use)
     require('plugins.lsp').load(use)
     require('plugins.language_support').load(use)
-
+    require('plugins.completion').load(use)
     use 'wbthomason/packer.nvim'
     use 'alker0/chezmoi.vim'
 
