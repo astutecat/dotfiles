@@ -11,7 +11,6 @@ M.load = function(use)
     after = 'vim-vsnip'
   }
 
-
   use {
     'hrsh7th/nvim-cmp',
     requires = {
@@ -24,7 +23,8 @@ M.load = function(use)
       { 'hrsh7th/cmp-nvim-lua', after = 'nvim-cmp' },
       { 'hrsh7th/cmp-vsnip', after = 'nvim-cmp' },
       { 'hrsh7th/cmp-cmdline', after = 'nvim-cmp' },
-      { 'kdheepak/cmp-latex-symbols', after = 'nvim-cmp' }
+      { 'kdheepak/cmp-latex-symbols', after = 'nvim-cmp' },
+      { 'delphinus/cmp-ctags', after = 'nvim-cmp' }
     },
     config = [[require('plugins.config.cmp')]],
     after = 'vim-vsnip',

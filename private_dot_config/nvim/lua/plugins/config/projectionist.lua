@@ -1,14 +1,5 @@
 local heuristics = {}
 
-heuristics["justfile"] = {
-    type = "just",
-    template = {
-        '[private]',
-        'default:',
-        '  @just --justfile "{{justfile()}}" --list'
-    }
-}
-
 vim.g.projectionist_heuristics = heuristics
 
 -- heuristics["lib/*.ex"] = {
@@ -31,3 +22,4 @@ vim.g.projectionist_heuristics = heuristics
 --       "end"
 --     }
 -- }
+
