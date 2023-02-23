@@ -95,7 +95,24 @@ local startup_function = function(use)
         event = 'VimEnter'
     }
 
-    use 'AndrewRadev/splitjoin.vim'
+    use {
+        'AndrewRadev/splitjoin.vim',
+        config = function()
+            local mappings = {
+                {
+                    'gS',
+                    '<cmd>SplitJoinSplit<CR>',
+                    description = "Split to multiple lines",
+                },
+                {
+                    'gJ',
+                    '<cmd>SplitJoinJoin<CR>',
+                    description = "Join to single line",
+                },
+            }
+            require('legendary').keymaps(mappings)
+        end
+    }
 
 
     use {
