@@ -57,8 +57,8 @@ rm-notebooks: stop-notebooks
   -docker rm notebooks-local
 
 home := `echo $HOME`
-uid := `echo $UID`
-gid := `echo $GID`
+uid := `id -u`
+gid := `id -g`
 user := `echo $USER`
 repo_dir := "~/repos"
 run-notebooks dir=repo_dir:
@@ -76,9 +76,13 @@ run-notebooks dir=repo_dir:
     start-notebook.sh --NotebookApp.password='argon2:$argon2id$v=19$m=10240,t=10,p=8$PcUNXQ+xDS+gw9BaJgbDrg$HSbxAbje0q8PGJnmgMwaFraKBuAvTIVrhitBuIpAVs8'
   docker exec -it notebooks-local conda install -y -c conda-forge jupyterlab-git
 
+run-livebook dir=repo_dir:
+  docker run -d --name livebook-local -p 8080:8080 -p 8081:8081 --pull always -u {{uid}}:{{gid}} -v {{repo_dir}}:/data livebook/livebook
+
 alias nb-stop := stop-notebooks
 stop-notebooks:
   -docker stop notebooks-local
+  -docker stop livebook-local
 
 update-notebooks dir=repo_dir: pull-notebooks stop-notebooks rm-notebooks (run-notebooks dir)
 
