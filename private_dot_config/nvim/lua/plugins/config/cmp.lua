@@ -31,7 +31,6 @@ local symbols = {
 
 cmp.setup({
     completion = {
-        keyword_length = 1
     },
     formatting = {
         window = {
@@ -75,7 +74,7 @@ cmp.setup({
         ['<CR>'] = cmp.mapping.confirm({ select = false }),
     }),
     sources = {
-        { name = 'vsnip', priority = 5 },
+        { name = 'vsnip', priority = 5, max_item_count = 2, keyword_length = 2 },
         { name = 'nvim_lsp', max_item_count = 8, priority = 4 },
         { name = 'buffer', max_item_count = 5, priority = 3 },
         { name = 'tags', keyword_length = 3, max_item_count = 5, priority = 2 },
