@@ -164,6 +164,20 @@ local startup_function = function(use)
         'rbong/vim-buffest'
     }
 
+    use {
+        "nvim-neotest/neotest",
+        requires = {
+            "nvim-lua/plenary.nvim",
+            "nvim-treesitter/nvim-treesitter",
+            "antoinemadec/FixCursorHold.nvim",
+            "jfpedroza/neotest-elixir",
+            "rouge8/neotest-rust",
+            "vim-test/vim-test",
+            "nvim-neotest/neotest-vim-test"
+        },
+        config = [[require('plugins.config.neotest')]]
+    }
+
     if packer_bootstrap then
         require('packer').sync()
     end

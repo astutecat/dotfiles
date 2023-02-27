@@ -30,6 +30,7 @@ M.load = function(use)
             { 'hrsh7th/cmp-cmdline', after = 'nvim-cmp' },
             { 'kdheepak/cmp-latex-symbols', after = 'nvim-cmp' }
         },
+        module = "cmp",
         config = [[require('plugins.config.cmp')]],
         after = 'vim-vsnip',
     }
