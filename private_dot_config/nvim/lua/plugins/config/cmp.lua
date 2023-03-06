@@ -57,7 +57,8 @@ cmp.setup({
             before = function(entry, vim_item)
                 vim_item.dup = ({
                     buffer = 0,
-                    tags = 0
+                    tags = 0,
+                    cmdline = 0
                 })[entry.source.name] or 1
                 return vim_item
             end
