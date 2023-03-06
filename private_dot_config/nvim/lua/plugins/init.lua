@@ -119,12 +119,36 @@ local startup_function = function(use)
     use {
         'milkypostman/vim-togglelist',
         config = function()
-            vim.g.toggle_list_no_mappings = 1
+            vim.g.toggle_list_no_mappings = true
             local opts = { silent = true }
-            vim.api.nvim_set_keymap('n', '<leader>o', '<cmd>call ToggleLocationList()<CR>', opts)
-            vim.api.nvim_set_keymap('n', '<leader>o', '<cmd>call ToggleQuickFixList()<CR>', opts)
-        end,
-        event = 'VimEnter'
+            local mappings = {
+                {
+                    '<leader>qq',
+                    '<cmd>call ToggleQuickfixList()<cr>',
+                    description = "Toggle Quickfix List",
+                    opts = opts
+                },
+                {
+                    '<leader>qn',
+                    '<cmd>cn<cr>',
+                    opts = opts,
+                    description = "Quickfix: Next"
+                },
+                {
+                    '<leader>qp',
+                    '<cmd>cp<cr>',
+                    opts = opts,
+                    description = "Quickfix: Previous"
+                },
+                {
+                    '<leader>l',
+                    '<cmd>call ToggleLocationList()<CR>',
+                    description = "Toggle Location List",
+                    opts = opts
+                },
+            }
+            require('legendary').keymaps(mappings)
+        end
     }
 
 
