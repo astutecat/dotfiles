@@ -1,6 +1,6 @@
 local keymaps = require("plugins.config.legendary.keymaps")
-
-require('legendary').setup({
+local legendary = require('legendary')
+legendary.setup({
     -- Initial keymaps to bind
     keymaps = keymaps,
     -- Initial commands to bind
@@ -118,3 +118,5 @@ require('legendary').setup({
     -- Log level, one of 'trace', 'debug', 'info', 'warn', 'error', 'fatal'
     log_level = 'info',
 })
+
+legendary.keymaps(require("plugins.config.legendary.telescope_keymaps"))
