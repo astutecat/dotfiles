@@ -1,6 +1,21 @@
 vim.g.nclipper_nomap = 1
 
 local opts = { noremap=true }
-vim.api.nvim_set_keymap('v', '<M-y>','<Plug>(nclipper)', opts)
-vim.api.nvim_set_keymap('v', '<C-y>','<Plug>(nclipper-with-filename)', opts)
 
+local mappings = {
+    {
+        '<M-y>',
+        '<Plug>(nclipper)',
+        description = "NClipper: Context Copy (No Filename)",
+        mode = { 'v' },
+        opts = opts
+    },
+    {
+        '<C-y>',
+        '<Plug>(nclipper)',
+        description = "NClipper: Context Copy",
+        mode = { 'v' },
+        opts = opts
+    },
+}
+require('legendary').keymaps(mappings)

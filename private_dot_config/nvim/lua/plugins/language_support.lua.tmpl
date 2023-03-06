@@ -1,6 +1,6 @@
 -- vim: ft=lua.chezmoi :
-M = {}
-M.load = function(use)
+return {
+  load = function(use)
 
 use {
   'sheerun/vim-polyglot',
@@ -61,5 +61,4 @@ use {
 -- {{end}}
 
  end
-
- return M
+ }

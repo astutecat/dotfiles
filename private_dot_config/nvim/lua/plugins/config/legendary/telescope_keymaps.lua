@@ -49,4 +49,10 @@ return {
         '<cmd>Telescope resume<cr>',
         description = "Telescope Resume"
     },
+    {
+        "<leader>fo",
+        '<cmd>Telescope oldfiles<cr>',
+        description = "Telescope Recent Files"
+    },
+
 }

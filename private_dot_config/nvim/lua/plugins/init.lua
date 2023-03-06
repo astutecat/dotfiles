@@ -16,6 +16,7 @@ local startup_function = function(use)
     require('plugins.lsp').load(use)
     require('plugins.language_support').load(use)
     require('plugins.completion').load(use)
+
     use 'wbthomason/packer.nvim'
     use 'alker0/chezmoi.vim'
 
@@ -181,9 +182,7 @@ local startup_function = function(use)
     use {
         "startup-nvim/startup.nvim",
         requires = {"nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim"},
-        config = function()
-            require"startup".setup()
-        end
+        config = [[require("plugins.config.startup_nvim")]]
     }
 
     if packer_bootstrap then
