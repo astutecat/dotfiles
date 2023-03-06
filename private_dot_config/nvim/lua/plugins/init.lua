@@ -131,14 +131,12 @@ local startup_function = function(use)
                 {
                     '<leader>qn',
                     '<cmd>cn<cr>',
-                    opts = opts,
-                    description = "Quickfix: Next"
+                    opts = opts
                 },
                 {
                     '<leader>qp',
                     '<cmd>cp<cr>',
-                    opts = opts,
-                    description = "Quickfix: Previous"
+                    opts = opts
                 },
                 {
                     '<leader>l',
