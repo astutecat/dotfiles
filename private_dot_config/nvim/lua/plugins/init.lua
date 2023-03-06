@@ -198,7 +198,8 @@ local startup_function = function(use)
             "vim-test/vim-test",
             "nvim-neotest/neotest-vim-test"
         },
-        config = [[require('plugins.config.neotest')]]
+        config = [[require('plugins.config.neotest')]],
+        event = 'VimEnter'
     }
 
     use {
