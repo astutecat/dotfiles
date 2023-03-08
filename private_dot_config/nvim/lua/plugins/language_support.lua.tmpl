@@ -46,19 +46,19 @@ use {
   }
 }
 
-use {
-  'ziglang/zig.vim'
-}
-
 {{- if eq .chezmoi.fqdnHostname "debian9.ntls.local"}}
   use {
     'vim-erlang/vim-erlang-runtime'
   }
 {{ end }}
 
--- {{- if ne .location "work"}}
---   use({ "mhanberg/elixir.nvim", requires = { "nvim-lua/plenary.nvim" }})
--- {{end}}
+{{- if ne .location "work"}}
+  use {
+    "mhanberg/elixir.nvim",
+    requires = { "nvim-lua/plenary.nvim" },
+    module = "elixir"
+  }
+{{end}}
 
  end
  }

@@ -48,12 +48,28 @@ require("mason-lspconfig").setup_handlers {
         }
     end,
     ["elixirls"] = function()
-        require 'lspconfig'.elixirls.setup {
-            on_attach = on_attach,
-            capabilities = capabilities,
-            flags = { debounce_text_changes = 150 },
-            cmd = { vim.fn.stdpath('data') .. "/mason/bin/elixir-ls" }
-        }
+        local has_elixir,elixir = pcall(require,"elixir")
+        if has_elixir then
+            elixir.setup {
+                on_attach = on_attach,
+                capabilities = capabilities,
+                cmd = { vim.fn.stdpath('data') .. "/mason/bin/elixir-ls" },
+                settings = elixir.settings({
+                        dialyzerEnabled = true,
+                        fetchDeps = false,
+                        enableTestLenses = false,
+                        suggestSpecs = true,
+                    }),
+            }
+        else
+            require 'lspconfig'.elixirls.setup {
+                on_attach = on_attach,
+                capabilities = capabilities,
+                flags = { debounce_text_changes = 150 },
+                cmd = { vim.fn.stdpath('data') .. "/mason/bin/elixir-ls" }
+            }
+
+        end
     end,
     -- Next, you can provide a dedicated handler for specific servers.
     -- For example, a handler override for the `rust_analyzer`:
