@@ -2,7 +2,12 @@ return {
     load = function(use)
         use {
             'EdenEast/nightfox.nvim',
-            config = [[vim.cmd("colorscheme nightfox")]]
+            -- config = [[vim.cmd("colorscheme nightfox")]]
+        }
+
+        use {
+            'folke/tokyonight.nvim',
+            config = [[vim.cmd("colorscheme tokyonight-night")]]
         }
 
         use {
@@ -44,7 +49,9 @@ return {
             },
             after = "nvim-web-devicons",
             config = function()
-                require("barbecue").setup()
+                require("barbecue").setup({
+                    theme = 'tokyonight',
+                })
             end,
         }
 
