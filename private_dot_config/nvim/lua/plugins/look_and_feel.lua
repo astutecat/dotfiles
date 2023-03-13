@@ -1,11 +1,6 @@
 return {
     load = function(use)
         use {
-            'EdenEast/nightfox.nvim',
-            -- config = [[vim.cmd("colorscheme nightfox")]]
-        }
-
-        use {
             'folke/tokyonight.nvim',
             config = [[vim.cmd("colorscheme tokyonight-night")]]
         }
@@ -17,16 +12,14 @@ return {
         }
 
         use {
-            'nvim-tree/nvim-tree.lua',
+            "nvim-neo-tree/neo-tree.nvim",
+            branch = "v2.x",
             requires = {
-                'nvim-tree/nvim-web-devicons',
+                "nvim-lua/plenary.nvim",
+                "nvim-tree/nvim-web-devicons",
+                "MunifTanjim/nui.nvim",
             },
-            config = [[require('plugins.config.nvim-tree')]]
-        }
-
-        use {
-            'nvim-tree/nvim-web-devicons',
-            config = function() require('nvim-web-devicons').setup {} end
+            config = [[require('plugins.config.neo-tree')]]
         }
 
         use {
@@ -57,7 +50,7 @@ return {
 
         use {
             'nvim-lualine/lualine.nvim',
-            requires = { { 'nvim-tree/nvim-web-devicons', opt = true } },
+            requires = { 'nvim-tree/nvim-web-devicons' },
             config = [[require('plugins.config.lualine')]],
             after = 'nvim-navic'
         }

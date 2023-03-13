@@ -3,14 +3,14 @@ require("project_nvim").setup {
         ".git",
         "_darcs",
         ".hg",
-        ".bzr", 
-    ".svn", 
-"Makefile", 
-"package.json", 
-".tex.latexmain", 
-"justfile", 
-"Justfile" 
-},
+        ".bzr",
+        ".svn",
+        "Makefile",
+        "package.json",
+        ".tex.latexmain",
+        "justfile",
+        "Justfile"
+    },
     manual_mode = true,
 }
 

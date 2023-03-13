@@ -31,7 +31,7 @@ require("startup").setup {
             { " Find File", "Telescope find_files", "<leader>ff" },
             { " Find Word", "Telescope live_grep", "<leader>lg" },
             { " Frecent Files", "Telescope frecency", "<leader>fe" },
-            { " File Browser", "NvimTreeFindFileToggle", "<leader>ee" },
+            { " File Browser", "Neotree toggle", "<leader>ee" },
             { " New File", "lua require'startup'.new_file()", "<leader>nf" },
         },
         highlight = "String",
