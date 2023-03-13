@@ -25,7 +25,7 @@ require("neo-tree").setup({
         winbar = true,
     },
     window = {
-        width = 30
+        width = 37
     },
     filesystem = {
         group_empty_dirs = true
