@@ -28,7 +28,8 @@ require("neo-tree").setup({
         width = 37
     },
     filesystem = {
-        group_empty_dirs = true
+        group_empty_dirs = true,
+        use_libuv_file_watcher = true,
     },
     buffers = {
         group_empty_dirs = true
