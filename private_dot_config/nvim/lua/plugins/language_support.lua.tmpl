@@ -50,15 +50,12 @@ use {
   use {
     'vim-erlang/vim-erlang-runtime'
   }
-{{ end }}
-
-{{- if ne .location "work"}}
+{{ else }}
   use {
     "mhanberg/elixir.nvim",
     requires = { "nvim-lua/plenary.nvim" },
     module = "elixir"
   }
-{{end}}
-
+{{ end }}
  end
  }
