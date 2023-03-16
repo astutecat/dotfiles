@@ -102,12 +102,12 @@ local startup_function = function(use)
             local mappings = {
                 {
                     '<leader>ss',
-                    '<cmd>SplitJoinSplit<CR>',
+                    '<cmd>SplitjoinSplit<CR>',
                     description = "Split to multiple lines",
                 },
                 {
                     '<leader>sj',
-                    '<cmd>SplitJoinJoin<CR>',
+                    '<cmd>SplitjoinJoin<CR>',
                     description = "Join to single line",
                 },
             }
