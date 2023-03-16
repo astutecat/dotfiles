@@ -101,12 +101,12 @@ local startup_function = function(use)
         config = function()
             local mappings = {
                 {
-                    'gS',
+                    '<leader>ss',
                     '<cmd>SplitJoinSplit<CR>',
                     description = "Split to multiple lines",
                 },
                 {
-                    'gJ',
+                    '<leader>sj',
                     '<cmd>SplitJoinJoin<CR>',
                     description = "Join to single line",
                 },
