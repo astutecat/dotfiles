@@ -34,4 +34,12 @@ require("neo-tree").setup({
     buffers = {
         group_empty_dirs = true
     },
+    default_component_configs = {
+        icon = {
+            default = '',
+        },
+        modified = {
+            symbol = '●',
+        }
+    },
 })

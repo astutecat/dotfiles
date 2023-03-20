@@ -123,7 +123,7 @@ local startup_function = function(use)
             local opts = { silent = true }
             local mappings = {
                 {
-                    '<leader>qq',
+                    '<leader>q',
                     '<cmd>call ToggleQuickfixList()<cr>',
                     description = "Toggle Quickfix List",
                     opts = opts
