@@ -15,8 +15,16 @@ return {
         }
 
         use {
+            'lewis6991/gitsigns.nvim',
+            config = [[require('plugins.config.gitsigns')]]
+        }
+
+        use {
             'jose-elias-alvarez/null-ls.nvim',
-            config = [[require('plugins.config.null_ls')]]
+            config = [[require('plugins.config.null_ls')]],
+            requires = {
+                { 'lewis6991/gitsigns.nvim' }
+            }
         }
 
         use {
