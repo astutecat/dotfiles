@@ -9,7 +9,9 @@ require("project_nvim").setup {
         "package.json",
         ".tex.latexmain",
         "justfile",
-        "Justfile"
+        "Justfile",
+        "rebar.config",
+        "mix.exs"
     },
     manual_mode = true,
 }

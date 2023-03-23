@@ -61,7 +61,6 @@ local startup_function = function(use)
         module = { 'legendary' }
     }
 
-
     use {
         'ahmedkhalf/project.nvim',
         requires = { "nvim-telescope/telescope.nvim" },
@@ -123,7 +122,7 @@ local startup_function = function(use)
             local opts = { silent = true }
             local mappings = {
                 {
-                    '<leader>q',
+                    '<leader>tq',
                     '<cmd>call ToggleQuickfixList()<cr>',
                     description = "Toggle Quickfix List",
                     opts = opts
@@ -139,7 +138,7 @@ local startup_function = function(use)
                     opts = opts
                 },
                 {
-                    '<leader>l',
+                    '<leader>tl',
                     '<cmd>call ToggleLocationList()<CR>',
                     description = "Toggle Location List",
                     opts = opts
