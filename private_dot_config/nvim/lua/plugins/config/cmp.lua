@@ -79,7 +79,7 @@ cmp.setup({
         { name = 'nvim_lsp', max_item_count = 8, priority = 4 },
         { name = 'buffer', max_item_count = 5, priority = 3 },
         { name = 'tags', keyword_length = 3, max_item_count = 5, priority = 2 },
-        { name = 'latex_symbols', keyword_length = 4, max_item_count = 5, priority = 1 }
+        { name = 'latex_symbols', keyword_length = 3, max_item_count = 3, priority = 1 }
     },
     sorting = {
         comparators = {
