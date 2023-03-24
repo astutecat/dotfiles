@@ -1,5 +1,5 @@
 # git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.10.2
-{{ $asdfVersion := "0.11.1" -}}
+{{ $asdfVersion := "0.11.3" -}}
 [".asdf"]
 type = "git-repo"
 url = "https://github.com/asdf-vm/asdf.git"
@@ -38,6 +38,14 @@ args = ["--recursive", "--depth", "1", "--quiet"]
 [".config/zsh/.zprezto".pull]
 args = ["--recurse-submodules", "--quiet"]
 
+[".local/bin/tfg.py"]
+type = "git-repo"
+url = "https://github.com/4rtzel/tfg.git"
+refreshPeriod = "672h"
+[".local/bin/tfg.py".clone]
+args = ["--depth", "1", "--quiet"]
+[".local/bin/tfg.py".pull]
+args = ["--quiet"]
 
 [".local/bin/nvim"]
   type = "file"
