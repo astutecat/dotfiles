@@ -1,6 +1,5 @@
 alias hl='printf %"$COLUMNS"s |tr " " "-"'
 alias lcl='hl && clear'
-alias dotfiles=".j dotfiles"
 
 alias ls='ls --color=auto'
 alias ll='ls --color=auto -l'
@@ -20,7 +19,11 @@ if [[ -n $(command -v "just") ]]; then
     alias .just="just --justfile $HOME/.user.justfile --working-directory ."
     alias .j=".just"
   fi
+
+  alias dotfiles=".j dotfiles"
+  alias lg=".j lazygit"
 fi
+
 
 {{if eq .location "work"}}
 alias rts="cd ~/repos/RTS; tmux_rename RTS"
