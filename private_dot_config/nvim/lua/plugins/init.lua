@@ -69,7 +69,6 @@ local startup_function = function(use)
     }
 
     use 'kshenoy/vim-signature'
-    use 'tpope/vim-commentary'
     use 'tpope/vim-surround'
     use 'tpope/vim-unimpaired'
     use 'tpope/vim-fugitive'
@@ -202,8 +201,15 @@ local startup_function = function(use)
     }
 
     use {
+        'numToStr/Comment.nvim',
+        config = function()
+            require('Comment').setup()
+        end
+    }
+
+    use {
         "startup-nvim/startup.nvim",
-        requires = {"nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim"},
+        requires = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" },
         config = [[require("plugins.config.startup_nvim")]]
     }
 
