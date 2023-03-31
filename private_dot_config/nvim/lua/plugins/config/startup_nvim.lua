@@ -26,7 +26,7 @@ require("startup").setup {
         align = "center",
         fold_section = false,
         title = "Basic Commands",
-        margin = 5,
+        margin = 0,
         content = {
             { " Find File", "Telescope find_files", "<leader>ff" },
             { " Find Word", "Telescope live_grep", "<leader>lg" },
@@ -39,6 +39,19 @@ require("startup").setup {
         oldfiles_amount = 0,
     },
 
+    dir_files = {
+        type = "oldfiles",
+        content = "",
+        oldfiles_directory = true,
+        align = "center",
+        fold_section = false,
+        title = "",
+        margin = 0,
+        highlight = "TSString",
+        default_color = "#FFFFFF",
+        oldfiles_amount = 10,
+    },
+
     footer = {
         type = "text",
         content = require("startup.functions").packer_plugins(),
@@ -46,10 +59,10 @@ require("startup").setup {
         align = "center",
         fold_section = false,
         title = "",
-        margin = 5,
+        margin = 0,
         highlight = "TSString",
         default_color = "#FFFFFF",
-        oldfiles_amount = 10,
+        oldfiles_amount = 0,
     },
 
     options = {
@@ -57,7 +70,10 @@ require("startup").setup {
         cursor_column = 0.5,
         empty_lines_between_mappings = true,
         disable_statuslines = true,
-        paddings = { 1, 3, 3, 0 },
+        paddings = { 1, 1, 1, 1 },
+        after = function ()
+            require("startup.utils").oldfiles_mappings()
+        end,
     },
     mappings = {
         execute_command = "<CR>",
@@ -70,5 +86,5 @@ require("startup").setup {
         background = "#1f2227",
         folded_section = "#56b6c2",
     },
-    parts = { "header", "body", "footer" },
+    parts = { "header", "body", "footer", "dir_files" },
 }
