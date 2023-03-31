@@ -38,15 +38,6 @@ local startup_function = function(use)
     }
 
     use {
-        "nvim-telescope/telescope-frecency.nvim",
-        config = function()
-            require "telescope".load_extension("frecency")
-        end,
-        after = { "telescope.nvim" },
-        requires = { "kkharji/sqlite.lua", "nvim-telescope/telescope.nvim" }
-    }
-
-    use {
         'folke/which-key.nvim',
         config = function()
             require('which-key').setup {}

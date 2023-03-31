@@ -5,11 +5,6 @@ return {
         description = "Telescope Find Files"
     },
     {
-        "<leader>fe",
-        '<cmd>Telescope frecency workspace=CWD<cr>',
-        description = "Telescope Frecency"
-    },
-    {
         "<leader>ft",
         '<cmd>Telescope current_buffer_tags<cr>',
         description = "Telescope Current Buffer Tags"

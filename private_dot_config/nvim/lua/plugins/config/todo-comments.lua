@@ -24,19 +24,19 @@ local mappings = {
     {
         '<leader>ttl',
         '<cmd>TodoLocList<CR>',
-        description = "Todo Comments: Show in Location List",
+        description = "TODO Comments: Show in Location List",
         opts = kopts
     },
     {
         '<leader>ttq',
         '<cmd>TodoQuickFix<CR>',
-        description = "Todo Comments: Show in QuickFix List",
+        description = "TODO Comments: Show in QuickFix List",
         opts = kopts
     },
     {
         '<leader>fd',
-        '<cmd>TodoQuickFix<CR>',
-        description = "Telescope: Show TODO Comments",
+        '<cmd>TodoTelescope<CR>',
+        description = "Telescope Show TODO Comments",
         opts = kopts
     },
 }
