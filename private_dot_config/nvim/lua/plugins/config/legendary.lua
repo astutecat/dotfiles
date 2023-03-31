@@ -8,6 +8,7 @@ legendary.setup({
         {':TrimWhitespace', 'call TrimWhitespace()', description = "Trim Whitespace"},
         {':PackerSync', description = "Packer Sync"},
         {':PackerCompile', description = "Packer Compile"},
+        {':PackerInstall', description = "Packer Install"}
     },
     -- Initial augroups/autocmds to bind
     autocmds = {
