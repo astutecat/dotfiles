@@ -70,7 +70,24 @@ local startup_function = function(use)
     }
     use 'christoomey/vim-sort-motion'
 
-    use 'machakann/vim-swap'
+    use {
+        'machakann/vim-swap',
+        config = function()
+            local mappings = {
+                {
+                    'g<',
+                    '<Plug>(swap-prev)',
+                    description = "nvim-swap: Swap with previous item",
+                },
+                {
+                    'g<',
+                    '<Plug>(swap-next)',
+                    description = "nvim-swap: Swap with next item",
+                },
+            }
+            require('legendary').keymaps(mappings)
+        end
+    }
 
     use {
         'tommcdo/vim-lion',
