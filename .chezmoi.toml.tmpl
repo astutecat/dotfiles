@@ -30,9 +30,9 @@ format = "yaml"
   is_macos = {{ eq .chezmoi.os "darwin" }}
   zdotdir = "{{.chezmoi.homeDir}}/.config/zsh"
   {{- if ne .location "other" }}
-  asdf_tools_to_install = "('adr' 'sops' 'just' 'fd')"
+  asdf_tools_to_install = "('adr' 'sops' 'just' 'fd' 'lazygit')"
   {{ else }}
-  asdf_tools_to_install = "('just')"
+  asdf_tools_to_install = "('sops', 'fd', 'just')"
   {{ end -}}
 
 [data.git]
