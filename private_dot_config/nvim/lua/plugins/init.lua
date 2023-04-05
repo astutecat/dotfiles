@@ -62,7 +62,6 @@ local startup_function = function(use)
     use 'kshenoy/vim-signature'
     use 'tpope/vim-surround'
     use 'tpope/vim-unimpaired'
-    use 'tpope/vim-fugitive'
     use 'tpope/vim-sleuth'
     use {
         'tpope/vim-projectionist',
