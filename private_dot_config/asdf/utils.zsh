@@ -9,4 +9,15 @@ get_plugin_name() {
   esac
 }
 
+get_plugin_url() {
+  case "$1" in
+    lazydocker)
+      printf "https://github.com/comdotlinux/asdf-lazydocker.git"
+      ;;
+    *)
+      printf ""
+      ;;
+  esac
+}
+
 

@@ -10,8 +10,9 @@ run() {
     [[ -n $(command -v "$tool") ]] && continue
 
     local plugin_name=$(get_plugin_name "$tool")
+    local maybe_plugin_url=$(get_plugin_url "$tool")
 
-    asdf plugin add "$plugin_name"
+    asdf plugin add "$plugin_name" "$maybe_plugin_url"
     asdf install "$plugin_name" latest
     asdf global "$plugin_name" latest
   done
