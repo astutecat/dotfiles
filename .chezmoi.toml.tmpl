@@ -29,8 +29,9 @@ format = "yaml"
   osid = {{ $osid | quote }}
   is_macos = {{ eq .chezmoi.os "darwin" }}
   zdotdir = "{{.chezmoi.homeDir}}/.config/zsh"
+  asdf_all_tools_to_update = "('adr' 'sops' 'just' 'fd' 'lazygit' 'lazydocker')"
   {{- if ne .location "other" }}
-  asdf_tools_to_install = "('adr' 'sops' 'just' 'fd' 'lazygit' 'lazydocker')"
+  asdf_tools_to_install = {{.asdf_all_tools_to_update | quote}}
   {{ else }}
   asdf_tools_to_install = "('sops', 'fd', 'just')"
   {{ end -}}

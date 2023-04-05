@@ -3,7 +3,7 @@
 
 run() {
   source "$HOME/.config/asdf/utils.zsh"
-  local tools_to_install={{.asdf_tools_to_install}}
+  local tools_to_install={{.asdf_all_tools_to_update}}
   local funcs=$(functions update_tool get_plugin_name);
   for tool in "${tools_to_install[@]}"; do
     local plugin_name=$(get_plugin_name "$tool")
