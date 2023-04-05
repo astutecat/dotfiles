@@ -12,7 +12,7 @@ local mappings = {
     },
     {
         '<C-y>',
-        '<Plug>(nclipper)',
+        '<Plug>(nclipper-with-filename)',
         description = "NClipper: Context Copy",
         mode = { 'v' },
         opts = opts

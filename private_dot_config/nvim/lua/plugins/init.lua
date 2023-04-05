@@ -162,7 +162,7 @@ local startup_function = function(use)
     use 'rbgrouleff/bclose.vim'
 
     use {
-        'ujihisa/nclipper.vim',
+        'astutecat/nclipper.vim',
         config = [[require('plugins.config.nclipper')]],
         event = 'VimEnter'
     }
