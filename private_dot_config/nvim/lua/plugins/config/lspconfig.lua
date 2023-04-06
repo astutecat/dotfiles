@@ -1,14 +1,14 @@
 local k_opts = { noremap = true, silent = true }
 
 local on_attach_keymap = {
-    {'<C-]>', '<cmd>lua vim.lsp.buf.definition()<CR>', 'LSP: Go to Definition', opts = k_opts},
-    {'<M-C-]>', '<cmd>lua vim.lsp.buf.definition()<CR>', 'Tag Jump', opts = k_opts},
-    {'K', '<cmd>lua vim.lsp.buf.hover()<CR>', 'LSP: Hover', opts = k_opts},
-    {'<space>gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', 'LSP: Go to Implementation', opts = k_opts },
-    {'C-k', '<cmd>lua vim.lsp.buf.signature_help()<CR>', 'LSP: Signature Help', opts = k_opts},
-    {'<space>D', '<cmd>lua vim.lsp.buf.type_definition()<CR>', 'LSP: Type Definition', opts=k_opts },
-    {'<space>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', 'LSP: Rename', opts=k_opts },
-    {'<space>gr', '<cmd>lua vim.lsp.buf.references()<CR>', 'LSP: References', opts=k_opts }
+    { '<C-]>',     '<cmd>lua vim.lsp.buf.definition()<CR>',      'LSP: Go to Definition',     opts = k_opts },
+    { '<M-C-]>',   '<cmd>lua vim.lsp.buf.definition()<CR>',      'Tag Jump',                  opts = k_opts },
+    { 'K',         '<cmd>lua vim.lsp.buf.hover()<CR>',           'LSP: Hover',                opts = k_opts },
+    { '<space>gi', '<cmd>lua vim.lsp.buf.implementation()<CR>',  'LSP: Go to Implementation', opts = k_opts },
+    { 'C-k',       '<cmd>lua vim.lsp.buf.signature_help()<CR>',  'LSP: Signature Help',       opts = k_opts },
+    { '<space>D',  '<cmd>lua vim.lsp.buf.type_definition()<CR>', 'LSP: Type Definition',      opts = k_opts },
+    { '<space>rn', '<cmd>lua vim.lsp.buf.rename()<CR>',          'LSP: Rename',               opts = k_opts },
+    { '<space>gr', '<cmd>lua vim.lsp.buf.references()<CR>',      'LSP: References',           opts = k_opts }
 }
 
 local on_attach = function(client, bufnr)
@@ -48,18 +48,18 @@ require("mason-lspconfig").setup_handlers {
         }
     end,
     ["elixirls"] = function()
-        local has_elixir,elixir = pcall(require,"elixir")
+        local has_elixir, elixir = pcall(require, "elixir")
         if has_elixir then
             elixir.setup {
                 on_attach = on_attach,
                 capabilities = capabilities,
                 cmd = { vim.fn.stdpath('data') .. "/mason/bin/elixir-ls" },
                 settings = elixir.settings({
-                        dialyzerEnabled = true,
-                        fetchDeps = false,
-                        enableTestLenses = false,
-                        suggestSpecs = true,
-                    }),
+                    dialyzerEnabled = true,
+                    fetchDeps = false,
+                    enableTestLenses = false,
+                    suggestSpecs = true,
+                }),
             }
         else
             require 'lspconfig'.elixirls.setup {
@@ -68,7 +68,6 @@ require("mason-lspconfig").setup_handlers {
                 flags = { debounce_text_changes = 150 },
                 cmd = { vim.fn.stdpath('data') .. "/mason/bin/elixir-ls" }
             }
-
         end
     end,
     -- Next, you can provide a dedicated handler for specific servers.
@@ -90,7 +89,20 @@ require("mason-lspconfig").setup_handlers {
                 }
             }
         }
+    end,
+    ["yamlls"] = function()
+        require 'lspconfig'.yamlls.setup {
+            on_attach = on_attach,
+            capabilities = capabilities,
+            flags = { debounce_text_changes = 150 },
+            settings = {
+                yaml = {
+                    validate = false
+                }
+            }
+        }
     end
+
 }
 
 local mappings = {
