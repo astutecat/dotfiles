@@ -28,7 +28,8 @@ update-brew:
   @ :
 
 update-chezmoi:
-  chezmoi update --apply --init
+  chezmoi update --init
+  chezmoi apply
 
 update-asdf:
   asdf plugin update --all
