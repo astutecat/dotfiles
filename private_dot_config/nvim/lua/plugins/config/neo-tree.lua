@@ -30,6 +30,12 @@ require("neo-tree").setup({
     filesystem = {
         group_empty_dirs = true,
         use_libuv_file_watcher = true,
+        filtered_items = {
+            always_show = {
+                ".gitignore",
+                ".envrc",
+            },
+        }
     },
     buffers = {
         group_empty_dirs = true
