@@ -1,3 +1,4 @@
+set shell := ["zsh", "-cu"]
 
 [private]
 default:
