@@ -97,12 +97,11 @@ require("mason-lspconfig").setup_handlers {
             flags = { debounce_text_changes = 150 },
             settings = {
                 yaml = {
-                    validate = false
+                    keyOrdering = false
                 }
             }
         }
     end
-
 }
 
 local mappings = {
