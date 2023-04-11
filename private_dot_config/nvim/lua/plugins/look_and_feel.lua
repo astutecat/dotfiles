@@ -63,7 +63,13 @@ return {
 
         use {
             "petertriho/nvim-scrollbar",
-            config = [[require("scrollbar").setup({})]]
+            config = function ()
+                require("scrollbar").setup({})
+                require("scrollbar.handlers.gitsigns").setup()
+            end,
+            requires = {
+                { 'lewis6991/gitsigns.nvim' }
+            }
         }
     end
 }
