@@ -8,7 +8,9 @@ local on_attach_keymap = {
     { 'C-k',       '<cmd>lua vim.lsp.buf.signature_help()<CR>',  'LSP: Signature Help',       opts = k_opts },
     { '<space>D',  '<cmd>lua vim.lsp.buf.type_definition()<CR>', 'LSP: Type Definition',      opts = k_opts },
     { '<space>rn', '<cmd>lua vim.lsp.buf.rename()<CR>',          'LSP: Rename',               opts = k_opts },
-    { '<space>gr', '<cmd>lua vim.lsp.buf.references()<CR>',      'LSP: References',           opts = k_opts }
+    { '<space>gr', '<cmd>lua vim.lsp.buf.references()<CR>',      'LSP: References',           opts = k_opts },
+    { '<space>r',  '<cmd>lia vim.lsp.codelens.run',              'LSP: Codelens',             opts = k_opts },
+    { '<space>s',  '<cmd>Telescope lsp_document_symbols ',       'LSP: Document Sumbols',     opts = k_opts }
 }
 
 local on_attach = function(client, bufnr)
@@ -50,16 +52,19 @@ require("mason-lspconfig").setup_handlers {
     ["elixirls"] = function()
         local has_elixir, elixir = pcall(require, "elixir")
         if has_elixir then
+            local elixirls = require("elixir.elixirls")
             elixir.setup {
-                on_attach = on_attach,
-                capabilities = capabilities,
-                cmd = { vim.fn.stdpath('data') .. "/mason/bin/elixir-ls" },
-                settings = elixir.settings({
-                    dialyzerEnabled = true,
-                    fetchDeps = false,
-                    enableTestLenses = false,
-                    suggestSpecs = true,
-                }),
+                elixirls = {
+                    on_attach = on_attach,
+                    capabilities = capabilities,
+                    cmd = { vim.fn.stdpath('data') .. "/mason/bin/elixir-ls" },
+                    settings = elixirls.settings({
+                        dialyzerEnabled = true,
+                        fetchDeps = false,
+                        enableTestLenses = false,
+                        suggestSpecs = true,
+                    }),
+                }
             }
         else
             require 'lspconfig'.elixirls.setup {
