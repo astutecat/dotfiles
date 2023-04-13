@@ -26,9 +26,9 @@ fi
 
 
 {{if eq .location "work"}}
-alias rts="cd ~/repos/RTS; tmux_rename RTS"
-alias zebra="cd ~/repos/Zebra/; tmux_rename Zebra"
+alias rts="cd ~/repos/RTS; .just ns"
+alias zebra="cd ~/repos/Zebra/; .just ns"
 alias repos="cd ~/repos/"
-alias wiki="cd ~/repos/DemandResponse.wiki"
+alias wiki="cd ~/repos/DemandResponse.wiki; .just ns"
 {{ end }}
 

@@ -11,9 +11,13 @@ alias n := nvim
 
 alias ns := split-nvim
 @split-nvim: # launch nvim in a tmux split
-  [[ -n $TMUX ]] || tmux
-  tmux split-window -hd
-  nvim
+  #!/bin/bash
+  dir="${PWD##*/}"
+  if [[ -n $TMUX ]]; then
+    tmux new-window\; rename-window "$dir"\; split-window -hd\; send-keys 'nvim' C-m \;
+  else
+    tmux new-session\; rename-window "$dir"; split-window -hd\; send-keys 'nvim' C-m \;
+  fi
 
 update-all: update-chezmoi update-brew update-asdf update-rust update-cargo
 
