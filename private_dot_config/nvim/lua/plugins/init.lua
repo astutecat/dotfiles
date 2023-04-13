@@ -214,6 +214,8 @@ local startup_function = function(use)
         end
     }
 
+    use 'wakatime/vim-wakatime'
+
     use {
         "startup-nvim/startup.nvim",
         requires = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" },
