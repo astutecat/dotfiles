@@ -49,5 +49,9 @@ return {
             after = 'nvim-lspconfig',
             config = [[require('plugins.config.rust-tools')]]
         }
+
+        use {
+            'mhanberg/output-panel.nvim'
+        }
     end
 }
