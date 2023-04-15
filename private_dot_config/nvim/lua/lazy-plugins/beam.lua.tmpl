@@ -1,0 +1,12 @@
+return {
+{{- if eq .chezmoi.fqdnHostname "debian9.ntls.local"}}
+      {
+        'vim-erlang/vim-erlang-runtime'
+      }
+{{ else }}
+      {
+        "elixir-tools/elixir-tools.nvim",
+        dependencies = { "nvim-lua/plenary.nvim" },
+      }
+{{ end }}
+}

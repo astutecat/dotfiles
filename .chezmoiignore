@@ -10,3 +10,4 @@ tags
 
 justfile
 .wakatime-project
+.config/nvim/lua/packer-plugins

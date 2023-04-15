@@ -1,6 +1,7 @@
 require('functions')
-require('plugins')
+-- require('plugins')
 -- require('spell')
+require('lazy-nvim')
 require('mappings')
 
 vim.o.encoding = "utf-8"
