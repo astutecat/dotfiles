@@ -1,0 +1,5 @@
+-- vim: ft=lua.chezmoitmpl :
+local M = {}
+M.work_config = {{eq .location "work"}}
+M.on_d9 = {{eq .chezmoi.fqdnHostname "debian9.ntls.local"}}
+return M
