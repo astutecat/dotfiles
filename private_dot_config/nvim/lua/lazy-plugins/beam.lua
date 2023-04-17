@@ -1,12 +1,13 @@
-return {
-{{- if eq .chezmoi.fqdnHostname "debian9.ntls.local"}}
-      {
+local on_d9 = require("config_flags").on_d9
+
+if on_d9 then
+    return {
         'vim-erlang/vim-erlang-runtime'
-      }
-{{ else }}
-      {
+    }
+else
+    return {
         "elixir-tools/elixir-tools.nvim",
         dependencies = { "nvim-lua/plenary.nvim" },
-      }
-{{ end }}
-}
+        opts = {}
+    }
+end
