@@ -6,7 +6,7 @@ return {
             {'nvim-telescope/telescope-fzy-native.nvim'}
         },
         opts = {
-            require("lazy-plugins.opts.telescope")
+            require("lazy-plugins.opts.telescope-nvim")
         },
         config = function (_, opts)
            require('telescope').setup(opts)

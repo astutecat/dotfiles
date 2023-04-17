@@ -3,7 +3,7 @@ return {
         'monaqa/dial.nvim',
         event = "BufEnter",
         opts = {},
-        config = function(...)
+        config = function(_, _)
             local augend = require("dial.augend")
 
             require("dial.config").augends:register_group {

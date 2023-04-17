@@ -10,6 +10,6 @@ return {
             'nvim-telescope/telescope.nvim',
             'folke/which-key.nvim',
         },
-        opts = require('lazy-plugins.opts.legendary')
+        opts = require('lazy-plugins.opts.legendary-nvim')
     }
 }
