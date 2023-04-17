@@ -25,7 +25,7 @@ return {
             "petertriho/cmp-git",
         },
         opts = {},
-        config = function(_, _opts)
+        config = function(_, _)
             local lspkind = require('lspkind')
             local symbols = require("type-icons")
             local cmp = require 'cmp'
