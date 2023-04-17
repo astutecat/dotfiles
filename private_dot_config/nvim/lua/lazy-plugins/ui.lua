@@ -3,8 +3,6 @@ return {
     { 'kshenoy/vim-signature',             event = "BufEnter" },
     { 'jeffkreeftmeijer/vim-numbertoggle', event = "BufEnter" },
 
-    --TODO: Check if needed {'ryanoasis/vim-devicons'},
-
     {
         'lukas-reineke/indent-blankline.nvim',
         opts = {
@@ -149,6 +147,7 @@ return {
         'nvim-lualine/lualine.nvim',
         dependencies = { 'nvim-tree/nvim-web-devicons', 'SmiteshP/nvim-navic' },
         opts = require("lazy-plugins.opts.lualine"),
+        event = "VimEnter"
     },
 
     {
