@@ -29,16 +29,20 @@ return {
             },
             highlight = {
                 enable = true,
-                additional_vim_regex_highlighting = { "markdown", "erlang" },
+                additional_vim_regex_highlighting = {
+                    "markdown",
+                    "erlang",
+                },
                 disable = { "latex" },
             },
             indent = {
                 enable = true,
             },
         },
-        config = function(_, _)
-            local ts_update = require('nvim-treesitter.install').update({ with_sync = true })
-            ts_update()
+        build = ":TSUpdate",
+        event = { "BufReadPost", "BufNewFile" },
+        config = function(_, opts)
+            require("nvim-treesitter.configs").setup(opts)
         end,
     },
     {

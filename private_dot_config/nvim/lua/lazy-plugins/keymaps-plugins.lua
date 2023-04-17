@@ -1,6 +1,7 @@
 return {
     {
-        'folke/which-key.nvim'
+        'folke/which-key.nvim',
+        opts = {}
     },
     {
         'mrjones2014/legendary.nvim',
