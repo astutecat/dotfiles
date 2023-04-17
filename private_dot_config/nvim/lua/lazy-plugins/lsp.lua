@@ -3,6 +3,7 @@ return {
     {
         "williamboman/mason.nvim",
         opts = {},
+        version = false,
     },
     {'mhanberg/output-panel.nvim'},
     {
@@ -15,6 +16,7 @@ return {
             'mason-lspconfig.nvim',
             'nvim-navic'
         },
+        version = false,
         opts = require("lazy-plugins.opts.nvim-lspconfig"),
         config = function(_,opts)
             require("mason-lspconfig").setup_handlers(opts)
@@ -25,8 +27,9 @@ return {
     {
             "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
             dependencies = {'nvim-lspconfig'},
+            version = false,
             opts = {},
-            config = function(_, _opts)
+            config = function(_, _)
                 require("lsp_lines").setup()
                 vim.diagnostic.config({
                     virtual_text = false,
