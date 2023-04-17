@@ -1,4 +1,3 @@
--- TODO: legendary.keymaps(require("legendary_keymaps.telescope")
 return {
     {
         "nvim-telescope/telescope.nvim",
@@ -8,7 +7,12 @@ return {
         },
         opts = {
             require("lazy-plugins.opts.telescope")
-        }
+        },
+        config = function (_, opts)
+           require('telescope').setup(opts)
+           local keymaps = require("lazy-plugins.opts.keymaps-telescope")
+           require("legendary").keymaps(keymaps)
+        end
     },
     {
         'ahmedkhalf/project.nvim',
