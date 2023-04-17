@@ -16,10 +16,6 @@ local cs_opts = {
     hide_inactive_statusline = false,
     dim_inactive = false, -- dims inactive windows
     lualine_bold = false,
-    on_colors = function(_colors)
-    end,
-    on_highlights = function(_highlights, _colors)
-    end,
 }
 
 return {

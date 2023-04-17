@@ -1,7 +1,7 @@
 return {
     { 'stevearc/dressing.nvim' },
-    {'kshenoy/vim-signature', event = "BufEnter"},
-    { 'jeffkreeftmeijer/vim-numbertoggle', event = "BufEnter"},
+    { 'kshenoy/vim-signature',             event = "BufEnter" },
+    { 'jeffkreeftmeijer/vim-numbertoggle', event = "BufEnter" },
 
     --TODO: Check if needed {'ryanoasis/vim-devicons'},
 
@@ -57,6 +57,20 @@ return {
                     symbol = '●',
                 }
             },
+            event_handlers = {
+                {
+                    event = "neo_tree_window_after_open",
+                    handler = function(_)
+                        pcall(vim.cmd.AlphaRedraw)
+                    end
+                },
+                {
+                    event = "neo_tree_window_after_close",
+                    handler = function(_)
+                        pcall(vim.cmd.AlphaRedraw)
+                    end
+                }
+            }
         },
         config = function(_, opts)
             vim.cmd([[ let g:neo_tree_remove_legacy_commands = 1 ]])
@@ -72,13 +86,13 @@ return {
             require('legendary').keymaps(mappings)
 
             vim.fn.sign_define("DiagnosticSignError",
-            { text = " ", texthl = "DiagnosticSignError" })
+                { text = " ", texthl = "DiagnosticSignError" })
             vim.fn.sign_define("DiagnosticSignWarn",
-            { text = " ", texthl = "DiagnosticSignWarn" })
+                { text = " ", texthl = "DiagnosticSignWarn" })
             vim.fn.sign_define("DiagnosticSignInfo",
-            { text = " ", texthl = "DiagnosticSignInfo" })
+                { text = " ", texthl = "DiagnosticSignInfo" })
             vim.fn.sign_define("DiagnosticSignHint",
-            { text = "", texthl = "DiagnosticSignHint" })
+                { text = "", texthl = "DiagnosticSignHint" })
             require("neo-tree").setup(opts)
         end
     },
@@ -140,7 +154,7 @@ return {
     {
         "petertriho/nvim-scrollbar",
         opts = {},
-        config = function (_, opts)
+        config = function(_, opts)
             require("scrollbar").setup(opts)
             require("scrollbar.handlers.gitsigns").setup()
         end,
@@ -151,17 +165,17 @@ return {
 
     {
         'kevinhwang91/nvim-hlslens',
-        dependencies = {"nvim-scrollbar"},
+        dependencies = { "nvim-scrollbar" },
         opts = {},
-        config = function(_, _opts)
+        config = function(_, _)
             require("scrollbar.handlers.search").setup()
-            local kopts = {noremap = true, silent = true}
+            local kopts = { noremap = true, silent = true }
             vim.api.nvim_set_keymap('n', 'n',
-            [[<Cmd>execute('normal! ' . v:count1 . 'n')<CR><Cmd>lua require('hlslens').start()<CR>]],
-            kopts)
+                [[<Cmd>execute('normal! ' . v:count1 . 'n')<CR><Cmd>lua require('hlslens').start()<CR>]],
+                kopts)
             vim.api.nvim_set_keymap('n', 'N',
-            [[<Cmd>execute('normal! ' . v:count1 . 'N')<CR><Cmd>lua require('hlslens').start()<CR>]],
-            kopts)
+                [[<Cmd>execute('normal! ' . v:count1 . 'N')<CR><Cmd>lua require('hlslens').start()<CR>]],
+                kopts)
             local mappings = require("lazy-plugins.opts.keymaps-hlslens")
             require('legendary').keymaps(mappings)
         end
@@ -174,5 +188,3 @@ return {
 
 
 }
-
-
