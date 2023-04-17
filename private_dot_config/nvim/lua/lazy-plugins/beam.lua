@@ -1,13 +1,14 @@
 local on_d9 = require("config_flags").on_d9
 
-if on_d9 then
-    return {
-        'vim-erlang/vim-erlang-runtime'
-    }
-else
-    return {
+return {
+    {
+        'vim-erlang/vim-erlang-runtime',
+        cond = on_d9
+    },
+    {
         "elixir-tools/elixir-tools.nvim",
         dependencies = { "nvim-lua/plenary.nvim" },
-        opts = {}
+        opts = {},
+        cond = not on_d9
     }
-end
+}
