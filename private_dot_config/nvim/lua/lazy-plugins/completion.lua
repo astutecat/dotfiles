@@ -1,7 +1,7 @@
 return {
     {
         'hrsh7th/cmp-vsnip',
-        dependencies = {"hrsh7th/vim-vsnip"}
+        dependencies = { "hrsh7th/vim-vsnip" }
     },
 
     {
@@ -16,13 +16,22 @@ return {
             'onsails/lspkind.nvim',
             'hrsh7th/cmp-vsnip',
             'quangnguyen30192/cmp-nvim-tags',
+            { 'hrsh7th/cmp-buffer' },
+            { 'hrsh7th/cmp-path' },
+            { 'hrsh7th/cmp-nvim-lua' },
+            { 'hrsh7th/cmp-cmdline' },
+            { 'hrsh7th/cmp-nvim-lsp' },
+            { 'kdheepak/cmp-latex-symbols' },
+            "petertriho/cmp-git",
         },
+        opts = {},
         config = function(_, _opts)
             local lspkind = require('lspkind')
-            local symbols = require("lazy-plugins.opts.cmp-symbols")
+            local symbols = require("type-icons")
             local cmp = require 'cmp'
             cmp.setup {
                 completion = {
+                    completeopt = "menu,menuone,noinsert",
                 },
                 formatting = {
                     window = {
@@ -66,39 +75,29 @@ return {
                     ['<CR>'] = cmp.mapping.confirm({ select = false }),
                 }),
                 sources = {
-                    { name = 'vsnip',         priority = 5,       max_item_count = 2, keyword_length = 2 },
-                    { name = 'nvim_lsp',      max_item_count = 7, priority = 4,       keyword_length = 2 },
-                    { name = 'buffer',        max_item_count = 4, priority = 3 },
-                    { name = 'tags',          keyword_length = 4, max_item_count = 5, priority = 2 },
-                    { name = 'latex_symbols', keyword_length = 2, max_item_count = 3, priority = 1 }
-                },
-                sorting = {
-                    comparators = {
-                        cmp.config.compare.score,
-                        cmp.config.compare.offset,
-                        cmp.config.compare.exact,
-                        cmp.config.compare.recently_used,
-                        cmp.config.compare.kind,
-                        cmp.config.compare.locality,
-                        cmp.config.compare.sort_text,
-                        cmp.config.compare.length,
-                        cmp.config.compare.order,
-                    },
+                    { name = 'vsnip',         max_item_count = 3 },
+                    { name = 'nvim_lsp',      max_item_count = 7 },
+                    { name = 'buffer',        max_item_count = 5 },
+                    { name = 'tags',          max_item_count = 5, priority = 1 },
+                    { name = 'latex_symbols', max_item_count = 4 }
                 },
             }
+            -- Set configuration for specific filetype.
             cmp.setup.filetype('gitcommit', {
                 sources = cmp.config.sources({
-                    { name = 'git' },
+                    { name = 'cmp_git' }, -- You can specify the `cmp_git` source if you were installed it.
                 }, {
                     { name = 'buffer' },
                 })
             })
+
             cmp.setup.cmdline({ '/', '?' }, {
                 mapping = cmp.mapping.preset.cmdline(),
                 sources = {
                     { name = 'buffer' }
                 }
             })
+
             cmp.setup.cmdline(':', {
                 mapping = cmp.mapping.preset.cmdline(),
                 sources = cmp.config.sources({
@@ -110,14 +109,6 @@ return {
         end
     },
 
-    {
-        'hrsh7th/cmp-nvim-lsp'
-    },
 
-    { 'hrsh7th/cmp-buffer',         dependencies = { 'nvim-cmp' } },
-    { 'hrsh7th/cmp-path',           dependencies = { 'nvim-cmp' } },
-    { 'hrsh7th/cmp-nvim-lua',       dependencies = { 'nvim-cmp' } },
-    { 'hrsh7th/cmp-cmdline',        dependencies = { 'nvim-cmp' } },
-    { 'kdheepak/cmp-latex-symbols', dependencies = { 'nvim-cmp' } },
 
 }

@@ -28,5 +28,4 @@ return {
         dependencies = { 'vim-vsnip' }
     },
 
-
 }

@@ -1,7 +1,8 @@
 return {
     {
         'folke/which-key.nvim',
-        opts = {}
+        opts = {},
+        version = "^1.2.3"
     },
     {
         'mrjones2014/legendary.nvim',
