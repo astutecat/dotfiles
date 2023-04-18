@@ -21,7 +21,7 @@ return {
   extensions = {
     frecency = {
       default_workspace = 'CWD',
-      ignore_patterns = {"*.git/", "*/tmp/*", "*.hg/*"}
+      ignore_patterns = {"*.git/*", "*/tmp/*", "*.hg/*"}
     },
   }
 }

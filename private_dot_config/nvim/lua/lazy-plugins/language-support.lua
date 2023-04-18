@@ -43,6 +43,7 @@ return {
         config = function(_, opts)
             require("nvim-treesitter.configs").setup(opts)
         end,
+        event = { "BufReadPost", "BufNewFile" }
     },
     {
         'RRethy/nvim-treesitter-endwise',
@@ -54,14 +55,16 @@ return {
         },
         config = function(_, opts)
             require('nvim-treesitter.configs').setup(opts)
-        end
+        end,
+        event = { "BufReadPost", "BufNewFile" }
     },
     {
         'sheerun/vim-polyglot',
         opts = {},
         config = function(_, _)
             vim.g.ployglot_disabled = "autoindent"
-        end
+        end,
+        event = "VeryLazy"
     },
     {
         'preservim/vim-markdown',
@@ -71,7 +74,8 @@ return {
         ft = "markdown"
     },
     {
-        'alker0/chezmoi.vim'
+        'alker0/chezmoi.vim',
+        event = "VeryLazy"
     },
 
     {

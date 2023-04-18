@@ -121,6 +121,7 @@ return {
             local mappings = require("lazy-plugins.opts.keymaps-todo-comments")
             require('legendary').keymaps(mappings)
         end,
+        event = { "BufReadPost", "BufNewFile" }
     },
 
     {
@@ -139,7 +140,8 @@ return {
         },
         opts = {
             theme = 'tokyonight',
-        }
+        },
+        event = { "BufReadPost", "BufNewFile" }
     },
 
     {
@@ -177,7 +179,7 @@ return {
             local mappings = require("lazy-plugins.opts.keymaps-hlslens")
             require('legendary').keymaps(mappings)
         end,
-        event = "BufEnter"
+        event = { "BufReadPost", "BufNewFile" }
     },
 
     {
