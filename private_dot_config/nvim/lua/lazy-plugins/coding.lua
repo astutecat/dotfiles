@@ -10,7 +10,7 @@ return {
         event = { "BufReadPost", "BufNewFile" }
     },
     { 'christoomey/vim-sort-motion', event = e_vl },
-    { 'ludovicchabant/vim-gutentags' },
+    { 'ludovicchabant/vim-gutentags', event = e_vl },
     {
         'machakann/vim-swap',
         opts = {},

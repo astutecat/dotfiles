@@ -84,6 +84,9 @@ return {
                     { name = 'tags',          max_item_count = 5, priority = 1,      keyword_length = 3 },
                     { name = 'latex_symbols', max_item_count = 4 }
                 },
+                performance = {
+                    trigger_debounce_time = 500
+                },
             }
             -- Set configuration for specific filetype.
             cmp.setup.filetype('gitcommit', {

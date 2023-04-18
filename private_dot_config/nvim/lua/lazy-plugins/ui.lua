@@ -1,22 +1,44 @@
+local no_indent_filetypes = { "help", "alpha", "dashboard", "neo-tree", "Trouble", "lazy", "mason" }
+
 return {
-    { 'stevearc/dressing.nvim' },
+    { 'stevearc/dressing.nvim',            lazy = true },
     { 'kshenoy/vim-signature',             event = { "BufReadPost", "BufNewFile" } },
     { 'jeffkreeftmeijer/vim-numbertoggle', event = { "BufReadPost", "BufNewFile" } },
 
     {
         'lukas-reineke/indent-blankline.nvim',
         opts = {
-            --  show_current_context = false,
             space_char_blankline = " ",
-            --show_current_context = true,
-            --show_current_context_start = true,
+            char = "│",
+            filetype_exclude = no_indent_filetypes,
             show_trailing_blankline_indent = false,
-            -- bufname_exclude = {'NvimTree'},
-            char = '│',
-            -- char_list = {'|', '¦', '┆'},
-            -- use_treesitter = true
+            show_current_context = false,
         },
         event = { "BufReadPost", "BufNewFile" }
+    },
+
+    {
+        "echasnovski/mini.indentscope",
+        version = false, -- wait till new 0.7.0 release to put it back on semver
+        event = { "BufReadPre", "BufNewFile" },
+        opts = function()
+            return {
+                symbol = "│",
+                options = { try_as_border = true },
+                draw = {
+                    animation = require('mini.indentscope').gen_animation.none()
+                }
+            }
+        end,
+        config = function(_, opts)
+            vim.api.nvim_create_autocmd("FileType", {
+                pattern = no_indent_filetypes,
+                callback = function()
+                    vim.b.miniindentscope_disable = true
+                end,
+            })
+            require("mini.indentscope").setup(opts)
+        end,
     },
 
     {
