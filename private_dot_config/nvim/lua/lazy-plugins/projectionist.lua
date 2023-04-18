@@ -1,7 +1,7 @@
 return {
     {
         'tpope/vim-projectionist',
-        config = function(...)
+        config = function()
             local heuristics = {}
 
             heuristics["lib/*.ex"] = {

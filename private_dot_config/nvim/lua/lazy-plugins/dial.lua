@@ -1,10 +1,10 @@
 return {
     {
         'monaqa/dial.nvim',
-        event = { "BufReadPost", "BufNewFile" },
+        event = "VeryLazy",
         opts = {},
         version = false,
-        config = function(_, _)
+        config = function()
             local augend = require("dial.augend")
 
             require("dial.config").augends:register_group {

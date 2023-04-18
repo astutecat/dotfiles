@@ -1,10 +1,12 @@
+local e_vl = "VeryLazy"
+
 return {
-    { 'vim-scripts/BufOnly.vim', event = { "BufReadPost", "BufNewFile" }},
-    { 'rbgrouleff/bclose.vim', event = { "BufReadPost", "BufNewFile" }},
-    { 'rbong/vim-buffest', event = { "BufReadPost", "BufNewFile" }},
+    { 'vim-scripts/BufOnly.vim', event = e_vl },
+    { 'rbgrouleff/bclose.vim',   event = e_vl },
+    { 'rbong/vim-buffest',       event = e_vl },
     {
         'milkypostman/vim-togglelist',
-        event = { "BufReadPost", "BufNewFile" },
+        event = e_vl,
         opt = {},
         config = function(_, _)
             vim.g.toggle_list_no_mappings = true
@@ -39,7 +41,7 @@ return {
     {
         'kevinhwang91/nvim-ufo',
         dependencies = 'kevinhwang91/promise-async',
-        event = { "BufReadPost", "BufNewFile" },
+        event = e_vl,
         opts = require("lazy-plugins.opts.nvim-ufo"),
         config = function(_, opts)
             vim.o.foldcolumn = '0' -- '0' is not bad

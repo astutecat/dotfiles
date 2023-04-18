@@ -56,7 +56,7 @@ return {
         config = function(_, opts)
             require('nvim-treesitter.configs').setup(opts)
         end,
-        event = { "BufReadPost", "BufNewFile" }
+        event = "VeryLazy"
     },
     {
         'sheerun/vim-polyglot',
@@ -99,7 +99,7 @@ return {
     },
     {
         'lervag/vimtex',
-        config = function(...)
+        config = function()
             vim.cmd([[
               if executable('zathura')
                 let g:vimtex_view_method = 'zathura'
