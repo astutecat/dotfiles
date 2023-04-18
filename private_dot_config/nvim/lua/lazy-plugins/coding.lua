@@ -1,16 +1,16 @@
-local e_vl = "VeryLazy"
-local e_buf_read_or_new = { "BufReadPost", "BufNewFile" }
+
+local e = require("startup_events")
 
 return {
-    { 'tpope/vim-surround',   event = e_buf_read_or_new },
-    { 'tpope/vim-unimpaired', event = e_buf_read_or_new },
+    { 'tpope/vim-surround',   event = e.vl },
+    { 'tpope/vim-unimpaired', event = e.vl },
     {
         'tpope/vim-sleuth',
         dependencies = { 'sheerun/vim-polyglot' },
-        event = { "BufReadPost", "BufNewFile" }
+        event = e.vl
     },
-    { 'christoomey/vim-sort-motion', event = e_vl },
-    { 'ludovicchabant/vim-gutentags', event = e_vl },
+    { 'christoomey/vim-sort-motion', event = e.vl },
+    { 'ludovicchabant/vim-gutentags', event = e.vl },
     {
         'machakann/vim-swap',
         opts = {},
@@ -29,12 +29,12 @@ return {
             }
             require('legendary').keymaps(mappings)
         end,
-        event = e_vl
+        event = e.vl
     },
     {
         'windwp/nvim-autopairs',
         opts = {},
-        event = e_vl
+        event = e.vl
     },
     {
         'AndrewRadev/splitjoin.vim',
@@ -53,12 +53,12 @@ return {
             }
             require('legendary').keymaps(mappings)
         end,
-        event = e_vl
+        event = e.vl
     },
     {
         'numToStr/Comment.nvim',
         opts = {},
-        event = e_vl
+        event = e.vl
     },
     {
         'tommcdo/vim-lion',
@@ -68,9 +68,9 @@ return {
             vim.g.lion_map_right      = 'ga'
             vim.g.lion_map_left       = 'gA'
         end,
-        event = e_vl
+        event = e.vl
     },
-    { 'wakatime/vim-wakatime', event = e_vl },
+    { 'wakatime/vim-wakatime', event = e.vl },
     {
         'astutecat/nclipper.vim',
         config = function()
@@ -94,6 +94,6 @@ return {
             }
             require('legendary').keymaps(mappings)
         end,
-        event = e_vl
+        event = e.vl
     },
 }
