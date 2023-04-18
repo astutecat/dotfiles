@@ -21,6 +21,7 @@ local cs_opts = {
 return {
     {
         "folke/tokyonight.nvim",
+        version = "*",
         lazy = false,
         opts = cs_opts,
         config = function(_, opts)
