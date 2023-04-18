@@ -1,16 +1,18 @@
+local e_vl = "VeryLazy"
+
 return {
-    { 'nvim-lua/lsp-status.nvim', event = "LspAttach" },
+    { 'nvim-lua/lsp-status.nvim',  event = e_vl },
     {
         "williamboman/mason.nvim",
         opts = {},
         version = false,
-        event = "VeryLazy"
+        event = e_vl
     },
     { 'mhanberg/output-panel.nvim' },
     {
         "williamboman/mason-lspconfig.nvim",
         dependencies = { 'mason.nvim' },
-        event = "VeryLazy"
+        event = e_vl
     },
     {
         'neovim/nvim-lspconfig',
@@ -25,7 +27,7 @@ return {
             local mappings = require("lazy-plugins.opts.keymaps-lsp")
             require('legendary').keymaps(mappings)
         end,
-        event = "VeryLazy"
+        event = e_vl
     },
     {
         "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
@@ -39,7 +41,7 @@ return {
                 virtual_lines = false,
             })
         end,
-        event = "LspAttach"
+        event = e_vl
     },
     {
         'jose-elias-alvarez/null-ls.nvim',
@@ -63,7 +65,7 @@ return {
     },
     {
         "mhanberg/output-panel.nvim",
-        event = "VeryLazy",
+        event = e_vl,
         config = function()
             require("output_panel").setup()
         end

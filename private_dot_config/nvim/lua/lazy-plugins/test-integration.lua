@@ -10,7 +10,7 @@ return {
             "vim-test/vim-test",
         },
         opts = {},
-        config = function(...)
+        config = function()
             local n_opts = {
                 adapters = {
                     require("neotest-rust"),
@@ -48,6 +48,6 @@ return {
             }
             require('legendary').keymaps(mappings)
         end,
-        event = { "BufReadPost", "BufNewFile" }
+        event = "VeryLazy"
     }
 }
