@@ -68,7 +68,7 @@ return {
         end,
         event = "VeryLazy"
     },
-    { 'wakatime/vim-wakatime',       event = "VeryLazy" },
+    { 'wakatime/vim-wakatime', event = "VeryLazy" },
     {
         'astutecat/nclipper.vim',
         config = function(...)
