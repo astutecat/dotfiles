@@ -85,7 +85,9 @@ return {
                     { name = 'latex_symbols', max_item_count = 4 }
                 },
                 performance = {
-                    trigger_debounce_time = 500
+                    debounce = 300,
+                    throttle = 60,
+                    fetching_timeout = 200,
                 },
             }
             -- Set configuration for specific filetype.
