@@ -47,7 +47,6 @@ return {
                 },
             }
             require('legendary').keymaps(mappings)
-        end,
-        event = 'VimEnter'
+        end
     }
 }

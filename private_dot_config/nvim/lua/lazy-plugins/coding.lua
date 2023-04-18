@@ -1,11 +1,13 @@
 return {
-    { 'tpope/vim-surround' },
-    { 'tpope/vim-unimpaired' },
+    { 'tpope/vim-surround',   event = { "BufReadPost", "BufNewFile" } },
+    { 'tpope/vim-unimpaired', event = { "BufReadPost", "BufNewFile" } },
     {
         'tpope/vim-sleuth',
-        dependencies = { 'sheerun/vim-polyglot' }
+        dependencies = { 'sheerun/vim-polyglot' },
+        event = { "BufReadPost", "BufNewFile" }
     },
-    { 'christoomey/vim-sort-motion' },
+    { 'christoomey/vim-sort-motion', event = { "BufReadPost", "BufNewFile" }
+    },
     { 'ludovicchabant/vim-gutentags' },
     {
         'machakann/vim-swap',
@@ -24,12 +26,12 @@ return {
                 },
             }
             require('legendary').keymaps(mappings)
-        end
+        end,
+        event = { "BufReadPost", "BufNewFile" }
     },
     {
         'windwp/nvim-autopairs',
-        opts = {},
-        event = 'BufEnter'
+        opts = {}
     },
     {
         'AndrewRadev/splitjoin.vim',
@@ -47,8 +49,7 @@ return {
                 },
             }
             require('legendary').keymaps(mappings)
-        end,
-        event = "BufEnter"
+        end
     },
     {
         'numToStr/Comment.nvim',
@@ -61,9 +62,10 @@ return {
             vim.g.lion_squeeze_spaces = 1
             vim.g.lion_map_right      = 'ga'
             vim.g.lion_map_left       = 'gA'
-        end
+        end,
+        event = "VeryLazy"
     },
-    { 'wakatime/vim-wakatime' },
+    { 'wakatime/vim-wakatime', event = "VeryLazy" },
     {
         'astutecat/nclipper.vim',
         config = function(...)
@@ -87,6 +89,6 @@ return {
             }
             require('legendary').keymaps(mappings)
         end,
-        event = 'BufEnter'
+        event = { "BufReadPost", "BufNewFile" }
     },
 }

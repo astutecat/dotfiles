@@ -40,7 +40,6 @@ return {
             },
         },
         build = ":TSUpdate",
-        event = { "BufReadPost", "BufNewFile" },
         config = function(_, opts)
             require("nvim-treesitter.configs").setup(opts)
         end,
@@ -68,7 +67,8 @@ return {
         'preservim/vim-markdown',
         dependencies = {
             { 'godlygeek/tabular' }
-        }
+        },
+        ft = "markdown"
     },
     {
         'alker0/chezmoi.vim'
