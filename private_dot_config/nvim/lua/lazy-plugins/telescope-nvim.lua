@@ -12,7 +12,8 @@ return {
            require('telescope').setup(opts)
            local keymaps = require("lazy-plugins.opts.keymaps-telescope")
            require("legendary").keymaps(keymaps)
-        end
+        end,
+        version = "*"
     },
     {
         'ahmedkhalf/project.nvim',
@@ -37,7 +38,8 @@ return {
         config = function (_, opts)
             require("project_nvim").setup(opts)
             require("telescope").load_extension('projects')
-        end
+        end,
+        version = "*"
     },
     { 'nvim-telescope/telescope-fzy-native.nvim',
         dependencies = { "telescope.nvim" },
