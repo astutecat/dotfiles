@@ -43,7 +43,7 @@ return {
         config = function(_, opts)
             require("nvim-treesitter.configs").setup(opts)
         end,
-        event = { "BufReadPost", "BufNewFile" }
+        event = "VeryLazy"
     },
     {
         'RRethy/nvim-treesitter-endwise',
