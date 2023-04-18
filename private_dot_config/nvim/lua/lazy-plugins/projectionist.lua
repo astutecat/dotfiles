@@ -25,6 +25,7 @@ return {
                 }
             }
             vim.g.projectionist_heuristics = heuristics
-        end
+        end,
+        event = "VeryLazy"
     },
 }

@@ -2,16 +2,15 @@ return {
     {
         "nvim-telescope/telescope.nvim",
         dependencies = {
-            {'nvim-lua/plenary.nvim',},
-            {'nvim-telescope/telescope-fzy-native.nvim'}
+            { 'nvim-lua/plenary.nvim', },
+            { 'nvim-telescope/telescope-fzy-native.nvim' }
         },
         opts = {
-            require("lazy-plugins.opts.telescope-nvim")
         },
-        config = function (_, opts)
-           require('telescope').setup(opts)
-           local keymaps = require("lazy-plugins.opts.keymaps-telescope")
-           require("legendary").keymaps(keymaps)
+        config = function()
+            require('telescope').setup(require("lazy-plugins.opts.telescope-nvim"))
+            local keymaps = require("lazy-plugins.opts.keymaps-telescope")
+            require("legendary").keymaps(keymaps)
         end,
         version = "*"
     },
@@ -35,13 +34,14 @@ return {
             },
             manual_mode = true,
         },
-        config = function (_, opts)
+        config = function(_, opts)
             require("project_nvim").setup(opts)
             require("telescope").load_extension('projects')
         end,
         version = "*"
     },
-    { 'nvim-telescope/telescope-fzy-native.nvim',
+    {
+        'nvim-telescope/telescope-fzy-native.nvim',
         dependencies = { "telescope.nvim" },
         config = function(_, _)
             require('telescope').load_extension('fzy_native')

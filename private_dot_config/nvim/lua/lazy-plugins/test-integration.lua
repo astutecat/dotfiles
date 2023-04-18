@@ -47,6 +47,7 @@ return {
                 },
             }
             require('legendary').keymaps(mappings)
-        end
+        end,
+        event = { "BufReadPost", "BufNewFile" }
     }
 }

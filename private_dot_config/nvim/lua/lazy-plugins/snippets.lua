@@ -1,7 +1,8 @@
 return {
-    { 'rafamadriz/friendly-snippets' },
+    { 'rafamadriz/friendly-snippets', event = "VeryLazy"},
     {
         'hrsh7th/vim-vsnip',
+        event = "VeryLazy",
         config = function(_, _)
             vim.cmd([[
             " Expand
@@ -25,7 +26,8 @@ return {
 
     {
         'hrsh7th/vim-vsnip-integ',
-        dependencies = { 'vim-vsnip' }
+        dependencies = { 'vim-vsnip' },
+        event = "VeryLazy"
     },
 
 }

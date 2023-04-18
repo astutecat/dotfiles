@@ -31,7 +31,8 @@ return {
     },
     {
         'windwp/nvim-autopairs',
-        opts = {}
+        opts = {},
+        event = { "BufReadPost", "BufNewFile" }
     },
     {
         'AndrewRadev/splitjoin.vim',
@@ -49,11 +50,13 @@ return {
                 },
             }
             require('legendary').keymaps(mappings)
-        end
+        end,
+        event = { "BufReadPost", "BufNewFile" }
     },
     {
         'numToStr/Comment.nvim',
-        opts = {}
+        opts = {},
+        event = { "BufReadPost", "BufNewFile" }
     },
     {
         'tommcdo/vim-lion',
@@ -65,7 +68,7 @@ return {
         end,
         event = "VeryLazy"
     },
-    { 'wakatime/vim-wakatime', event = "VeryLazy" },
+    { 'wakatime/vim-wakatime',       event = "VeryLazy" },
     {
         'astutecat/nclipper.vim',
         config = function(...)

@@ -1,12 +1,14 @@
 return {
     {
         'hrsh7th/cmp-vsnip',
-        dependencies = { "hrsh7th/vim-vsnip" }
+        dependencies = { "hrsh7th/vim-vsnip" },
+        event = "VeryLazy"
     },
 
     {
         "petertriho/cmp-git",
-        dependencies = "nvim-lua/plenary.nvim"
+        dependencies = "nvim-lua/plenary.nvim",
+        event = "VeryLazy"
     },
 
     {
@@ -25,6 +27,7 @@ return {
             "petertriho/cmp-git",
         },
         opts = {},
+        event = "VeryLazy",
         config = function(_, _)
             local lspkind = require('lspkind')
             local symbols = require("type-icons")
@@ -78,14 +81,14 @@ return {
                     { name = 'vsnip',         max_item_count = 3 },
                     { name = 'nvim_lsp',      max_item_count = 7 },
                     { name = 'buffer',        max_item_count = 5, keyword_length = 3 },
-                    { name = 'tags',          max_item_count = 5, priority = 1, keyword_length = 3 },
+                    { name = 'tags',          max_item_count = 5, priority = 1,      keyword_length = 3 },
                     { name = 'latex_symbols', max_item_count = 4 }
                 },
             }
             -- Set configuration for specific filetype.
             cmp.setup.filetype('gitcommit', {
                 sources = cmp.config.sources({
-                    { name = 'cmp_git' }, -- You can specify the `cmp_git` source if you were installed it.
+                    { name = 'cmp_git' },
                 }, {
                     { name = 'buffer' },
                 })
@@ -94,7 +97,7 @@ return {
             cmp.setup.cmdline({ '/', '?' }, {
                 mapping = cmp.mapping.preset.cmdline(),
                 sources = {
-                    { name = 'buffer' }
+                    { name = 'buffer', max_item_count = 10 }
                 }
             })
 
