@@ -1,7 +1,7 @@
 return {
     { 'stevearc/dressing.nvim' },
-    { 'kshenoy/vim-signature',             event = "BufEnter" },
-    { 'jeffkreeftmeijer/vim-numbertoggle', event = "BufEnter" },
+    { 'kshenoy/vim-signature',             event = { "BufReadPost", "BufNewFile" } },
+    { 'jeffkreeftmeijer/vim-numbertoggle', event = { "BufReadPost", "BufNewFile" } },
 
     {
         'lukas-reineke/indent-blankline.nvim',
@@ -16,7 +16,7 @@ return {
             -- char_list = {'|', '¦', '┆'},
             -- use_treesitter = true
         },
-        event = 'BufEnter'
+        event = { "BufReadPost", "BufNewFile" }
     },
 
     {
@@ -32,7 +32,7 @@ return {
                 winbar = true,
             },
             window = {
-                width = 37
+                width = 36
             },
             filesystem = {
                 group_empty_dirs = true,
@@ -121,7 +121,6 @@ return {
             local mappings = require("lazy-plugins.opts.keymaps-todo-comments")
             require('legendary').keymaps(mappings)
         end,
-        event = 'BufEnter'
     },
 
     {
@@ -177,7 +176,8 @@ return {
                 kopts)
             local mappings = require("lazy-plugins.opts.keymaps-hlslens")
             require('legendary').keymaps(mappings)
-        end
+        end,
+        event = "BufEnter"
     },
 
     {

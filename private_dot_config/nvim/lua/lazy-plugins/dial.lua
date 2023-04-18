@@ -1,7 +1,7 @@
 return {
     {
         'monaqa/dial.nvim',
-        event = "BufEnter",
+        event = { "BufReadPost", "BufNewFile" },
         opts = {},
         version = false,
         config = function(_, _)

@@ -77,8 +77,8 @@ return {
                 sources = {
                     { name = 'vsnip',         max_item_count = 3 },
                     { name = 'nvim_lsp',      max_item_count = 7 },
-                    { name = 'buffer',        max_item_count = 5 },
-                    { name = 'tags',          max_item_count = 5, priority = 1 },
+                    { name = 'buffer',        max_item_count = 5, keyword_length = 3 },
+                    { name = 'tags',          max_item_count = 5, priority = 1, keyword_length = 3 },
                     { name = 'latex_symbols', max_item_count = 4 }
                 },
             }
