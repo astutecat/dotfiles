@@ -1,5 +1,4 @@
 #:schema false
-
 ignore_merge_commits = false
 branch_whitelist = []
 pre_bump_hooks = []
