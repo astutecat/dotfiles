@@ -1,6 +1,10 @@
 root=true
 
 [*]
+end_of_line = LF
+charset = utf-8
+
+[*]
 charset=utf-8
 end_of_line=lf
 indent_size=2
@@ -12,14 +16,14 @@ trim_trailing_whitespace=true
 trim_trailing_whitespace=false
 
 [{*.erl,*.hrl}]
-indent_size=4
-indent_style=space
-insert_final_newline=true
-tab_width=8
+indent_style = space
+indent_size = 4
+trim_trailing_whitespace = true
+insert_final_newline = true
 
 [{Makefile*,**.mk*}]
 indent_style=tab
 
 [*.lua]
 indent_style = space
-indent_size = 4
+indent_size = 2
