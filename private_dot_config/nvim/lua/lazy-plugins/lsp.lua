@@ -25,6 +25,14 @@ return {
         opts = require("lazy-plugins.opts.nvim-lspconfig"),
         config = function(_, opts)
             require("mason-lspconfig").setup_handlers(opts)
+            local commands = {
+                { ':LspRestart', description = 'LSP: Restart', },
+                { ':LspStart',   description = 'LSP: Start', },
+                { ':LspStop',    description = 'LSP: Stop', },
+                { ':LspInfo',    description = 'LSP: Show Info', },
+                { ':Mason',      description = 'Show Mason', },
+            }
+            require("legendary").commands(commands)
         end,
         event = e.vl
     },

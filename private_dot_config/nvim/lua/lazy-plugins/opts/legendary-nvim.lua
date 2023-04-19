@@ -42,7 +42,8 @@ return {
     },
     -- Initial commands to bind
     commands = {
-        { ':TrimWhitespace', 'call TrimWhitespace()', description = "Trim Whitespace" },
+        { ':TrimWhitespace', 'call TrimWhitespace()',       description = "Trim Whitespace" },
+        { ':Lazy',           description = "Show lazy.nvim" },
     },
     -- Initial augroups/autocmds to bind
     autocmds = {
