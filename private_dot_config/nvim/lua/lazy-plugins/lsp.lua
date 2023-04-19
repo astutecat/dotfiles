@@ -67,6 +67,13 @@ return {
         event = e.vl,
         config = function()
             require("output_panel").setup()
-        end
+            local commands = {
+                {
+                    ':OutputPanel',
+                    description = "LSP: Show Output Panel",
+                },
+            }
+            require("legendary").commands(commands)
+        end,
     }
 }
