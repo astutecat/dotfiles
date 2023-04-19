@@ -1,6 +1,6 @@
 local M = {}
 
-local k_opts = { silent = true }
+local k_opts = { silent = true, noremap = true }
 
 local on_attach_keymap = {
     { '<C-]>',     '<cmd>lua vim.lsp.buf.definition()<CR>',      description = 'LSP: Go to Definition',              opts =
