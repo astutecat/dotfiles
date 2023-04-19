@@ -1,7 +1,22 @@
 local no_indent_filetypes = { "help", "alpha", "dashboard", "neo-tree", "Trouble", "lazy", "mason" }
 
 return {
-    { 'stevearc/dressing.nvim',            lazy = true },
+    {
+        'stevearc/dressing.nvim',
+        lazy = true,
+        init = function()
+            ---@diagnostic disable-next-line: duplicate-set-field
+            vim.ui.select = function(...)
+                require("lazy").load({ plugins = { "dressing.nvim" } })
+                return vim.ui.select(...)
+            end
+            ---@diagnostic disable-next-line: duplicate-set-field
+            vim.ui.input = function(...)
+                require("lazy").load({ plugins = { "dressing.nvim" } })
+                return vim.ui.input(...)
+            end
+        end,
+    },
     { 'kshenoy/vim-signature',             event = { "BufReadPost", "BufNewFile" } },
     { 'jeffkreeftmeijer/vim-numbertoggle', event = { "BufReadPost", "BufNewFile" } },
 
