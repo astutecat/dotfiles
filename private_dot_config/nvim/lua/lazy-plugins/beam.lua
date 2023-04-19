@@ -1,4 +1,25 @@
 local on_d9 = require("config_flags").on_d9
+local k_opts = { silent = true, noremap = true }
+local mappings = {
+    {
+        '<space>fp',
+        '<cmd>ElixirFromPipe<CR>',
+        description = "Elixir: from pipe",
+        opts = k_opts
+    },
+    {
+        '<space>tp',
+        '<cmd>ElixirToPipe<CR>',
+        description = "Elixir: to pipe",
+        opts = k_opts
+    },
+    {
+        '<space>em',
+        '<cmd>ElixirExpandMacro<CR>',
+        description = "Elixir: expand macro",
+        opts = k_opts
+    },
+}
 
 return {
     -- {
@@ -22,7 +43,6 @@ return {
                 },
                 elixirls = {
                     on_attach = function(client, bufnr)
-                        local mappings = require("lazy-plugins.opts.keymaps-elixir")
                         require('legendary').keymaps(mappings)
                         shared_config.on_attach(client, bufnr)
                     end,
