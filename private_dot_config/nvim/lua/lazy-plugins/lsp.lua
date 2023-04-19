@@ -18,14 +18,13 @@ return {
         'neovim/nvim-lspconfig',
         dependencies = {
             'mason-lspconfig.nvim',
-            'nvim-navic'
+            'nvim-navic',
+            'hrsh7th/cmp-nvim-lsp',
         },
         version = false,
         opts = require("lazy-plugins.opts.nvim-lspconfig"),
         config = function(_, opts)
             require("mason-lspconfig").setup_handlers(opts)
-            local mappings = require("lazy-plugins.opts.keymaps-lsp")
-            require('legendary').keymaps(mappings)
         end,
         event = e.vl
     },
