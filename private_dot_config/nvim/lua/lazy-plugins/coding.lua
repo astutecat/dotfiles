@@ -73,8 +73,10 @@ return {
     { 'wakatime/vim-wakatime', event = e.vl },
     {
         'astutecat/nclipper.vim',
-        config = function()
+        init = function ()
             vim.g.nclipper_nomap = 1
+        end,
+        config = function()
             local opts = { noremap = true }
             local mappings = {
                 {
