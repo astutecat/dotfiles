@@ -7,9 +7,11 @@ return {
     {
         'milkypostman/vim-togglelist',
         event = e.vl,
+        init = function ()
+            vim.g.toggle_list_no_mappings = true
+        end,
         opt = {},
         config = function(_, _)
-            vim.g.toggle_list_no_mappings = true
             local opts = { silent = true }
             local mappings = {
                 {
