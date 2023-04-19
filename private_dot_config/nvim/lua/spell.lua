@@ -6,7 +6,7 @@ local de_url = base_url .. '/de.utf-8.spl'
 local fn = vim.fn
 
 if fn.empty(fn.glob(de_file_path)) > 0 then
-    fn.system({ 'curl', '-o', de_file_path, de_url })
+  fn.system({ 'curl', '-o', de_file_path, de_url })
 end
 
 vim.cmd([[

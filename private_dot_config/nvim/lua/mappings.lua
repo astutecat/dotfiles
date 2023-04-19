@@ -4,11 +4,10 @@ vim.cmd([[
 ]])
 
 if require("config_flags").work_config then
-vim.cmd([[
+  vim.cmd([[
   nnoremap <Leader>` :e ~/dev/useful-commands.erl<CR>
   nnoremap <Leader>1 :cd ~/repos/RTS<CR>
   nnoremap <Leader>2 :cd ~/repos/sentinel<CR>
   nnoremap <Leader>3 :cd ~/repos/Zebra<CR>
 ]])
 end
-

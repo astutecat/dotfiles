@@ -1,106 +1,106 @@
 return {
-    {
-        'nvim-treesitter/nvim-treesitter',
-        opts = {
-            ensure_installed = {
-                "nix",
-                "python",
-                "bash",
-                "elixir",
-                "erlang",
-                "lua",
-                "rust",
-                "yaml",
-                "css",
-                "html",
-                "json",
-                "vim",
-                "hcl",
-                "toml",
-                "make",
-                "regex",
-                "ocaml",
-                "r",
-                "cpp",
-                "javascript",
-                "julia",
-                "zig",
-                "markdown"
-            },
-            highlight = {
-                enable = true,
-                additional_vim_regex_highlighting = {
-                    "markdown",
-                    "erlang",
-                },
-                disable = { "latex" },
-            },
-            indent = {
-                enable = true,
-            },
+  {
+    'nvim-treesitter/nvim-treesitter',
+    opts = {
+      ensure_installed = {
+        "nix",
+        "python",
+        "bash",
+        "elixir",
+        "erlang",
+        "lua",
+        "rust",
+        "yaml",
+        "css",
+        "html",
+        "json",
+        "vim",
+        "hcl",
+        "toml",
+        "make",
+        "regex",
+        "ocaml",
+        "r",
+        "cpp",
+        "javascript",
+        "julia",
+        "zig",
+        "markdown"
+      },
+      highlight = {
+        enable = true,
+        additional_vim_regex_highlighting = {
+          "markdown",
+          "erlang",
         },
-        build = ":TSUpdate",
-        config = function(_, opts)
-            require("nvim-treesitter.configs").setup(opts)
-        end,
-        event = "VeryLazy"
+        disable = { "latex" },
+      },
+      indent = {
+        enable = true,
+      },
     },
-    {
-        'RRethy/nvim-treesitter-endwise',
-        dependencies = { 'nvim-treesitter' },
-        opts = {
-            endwise = {
-                enable = true,
-            },
-        },
-        config = function(_, opts)
-            require('nvim-treesitter.configs').setup(opts)
-        end,
-        event = "VeryLazy"
+    build = ":TSUpdate",
+    config = function(_, opts)
+      require("nvim-treesitter.configs").setup(opts)
+    end,
+    event = "VeryLazy"
+  },
+  {
+    'RRethy/nvim-treesitter-endwise',
+    dependencies = { 'nvim-treesitter' },
+    opts = {
+      endwise = {
+        enable = true,
+      },
     },
-    {
-        'sheerun/vim-polyglot',
-        opts = {},
-        config = function(_, _)
-            vim.g.ployglot_disabled = "autoindent"
-        end,
-        event = "VeryLazy"
+    config = function(_, opts)
+      require('nvim-treesitter.configs').setup(opts)
+    end,
+    event = "VeryLazy"
+  },
+  {
+    'sheerun/vim-polyglot',
+    opts = {},
+    config = function(_, _)
+      vim.g.ployglot_disabled = "autoindent"
+    end,
+    event = "VeryLazy"
+  },
+  {
+    'preservim/vim-markdown',
+    dependencies = {
+      { 'godlygeek/tabular' }
     },
-    {
-        'preservim/vim-markdown',
-        dependencies = {
-            { 'godlygeek/tabular' }
-        },
-        ft = "markdown"
-    },
-    {
-        'alker0/chezmoi.vim',
-        event = "VeryLazy"
-    },
+    ft = "markdown"
+  },
+  {
+    'alker0/chezmoi.vim',
+    event = "VeryLazy"
+  },
 
-    {
-        'simrat39/rust-tools.nvim',
-        dependencies = {
-            { 'mfussenegger/nvim-dap' },
-            { 'neovim/nvim-lspconfig' }
-        },
-        opts = {
-            server = {
-                on_attach = function(_, bufnr)
-                    local rt = require("rust-tools")
-                    -- Hover actions
-                    vim.keymap.set("n", "<C-space>", rt.hover_actions.hover_actions, { buffer = bufnr })
-                    -- Code action groups
-                    vim.keymap.set("n", "<Leader>a", rt.code_action_group.code_action_group, { buffer = bufnr })
-                end,
-            },
-        },
-        ft = "rust"
+  {
+    'simrat39/rust-tools.nvim',
+    dependencies = {
+      { 'mfussenegger/nvim-dap' },
+      { 'neovim/nvim-lspconfig' }
     },
-    {
-        'lervag/vimtex',
-        config = function()
-            vim.cmd([[
+    opts = {
+      server = {
+        on_attach = function(_, bufnr)
+          local rt = require("rust-tools")
+          -- Hover actions
+          vim.keymap.set("n", "<C-space>", rt.hover_actions.hover_actions, { buffer = bufnr })
+          -- Code action groups
+          vim.keymap.set("n", "<Leader>a", rt.code_action_group.code_action_group, { buffer = bufnr })
+        end,
+      },
+    },
+    ft = "rust"
+  },
+  {
+    'lervag/vimtex',
+    config = function()
+      vim.cmd([[
               if executable('zathura')
                 let g:vimtex_view_method = 'zathura'
               elseif executable('skimpdf')
@@ -127,9 +127,9 @@ return {
                 au User VimtexEventQuit call vimtex#compiler#clean(0)
               augroup END
             ]])
-        end,
-        ft = { 'tex' }
-    }
+    end,
+    ft = { 'tex' }
+  }
 
 
 }
