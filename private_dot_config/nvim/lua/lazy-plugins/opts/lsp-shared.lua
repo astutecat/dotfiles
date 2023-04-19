@@ -1,25 +1,44 @@
 local M = {}
 
-local k_opts = { noremap = true, silent = true, buffer = true }
+local k_opts = { silent = true }
 
 local on_attach_keymap = {
-    { '<C-]>',     '<cmd>lua vim.lsp.buf.definition()<CR>',      'LSP: Go to Definition',              opts = k_opts },
-    { '<M-C-]>',   '<cmd>lua vim.lsp.buf.definition()<CR>',      'Tag Jump',                           opts = k_opts },
-    { 'K',         '<cmd>lua vim.lsp.buf.hover()<CR>',           'LSP: Hover',                         opts = k_opts },
-    { '<space>gi', '<cmd>lua vim.lsp.buf.implementation()<CR>',  'LSP: Go to Implementation',          opts = k_opts },
-    { 'C-k',       '<cmd>lua vim.lsp.buf.signature_help()<CR>',  'LSP: Signature Help',                opts = k_opts },
-    { '<space>D',  '<cmd>lua vim.lsp.buf.type_definition()<CR>', 'LSP: Type Definition',               opts = k_opts },
-    { '<space>rn', '<cmd>lua vim.lsp.buf.rename()<CR>',          'LSP: Rename',                        opts = k_opts },
-    { '<space>gr', '<cmd>lua vim.lsp.buf.references()<CR>',      'LSP: References',                    opts = k_opts },
-    { '<space>r',  '<cmd>lia vim.lsp.codelens.run',              'LSP: Codelens',                      opts = k_opts },
-    { '<space>s',  '<cmd>Telescope lsp_document_symbols ',       'LSP: Document Sumbols',              opts = k_opts },
-    { '<space>e',  '<cmd>lua vim.diagnostic.open_float()<CR>',   "LSP: Open Diagnostics",              opts = k_opts },
-    { '[d',        '<cmd>lua vim.diagnostic.goto_prev()<CR>',    "LSP: Goto Previous Diagnostic",      opts = k_opts },
-    { ']d',        '<cmd>lua vim.diagnostic.goto_next()<CR>',    "LSP: Goto Next Diagnostic",          opts = k_opts },
-    { '<space>q',  '<cmd>lua vim.diagnostic.setloclist()<CR>',   "LSP: Set Diagnostics Location List", opts = k_opts },
-    { '<space>f',  '<cmd>lua vim.lsp.buf.format()<CR>',          "LSP: Format Buffer",                 opts = k_opts },
-    { '<space>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>',     "LSP: Code Actions",                  opts = k_opts },
-    { '<leader>x', '<cmd>lua require("lsp_lines").toggle()<cr>', "LSP: Toggle LSP Lines",              opts = k_opts },
+    { '<C-]>',     '<cmd>lua vim.lsp.buf.definition()<CR>',      description = 'LSP: Go to Definition',              opts =
+    k_opts },
+    { '<M-C-]>',   '<cmd>lua vim.lsp.buf.definition()<CR>',      description = 'Tag Jump',                           opts =
+    k_opts },
+    { 'K',         '<cmd>lua vim.lsp.buf.hover()<CR>',           description = 'LSP: Hover',                         opts =
+    k_opts },
+    { '<space>gi', '<cmd>lua vim.lsp.buf.implementation()<CR>',  description = 'LSP: Go to Implementation',          opts =
+    k_opts },
+    { 'C-k',       '<cmd>lua vim.lsp.buf.signature_help()<CR>',  description = 'LSP: Signature Help',                opts =
+    k_opts },
+    { '<space>D',  '<cmd>lua vim.lsp.buf.type_definition()<CR>', description = 'LSP: Type Definition',               opts =
+    k_opts },
+    { '<space>rn', '<cmd>lua vim.lsp.buf.rename()<CR>',          description = 'LSP: Rename',                        opts =
+    k_opts },
+    { '<space>gr', '<cmd>lua vim.lsp.buf.references()<CR>',      description = 'LSP: References',                    opts =
+    k_opts },
+    { '<space>r',  '<cmd>lia vim.lsp.codelens.run',              description = 'LSP: Codelens',                      opts =
+    k_opts },
+    { '<space>s',  '<cmd>Telescope lsp_document_symbols ',       description = 'LSP: Document Sumbols',              opts =
+    k_opts },
+    { '<space>e',  '<cmd>lua vim.diagnostic.open_float()<CR>',   description = "LSP: Open Diagnostics",              opts =
+    k_opts },
+    { '[d',        '<cmd>lua vim.diagnostic.goto_prev()<CR>',    description = "LSP: Goto Previous Diagnostic",
+                                                                                                                         opts =
+        k_opts },
+    { ']d',        '<cmd>lua vim.diagnostic.goto_next()<CR>',    description = "LSP: Goto Next Diagnostic",          opts =
+    k_opts },
+    { '<space>q',  '<cmd>lua vim.diagnostic.setloclist()<CR>',   description = "LSP: Set Diagnostics Location List",
+                                                                                                                         opts =
+        k_opts },
+    { '<space>f',  '<cmd>lua vim.lsp.buf.format()<CR>',          description = "LSP: Format Buffer",                 opts =
+    k_opts },
+    { '<space>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>',     description = "LSP: Code Actions",                  opts =
+    k_opts },
+    { '<leader>x', '<cmd>lua require("lsp_lines").toggle()<cr>', description = "LSP: Toggle LSP Lines",              opts =
+    k_opts },
 }
 
 M.on_attach = function(client, bufnr)
