@@ -33,12 +33,15 @@ return {
                 "mix.exs"
             },
             manual_mode = true,
+            detection_methods = {
+                "lsp", "pattern"
+            }
         },
         config = function(_, opts)
             require("project_nvim").setup(opts)
             require("telescope").load_extension('projects')
         end,
-        version = "*"
+        version = false
     },
     {
         'nvim-telescope/telescope-fzy-native.nvim',
