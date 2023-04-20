@@ -12,6 +12,9 @@ return {
   { 'ludovicchabant/vim-gutentags', event = e.vl },
   {
     'machakann/vim-swap',
+    init = function()
+      vim.g.swap_no_default_key_mappings = 1
+    end,
     opts = {},
     config = function(_, _)
       local mappings = {
@@ -27,6 +30,10 @@ return {
         },
       }
       require('legendary').keymaps(mappings)
+      vim.cmd[[
+        nmap gS <Plug>(swap-interactive)
+        xmap gS <Plug>(swap-interactive)
+      ]]
     end,
     event = e.vl
   },
