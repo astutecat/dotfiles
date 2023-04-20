@@ -32,7 +32,7 @@ return {
         { ":SessionLoad",     prefix .. 'load_session',      description = d_pre .. 'Load Session', },
         { ":SessionLoadLast", prefix .. 'load_last_session', description = d_pre .. 'Load Last Session', },
         { ":SessionLoadDir", prefix .. 'load_current_dir_session', description = d_pre .. 'Load Curr. Dir Session', },
-        { ":SessionSave",   prefix .. 'save_session',   description = d_pre .. 'Save Session', },
+        { ":SessionSave",   prefix .. 'save_current_session',   description = d_pre .. 'Save Session', },
         { ":SessionDelete", prefix .. 'delete_session', description = d_pre .. 'Delete Session', },
       }
       require("legendary").commands(commands)
