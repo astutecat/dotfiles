@@ -1,31 +1,34 @@
-local on_d9 = require("config_flags").on_d9
-local k_opts = { silent = true, noremap = true }
-local mappings = {
-  {
-    '<space>fp',
-    '<cmd>ElixirFromPipe<CR>',
-    description = "Elixir: from pipe",
-    opts = k_opts
-  },
-  {
-    '<space>tp',
-    '<cmd>ElixirToPipe<CR>',
-    description = "Elixir: to pipe",
-    opts = k_opts
-  },
-  {
-    '<space>em',
-    '<cmd>ElixirExpandMacro<CR>',
-    description = "Elixir: expand macro",
-    opts = k_opts
-  },
-}
+local erl_version = require("config_flags").erl_version
+
+local function mappings(bufnr)
+  local k_opts = { silent = true, noremap = true, buffer = bufnr }
+  return {
+    {
+      '<space>fp',
+      '<cmd>ElixirFromPipe<CR>',
+      description = "Elixir: from pipe",
+      opts = k_opts
+    },
+    {
+      '<space>tp',
+      '<cmd>ElixirToPipe<CR>',
+      description = "Elixir: to pipe",
+      opts = k_opts
+    },
+    {
+      '<space>em',
+      '<cmd>ElixirExpandMacro<CR>',
+      description = "Elixir: expand macro",
+      opts = k_opts
+    },
+  }
+end
 
 return {
-  -- {
-  --     'vim-erlang/vim-erlang-runtime',
-  --     cond = on_d9,
-  -- },
+  {
+      'vim-erlang/vim-erlang-runtime',
+      cond = erl_version < 22,
+  },
   {
     "elixir-tools/elixir-tools.nvim",
     dependencies = {
@@ -43,7 +46,7 @@ return {
         },
         elixirls = {
           on_attach = function(client, bufnr)
-            require('legendary').keymaps(mappings)
+            require('legendary').keymaps(mappings(bufnr))
             shared_config.on_attach(client, bufnr)
           end,
           capabilities = shared_config.capabilities,
@@ -57,6 +60,6 @@ return {
         }
       }
     end,
-    cond = not on_d9
+    cond = erl_version > 21
   }
 }
