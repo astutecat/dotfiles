@@ -26,14 +26,14 @@ return {
     config = function(_, opts)
       require("session_manager").setup(opts)
 
-      local pre = ':SessionManager '
+      local sm = ':SessionManager '
       local d_pre = ""
       local commands = {
-        { ":SessionLoad",     pre .. 'load_session',             description = d_pre .. 'Load Session', },
-        { ":SessionLoadLast", pre .. 'load_last_session',        description = d_pre .. 'Load Last Session', },
-        { ":SessionLoadDir",  pre .. 'load_current_dir_session', description = d_pre .. 'Load Curr. Dir Session', },
-        { ":SessionSave",     pre .. 'save_current_session',     description = d_pre .. 'Save Session', },
-        { ":SessionDelete",   pre .. 'delete_session',           description = d_pre .. 'Delete Session', },
+        { ":SessionLoad",     sm .. 'load_session',             description = d_pre .. 'Load Session', },
+        { ":SessionLoadLast", sm .. 'load_last_session',        description = d_pre .. 'Load Last Session', },
+        { ":SessionLoadDir",  sm .. 'load_current_dir_session', description = d_pre .. 'Load Curr. Dir Session', },
+        { ":SessionSave",     sm .. 'save_current_session',     description = d_pre .. 'Save Session', },
+        { ":SessionDelete",   sm .. 'delete_session',           description = d_pre .. 'Delete Session', },
       }
       require("legendary").commands(commands)
 
