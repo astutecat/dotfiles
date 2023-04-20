@@ -1,6 +1,5 @@
 local M = {}
 
-
 local on_attach_keymap = function(bufnr)
   local k_opts = { silent = true, noremap = true, buffer = bufnr }
 

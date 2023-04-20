@@ -1,5 +1,3 @@
-local erl_version = require("config_flags").erl_version
-
 local function mappings(bufnr)
   local k_opts = { silent = true, noremap = true, buffer = bufnr }
   return {
@@ -26,10 +24,6 @@ end
 
 return {
   {
-      'vim-erlang/vim-erlang-runtime',
-      cond = erl_version < 22,
-  },
-  {
     "elixir-tools/elixir-tools.nvim",
     dependencies = {
       "nvim-lua/plenary.nvim",
@@ -38,6 +32,8 @@ return {
     ft = { "elixir", "eex", "heex", "surface" },
     opts = {},
     config = function()
+      local elixir_ls_usable = require("beam_utils").elixir_ls_usable
+      if not elixir_ls_usable then return end
       local shared_config = require("lazy-plugins.opts.lsp-shared")
       local elixirls = require("elixir.elixirls")
       require("elixir").setup {
@@ -60,6 +56,5 @@ return {
         }
       }
     end,
-    cond = erl_version >= 22
   }
 }
