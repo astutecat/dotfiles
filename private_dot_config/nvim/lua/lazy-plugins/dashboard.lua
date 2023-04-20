@@ -17,7 +17,7 @@ return {
         dashboard.button("<leader>ff", " " .. " Find file", ":Telescope find_files <CR>"),
         dashboard.button("<leader>fo", " " .. " Recent files", ":Telescope oldfiles <CR>"),
         dashboard.button("<leader>lg", " " .. " Find text", ":Telescope live_grep <CR>"),
-        -- dashboard.button("s", "勒" .. " Restore Session", [[:lua require("persistence").load() <cr>]]),
+        dashboard.button("s", "勒" .. " Restore Session", ":SessionLoadDir <CR>"),
         dashboard.button("l", "鈴" .. " Lazy", ":Lazy<CR>"),
         dashboard.button("q", " " .. " Quit", ":qa<CR>"),
       }
