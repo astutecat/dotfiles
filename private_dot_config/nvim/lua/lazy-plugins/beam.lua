@@ -60,6 +60,6 @@ return {
         }
       }
     end,
-    cond = erl_version > 21
+    cond = erl_version >= 22
   }
 }
