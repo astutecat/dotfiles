@@ -23,7 +23,6 @@ return {
       { 'hrsh7th/cmp-nvim-lua' },
       { 'hrsh7th/cmp-cmdline' },
       { 'hrsh7th/cmp-nvim-lsp' },
-      { 'kdheepak/cmp-latex-symbols' },
       "petertriho/cmp-git",
     },
     opts = {},
@@ -34,8 +33,10 @@ return {
       local cmp = require 'cmp'
       cmp.setup {
         completion = {
-          completeopt = "menu,menuone,noinsert",
+          --completeopt = "menu,menuone,noinsert",
+          keyword_length = 2
         },
+        preselect = cmp.PreselectMode.None,
         formatting = {
           window = {
             completion = {
@@ -45,7 +46,7 @@ return {
             },
           },
           format = lspkind.cmp_format({
-            mode = 'symbol',             -- do not show text alongside icons
+            mode = 'symbol', -- do not show text alongside icons
             menu = ({
               buffer = "[buffer]",
               nvim_lsp = "[lsp]",
@@ -54,7 +55,7 @@ return {
             }),
             preset = 'default',
             symbol_map = symbols,
-            maxwidth = 50,             -- prevent the popup from showing more than provided characters (e.g 50 will not show more than 50 characters)
+            maxwidth = 50, -- prevent the popup from showing more than provided characters (e.g 50 will not show more than 50 characters)
             -- The function below will be called before any actual modifications from lspkind
             -- so that you can provide more controls on popup customization. (See [#30](https://github.com/onsails/lspkind-nvim/pull/30))
             before = function(entry, vim_item)
@@ -78,11 +79,10 @@ return {
           ['<CR>'] = cmp.mapping.confirm({ select = false }),
         }),
         sources = {
-          { name = 'vsnip',         max_item_count = 3 },
-          { name = 'nvim_lsp',      max_item_count = 7 },
-          { name = 'buffer',        max_item_count = 5, keyword_length = 3 },
-          { name = 'tags',          max_item_count = 5, priority = 1,      keyword_length = 3 },
-          { name = 'latex_symbols', max_item_count = 4 }
+          { name = 'vsnip',    max_item_count = 3 },
+          { name = 'nvim_lsp', max_item_count = 7 },
+          { name = 'buffer',   max_item_count = 5, keyword_length = 3 },
+          { name = 'tags',     max_item_count = 5, priority = 1,      keyword_length = 3 },
         },
         performance = {
           debounce = 300,
@@ -103,15 +103,15 @@ return {
         mapping = cmp.mapping.preset.cmdline(),
         sources = {
           { name = 'buffer', max_item_count = 10 }
-        }
+        },
       })
 
       cmp.setup.cmdline(':', {
         mapping = cmp.mapping.preset.cmdline(),
         sources = cmp.config.sources({
-          { name = 'path' }
-        }, {
           { name = 'cmdline' }
+        }, {
+          { name = 'path' }
         })
       })
     end
