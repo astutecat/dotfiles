@@ -5,7 +5,7 @@ local on_attach_keymap = function(bufnr)
 
   return {
     {
-      '<M-C-]>',
+      '<space>d',
       '<cmd>lua vim.lsp.buf.definition()<CR>',
       description = 'LSP: Go to definition',
       opts =
@@ -54,15 +54,15 @@ local on_attach_keymap = function(bufnr)
           k_opts
     },
     {
-      '<space>r',
-      '<cmd>lia vim.lsp.codelens.run',
+      '<space>c',
+      '<cmd>lua vim.lsp.codelens.run()<CR>',
       description = 'LSP: Codelens',
       opts =
           k_opts
     },
     {
       '<space>s',
-      '<cmd>Telescope lsp_document_symbols ',
+      '<cmd>Telescope lsp_document_symbols<CR>',
       description = 'LSP: Document Sumbols',
       opts =
           k_opts
@@ -111,7 +111,7 @@ local on_attach_keymap = function(bufnr)
     },
     {
       '<leader>x',
-      '<cmd>lua require("lsp_lines").toggle()<cr>',
+      '<cmd>lua require("lsp_lines").toggle()<CR>',
       description = "LSP: Toggle LSP Lines",
       opts =
           k_opts
