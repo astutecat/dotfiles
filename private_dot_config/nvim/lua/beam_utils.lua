@@ -3,7 +3,7 @@ local function erl_version()
   local handle = io.popen("erl -eval 'erlang:display(erlang:system_info(otp_release)), halt().'  -noshell")
   if not handle then return 0 end
   local output = handle:read('*a')
-  local v = output:gsub('[\n\r\"]', '')
+  local v = output:gsub('[\n\r"]', '')
   local version = tonumber(v)
   if not version then return 0 end
   return version

@@ -1,0 +1,4 @@
+# vim: ft=yaml
+
+rules:
+  document-start: disable
