@@ -119,7 +119,7 @@ return {
         },
         {
           "<leader>er",
-          "<cmd>NeotreeReveal<cr>",
+          "<cmd>NeoTreeReveal<cr>",
           mode = { 'n' },
           description = "Reveal File in Neotree"
         }
