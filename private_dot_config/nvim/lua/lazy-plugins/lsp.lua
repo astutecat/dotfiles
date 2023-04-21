@@ -60,7 +60,9 @@ return {
       null_ls.setup({
         sources = {
           builtins.code_actions.gitsigns,
-          builtins.diagnostics.trail_space,
+          builtins.diagnostics.trail_space.with({
+            disabled_filetypes = { "lua", "python" },
+          }),
           builtins.diagnostics.yamllint,
           builtins.formatting.yamlfmt,
           null_ls.builtins.diagnostics.zsh,
