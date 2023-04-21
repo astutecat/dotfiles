@@ -116,7 +116,14 @@ return {
           "<cmd>Neotree toggle<cr>",
           mode = { 'n' },
           description = "Toggle Neotree"
+        },
+        {
+          "<leader>er",
+          "<cmd>NeotreeReveal<cr>",
+          mode = { 'n' },
+          description = "Reveal File in Neotree"
         }
+
       }
       require('legendary').keymaps(mappings)
 
