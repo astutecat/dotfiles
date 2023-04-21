@@ -5,16 +5,9 @@ local on_attach_keymap = function(bufnr)
 
   return {
     {
-      '<C-]>',
-      '<cmd>lua vim.lsp.buf.definition()<CR>',
-      description = 'LSP: Go to Definition',
-      opts =
-          k_opts
-    },
-    {
       '<M-C-]>',
       '<cmd>lua vim.lsp.buf.definition()<CR>',
-      description = 'Tag Jump',
+      description = 'LSP: Go to definition',
       opts =
           k_opts
     },
