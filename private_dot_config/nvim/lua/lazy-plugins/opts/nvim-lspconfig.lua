@@ -44,7 +44,7 @@ return {
       flags = { debounce_text_changes = 150 },
       settings = {
         Lua = {
-          diagnostics = { globals = { 'vim' } },
+          diagnostics = { enable = false },
           format = {
             enable = true,
             defaultConfig = {
