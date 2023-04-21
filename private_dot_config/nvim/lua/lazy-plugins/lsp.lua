@@ -56,14 +56,19 @@ return {
     config = function(_, _)
       local null_ls = require("null-ls")
       local builtins = null_ls.builtins
+      local shared_config = require("lazy-plugins.opts.lsp-shared")
       null_ls.setup({
         sources = {
-          builtins.diagnostics.trail_space,
           builtins.code_actions.gitsigns,
-          builtins.formatting.yamlfmt,
+          builtins.diagnostics.trail_space,
           builtins.diagnostics.yamllint,
-          null_ls.builtins.diagnostics.zsh
+          builtins.formatting.yamlfmt,
+          null_ls.builtins.diagnostics.zsh,
+          null_ls.builtins.formatting.black,
+          null_ls.builtins.diagnostics.pylint,
         },
+        on_attach = shared_config.on_attach,
+        debounce = 150
       })
     end,
     dependencies = {
