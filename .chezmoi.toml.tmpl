@@ -12,7 +12,7 @@
 {{-   $location = "personal" -}}
 {{- end -}}
 
-{{- $asdf_all_tools_to_update := "('adr' 'sops' 'just' 'fd' 'lazygit' 'lazydocker' 'pre-commit')" -}}
+{{- $asdf_all_tools_to_update := "('adr' 'sops' 'just' 'fd' 'lazygit' 'lazydocker' 'pre-commit' 'delta')" -}}
 
 encryption = "gpg"
 format = "yaml"
@@ -35,7 +35,7 @@ format = "yaml"
   {{- if ne .location "other" }}
   asdf_tools_to_install = {{$asdf_all_tools_to_update | quote}}
   {{ else }}
-  asdf_tools_to_install = "('sops' 'fd' 'just')"
+  asdf_tools_to_install = "('sops' 'fd' 'just' 'delta')"
   {{ end -}}
 
 [data.git]
