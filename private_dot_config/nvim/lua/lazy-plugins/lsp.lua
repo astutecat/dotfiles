@@ -1,14 +1,13 @@
 local e = require("startup_events")
 
 return {
-  { 'nvim-lua/lsp-status.nvim',  event = e.vl },
+  { 'nvim-lua/lsp-status.nvim',  event = e.lsp_a },
   {
     "williamboman/mason.nvim",
     opts = {},
     version = false,
     event = e.vl
   },
-  { 'mhanberg/output-panel.nvim' },
   {
     "williamboman/mason-lspconfig.nvim",
     dependencies = { 'mason.nvim' },
@@ -48,7 +47,7 @@ return {
         virtual_lines = false,
       })
     end,
-    event = e.vl
+    event = e.lsp_a
   },
   {
     'jose-elias-alvarez/null-ls.nvim',

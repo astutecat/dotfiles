@@ -1,3 +1,5 @@
+local e = require("startup_events")
+
 return {
   {
     'nvim-treesitter/nvim-treesitter',
@@ -43,7 +45,7 @@ return {
     config = function(_, opts)
       require("nvim-treesitter.configs").setup(opts)
     end,
-    event = "VeryLazy"
+    event = e.buf_read_or_new
   },
   {
     'RRethy/nvim-treesitter-endwise',
@@ -56,7 +58,7 @@ return {
     config = function(_, opts)
       require('nvim-treesitter.configs').setup(opts)
     end,
-    event = "VeryLazy"
+    event = e.buf_read_or_new
   },
   {
     'sheerun/vim-polyglot',
@@ -64,7 +66,7 @@ return {
     config = function(_, _)
       vim.g.ployglot_disabled = "autoindent"
     end,
-    event = "VeryLazy"
+    event = e.buf_read_pre_or_new,
   },
   {
     'preservim/vim-markdown',
