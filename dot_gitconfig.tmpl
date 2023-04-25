@@ -15,7 +15,8 @@
 [difftool "bc3"]
 	trustExitCode = true
 [merge]
-	tool = bc3
+  tool = bc3
+  conflictstyle = diff3
 [mergetool "bc3"]
 	trustExitCode = true
 [gui]
@@ -30,7 +31,8 @@
 [init]
 	defaultBranch = main
 [core]
-	editor = nvim
+  editor = nvim
+  pager = delta
 [advice]
 	detachedHead = false
 [rebase]
@@ -42,4 +44,11 @@
 [commit]
   gpgSign = false
 [pull]
-	rebase = false
+  rebase = true
+[delta]
+  line-numbers = true
+  hunk-header-decoration-style=""
+  file-decoration-style=""
+  hunk-header-style="syntax"
+  hunk-header-file-style="brightblue"
+  file-style="brightblue"
