@@ -1,6 +1,7 @@
 gui:
   skipRewordInEditorWarning: false
   showIcons: true
+  parseEmoji: true
 git:
   paging:
     colorArg: always
