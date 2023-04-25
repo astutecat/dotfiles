@@ -17,6 +17,10 @@ return {
       end
     end,
   },
+  {
+    "nvim-tree/nvim-web-devicons",
+    lazy = true
+  },
   { 'kshenoy/vim-signature',             event = { "BufReadPost", "BufNewFile" } },
   { 'jeffkreeftmeijer/vim-numbertoggle', event = { "BufReadPost", "BufNewFile" } },
 
@@ -29,7 +33,7 @@ return {
       show_trailing_blankline_indent = false,
       show_current_context = false,
     },
-    event = { "BufReadPost", "BufNewFile" }
+    event = { "BufReadPre", "BufNewFile" }
   },
 
   {
@@ -58,6 +62,7 @@ return {
 
   {
     "nvim-neo-tree/neo-tree.nvim",
+    event = "BufEnter",
     branch = "v2.x",
     dependencies = {
       "nvim-lua/plenary.nvim",
@@ -192,7 +197,6 @@ return {
     'nvim-lualine/lualine.nvim',
     dependencies = { 'nvim-tree/nvim-web-devicons', 'SmiteshP/nvim-navic' },
     opts = require("lazy-plugins.opts.lualine"),
-    event = "VimEnter"
   },
 
   {
@@ -228,8 +232,7 @@ return {
 
   {
     'lewis6991/gitsigns.nvim',
-    opts = require("lazy-plugins.opts.gitsigns")
+    opts = require("lazy-plugins.opts.gitsigns"),
   },
-
 
 }
