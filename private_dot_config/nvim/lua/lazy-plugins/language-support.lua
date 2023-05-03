@@ -97,7 +97,7 @@ return {
         end,
       },
     },
-    ft = "rust"
+    event = "VeryLazy"
   },
   {
     'lervag/vimtex',
