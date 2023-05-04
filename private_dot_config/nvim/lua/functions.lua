@@ -4,13 +4,6 @@ vim.cmd([[
     return data_dir
   endfunction
 
-  fun! TrimWhitespace()
-    let l:save = winsaveview()
-    keeppatterns %s/\s\+$//e
-    call winrestview(l:save)
-    write
-  endfun
-
   fun! SetupCommandAlias(from, to)
     exec 'cnoreabbrev <expr> '.a:from
     \ .' ((getcmdtype() is# ":" && getcmdline() is# "'.a:from.'")'

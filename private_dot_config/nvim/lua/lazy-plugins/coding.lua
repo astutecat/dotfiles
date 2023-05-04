@@ -1,8 +1,6 @@
 local e = require("startup_events")
 
 return {
-  { 'tpope/vim-surround',   event = e.vl },
-  { 'tpope/vim-unimpaired', event = e.vl },
   {
     'tpope/vim-sleuth',
     dependencies = { 'sheerun/vim-polyglot' },
@@ -34,45 +32,6 @@ return {
         nmap gS <Plug>(swap-interactive)
         xmap gS <Plug>(swap-interactive)
       ]]
-    end,
-    event = e.vl
-  },
-  {
-    'windwp/nvim-autopairs',
-    opts = {},
-    event = e.vl
-  },
-  {
-    'AndrewRadev/splitjoin.vim',
-    config = function()
-      local mappings = {
-        {
-          '<leader>ss',
-          '<cmd>SplitjoinSplit<CR>',
-          description = "Split to multiple lines",
-        },
-        {
-          '<leader>sj',
-          '<cmd>SplitjoinJoin<CR>',
-          description = "Join to single line",
-        },
-      }
-      require('legendary').keymaps(mappings)
-    end,
-    event = e.vl
-  },
-  {
-    'numToStr/Comment.nvim',
-    opts = {},
-    event = e.vl
-  },
-  {
-    'tommcdo/vim-lion',
-    init = function()
-      vim.g.lion_create_maps    = 1
-      vim.g.lion_squeeze_spaces = 1
-      vim.g.lion_map_right      = 'ga'
-      vim.g.lion_map_left       = 'gA'
     end,
     event = e.vl
   },
