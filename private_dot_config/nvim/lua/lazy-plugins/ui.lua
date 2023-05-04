@@ -1,5 +1,3 @@
-local no_indent_filetypes = { "help", "alpha", "dashboard", "neo-tree", "Trouble", "lazy", "mason" }
-
 return {
   {
     'stevearc/dressing.nvim',
@@ -29,35 +27,11 @@ return {
     opts = {
       space_char_blankline = " ",
       char = "│",
-      filetype_exclude = no_indent_filetypes,
+      filetype_exclude = require("lazy-plugins.opts.coding-shared").no_indent_filetypes,
       show_trailing_blankline_indent = false,
       show_current_context = false,
     },
     event = { "BufReadPre", "BufNewFile" }
-  },
-
-  {
-    "echasnovski/mini.indentscope",
-    version = false,     -- wait till new 0.7.0 release to put it back on semver
-    event = { "BufReadPre", "BufNewFile" },
-    opts = function()
-      return {
-        symbol = "│",
-        options = { try_as_border = true },
-        draw = {
-          animation = require('mini.indentscope').gen_animation.none()
-        }
-      }
-    end,
-    config = function(_, opts)
-      vim.api.nvim_create_autocmd("FileType", {
-        pattern = no_indent_filetypes,
-        callback = function()
-          vim.b.miniindentscope_disable = true
-        end,
-      })
-      require("mini.indentscope").setup(opts)
-    end,
   },
 
   {

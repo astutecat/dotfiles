@@ -7,10 +7,6 @@ return {
       description = "Show Commands (Legendary)"
     },
     {
-      '<leader>/',
-      '<cmd>TrimWhitespace<cr>'
-    },
-    {
       '<cr>',
       '<cmd>nohlsearch<cr><cr>'
     },
@@ -54,7 +50,6 @@ return {
   },
   -- Initial commands to bind
   commands = {
-    { ':TrimWhitespace', 'call TrimWhitespace()',       description = "Trim Whitespace" },
     { ':Lazy',           description = "Show lazy.nvim" },
   },
   -- Initial augroups/autocmds to bind
