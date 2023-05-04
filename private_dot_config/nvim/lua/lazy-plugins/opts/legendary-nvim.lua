@@ -39,14 +39,14 @@ return {
       '<cmd>bn<cr>',
       description = "Buffer: Previous"
     },
-    {
-      '<C-]>',
-      ':tselect <C-R><C-W><CR>',
-      description = 'Tag Select',
-    },
+    -- {
+    --   '<C-]>',
+    --   ':tjump <C-R><C-W><CR>',
+    --   description = 'Tag Jump',
+    -- },
     {
       '<M-C-]>',
-      ':tjump <C-R><C-W><CR>',
+      ':tselect <C-R><C-W><CR>',
       description = 'Tag Select',
     },
 
