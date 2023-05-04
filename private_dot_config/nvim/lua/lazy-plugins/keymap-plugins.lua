@@ -6,6 +6,7 @@ return {
   },
   {
     'mrjones2014/legendary.nvim',
+    version = "^2.0.0",
     dependencies = {
       'kkharji/sqlite.lua',
       'nvim-telescope/telescope.nvim',
