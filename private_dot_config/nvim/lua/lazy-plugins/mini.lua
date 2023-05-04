@@ -44,14 +44,27 @@ local function splitjoin_config()
   }
 end
 
+
+
 local function starter_config()
   local header_content = require("headers.neovim")
   local is_work_config = require("config_flags").work_config
   if is_work_config then
     header_content = require("headers.entelios")
   end
+  local starter = require('mini.starter')
   return {
-    header = table.concat(header_content, "\n")
+    header = table.concat(header_content, "\n"),
+    footer = "",
+    items = {
+      starter.sections.sessions(5, true),
+      starter.sections.recent_files(5, true, false),
+      { action = 'Telescope find_files', name = 'Find file',       section = 'Quick Actions' },
+      { action = 'Legendary',            name = 'Command pallete', section = 'Quick Actions' },
+      { action = 'Lazy',                 name = 'Lazy',            section = 'Quick Actions' },
+      { action = 'Mason',                name = 'Mason',           section = 'Quick Actions' },
+      { action = 'qa',                   name = 'Quit',            section = 'Quick Actions' },
+    }
   }
 end
 
