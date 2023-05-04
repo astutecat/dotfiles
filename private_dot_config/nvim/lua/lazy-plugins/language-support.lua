@@ -35,7 +35,7 @@ return {
           "markdown",
           "erlang",
         },
-        disable = { "latex" },
+        disable = { "latex", "erlang" },
       },
       indent = {
         enable = true,
@@ -97,7 +97,7 @@ return {
         end,
       },
     },
-    event = "VeryLazy"
+    ft = "rust"
   },
   {
     'lervag/vimtex',
