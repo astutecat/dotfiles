@@ -102,7 +102,9 @@ local function session_config()
           require("mini.sessions").delete(input, { force = true })
         end
       end,
-      description = 'Session: Delete (name).'
+      description = 'Session: Delete (name).',
+      unfinished = true,
+      opts = { nargs = '?' },
     },
 
     {
@@ -125,7 +127,9 @@ local function session_config()
           require("mini.sessions").write(cwd)
         end
       end,
-      description = 'Session: Rename current.'
+      description = 'Session: Rename current.',
+      unfinished = true,
+      opts = { nargs = '?' },
     },
 
   }
