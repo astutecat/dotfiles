@@ -71,18 +71,59 @@ end
 local function session_config()
   local commands = {
     {
-      ':SessionSave <CR>',
+      ':SessionSave {name}',
       function(input)
         if input.fargs and input.fargs[1] then
           require("mini.sessions").write(input.fargs[1])
+        else
+          local cwd = vim.fn.getcwd()
+          cwd = string.gsub(cwd, "/", "__")
+          require("mini.sessions").write(cwd)
         end
       end,
-      description = 'Save (name) session.',
+      description = 'Session: Save (custom name).',
       unfinished = true,
       opts = { nargs = '?' },
-    }
+    },
+    {
+      ':SessionSave',
+      function()
+        local cwd = vim.fn.getcwd()
+        cwd = string.gsub(cwd, "/", "__")
+        require("mini.sessions").write(cwd)
+      end,
+      description = 'Session: Save.'
+    },
+    {
+      ':SessionDelete',
+      function()
+        require("mini.sessions").delete(nil, { force = true })
+      end,
+      description = 'Session: Delete current.'
+    },
+    {
+      ':SessionRename {name}',
+      function(input)
+        require("mini.sessions").delete(nil, { force = true })
+
+        if input.fargs and input.fargs[1] then
+          require("mini.sessions").write(input.fargs[1])
+        else
+          local cwd = vim.fn.getcwd()
+          cwd = string.gsub(cwd, "/", "__")
+          require("mini.sessions").write(cwd)
+        end
+      end,
+      description = 'Session: Rename current.'
+    },
+
   }
   require("legendary").commands(commands)
+
+  return {
+    directory = vim.fn.stdpath('data') .. "/sessions",
+    autowrite = true
+  }
 end
 
 local function cursorword_config()
@@ -108,8 +149,7 @@ return {
       trailspace_mappings()
       require('mini.surround').setup()
       require('mini.bracketed').setup()
-      require('mini.sessions').setup()
-      session_config()
+      require('mini.sessions').setup(session_config())
       require('mini.ai').setup()
       require('mini.align').setup()
       require('mini.splitjoin').setup(splitjoin_config())
