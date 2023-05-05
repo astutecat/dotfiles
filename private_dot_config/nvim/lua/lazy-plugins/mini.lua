@@ -130,14 +130,17 @@ local function session_config()
 end
 
 local function cursorword_config()
-  vim.cmd [[
-  :hi clear MiniCursorwordCurrent
-  :hi clear MiniCursorword
-  :hi MiniCursorword gui=underline cterm=underline
-  ]]
   return {
     delay = 200
   }
+end
+
+local function post_config()
+  vim.cmd [[
+  :hi clear MiniCursorword
+  :hi MiniCursorword gui=bold cterm=bold
+  :hi! MiniCursorwordCurrent guifg=NONE guibg=NONE gui=NONE cterm=NONE
+  ]]
 end
 
 return {
@@ -158,6 +161,7 @@ return {
       require('mini.splitjoin').setup(splitjoin_config())
       require('mini.cursorword').setup(cursorword_config())
       require('mini.starter').setup(starter_config())
+      post_config()
     end
   }
 }
