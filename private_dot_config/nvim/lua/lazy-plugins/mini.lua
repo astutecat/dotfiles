@@ -54,7 +54,7 @@ local function starter_config()
   end
   local starter = require('mini.starter')
   return {
-    header = table.concat(header_content, "\n"),
+    header = header_content,
     footer = "",
     items = {
       starter.sections.sessions(5, true),
