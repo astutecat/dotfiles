@@ -44,17 +44,20 @@ local function splitjoin_config()
   }
 end
 
-
-
-local function starter_config()
-  local header_content = require("headers.neovim")
+local function get_header()
   local is_work_config = require("config_flags").work_config
   if is_work_config then
-    header_content = require("headers.entelios")
+    return require("headers.entelios")
   end
+  return require("headers.neovim")
+end
+
+local function starter_config()
   local starter = require('mini.starter')
   return {
-    header = header_content,
+    header = function()
+      return get_header()
+    end,
     footer = "",
     items = {
       starter.sections.sessions(5, true),
