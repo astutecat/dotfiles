@@ -96,6 +96,16 @@ local function session_config()
       description = 'Session: Save.'
     },
     {
+      ':SessionDelete {name}',
+      function(input)
+        if input.fargs and input.fargs[1] then
+          require("mini.sessions").delete(input, { force = true })
+        end
+      end,
+      description = 'Session: Delete (name).'
+    },
+
+    {
       ':SessionDelete',
       function()
         require("mini.sessions").delete(nil, { force = true })
