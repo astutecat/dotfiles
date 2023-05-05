@@ -58,7 +58,7 @@ local function starter_config()
     header = function()
       return get_header()
     end,
-    footer = "",
+    footer = require("random-quote"),
     items = {
       starter.sections.sessions(5, true),
       starter.sections.recent_files(8, true, false),
