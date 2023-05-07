@@ -14,8 +14,9 @@ return {
     }
   end,
   ["erlangls"] = function()
-    local erl_version = require("beam_utils").erl_version
-    if erl_version < 22 then return end
+    local beam_utils = require("beam_utils")
+    local flag = require("config_flags")
+    if flag.on_d9 and beam_utils.erl_version() < 22 then return end
     require("lspconfig")["erlangls"].setup {
       on_attach = shared_config.on_attach,
       capabilities = shared_config.capabilities,
