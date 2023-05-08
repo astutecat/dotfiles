@@ -19,5 +19,3 @@ get_plugin_url() {
       ;;
   esac
 }
-
-

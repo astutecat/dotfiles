@@ -113,5 +113,3 @@
 - slight re-org and formatting change - ([204610e](https://github.com/astutecat/dotfiles/commit/204610e360b9a6c4e488f1834baa6108d8a690a3)) - [@astutecat](https://github.com/astutecat)
 - make the LSP config less spaghetti - ([0fa9e15](https://github.com/astutecat/dotfiles/commit/0fa9e15271dca24bd5a47e2830c85ab2cac77320)) - [@astutecat](https://github.com/astutecat)
 - formatting - ([1d34f8d](https://github.com/astutecat/dotfiles/commit/1d34f8dcaf00104dfed9f1462364f3a288fb85f0)) - [@astutecat](https://github.com/astutecat)
-
-

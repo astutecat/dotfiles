@@ -106,4 +106,3 @@ lazygit:
   else
     echo "Error: lazygit not on PATH."
   fi
-

@@ -148,4 +148,3 @@
 (macro_call_expr name: (var) @keyword.directive args: (_) )
 (macro_call_expr name: (var) @constant)
 (macro_call_expr name: (atom) @keyword.directive)
-
