@@ -2,9 +2,7 @@
 from_latest_tag = true
 ignore_merge_commits = false
 branch_whitelist = []
-post_bump_hooks = [
-  "cog changelog >! CHANGELOG.md"
-]
+post_bump_hooks = []
 pre_bump_hooks = []
 
 [commit_types]
