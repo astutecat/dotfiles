@@ -1,11 +1,10 @@
 # git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.10.2
-{{ $asdfVersion := "0.11.3" -}}
 [".asdf"]
 type = "git-repo"
 url = "https://github.com/asdf-vm/asdf.git"
 refreshPeriod = 0
 [".asdf".clone]
-args = ["--branch", "v{{ $asdfVersion }}", "--depth", "1"]
+args = ["--branch", "v0.11.3", "--depth", "1"]
 
 # git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 [".fzf"]
@@ -50,6 +49,12 @@ args = ["--quiet"]
 [".local/bin/nvim"]
   type = "file"
   url = "https://github.com/neovim/neovim/releases/latest/download/nvim.appimage"
+  refreshPeriod = "672h"
+  executable = true
+
+[".local/bin/git-squash"]
+  type = "file"
+  url = "https://raw.githubusercontent.com/sheerun/git-squash/master/git-squash"
   refreshPeriod = "672h"
   executable = true
 
