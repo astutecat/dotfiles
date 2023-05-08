@@ -5,6 +5,16 @@
 - add changelog - ([0e600b6](https://github.com/astutecat/dotfiles/commit/0e600b6a0a0caf2b99490e0e72975651a679d031)) - [@astutecat](https://github.com/astutecat)
 
 - - -
+## [0.2.0](https://github.com/astutecat/dotfiles/compare/0.1.0..0.2.0) - 2023-05-08
+#### Features
+- **(neovim)** add cleaner work header - ([d7572b0](https://github.com/astutecat/dotfiles/commit/d7572b049106a9e9a4924b29c5696daa5e249aa2)) - [@astutecat](https://github.com/astutecat)
+#### Miscellaneous Chores
+- move version bump hook - ([1c5dbf8](https://github.com/astutecat/dotfiles/commit/1c5dbf8de962b9245fa44ce6ef746c158b4d3246)) - [@astutecat](https://github.com/astutecat)
+- add changelog - ([4972de8](https://github.com/astutecat/dotfiles/commit/4972de82f457af35c4de446fbf80ed1f120254e2)) - [@astutecat](https://github.com/astutecat)
+- add direnv config - ([3f230d2](https://github.com/astutecat/dotfiles/commit/3f230d27f6148aaf922dfc712eeaf304a2e71608)) - [@astutecat](https://github.com/astutecat)
+
+- - -
+
 
 ## [0.1.0](https://github.com/astutecat/dotfiles/compare/7c2a8665141829d2a4dbf148f56a9b61158a9240..0.1.0) - 2023-05-08
 #### Bug Fixes
