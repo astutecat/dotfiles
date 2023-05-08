@@ -1,98 +1,101 @@
-# Changelog
-All notable changes to this project will be documented in this file. See [conventional commits](https://www.conventionalcommits.org/) for commit guidelines.
-
-- - -
-## 0.1.0 - 2023-05-08
-#### Bug Fixes
-- **(neovim)** adjust BEAM code - (c0c2bc7) - Will R
-- **(neovim)** fix telescope - (364fbd5) - Will R
-- **(neovim)** fix some more mappings - (dce7f31) - Willam Rogers
-- **(neovim)** fix bad command name - (338d7f8) - Willam Rogers
-- **(neovim)** fix tag jump rebind - (cae6c08) - Willam Rogers
-- **(neovim)** duplicate warning - (eff2dcc) - Willam Rogers
-- **(neovim)** null_ls improvements - (b9cf6a8) - Willam Rogers
-- **(neovim)** fix swap/sort map clash - (89b222a) - Willam Rogers
-- **(neovim)** fix LSP keymaps - (f57769c) - Willam Rogers
-- **(neovim)** sessions config tweak - (3797157) - Willam Rogers
-- **(neovim)** fix LSP keymap - (07ec9ab) - Willam Rogers
-- **(neovim)** fix LSP keymap - (fe705e0) - Willam Rogers
-- **(neovim)** fix issues with versioning - (3533b28) - Willam Rogers
-- **(neovim)** fix vim-lion - (8886532) - Willam Rogers
-- **(neovim)** fix completion - (1641961) - Willam Rogers
-- **(neovim)** fix telescope mappings - (5d1f6a2) - Willam Rogers
-- **(neovim)** fix which-key - (69ebcfe) - Willam Rogers
-- cog.toml schema fix - (d2d6f79) - Willam Rogers
-- fix some keybind duplication and add output panel command - (d41d699) - Willam Rogers
-- fix elixir on-attach mappings - (2d7d71c) - Willam Rogers
-- fix nclipper config - (8838fac) - Willam Rogers
-- move projectionist config to init - (3722e5a) - Willam Rogers
-- duplicate keybind - (e2e9697) - Willam Rogers
-- move buffer open to vl - (b64e363) - Will R
-- cmp tweak - (cf403ee) - Willam Rogers
-- move away from on-file-open - (c1a70a0) - Will R
-- move treesitter to a different event - (2206a95) - Will R
-- adjust beam conditional use - (1fbd146) - Willam Rogers
-- fix some naming of stuff - (a2056e1) - Willam Rogers
-#### Features
-- **(lazygit)** parse emoji in lazygit - (f6b4eb1) - Willam Rogers
-- **(neovim)** re-enable TS for erlang - (c88c20d) - Willam Rogers
-- **(neovim)** session commands update - (4ae98f0) - Will R
-- **(neovim)** delete session by name - (de1f6ce) - Willam Rogers
-- **(neovim)** shorter startup list - (22f7395) - Willam Rogers
-- **(neovim)** add quotes module - (6c94178) - Willam Rogers
-- **(neovim)** more headers! - (b59758c) - Willam Rogers
-- **(neovim)** some more headers because why not - (7e5affe) - Willam Rogers
-- **(neovim)** session management commands - (850a9b9) - Willam Rogers
-- **(neovim)** tweak mini cursor word - (382a834) - Willam Rogers
-- **(neovim)** dashboard tweaks - (ac6ccdd) - Will R
-- **(neovim)** rust and erlang treesitter tweaks - (49216db) - Willam Rogers
-- **(neovim)** tjump / select - (9065f4a) - Willam Rogers
-- **(neovim)** some tweaking of startup order - (8db7ae8) - Will R
-- **(neovim)** lazygit config - (9e65e86) - Willam Rogers
-- **(neovim)** some LSP hacking - (a504702) - Will R
-- **(neovim)** neotree reveal - (9ed8ead) - Willam Rogers
-- **(neovim)** conditionally set up elixir stuff based on version in PATH - (6f82dab) - Will R
-- **(neovim)** conditionally set up erlang_ls based on version in PATH - (28f97da) - Will R
-- **(neovim)** erl_version checking - (7e1fe92) - Will R
-- **(neovim)** session plugin - (1ff6cf9) - Willam Rogers
-- **(neovim)** dashboard stuff - (e838e39) - Willam Rogers
-- **(neovim)** project.nvim tweak - (a0fe8ae) - Willam Rogers
-- **(neovim)** some more deferred plugin loading - (fc3a36f) - Willam Rogers
-- **(neovim)** tokyonight colorscheme version - (e7546c7) - Willam Rogers
-- **(neovim)** move projectionist - (1a0d67c) - Willam Rogers
-- **(neovim)** alpha redraw on neotree - (1a578d2) - Willam Rogers
-- **(neovim)** startup -> alpha - (2b71ab6) - Willam Rogers
-- **(neovim)** switch to lazy.nvim - (7d1c5b2) - Will R
-- add git squash - (2c567b8) - Willam Rogers
-- switch to mini for a lot of plugins - (465a007) - Willam Rogers
-- delta config - (37f0d19) - Willam Rogers
-- add some more commands to legendary - (5501d4c) - Willam Rogers
-- some more fancy UI stuff - (05e5b16) - Willam Rogers
-- runtime performance improvements - (6285fc8) - Willam Rogers
-- remove nix - (62b3d74) - Will R
+## Unreleased ([7dd7301..4703e38](https://github.com/astutecat/dotfiles/compare/7dd7301..4703e38))
 #### Miscellaneous Chores
-- **(neovim)** rust_tools load on verylazy - (423ef2f) - Willam Rogers
-- move lg to function - (999f858) - Willam Rogers
-- don't check for conventional commits before latest tag - (df791fb) - Willam Rogers
-- add pre-commit - (5b4d065) - Willam Rogers
-- more tweaks - (c9ef491) - Will R
-- add luarc to ignore - (d850836) - Willam Rogers
-- rename - (bc18ba7) - Willam Rogers
-- some more version specs - (6fc9629) - Willam Rogers
-- lualine on start - (3246c76) - Willam Rogers
-- tweak lazy config - (bab9344) - Willam Rogers
-- rust_tools load on ft=rust - (1de0922) - Willam Rogers
-- move headers - (ed8a60f) - Willam Rogers
-- limit the amount of chezmoi templating in the lua config - (52bca5a) - Willam Rogers
-- pre-lazy.nvim - (d11963c) - Will R
-#### Style
-- **(neovim)** switch current cursor word to be bold - (e313457) - Willam Rogers
-- formatting - (d920fd9) - Willam Rogers
-- formatting - (f15293a) - Willam Rogers
-- slight re-org and formatting change - (8889a7a) - Willam Rogers
-- make the LSP config less spaghetti - (894da2f) - Willam Rogers
-- formatting - (acf28d0) - Willam Rogers
+- add direnv config - ([4703e38](https://github.com/astutecat/dotfiles/commit/4703e3800a79c8eb6316fc7490f9f42ae61139bd)) - Will Rogers
+- update changelog - ([b763a32](https://github.com/astutecat/dotfiles/commit/b763a3292f9521230f45f3c766ea2d7e52b788f1)) - [@astutecat](https://github.com/astutecat)
+- add changelog - ([0e600b6](https://github.com/astutecat/dotfiles/commit/0e600b6a0a0caf2b99490e0e72975651a679d031)) - [@astutecat](https://github.com/astutecat)
 
 - - -
 
-Changelog generated by [cocogitto](https://github.com/cocogitto/cocogitto).
+## [0.1.0](https://github.com/astutecat/dotfiles/compare/7c2a8665141829d2a4dbf148f56a9b61158a9240..0.1.0) - 2023-05-08
+#### Bug Fixes
+- **(neovim)** adjust BEAM code - ([20b6f2a](https://github.com/astutecat/dotfiles/commit/20b6f2ac074af437315365227f6dc93932af0530)) - [@astutecat](https://github.com/astutecat)
+- **(neovim)** fix telescope - ([01767be](https://github.com/astutecat/dotfiles/commit/01767be440ba1a8d11c85ee83bb167cbe7d25eea)) - [@astutecat](https://github.com/astutecat)
+- **(neovim)** fix some more mappings - ([0818d11](https://github.com/astutecat/dotfiles/commit/0818d116059c6b6ebf5384905585f033e1a89639)) - [@astutecat](https://github.com/astutecat)
+- **(neovim)** fix bad command name - ([e8d00bf](https://github.com/astutecat/dotfiles/commit/e8d00bf6542af738c0abbab89fb0757b99dac0af)) - [@astutecat](https://github.com/astutecat)
+- **(neovim)** fix tag jump rebind - ([e0597e7](https://github.com/astutecat/dotfiles/commit/e0597e78c9f5d3b053fedb10af25bffc63908b5b)) - [@astutecat](https://github.com/astutecat)
+- **(neovim)** duplicate warning - ([5a2e1d1](https://github.com/astutecat/dotfiles/commit/5a2e1d1ee12ce115b8a030f9ce3b21b3d607e074)) - [@astutecat](https://github.com/astutecat)
+- **(neovim)** null_ls improvements - ([bf7e022](https://github.com/astutecat/dotfiles/commit/bf7e022b21c8a420a663cf92239d61fe35dd56e4)) - [@astutecat](https://github.com/astutecat)
+- **(neovim)** fix swap/sort map clash - ([6208315](https://github.com/astutecat/dotfiles/commit/6208315fbe74e53d48a2710a0695318c6821e598)) - [@astutecat](https://github.com/astutecat)
+- **(neovim)** fix LSP keymaps - ([0d1e28b](https://github.com/astutecat/dotfiles/commit/0d1e28b87efe559f32eefa5099090374e04c4bec)) - [@astutecat](https://github.com/astutecat)
+- **(neovim)** sessions config tweak - ([8763697](https://github.com/astutecat/dotfiles/commit/876369744ed5ed554e34965a7e1830c7718fdf5f)) - [@astutecat](https://github.com/astutecat)
+- **(neovim)** fix LSP keymap - ([7b3a519](https://github.com/astutecat/dotfiles/commit/7b3a519458c8bf27c44c54ec90f0a6da179c71e9)) - [@astutecat](https://github.com/astutecat)
+- **(neovim)** fix LSP keymap - ([4c033aa](https://github.com/astutecat/dotfiles/commit/4c033aa41b665aa08913f6858baf4ecdd0f5a212)) - [@astutecat](https://github.com/astutecat)
+- **(neovim)** fix issues with versioning - ([e026636](https://github.com/astutecat/dotfiles/commit/e0266360ad5bc1a890af6b47a65da6b0b0dcffe0)) - [@astutecat](https://github.com/astutecat)
+- **(neovim)** fix vim-lion - ([8247c27](https://github.com/astutecat/dotfiles/commit/8247c275080a2ea0506ee31b984007a4f61c2ccf)) - [@astutecat](https://github.com/astutecat)
+- **(neovim)** fix completion - ([0aee95d](https://github.com/astutecat/dotfiles/commit/0aee95d055f6d2d592f086b30b93e566fe77f66d)) - [@astutecat](https://github.com/astutecat)
+- **(neovim)** fix telescope mappings - ([f27a200](https://github.com/astutecat/dotfiles/commit/f27a2006d1136665b6f79419a9d8e26e81c712f0)) - [@astutecat](https://github.com/astutecat)
+- **(neovim)** fix which-key - ([84fba60](https://github.com/astutecat/dotfiles/commit/84fba60e9b5ec45d19e6ec512ef67e04f81b15fc)) - [@astutecat](https://github.com/astutecat)
+- cog.toml schema fix - ([5ac10bf](https://github.com/astutecat/dotfiles/commit/5ac10bf508c33827be2b01fe1fd8a62bdb5c1207)) - [@astutecat](https://github.com/astutecat)
+- fix some keybind duplication and add output panel command - ([97e42d4](https://github.com/astutecat/dotfiles/commit/97e42d47cc6d5876cfce2779d334746ff737238b)) - [@astutecat](https://github.com/astutecat)
+- fix elixir on-attach mappings - ([6ab4761](https://github.com/astutecat/dotfiles/commit/6ab4761de697299e94c38711c56f9ba76c729d09)) - [@astutecat](https://github.com/astutecat)
+- fix nclipper config - ([645e9f1](https://github.com/astutecat/dotfiles/commit/645e9f1f2d17b2db5b3d66cf517fb6f06f300919)) - [@astutecat](https://github.com/astutecat)
+- move projectionist config to init - ([58990d9](https://github.com/astutecat/dotfiles/commit/58990d9dce4b8ca37746d8844db9a2cef52201df)) - [@astutecat](https://github.com/astutecat)
+- duplicate keybind - ([9336112](https://github.com/astutecat/dotfiles/commit/93361123a3e4af38a33835f506c526fcfc0618aa)) - [@astutecat](https://github.com/astutecat)
+- move buffer open to vl - ([d569b20](https://github.com/astutecat/dotfiles/commit/d569b20ef85ca2720950dc15f8e14f936f249bf6)) - [@astutecat](https://github.com/astutecat)
+- cmp tweak - ([aee8420](https://github.com/astutecat/dotfiles/commit/aee84208a914ebca0d0d9555afc0043bbf55cbb3)) - [@astutecat](https://github.com/astutecat)
+- move away from on-file-open - ([5c7bf1c](https://github.com/astutecat/dotfiles/commit/5c7bf1c96895356d6f8d4315d43c1156db8995ec)) - [@astutecat](https://github.com/astutecat)
+- move treesitter to a different event - ([09f418f](https://github.com/astutecat/dotfiles/commit/09f418f68dcbbbafb6058bbf1b6655f83efe5a93)) - [@astutecat](https://github.com/astutecat)
+- adjust beam conditional use - ([39e4a4a](https://github.com/astutecat/dotfiles/commit/39e4a4a521d826221faef8a5d7ad41508acdf2bc)) - [@astutecat](https://github.com/astutecat)
+- fix some naming of stuff - ([86669ab](https://github.com/astutecat/dotfiles/commit/86669ab84584d4c2e40af9eef7fa6940776592fd)) - [@astutecat](https://github.com/astutecat)
+#### Features
+- **(lazygit)** parse emoji in lazygit - ([4c072b2](https://github.com/astutecat/dotfiles/commit/4c072b277ac97036f9c7550c28b372450e32282e)) - [@astutecat](https://github.com/astutecat)
+- **(neovim)** re-enable TS for erlang - ([7efd657](https://github.com/astutecat/dotfiles/commit/7efd657e1fa31b9aeffcc09165483be2ce18d37f)) - [@astutecat](https://github.com/astutecat)
+- **(neovim)** session commands update - ([9958f44](https://github.com/astutecat/dotfiles/commit/9958f44f632b3162e6f7f008df7eee5d5cce9d1e)) - [@astutecat](https://github.com/astutecat)
+- **(neovim)** delete session by name - ([65a4fe4](https://github.com/astutecat/dotfiles/commit/65a4fe4bdece6a0b29a848a661c24f24a2e25e69)) - [@astutecat](https://github.com/astutecat)
+- **(neovim)** shorter startup list - ([fe5a7b5](https://github.com/astutecat/dotfiles/commit/fe5a7b51c635a7879e3c54dfbb44cfffbea920c3)) - [@astutecat](https://github.com/astutecat)
+- **(neovim)** add quotes module - ([55fc225](https://github.com/astutecat/dotfiles/commit/55fc225c142a1b555d460d23a0dbb661faac6ea8)) - [@astutecat](https://github.com/astutecat)
+- **(neovim)** more headers! - ([8463a7b](https://github.com/astutecat/dotfiles/commit/8463a7bcedd86354b381b806d7c223ee1ab0b147)) - [@astutecat](https://github.com/astutecat)
+- **(neovim)** some more headers because why not - ([38eba23](https://github.com/astutecat/dotfiles/commit/38eba23aea5804d7e473cb389dc1678e09efc882)) - [@astutecat](https://github.com/astutecat)
+- **(neovim)** session management commands - ([de6f262](https://github.com/astutecat/dotfiles/commit/de6f26272f0efb3e074cdd9df0f6efdd14d9391e)) - [@astutecat](https://github.com/astutecat)
+- **(neovim)** tweak mini cursor word - ([e4594fe](https://github.com/astutecat/dotfiles/commit/e4594fe8f703d3d2e2329fca92331e618f6ae2d0)) - [@astutecat](https://github.com/astutecat)
+- **(neovim)** dashboard tweaks - ([b77ef37](https://github.com/astutecat/dotfiles/commit/b77ef37740c345e9fb3efdb5a28331e9a8b1dc2f)) - [@astutecat](https://github.com/astutecat)
+- **(neovim)** rust and erlang treesitter tweaks - ([e1f9ee0](https://github.com/astutecat/dotfiles/commit/e1f9ee06bd5d4c077218c97fc41c46eab9551d89)) - [@astutecat](https://github.com/astutecat)
+- **(neovim)** tjump / select - ([aefced3](https://github.com/astutecat/dotfiles/commit/aefced392a738d9b76154023b0fefcbd27287fc6)) - [@astutecat](https://github.com/astutecat)
+- **(neovim)** some tweaking of startup order - ([e78e109](https://github.com/astutecat/dotfiles/commit/e78e10929e33f9e7e067dc3f4b8cfb9fcdb38dc3)) - [@astutecat](https://github.com/astutecat)
+- **(neovim)** lazygit config - ([de95828](https://github.com/astutecat/dotfiles/commit/de95828bc286fd29a6f25a2365a5bcaa7950ecd0)) - [@astutecat](https://github.com/astutecat)
+- **(neovim)** some LSP hacking - ([631cc89](https://github.com/astutecat/dotfiles/commit/631cc89830bf26ddb8fdc8a0db654f3c26aa1132)) - [@astutecat](https://github.com/astutecat)
+- **(neovim)** neotree reveal - ([1aa59c3](https://github.com/astutecat/dotfiles/commit/1aa59c382fd322d22df9aac800dd7b5b8eff5b29)) - [@astutecat](https://github.com/astutecat)
+- **(neovim)** conditionally set up elixir stuff based on version in PATH - ([e8a2748](https://github.com/astutecat/dotfiles/commit/e8a2748fafbb9e0d4ab8b79dc26e13b7cd24be3b)) - [@astutecat](https://github.com/astutecat)
+- **(neovim)** conditionally set up erlang_ls based on version in PATH - ([eb1b858](https://github.com/astutecat/dotfiles/commit/eb1b858977246b9b2ad9cf6c714e99f1611548b5)) - [@astutecat](https://github.com/astutecat)
+- **(neovim)** erl_version checking - ([5d4dced](https://github.com/astutecat/dotfiles/commit/5d4dcedd07b9d5d2d1be4e712b2d50c6d20aecfd)) - [@astutecat](https://github.com/astutecat)
+- **(neovim)** session plugin - ([e8a7c69](https://github.com/astutecat/dotfiles/commit/e8a7c69d2084ab715b10fecb11289e6bc7d2cc41)) - [@astutecat](https://github.com/astutecat)
+- **(neovim)** dashboard stuff - ([c0bca77](https://github.com/astutecat/dotfiles/commit/c0bca77f495ff8a2a21f6699a79da24ac44287cb)) - [@astutecat](https://github.com/astutecat)
+- **(neovim)** project.nvim tweak - ([a5f4560](https://github.com/astutecat/dotfiles/commit/a5f4560316e0992ee30eafdc87be87950beeaf58)) - [@astutecat](https://github.com/astutecat)
+- **(neovim)** some more deferred plugin loading - ([92cdcd6](https://github.com/astutecat/dotfiles/commit/92cdcd687920ed1d40563d205342eacca3ac0138)) - [@astutecat](https://github.com/astutecat)
+- **(neovim)** tokyonight colorscheme version - ([832fac6](https://github.com/astutecat/dotfiles/commit/832fac65c7ef988b5cf25f88599663ddabd8529f)) - [@astutecat](https://github.com/astutecat)
+- **(neovim)** move projectionist - ([895304e](https://github.com/astutecat/dotfiles/commit/895304e724f860b3f9ff36ceb3a3bb6be8a420a6)) - [@astutecat](https://github.com/astutecat)
+- **(neovim)** alpha redraw on neotree - ([c437ddd](https://github.com/astutecat/dotfiles/commit/c437ddd6f1fe3ed946bbf53422ecb203f2e41191)) - [@astutecat](https://github.com/astutecat)
+- **(neovim)** startup -> alpha - ([ddfaeb4](https://github.com/astutecat/dotfiles/commit/ddfaeb4cd0591c08e4df2dcc80a71fcc47edb96c)) - [@astutecat](https://github.com/astutecat)
+- **(neovim)** switch to lazy.nvim - ([334e80f](https://github.com/astutecat/dotfiles/commit/334e80f569b329d8331650ece5a0f24367293736)) - [@astutecat](https://github.com/astutecat)
+- add git squash - ([eac6a2a](https://github.com/astutecat/dotfiles/commit/eac6a2ade37d551ac7611b7d12a4af04da2aacf6)) - [@astutecat](https://github.com/astutecat)
+- switch to mini for a lot of plugins - ([f7edb5a](https://github.com/astutecat/dotfiles/commit/f7edb5a960cd3898f98e6c7193aa4a0c66171776)) - [@astutecat](https://github.com/astutecat)
+- delta config - ([a84fc29](https://github.com/astutecat/dotfiles/commit/a84fc29e05ff519bed1ad8313e809eb8c631764e)) - [@astutecat](https://github.com/astutecat)
+- add some more commands to legendary - ([8144822](https://github.com/astutecat/dotfiles/commit/8144822c16dc6eb8f1b2242a3af028aaaa75c224)) - [@astutecat](https://github.com/astutecat)
+- some more fancy UI stuff - ([6015995](https://github.com/astutecat/dotfiles/commit/60159959a832d55cee020bc3095e65c58b2569b6)) - [@astutecat](https://github.com/astutecat)
+- runtime performance improvements - ([feb754a](https://github.com/astutecat/dotfiles/commit/feb754a87aec6d4e5834ac5dfd4dd05d63779733)) - [@astutecat](https://github.com/astutecat)
+- remove nix - ([edd618e](https://github.com/astutecat/dotfiles/commit/edd618ec44cf8de22dbcfd04c8344f37e70146e3)) - [@astutecat](https://github.com/astutecat)
+#### Miscellaneous Chores
+- **(neovim)** rust_tools load on verylazy - ([6fb3d2c](https://github.com/astutecat/dotfiles/commit/6fb3d2c198899d70c87a0e08f39c6bba4a4844ed)) - [@astutecat](https://github.com/astutecat)
+- **(version)** 0.1.0 - ([7dd7301](https://github.com/astutecat/dotfiles/commit/7dd7301ddebe3aac58f7acdc98cf03fc683e1ee5)) - [@astutecat](https://github.com/astutecat)
+- move lg to function - ([d341e4e](https://github.com/astutecat/dotfiles/commit/d341e4e167c0fc2067a710ea49a33c45e17aa88a)) - [@astutecat](https://github.com/astutecat)
+- don't check for conventional commits before latest tag - ([d6342dd](https://github.com/astutecat/dotfiles/commit/d6342dd738ac5856cfc81bd17357cbc1360e6709)) - [@astutecat](https://github.com/astutecat)
+- add pre-commit - ([dfcf12c](https://github.com/astutecat/dotfiles/commit/dfcf12ca3feec8c38bce3384260cac569570b450)) - [@astutecat](https://github.com/astutecat)
+- more tweaks - ([9b05638](https://github.com/astutecat/dotfiles/commit/9b056381c6b802240a0f6138472fba7c518a1875)) - [@astutecat](https://github.com/astutecat)
+- add luarc to ignore - ([ae2c64e](https://github.com/astutecat/dotfiles/commit/ae2c64e9032706071fbf459576829aefc097ff8c)) - [@astutecat](https://github.com/astutecat)
+- rename - ([a349b3c](https://github.com/astutecat/dotfiles/commit/a349b3ceac53f42fba395ee2a30b25a571742626)) - [@astutecat](https://github.com/astutecat)
+- some more version specs - ([e749395](https://github.com/astutecat/dotfiles/commit/e749395f0fb6ba514c83f4f63930ccd534cc8d07)) - [@astutecat](https://github.com/astutecat)
+- lualine on start - ([f7073f5](https://github.com/astutecat/dotfiles/commit/f7073f5ab659b3c73e34a1019923a16a05d3bd3d)) - [@astutecat](https://github.com/astutecat)
+- tweak lazy config - ([af98e10](https://github.com/astutecat/dotfiles/commit/af98e104fc8a730240f85aa04c15a108d9765887)) - [@astutecat](https://github.com/astutecat)
+- rust_tools load on ft=rust - ([bd9d7da](https://github.com/astutecat/dotfiles/commit/bd9d7da8bfc11672548db8f1f4395b36c38c84da)) - [@astutecat](https://github.com/astutecat)
+- move headers - ([5040fc2](https://github.com/astutecat/dotfiles/commit/5040fc26f1bc015893e3de40a1db371bce03b8ea)) - [@astutecat](https://github.com/astutecat)
+- limit the amount of chezmoi templating in the lua config - ([d183da7](https://github.com/astutecat/dotfiles/commit/d183da7955597503dbbab5296dfed26677c65b46)) - [@astutecat](https://github.com/astutecat)
+- pre-lazy.nvim - ([ebf80d1](https://github.com/astutecat/dotfiles/commit/ebf80d1c86e34d824a1e2dd9b9ca167221899a78)) - [@astutecat](https://github.com/astutecat)
+#### Style
+- **(neovim)** switch current cursor word to be bold - ([0770f97](https://github.com/astutecat/dotfiles/commit/0770f97160fa71e24794bb6c1382a59eebfb6e9f)) - [@astutecat](https://github.com/astutecat)
+- formatting - ([6bda4c9](https://github.com/astutecat/dotfiles/commit/6bda4c919b52e25d3024d2884cf69c87c7531d6b)) - [@astutecat](https://github.com/astutecat)
+- formatting - ([827c571](https://github.com/astutecat/dotfiles/commit/827c571c194c610e949d1e3b9a93686117df26db)) - [@astutecat](https://github.com/astutecat)
+- slight re-org and formatting change - ([204610e](https://github.com/astutecat/dotfiles/commit/204610e360b9a6c4e488f1834baa6108d8a690a3)) - [@astutecat](https://github.com/astutecat)
+- make the LSP config less spaghetti - ([0fa9e15](https://github.com/astutecat/dotfiles/commit/0fa9e15271dca24bd5a47e2830c85ab2cac77320)) - [@astutecat](https://github.com/astutecat)
+- formatting - ([1d34f8d](https://github.com/astutecat/dotfiles/commit/1d34f8dcaf00104dfed9f1462364f3a288fb85f0)) - [@astutecat](https://github.com/astutecat)
+
+

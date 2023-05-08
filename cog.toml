@@ -2,13 +2,20 @@
 from_latest_tag = true
 ignore_merge_commits = false
 branch_whitelist = []
-pre_bump_hooks = []
+pre_bump_hooks = [
+  "cog changelog >! CHANGELOG.md"
+]
 post_bump_hooks = []
 
 [commit_types]
 
 [changelog]
 path = "CHANGELOG.md"
-authors = []
+template = "remote"
+remote = "github.com"
+repository = "dotfiles"
+owner = "astutecat"
+authors = [{ signature = "Will R", username = "astutecat" }]
+
 
 [bump_profiles]
