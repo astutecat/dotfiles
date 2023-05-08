@@ -22,3 +22,18 @@ source_if_exists() {
 tmux_rename() {
   [[ -n $TMUX ]] && tmux rename-window $@
 }
+
+lg() {
+  if [[ -n $(command -v lazygit) ]]; then
+    export LAZYGIT_NEW_DIR_FILE=~/.lazygit/newdir
+
+    lazygit "$@"
+
+    if [ -f $LAZYGIT_NEW_DIR_FILE ]; then
+      cd "$(cat $LAZYGIT_NEW_DIR_FILE)"
+      rm -f $LAZYGIT_NEW_DIR_FILE > /dev/null
+    fi
+  else
+    echo "Error: lazygit not on PATH."
+  fi
+}
