@@ -32,10 +32,9 @@ return {
       highlight = {
         enable = true,
         additional_vim_regex_highlighting = {
-          "markdown",
-          "erlang",
+          "markdown"
         },
-        disable = { "latex", "erlang" },
+        disable = { "latex" },
       },
       indent = {
         enable = true,
