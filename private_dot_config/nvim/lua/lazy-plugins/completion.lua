@@ -79,15 +79,15 @@ return {
           ['<CR>'] = cmp.mapping.confirm({ select = false }),
         }),
         sources = {
-          { name = 'vsnip',    max_item_count = 3 },
+          { name = 'vsnip', keyword_length = 1 },
           { name = 'nvim_lsp', max_item_count = 7 },
-          { name = 'buffer',   max_item_count = 5, keyword_length = 3 },
-          { name = 'tags',     max_item_count = 5, priority = 1,      keyword_length = 3 },
+          { name = 'buffer',   max_item_count = 6, keyword_length = 3 },
+          { name = 'tags',     max_item_count = 6, keyword_length = 3 },
         },
         performance = {
-          debounce = 300,
-          throttle = 60,
-          fetching_timeout = 200,
+          debounce = 200,
+          -- throttle = 60,
+          -- fetching_timeout = 200,
         },
       }
       -- Set configuration for specific filetype.
@@ -111,7 +111,7 @@ return {
         sources = cmp.config.sources({
           { name = 'cmdline' }
         }, {
-          { name = 'path' }
+          { name = 'path', max_item_count = 10 }
         })
       })
     end
