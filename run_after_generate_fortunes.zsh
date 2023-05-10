@@ -1,5 +1,7 @@
 #!/bin/zsh
 
+[[ -n $(command -v fortune) ]] || return;
+
 output_dir="$HOME/.local/share/fortunes"
 pushd $output_dir
   rm *.dat
@@ -7,4 +9,3 @@ pushd $output_dir
       strfile -s ${file}
   done
 popd
-
