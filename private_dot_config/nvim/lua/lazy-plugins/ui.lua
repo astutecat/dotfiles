@@ -68,7 +68,7 @@ return {
           default = '',
         },
         modified = {
-          symbol = 'u,
+          symbol = '',
         }
       },
       event_handlers = {
