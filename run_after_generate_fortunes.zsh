@@ -1,6 +1,6 @@
 #!/bin/zsh
 
-[[ -n $(command -v fortune) ]] || return;
+[[ -n $(command -v fortune) ]] || exit 0;
 
 output_dir="$HOME/.local/share/fortunes"
 pushd $output_dir
