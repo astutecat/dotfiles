@@ -4,7 +4,7 @@
 
 output_dir="$HOME/.local/share/fortunes"
 pushd $output_dir
-  rm *.dat
+  rm -f *.dat
   for file in *; do
       strfile -s ${file}
   done
