@@ -264,7 +264,7 @@ Any fool can write code that a computer can understand. Good programmers write c
 %
 A good way to think of assembly reliability is as an inverse function of the number of parts. - James A. Speck, 'Mechanical Fastening, Joining and Assembly' (2nd Ed.)
 %
-Poka-yoke (ポカヨケ): Japanese term that means "mistake-proofing". More broadly, any behavior-shaping constraint designed into a process to prevent error. 
+Poka-yoke (ポカヨケ): Japanese term that means "mistake-proofing". More broadly, any behavior-shaping constraint designed into a process to prevent error.
 %
 KISS: Keep it simple, stupid. - Kelly Johnson, Lockheed Martin, cold war period.
 %
@@ -568,7 +568,7 @@ When in doubt, use brute force. - Ken Thompson
 %
 One of my most productive days was throwing away 1000 lines of code. - Ken Thompson
 %
-Postel's Prescription: Be liberal in what you accept, and conservative in what you send. - Jon Postel 
+Postel's Prescription: Be liberal in what you accept, and conservative in what you send. - Jon Postel
 %
 90% of the functionality delivered now is better than 100% of it delivered never. - Kernighan & Plauger
 %
@@ -692,7 +692,7 @@ Machines are for answers; humans are for questions. - Kevin Kelly, founding exec
 %
 In a world awash in ready-made answers, the ability to pose difficult, even unanswerable questions is more important than ever. - Ian Leslie, 'Google makes us all dumber: The Neuroscience of Search Engines', Salon.com (2014)
 %
-[Computers] are useless. They can only give you answers. - Pablo Picasso (1964) 
+[Computers] are useless. They can only give you answers. - Pablo Picasso (1964)
 %
 Computers are useless without truly curious humans. - Ian Leslie, 'Google makes us all dumber: The Neuroscience of Search Engines', Salon.com (2014)
 %
@@ -1028,7 +1028,7 @@ Two young fish are swimming along and happen to meet an older fish swimming the 
 %
 Here's to the crazy ones. The misfits. The rebels. The troublemakers. The round pegs in the square holes. The ones who see things differently. They're not fond of rules. And they have no respect for the status quo. You can quote them, disagree with them, glorify or vilify them. About the only thing you can't do is ignore them. Because they change things. They push the human race forward. And while some may see them as the crazy ones, we see genius. Because the people who are crazy enough to think they can change the world, are the ones who do. - Rob Siltanen
 %
-Doubt kill more dreams than failure. - Suzy Kassem
+Doubt kills more dreams than failure. - Suzy Kassem
 %
 The single necessary and sufficient condition for a business is a paying customer. - Bill Aulett, MIT
 %
@@ -2034,23 +2034,23 @@ Technology works differently than law. Technology knows no jurisdiction. - Edwar
 %
 Politics: the art of convincing people to forget the lesser of two evils is also evil. - Edward Snowden, NSA whistleblower
 %
-The winds of change originate in the unconscious minds of domain experts. If you're sufficiently expert in a field, any weird idea or apparently irrelevant question that occurs to you is ipso facto worth exploring. - Paul Graham (2014) 
+The winds of change originate in the unconscious minds of domain experts. If you're sufficiently expert in a field, any weird idea or apparently irrelevant question that occurs to you is ipso facto worth exploring. - Paul Graham (2014)
 %
-The people I've met who do great work... generally feel that they're stupid and lazy, that their brain only works properly one day out of ten, and that it’s only a matter of time until they're found out. - Paul Graham (2004) 
+The people I've met who do great work... generally feel that they're stupid and lazy, that their brain only works properly one day out of ten, and that it’s only a matter of time until they're found out. - Paul Graham (2004)
 %
-It's particularly hard for hackers to know how good they are, because it's hard to compare their work. - Paul Graham (2004) 
+It's particularly hard for hackers to know how good they are, because it's hard to compare their work. - Paul Graham (2004)
 %
 When you reach the point where 90% of a group's output is created by 1% of its members, you lose big if something (whether Viking raids, or central planning) drags their productivity down to the average. - Paul Graham (2004)
 %
 I read a quote by Wittgenstein saying that he had no self-discipline and had never been able to deny himself anything, not even a cup of coffee. Now I know a number of people who do great work, and it's the same with all of them. They have little discipline. They're all terrible procrastinators and find it almost impossible to make themselves do anything they're not interested in. - Paul Graham (2005)
 %
-Great hackers also generally insist on using open source software. Not just because it's better, but because it gives them more control. Good hackers insist on control. This is part of what makes them good hackers: when something's broken, they need to fix it. - Paul Graham (2004) 
+Great hackers also generally insist on using open source software. Not just because it's better, but because it gives them more control. Good hackers insist on control. This is part of what makes them good hackers: when something's broken, they need to fix it. - Paul Graham (2004)
 %
-We now have several examples to prove that amateurs can surpass professionals, when they have the right kind of system to channel their efforts. Wikipedia may be the most famous. Experts have given Wikipedia middling reviews, but they miss the critical point: it's good enough. And it's free, which means people actually read it. On the web, articles you have to pay for might as well not exist. Even if you were willing to pay to read them yourself, you can't link to them. They're not part of the conversation. - Paul Graham (2005) 
+We now have several examples to prove that amateurs can surpass professionals, when they have the right kind of system to channel their efforts. Wikipedia may be the most famous. Experts have given Wikipedia middling reviews, but they miss the critical point: it's good enough. And it's free, which means people actually read it. On the web, articles you have to pay for might as well not exist. Even if you were willing to pay to read them yourself, you can't link to them. They're not part of the conversation. - Paul Graham (2005)
 %
-Computer science is a grab bag of tenuously related areas thrown together by an accident of history, like Yugoslavia. At one end you have people who are really mathematicians, but call what they're doing computer science so they can get DARPA grants. In the middle you have people working on something like the natural history of computers - studying the behavior of algorithms for routing data through networks, for example. And then at the other extreme you have the hackers, who are trying to write interesting software, and for whom computers are just a medium of expression, as concrete is for architects or paint for painters. It's as if mathematicians, physicists, and architects all had to be in the same department. - Paul Graham (2003) 
+Computer science is a grab bag of tenuously related areas thrown together by an accident of history, like Yugoslavia. At one end you have people who are really mathematicians, but call what they're doing computer science so they can get DARPA grants. In the middle you have people working on something like the natural history of computers - studying the behavior of algorithms for routing data through networks, for example. And then at the other extreme you have the hackers, who are trying to write interesting software, and for whom computers are just a medium of expression, as concrete is for architects or paint for painters. It's as if mathematicians, physicists, and architects all had to be in the same department. - Paul Graham (2003)
 %
-If you try to ban the future, it will just happen elsewhere. - Paul Graham (2017) 
+If you try to ban the future, it will just happen elsewhere. - Paul Graham (2017)
 %
 In programming, the hard part isn't solving problems, but deciding what problems to solve. - Paul Graham
 %
