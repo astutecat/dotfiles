@@ -19,6 +19,13 @@ fi
 
 source "${ZDOTDIR:-$HOME}/completion.zsh"
 
-if is_cmd fastfetch; then
-  fastfetch
-fi
+# Execute code only if STDERR is bound to a TTY.
+if [[ -o INTERACTIVE && -t 2 ]]; then
+  if is_cmd fastfetch; then
+    fastfetch
+  fi
+  # Print a random, hopefully interesting, adage.
+  if (( $+commands[fortune] )); then
+    fortune -s ~/.local/share/fortunes/
+  fi
+fi >&2
