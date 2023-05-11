@@ -134,7 +134,14 @@ local function session_config()
 
   return {
     directory = vim.fn.stdpath('data') .. "/sessions",
-    autowrite = true
+    autowrite = true,
+    hooks = {
+      pre = {
+        write = function()
+          vim.cmd [[:Neotree close]]
+        end
+      }
+    }
   }
 end
 
