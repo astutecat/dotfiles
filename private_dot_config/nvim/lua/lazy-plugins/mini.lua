@@ -75,11 +75,10 @@ local function session_config()
       ':SessionSave {name}',
       function(input)
         if input.fargs and input.fargs[1] then
-          require("mini.sessions").write(input.fargs[1])
+          local trimmed = string.gsub(input.fargs[1], '^%s*(.-)%s*$', '%1')
+          require("mini.sessions").write(trimmed)
         else
-          local cwd = vim.fn.getcwd()
-          cwd = string.gsub(cwd, "/", "__")
-          require("mini.sessions").write(cwd)
+          require("mini.sessions").write(nil)
         end
       end,
       description = 'Session: Save (custom name).',
@@ -89,9 +88,7 @@ local function session_config()
     {
       ':SessionSave',
       function()
-        local cwd = vim.fn.getcwd()
-        cwd = string.gsub(cwd, "/", "__")
-        require("mini.sessions").write(cwd)
+        require("mini.sessions").write(nil)
       end,
       description = 'Session: Save.'
     },
@@ -127,7 +124,7 @@ local function session_config()
           require("mini.sessions").write(cwd)
         end
       end,
-      description = 'Session: Rename current.',
+      description = 'Session: Rename.',
       unfinished = true,
       opts = { nargs = '?' },
     },
