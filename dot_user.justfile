@@ -106,3 +106,9 @@ lazygit:
   else
     echo "Error: lazygit not on PATH."
   fi
+
+fortune +args="-s":
+  #!/bin/zsh
+  if (( $+commands[fortune] )); then
+    fortune -s ~/.local/share/fortunes/
+  fi
