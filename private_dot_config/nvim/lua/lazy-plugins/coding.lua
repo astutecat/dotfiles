@@ -6,6 +6,7 @@ return {
     dependencies = { 'sheerun/vim-polyglot' },
     event = e.vl
   },
+  { 'fidian/hexmode',               event = e.vl },
   { 'christoomey/vim-sort-motion',  event = e.vl },
   { 'ludovicchabant/vim-gutentags', event = e.vl },
   {
@@ -28,7 +29,7 @@ return {
         },
       }
       require('legendary').keymaps(mappings)
-      vim.cmd[[
+      vim.cmd [[
         nmap gS <Plug>(swap-interactive)
         xmap gS <Plug>(swap-interactive)
       ]]
