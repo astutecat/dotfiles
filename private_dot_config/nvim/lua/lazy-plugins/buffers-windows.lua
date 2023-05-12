@@ -46,13 +46,12 @@ return {
     event = e.vl,
     opts = require("lazy-plugins.opts.nvim-ufo"),
     config = function(_, opts)
-      vim.o.foldcolumn = '0'       -- '0' is not bad
-      vim.o.foldnestmax = 3
-      vim.o.foldlevel = 99         -- Using ufo provider need a large value, feel free to decrease the value
+      -- UFO folding
+      vim.o.foldcolumn = "1" -- '0' is not bad
+      vim.o.foldlevel = 99 -- Using ufo provider need a large value, feel free to decrease the value
       vim.o.foldlevelstart = 99
       vim.o.foldenable = true
-      vim.opt.fillchars = { foldopen = '▾', foldclose = '▸' }
-      -- TODO: Switch to using legendary.
+      vim.o.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]] -- TODO: Switch to using legendary.
       -- Using ufo provider need remap `zR` and `zM`. If Neovim is 0.6.1, remap yourself
       vim.keymap.set('n', 'zR', require('ufo').openAllFolds)
       vim.keymap.set('n', 'zM', require('ufo').closeAllFolds)

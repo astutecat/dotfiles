@@ -1,3 +1,5 @@
+local e = require("startup_events")
+
 return {
   {
     'stevearc/dressing.nvim',
@@ -19,8 +21,8 @@ return {
     "nvim-tree/nvim-web-devicons",
     lazy = true
   },
-  { 'kshenoy/vim-signature',             event = { "BufReadPost", "BufNewFile" } },
-  { 'jeffkreeftmeijer/vim-numbertoggle', event = { "BufReadPost", "BufNewFile" } },
+  { 'kshenoy/vim-signature',             event = e.buf_read_or_new },
+  { 'jeffkreeftmeijer/vim-numbertoggle', event = e.buf_read_or_new },
 
   {
     'lukas-reineke/indent-blankline.nvim',
@@ -31,7 +33,7 @@ return {
       show_trailing_blankline_indent = false,
       show_current_context = false,
     },
-    event = { "BufReadPre", "BufNewFile" }
+    event = e.buf_read_or_new
   },
 
   {
@@ -144,7 +146,7 @@ return {
       local mappings = require("lazy-plugins.keymaps.todo_comments")
       require('legendary').keymaps(mappings)
     end,
-    event = { "BufReadPost", "BufNewFile" }
+    event = e.buf_read_or_new
   },
 
   {
@@ -164,7 +166,7 @@ return {
     opts = {
       theme = 'tokyonight',
     },
-    event = { "BufReadPost", "BufNewFile" }
+    event = e.buf_read_or_new
   },
 
   {
@@ -201,12 +203,31 @@ return {
       local mappings = require("lazy-plugins.keymaps.hlslens")
       require('legendary').keymaps(mappings)
     end,
-    event = { "BufReadPost", "BufNewFile" }
+    event = e.buf_read_or_new
   },
 
   {
     'lewis6991/gitsigns.nvim',
     opts = require("lazy-plugins.opts.gitsigns"),
   },
+
+  {
+    "luukvbaal/statuscol.nvim",
+    config = function()
+      local builtin = require("statuscol.builtin")
+      require("statuscol").setup({
+        segments = {
+          { text = { "%s" },                  click = "v:lua.ScSa" },
+          {
+            text = { builtin.lnumfunc, " " },
+            condition = { true, builtin.not_empty },
+            click = "v:lua.ScLa",
+          },
+          { text = { builtin.foldfunc, " " }, click = "v:lua.ScFa" },
+        },
+      })
+    end,
+    event = e.vl
+  }
 
 }
