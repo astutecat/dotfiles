@@ -21,9 +21,11 @@ local function customizeSelector(bufnr)
   end)
 end
 
+
 local handler = function(virtText, lnum, endLnum, width, truncate)
   local newVirtText = {}
-  local suffix = ('  %d '):format(endLnum - lnum)
+  local foldedLines = endLnum - lnum
+  local suffix = ("  %d"):format(foldedLines)
   local sufWidth = vim.fn.strdisplaywidth(suffix)
   local targetWidth = width - sufWidth
   local curWidth = 0
@@ -39,13 +41,16 @@ local handler = function(virtText, lnum, endLnum, width, truncate)
       chunkWidth = vim.fn.strdisplaywidth(chunkText)
       -- str width returned from truncate() may less than 2nd argument, need padding
       if curWidth + chunkWidth < targetWidth then
-        suffix = suffix .. (' '):rep(targetWidth - curWidth - chunkWidth)
+        suffix = suffix .. (" "):rep(targetWidth - curWidth - chunkWidth)
       end
       break
     end
     curWidth = curWidth + chunkWidth
   end
-  table.insert(newVirtText, { suffix, 'MoreMsg' })
+  local rAlignAppndx =
+      math.max(math.min(vim.opt.textwidth["_value"], width - 1) - curWidth - sufWidth, 0)
+  suffix = (" "):rep(rAlignAppndx) .. suffix
+  table.insert(newVirtText, { suffix, "MoreMsg" })
   return newVirtText
 end
 
