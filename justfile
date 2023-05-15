@@ -12,7 +12,7 @@ default:
 watch:
   watchexec -- just apply
 
-commit message:
+commit message: apply
   git add .
   git commit -m "{{message}}"
   git push
