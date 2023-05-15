@@ -1,7 +1,8 @@
 local ftMap = {
   vim = 'indent',
   python = { 'indent' },
-  git = ''
+  git = '',
+  starter = ''
 }
 
 ---@param bufnr number
