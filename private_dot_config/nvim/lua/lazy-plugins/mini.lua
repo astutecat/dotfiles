@@ -60,9 +60,10 @@ local function starter_config()
     end,
     footer = require("random-quote"),
     items = {
-      starter.sections.sessions(5, true),
-      starter.sections.recent_files(5, true, false),
+      starter.sections.sessions(4, true),
+      starter.sections.recent_files(6, true, false),
       { action = 'Telescope find_files', name = 'Find file',       section = 'Quick Actions' },
+      { action = 'Telescope projects',   name = 'Recent Projects', section = 'Quick Actions' },
       { action = 'Legendary',            name = 'Command pallete', section = 'Quick Actions' },
       { action = 'Lazy',                 name = 'Lazy',            section = 'Quick Actions' },
     }
