@@ -26,6 +26,6 @@ if [[ -o INTERACTIVE && -t 2 ]]; then
   fi
   # Print a random, hopefully interesting, adage.
   if (( $+commands[fortune] )); then
-    fortune -s ~/.local/share/fortunes/ | fmt -sw 80
+    fortune -s ~/.local/share/fortunes/ | fmt
   fi
 fi >&2

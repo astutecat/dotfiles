@@ -110,5 +110,5 @@ lazygit:
 fortune +args="-s":
   #!/bin/zsh
   if (( $+commands[fortune] )); then
-    fortune -s ~/.local/share/fortunes/
+    fortune -s ~/.local/share/fortunes/ | fmt
   fi
