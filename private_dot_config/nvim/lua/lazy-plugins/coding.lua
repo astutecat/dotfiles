@@ -64,4 +64,9 @@ return {
     end,
     event = e.vl
   },
+  {
+    'lambdalisue/suda.vim',
+    version = '^0.4',
+    event = e.vl,
+  }
 }
