@@ -20,7 +20,7 @@ source_if_exists() {
 }
 
 tmux_rename() {
-  [[ -n $TMUX ]] && tmux rename-window dotfiles || :
+  [[ -n $TMUX ]] && tmux rename-window $1 || :
 }
 
 lg() {
