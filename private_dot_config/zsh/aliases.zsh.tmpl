@@ -24,8 +24,8 @@ if [[ -n $(command -v "just") ]]; then
 fi
 
 {{if eq .location "work"}}
-alias rts="cd ~/repos/RTS; .just ns"
-alias zebra="cd ~/repos/Zebra/; .just ns"
+alias rts="cd ~/repos/RTS; tmux_rename RTS"
+alias zebra="cd ~/repos/Zebra/; tmux_rename Zebra"
 alias repos="cd ~/repos/"
-alias wiki="cd ~/repos/DemandResponse.wiki; .just ns"
+alias wiki="cd ~/repos/DemandResponse.wiki; tmux_rename Wiki"
 {{ end }}
