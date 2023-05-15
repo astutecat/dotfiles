@@ -14,7 +14,7 @@ alias ns := split-nvim
   #!/bin/bash
   dir="${PWD##*/}"
   if [[ -n $TMUX ]]; then
-    tmux new-window\; rename-window "$dir"\; split-window -hd\; send-keys 'nvim' C-m \;
+    tmux rename-window "$dir"\; split-window -hd\; send-keys 'nvim' C-m \;
   else
     tmux new-session\; rename-window "$dir"; split-window -hd\; send-keys 'nvim' C-m \;
   fi
