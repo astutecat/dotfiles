@@ -66,7 +66,7 @@ return {
         separator = ' ',
         symbols = {
           modified = ' ●',              -- Text to show when the buffer is modified
-          alternate_file = '藍',         -- Text to show to identify the alternate file
+          alternate_file = '󰐤',         -- Text to show to identify the alternate file
           directory = ' ',             -- Text to show when the buffer is a directory
         },
       }
