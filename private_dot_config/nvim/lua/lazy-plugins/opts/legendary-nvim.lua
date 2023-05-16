@@ -31,8 +31,8 @@ return {
       description = "Buffer: Next"
     },
     {
-      "<leader>bn",
-      '<cmd>bn<cr>',
+      "<leader>bp",
+      '<cmd>bp<cr>',
       description = "Buffer: Previous"
     },
     -- {
@@ -50,7 +50,7 @@ return {
   },
   -- Initial commands to bind
   commands = {
-    { ':Lazy',           description = "Show lazy.nvim" },
+    { ':Lazy', description = "Show lazy.nvim" },
   },
   -- Initial augroups/autocmds to bind
   autocmds = {
