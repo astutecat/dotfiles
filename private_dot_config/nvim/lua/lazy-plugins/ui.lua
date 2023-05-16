@@ -48,9 +48,14 @@ return {
     opts = {
       source_selector = {
         winbar = true,
+        sources = {
+          { source = "filesystem", display_name = "  󰉓  " },
+          { source = "buffers", display_name = "  󱔘  " },
+          { source = "git_status", display_name = " 󰊢  " },
+        },
       },
       window = {
-        width = 36
+        width = 30
       },
       filesystem = {
         group_empty_dirs = true,
@@ -65,9 +70,37 @@ return {
       buffers = {
         group_empty_dirs = true
       },
+      document_symbols = {
+        kinds = {
+          File = { icon = "󰈙", hl = "Tag" },
+          Namespace = { icon = "󰌗", hl = "Include" },
+          Package = { icon = "󰏖", hl = "Label" },
+          Class = { icon = "󰌗", hl = "Include" },
+          Property = { icon = "󰆧", hl = "@property" },
+          Enum = { icon = "󰒻", hl = "@number" },
+          Function = { icon = "󰊕", hl = "Function" },
+          String = { icon = "󰀬", hl = "String" },
+          Number = { icon = "󰎠", hl = "Number" },
+          Array = { icon = "󰅪", hl = "Type" },
+          Object = { icon = "󰅩", hl = "Type" },
+          Key = { icon = "󰌋", hl = "" },
+          Struct = { icon = "󰌗", hl = "Type" },
+          Operator = { icon = "󰆕", hl = "Operator" },
+          TypeParameter = { icon = "󰊄", hl = "Type" },
+          StaticMethod = { icon = '󰠄 ', hl = 'Function' },
+        }
+      },
       default_component_configs = {
         icon = {
+          folder_empty = "󰜌",
+          folder_empty_open = "󰜌",
           default = '',
+        },
+        git_status = {
+          symbols = {
+            renamed  = "󰁕",
+            unstaged = "󰄱",
+          },
         },
         modified = {
           symbol = '',
@@ -77,13 +110,13 @@ return {
         {
           event = "neo_tree_window_after_open",
           handler = function(_)
-            pcall(vim.cmd[[wincmd =]])
+            pcall(vim.cmd [[wincmd =]])
           end
         },
         {
           event = "neo_tree_window_after_close",
           handler = function(_)
-            pcall(vim.cmd[[wincmd =]])
+            pcall(vim.cmd [[wincmd =]])
           end
         }
       }
@@ -228,6 +261,17 @@ return {
         },
       })
     end
+  },
+
+  {
+    'NvChad/nvim-colorizer.lua',
+    opts = {
+      user_default_options = {
+        names = false,
+        mode = "virtualtext"
+      }
+    },
+    event = e.buf_read_or_new
   }
 
 }
