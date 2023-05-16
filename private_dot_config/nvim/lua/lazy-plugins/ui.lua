@@ -77,13 +77,13 @@ return {
         {
           event = "neo_tree_window_after_open",
           handler = function(_)
-            pcall(vim.cmd.AlphaRedraw)
+            pcall(vim.cmd[[wincmd =]])
           end
         },
         {
           event = "neo_tree_window_after_close",
           handler = function(_)
-            pcall(vim.cmd.AlphaRedraw)
+            pcall(vim.cmd[[wincmd =]])
           end
         }
       }

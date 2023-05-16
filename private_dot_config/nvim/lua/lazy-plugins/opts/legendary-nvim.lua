@@ -54,6 +54,10 @@ return {
   },
   -- Initial augroups/autocmds to bind
   autocmds = {
+    {
+      'VimResized',
+      ':wincmd =',
+    },
   },
   -- Initial functions to bind
   funcs = {},
