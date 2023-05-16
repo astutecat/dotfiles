@@ -18,7 +18,11 @@ CAN NEVER BE HELD ACCOUNTABLE
 
 THEREFORE A COMPUTER MUST NEVER
   MAKE A MANAGEMENT DECISION
-  - IBM Presentation Slide, ca. 1970s]]
+  - IBM Presentation Slide, ca. 1970s]],
+[[Make it work, then make it beautiful, then if you really, really have to,
+make it fast. 90 percent of the time, if you make it beautiful, it will
+already be fast. So really, just make it beautiful!
+  - Joe Armstrong]]
 }
 
 return M[math.random(#M)]
