@@ -16,16 +16,24 @@ args = ["--depth", "1"]
 [".fzf".pull]
 args = ["--quiet"]
 
-# git clone --depth 1 https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
-[".tmux/plugins/tpm"]
-type = "git-repo"
-url = "https://github.com/tmux-plugins/tpm"
-refreshPeriod = "672h"
-[".tmux/plugins/tpm".clone]
-args = ["--depth", "1"]
-[".tmux/plugins/tpm".pull]
-args = ["--quiet"]
+# # git clone --depth 1 https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+# [".tmux/plugins/tpm"]
+# type = "git-repo"
+# url = "https://github.com/tmux-plugins/tpm"
+# refreshPeriod = "672h"
+# [".tmux/plugins/tpm".clone]
+# args = ["--depth", "1"]
+# [".tmux/plugins/tpm".pull]
+# args = ["--quiet"]
 
+[".tmux"]
+type = "git-repo"
+url = "https://github.com/gpakosz/.tmux.git"
+refreshPeriod = "672h"
+[".tmux".clone]
+args = ["--depth", "1"]
+[".tmux".pull]
+args = ["--quiet"]
 
 # git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
 [".config/zsh/.zprezto"]
