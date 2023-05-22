@@ -2,7 +2,7 @@
 # vim: ft=zsh.chezmoitmpl:
 [[ -n $(command -v asdf) ]] || return;
 run() {
-  source "$HOME/.config/asdf/utils.zsh"
+  source "${XDG_CONFIG_HOME:-$HOME/.config}/asdf/utils.zsh"
 
   local tools_to_install={{.asdf_tools_to_install}}
 

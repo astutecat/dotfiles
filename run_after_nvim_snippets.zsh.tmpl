@@ -1,0 +1,18 @@
+#!/bin/zsh
+# vim: ft=zsh.chezmoitmpl:
+
+output_dir="${XDG_CONFIG_HOME:-$HOME/.config}/nvim/snippets"
+mkdir -p "$output_dir"
+source_dir="{{ .chezmoi.sourceDir }}/_nvim_snippets"
+pushd $source_dir
+  for file in *; do
+    output_path="$output_dir/$file"
+    [[ -L "$output_path" ]] && continue
+    if [[ -f "$output_path" ]]; then
+      echo ""
+      echo "New snippet file $file detected, moving to $source_dir"
+      mv $output_path "$source_dir/"
+    fi
+    ln -s "$source_dir/$file" "$output_path"
+  done
+popd
