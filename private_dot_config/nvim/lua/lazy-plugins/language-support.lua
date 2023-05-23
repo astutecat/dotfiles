@@ -147,12 +147,17 @@ return {
   },
 
   {
+    'tlaplus-community/tlaplus-nvim-plugin',
+    -- ft = { "tla" }
+  },
+
+  {
     "susliko/tla.nvim",
     dependencies = { "nvim-lua/plenary.nvim" },
     config = function(_, _)
       require("tla").setup()
     end,
-    ft = { "tlaplus" }
+    ft = { "tla" }
   },
 
 }
