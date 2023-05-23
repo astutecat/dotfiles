@@ -26,8 +26,8 @@ return {
         "cpp",
         "javascript",
         "julia",
-        "zig",
-        "markdown"
+        "markdown",
+        "tlaplux"
       },
       highlight = {
         enable = true,
@@ -130,7 +130,12 @@ return {
             ]])
     end,
     ft = { 'tex' }
-  }
+  },
 
+  {
+    "susliko/tla.nvim",
+    dependencies = { "nvim-lua/plenary.nvim" },
+    opts = {}
+  },
 
 }
