@@ -27,7 +27,7 @@ return {
         "javascript",
         "julia",
         "markdown",
-        "tlaplux"
+        "tlaplus"
       },
       highlight = {
         enable = true,
