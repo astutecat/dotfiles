@@ -2,6 +2,20 @@ local e = require("startup_events")
 
 return {
   {
+    "nathom/filetype.nvim",
+    opts = {
+      overrides = {
+        extensions = {
+          tla = "tlaplus"
+        }
+      }
+    },
+    config = function (_, opts)
+      require("filetype").setup(opts)
+    end,
+    priority = 1000,
+  },
+  {
     'nvim-treesitter/nvim-treesitter',
     opts = {
       ensure_installed = {
@@ -135,7 +149,10 @@ return {
   {
     "susliko/tla.nvim",
     dependencies = { "nvim-lua/plenary.nvim" },
-    opts = {}
+    config = function(_, _)
+      require("tla").setup()
+    end,
+    ft = { "tlaplus" }
   },
 
 }

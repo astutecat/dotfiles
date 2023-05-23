@@ -1,6 +1,1 @@
-.default-perl-modules
-.local/bin/nvim.appimage
-.local/share/nvim/site/plugged
-.local/share/nvim/site/pack
-.config/nvim/lua/plugins
-.gitconfig-delta
+
