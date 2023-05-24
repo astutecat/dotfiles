@@ -792,25 +792,7 @@ Go play with it yourself. - Joseph Henry Condon, Bell Labs
 %
 It's a paradox to be an artist working through the medium of machinery - but the paradox is where the sons of bitches have hidden all the oxygen. It may be crazy here, but we can breathe in here. Because the old art is no longer working, and the old science is no longer funded, and politics are a debacle, and the culture is at its wits' end. - Bruce Sterling (1995)
 %
-foo walks into a bar - @iamdevloper
-%
 nomads: people who have larger collections of coffee shop wifi passwords than clothes - @jongold
-%
-The software development process: I can't fix this. *crisis of confidence* *questions career* *questions life* Oh it was a typo, cool. - @iamdevloper
-%
-On the 7th day, God did a sprint retrospective. - @iamdevloper
-%
-What's a dinosaur's favourite file format? .rar - @iamdevloper
-%
-Asking a developer you've approached because of their work to do a code puzzle is like asking a surgeon to complete a game of Operation. - @iamdevloper
-%
-Give a man a fish and you feed him for a day, teach a man to fish and you feed him for a lifetime, give a startup $$ and they'll waste it. - @iamdevloper
-%
-If your commit message is more than 15 words you should probably just write it down and read it to your therapist. - @iamdevloper
-%
-What do we want? ASYNCHRONICITY! When do we want it? THAT'S IRRELEVANT. - @iamdevloper
-%
-What is 2+2? Engineer: 4.000000 Manager: Around 4. Accountant: What do you want it to be? - @iamdevloper
 %
 QA teams represent the alienation of product teams from their labor. - Startup Marx
 %
@@ -818,11 +800,7 @@ Values aren't achieved through specialization. Imagine a VP of teamwork. - Start
 %
 Let's base our entire SDLC off of a product meant for tracking bugs. - David J. Bland
 %
-Days since array index errors: -1 - @iamdevloper
-%
 Programming is like endless detangling of Christmas lights. - Fred Willerup
-%
-$1: Not sure if currency or regex capture group. - @iamdevloper
 %
 1998: Don't get in strangers' cars. Don't meet people from the internet. 2016: Literally summon strangers from internet to get in their car.
 %
@@ -836,35 +814,9 @@ A JavaScript developer walks into a bar. By the time they go to order, the bar i
 %
 2003: I replaced you with a set of very small shell scripts. 2013: I replaced your scripts with a six-figure enterprise DevOps platform. - @NeckbeardHacker
 %
-What kind of meat comes on the Functional Object Burger? Lamb, duh. - @hipsterhacker
-%
 Erlang is better than yer lang. - @hipsterhacker
 %
-I can't believe your Caps Lock key hasn't been remapped yet. - @hipsterhacker
-%
-They say the dream of the 90's is alive in Portland, but I haven't met a single Java developer here. - @hipsterhacker
-%
-For angel investors: A startup's value is inversely proportional to the # of people wearing business casual. - @hipsterhacker
-%
-Common Lisp is making a comeback like bellbottoms, pubic hair, and the unholy alliance of mustaches and androgyny. - @hipsterhacker
-%
-Android's spellchecker doesn't know the word 'quinoa', but iPhone's does. I'm guessing the same can be said for their respective users. - @hipsterhacker
-%
-Only old people need money to get a startup going. Venture capital? More like denture capital. - @hipsterhacker
-%
-I write world-changing applications in languages you have probably not yet heard of. My code is poetry, meanwhile yours is oh-noetry. - @hipsterhacker
-%
-Comedy: You, trying to launch a startup from scratch using Java. Tragedy: Me, trying to debug 27k lines of legacy Perl that brings $113MM/yr - @NeckbeardHacker
-%
-Did you hear about the C programmer who broke their ARM? They were volatile because they had an unsigned cast. - @silentbicycle
-%
-Q: What LAN protocol was forged in the fires of Mount Doom? A: Tolkien ring. - @aloria
-%
-Best kind of engineers to work with: 40yo parents who actually know how computers work. Worst kind: 22yo kids who love javascript frameworks. - @rogerclark
-%
 CentOS in the streets, Gentoo in the sheets. - @NeckbeardHacker
-%
-What's bower? A package manager, install it with npm. What's npm? A package manager, install it with brew. What's brew? ...  - @ddprtt
 %
 Wait... are you saying that you don't write tests for your shell scripts? How do you know if they're correct? - @NeckbeardHacker
 %
