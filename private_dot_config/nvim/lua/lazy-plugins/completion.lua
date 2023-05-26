@@ -60,10 +60,10 @@ return {
             -- so that you can provide more controls on popup customization. (See [#30](https://github.com/onsails/lspkind-nvim/pull/30))
             before = function(entry, vim_item)
               vim_item.dup = ({
-                    buffer = 0,
-                    tags = 0,
-                    cmdline = 0
-                  })[entry.source.name] or 1
+                buffer = 0,
+                tags = 0,
+                cmdline = 0
+              })[entry.source.name] or 1
               return vim_item
             end
           })
@@ -79,15 +79,16 @@ return {
           ['<CR>'] = cmp.mapping.confirm({ select = false }),
         }),
         sources = {
-          { name = 'vsnip', keyword_length = 1 },
-          { name = 'nvim_lsp', max_item_count = 7 },
-          { name = 'buffer',   max_item_count = 6, keyword_length = 3 },
-          { name = 'tags',     max_item_count = 6, keyword_length = 3 },
+          { name = 'vsnip',    keyword_length = 1 },
+          { name = 'nvim_lsp', keyword_length = 2 },
+          { name = 'buffer',   keyword_length = 3 },
+          { name = 'tags',     keyword_length = 3 },
         },
         performance = {
           debounce = 200,
           -- throttle = 60,
           -- fetching_timeout = 200,
+          max_view_entries = 20
         },
       }
       -- Set configuration for specific filetype.
