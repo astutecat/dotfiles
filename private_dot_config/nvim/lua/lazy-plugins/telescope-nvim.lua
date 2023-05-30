@@ -36,9 +36,9 @@ local function keymaps()
   local find_files_command = cmd('find_files hidden=true no_ignore=false')
   return {
     { "<leader>ff",  find_files_command,         description = desc('Find Files') },
-    { "<leader>ft",  cmd('current_buffer_tags'), description = desc('Current Buffer Tags') },
+    { "<leader>ftt", cmd('current_buffer_tags'), description = desc('Current Buffer Tags') },
     { "<leader>fts", cmd('treesitter'),          description = desc('Treesitter') },
-    { "<leader>fgt", cmd('tags'),                description = desc('Global Tags') },
+    { "<leader>ftg", cmd('tags'),                description = desc('Global Tags') },
     { "<leader>fb",  cmd('buffers'),             description = desc('Buffers') },
     { "<leader>fh",  cmd('help_tags'),           description = desc('Help Tags') },
     { "<leader>fm",  cmd('marks'),               description = desc('Marks') },
