@@ -8,7 +8,10 @@ return {
   {
     "petertriho/cmp-git",
     dependencies = "nvim-lua/plenary.nvim",
-    event = "VeryLazy"
+    event = "VeryLazy",
+    opts = {
+
+    }
   },
 
   {
@@ -94,7 +97,7 @@ return {
       -- Set configuration for specific filetype.
       cmp.setup.filetype('gitcommit', {
         sources = cmp.config.sources({
-          { name = 'cmp_git' },
+          { name = 'git' },
         }, {
           { name = 'buffer' },
         })
