@@ -37,6 +37,7 @@ local function keymaps()
   return {
     { "<leader>ff",  find_files_command,         description = desc('Find Files') },
     { "<leader>ft",  cmd('current_buffer_tags'), description = desc('Current Buffer Tags') },
+    { "<leader>fts", cmd('treesitter'),          description = desc('Treesitter') },
     { "<leader>fgt", cmd('tags'),                description = desc('Global Tags') },
     { "<leader>fb",  cmd('buffers'),             description = desc('Buffers') },
     { "<leader>fh",  cmd('help_tags'),           description = desc('Help Tags') },
@@ -45,7 +46,7 @@ local function keymaps()
     { "<leader>fp",  cmd('projects'),            description = desc('Projects') },
     { "<leader>fr",  cmd('resume'),              description = desc('Resume') },
     { "<leader>fo",  cmd('oldfiles'),            description = desc('Recent Files') },
-    { "<leader>fgb", cmd('git_branches'),         description = desc('Git Branches') },
+    { "<leader>fgb", cmd('git_branches'),        description = desc('Git Branches') },
     { "<leader>fgc", cmd('git_bcommits'),        description = desc('Git Commits (Buffer)') },
     { "<leader>fgs", cmd('git_stash'),           description = desc("Git Stash") },
   }
