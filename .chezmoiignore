@@ -1,12 +1,18 @@
 _nvim_snippets
 _fonts
 tags
+
 {{ if eq .chezmoi.os "darwin" }}
 .local/share/fonts
 {{ end }}
 
 {{ if eq .chezmoi.arch "arm" "arm64"}}
 .local/bin/nvim
+.local/bin/tmux
+{{ end }}
+
+{{ if ne .chezmoi.fqdnHostname "debian9.ntls.local" }}
+.local/bin/tmux
 {{ end }}
 
 justfile

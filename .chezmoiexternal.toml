@@ -26,13 +26,13 @@ args = ["--quiet"]
 # [".tmux/plugins/tpm".pull]
 # args = ["--quiet"]
 
-[".tmux"]
+[".local/tmux"]
 type = "git-repo"
 url = "https://github.com/gpakosz/.tmux.git"
 refreshPeriod = "672h"
-[".tmux".clone]
+[".local/tmux".clone]
 args = ["--depth", "1"]
-[".tmux".pull]
+[".local/tmux".pull]
 args = ["--quiet"]
 
 # git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
@@ -57,6 +57,12 @@ args = ["--quiet"]
 [".local/bin/nvim"]
   type = "file"
   url = "https://github.com/neovim/neovim/releases/latest/download/nvim.appimage"
+  refreshPeriod = "672h"
+  executable = true
+
+[".local/bin/tmux"]
+  type = "file"
+  url = "https://github.com/nelsonenzo/tmux-appimage/releases/latest/download/tmux.appimage"
   refreshPeriod = "672h"
   executable = true
 
