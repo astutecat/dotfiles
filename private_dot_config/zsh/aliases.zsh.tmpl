@@ -23,6 +23,10 @@ if [[ -n $(command -v "just") ]]; then
   alias dotfiles=".j dotfiles"
 fi
 
+if [[ -n $(command -vv docker)]]; then
+  alias mrsk='docker run --rm -it -v $HOME/.ssh:/root/.ssh -v /var/run/docker.sock:/var/run/docker.sock -v ${PWD}/:/workdir  ghcr.io/mrsked/mrsk'
+fi
+
 {{if eq .location "work"}}
 alias rts="cd ~/repos/RTS; tmux_rename RTS"
 alias zebra="cd ~/repos/Zebra/; tmux_rename Zebra"
