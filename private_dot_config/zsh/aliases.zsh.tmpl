@@ -23,7 +23,7 @@ if [[ -n $(command -v "just") ]]; then
   alias dotfiles=".j dotfiles"
 fi
 
-if [[ -n $(command -vv docker)]]; then
+if [[ -n $(command -v "docker") ]]; then
   alias mrsk='docker run --rm -it -v $HOME/.ssh:/root/.ssh -v /var/run/docker.sock:/var/run/docker.sock -v ${PWD}/:/workdir  ghcr.io/mrsked/mrsk'
 fi
 
