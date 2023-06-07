@@ -16,6 +16,9 @@ local cs_opts = {
   hide_inactive_statusline = false,
   dim_inactive = false, -- dims inactive windows
   lualine_bold = false,
+  on_colors = function (colors)
+    colors.border = "#565f89"
+  end
 }
 
 return {
