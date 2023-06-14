@@ -1,5 +1,5 @@
 #!/bin/zsh
-
+setopt null_glob
 [[ -n $(command -v fortune) ]] || exit 0;
 
 output_dir="$HOME/.local/share/fortunes"
