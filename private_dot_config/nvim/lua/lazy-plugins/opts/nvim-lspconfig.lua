@@ -32,7 +32,8 @@ return {
       capabilities = shared_config.capabilities,
       flags = {
         debounce_text_changes = 150,
-      }
+      },
+      cmd = { vim.fn.stdpath('data') .. "/mason/bin/erlang_ls"}
     }
   end,
   ["elixirls"] = function()
