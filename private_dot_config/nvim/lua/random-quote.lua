@@ -22,7 +22,9 @@ THEREFORE A COMPUTER MUST NEVER
 [[Make it work, then make it beautiful, then if you really, really have to,
 make it fast. 90 percent of the time, if you make it beautiful, it will
 already be fast. So really, just make it beautiful!
-  - Joe Armstrong]]
+  - Joe Armstrong]],
+[[Failure free operations require experience with failure.
+  - Richard I. Cook, MD. 'How Complex Systems Fail'.]]
 }
 
 return M[math.random(#M)]
