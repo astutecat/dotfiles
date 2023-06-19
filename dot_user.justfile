@@ -9,6 +9,10 @@ alias n := nvim
 @nvim: # nvim
   nvim
 
+alias trn := tmux-rename
+@tmux-rename name: # rename tmux window
+  tmux rename-window "{{name}}"\;
+
 alias ns := split-nvim
 split-nvim: # launch nvim in a tmux split
   #!/bin/bash
