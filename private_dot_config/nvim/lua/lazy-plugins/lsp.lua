@@ -17,6 +17,7 @@ return {
   {
     "williamboman/mason-lspconfig.nvim",
     dependencies = { 'mason.nvim' },
+    opts = {},
     event = e.vl
   },
   {

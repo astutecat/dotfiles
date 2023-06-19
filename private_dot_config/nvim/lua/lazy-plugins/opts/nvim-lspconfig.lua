@@ -1,4 +1,5 @@
 local shared_config = require("lazy-plugins.opts.lsp-shared")
+local mason_path = vim.fn.stdpath('data') .. "/mason/bin/"
 
 return {
   -- The first entry (without a key) will be the default handler
@@ -13,16 +14,6 @@ return {
       }
     }
   end,
-  ["awk_ls"] = function ()
-    require("lspconfig")["awk_ls"].setup {
-      on_attach = shared_config.on_attach,
-      capabilities = shared_config.capabilities,
-      flags = {
-        debounce_text_changes = 150,
-      },
-      cmd = { vim.fn.stdpath('data') .. "/mason/bin/awk-language-server" }
-    }
-  end,
   ["erlangls"] = function()
     local beam_utils = require("beam_utils")
     local flag = require("config_flags")
@@ -33,7 +24,7 @@ return {
       flags = {
         debounce_text_changes = 150,
       },
-      cmd = { vim.fn.stdpath('data') .. "/mason/bin/erlang_ls"}
+      cmd = { mason_path .. "erlang_ls"}
     }
   end,
   ["elixirls"] = function()
@@ -43,7 +34,7 @@ return {
         on_attach = shared_config.on_attach,
         capabilities = shared_config.capabilities,
         flags = { debounce_text_changes = 150 },
-        cmd = { vim.fn.stdpath('data') .. "/mason/bin/elixir-ls" }
+        cmd = { mason_path .. "elixir-ls" }
       }
     end
   end,
