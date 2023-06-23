@@ -24,8 +24,15 @@ if [[ -n $(command -v "just") ]]; then
   alias trn=".j trn"
 fi
 
+if [[ -n $(command -v "npx") ]]; then
+  alias log4brains='npx log4brains'
+fi
+
 if [[ -n $(command -v "docker") ]]; then
   alias mrsk='docker run --rm -it -v $HOME/.ssh:/root/.ssh -v /var/run/docker.sock:/var/run/docker.sock -v ${PWD}/:/workdir  ghcr.io/mrsked/mrsk'
+  if [[ -z $(command -v "log4brains") ]]; then
+    alias log4brains='docker run --rm -ti -v $(pwd):/workdir -p 4004:4004 thomvaill/log4brains'
+  fi
 fi
 
 {{if eq .location "work"}}
