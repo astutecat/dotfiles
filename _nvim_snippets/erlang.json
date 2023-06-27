@@ -205,12 +205,12 @@
     "prefix": ["childspec"],
     "body": [
       "#{",
-      "    id        => ${1:?MODULE}, % mandatory",
-      "    start     => {${2:?MODULE}, ${3:start_link}, [${4:[]}]} % mandatory",
-      "   %restart   => restart(),  % optional",
-      "   %type      => type(),     % optional",
-      "   %shutdown  => shutdown(), % optional",
-      "   %modules   => [$2]        % optional",
+      "    id         => ${1:?MODULE}",
+      "    ,start     => {${2:?MODULE}, ${3:start_link} [${4:[]}]}",
+      "   %,restart   => permanent,  % permanent | transient | temporary",
+      "   %,type      => worker      % worker | supervisor",
+      "   %,shutdown  => shutdown(), % optional",
+      "   %,modules   => [$2] % optional",
       "}"
     ],
     "description": "erlang supervisor childspec map"
