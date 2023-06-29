@@ -41,7 +41,8 @@ return {
         "javascript",
         "julia",
         "markdown",
-        "tlaplus"
+        "tlaplus",
+        "awk"
       },
       highlight = {
         enable = true,

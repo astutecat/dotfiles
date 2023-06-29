@@ -39,7 +39,6 @@ return {
       local elixirls = require("elixir.elixirls")
       require("elixir").setup {
         credo = {
-
         },
         elixirls = {
           on_attach = function(client, bufnr)
@@ -47,7 +46,7 @@ return {
             shared_config.on_attach(client, bufnr)
           end,
           capabilities = shared_config.capabilities,
-          cmd = { vim.fn.stdpath('data') .. "/mason/bin/elixir-ls" },
+          -- cmd = { vim.fn.stdpath('data') .. "/mason/bin/elixir-ls" },
           settings = elixirls.settings({
             dialyzerEnabled = true,
             fetchDeps = false,
