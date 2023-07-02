@@ -87,30 +87,18 @@ local function session_config()
       opts = { nargs = '?' },
     },
     {
-      ':SessionSave',
-      function()
-        require("mini.sessions").write(nil)
-      end,
-      description = 'Session: Save.'
-    },
-    {
-      ':SessionDelete {name}',
+      ':SessionDelete [name]',
       function(input)
         if input.fargs and input.fargs[1] then
-          require("mini.sessions").delete(input, { force = true })
+          local trimmed = string.gsub(input.fargs[1], '^%s*(.-)%s*$', '%1')
+          require("mini.sessions").delete(trimmed, { force = true })
+        else
+          require("mini.sessions").delete(nil, { force = true })
         end
       end,
       description = 'Session: Delete (name).',
       unfinished = true,
       opts = { nargs = '?' },
-    },
-
-    {
-      ':SessionDelete',
-      function()
-        require("mini.sessions").delete(nil, { force = true })
-      end,
-      description = 'Session: Delete current.'
     },
     {
       ':SessionRename {name}',
