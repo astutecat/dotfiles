@@ -32,9 +32,8 @@ return {
     ft = { "elixir", "eex", "heex", "surface" },
     opts = {},
     config = function()
-      local beam_utils = require("beam_utils")
       local flags = require("config_flags")
-      if flags.on_d9 and not beam_utils.elixir_ls_usable() then return end
+      if flags.on_d9 then return end
       local shared_config = require("lazy-plugins.opts.lsp-shared")
       local elixirls = require("elixir.elixirls")
       require("elixir").setup {
@@ -49,7 +48,7 @@ return {
           -- cmd = { vim.fn.stdpath('data') .. "/mason/bin/elixir-ls" },
           settings = elixirls.settings({
             dialyzerEnabled = true,
-            fetchDeps = false,
+            fetchDeps = true,
             enableTestLenses = false,
             suggestSpecs = true,
           }),

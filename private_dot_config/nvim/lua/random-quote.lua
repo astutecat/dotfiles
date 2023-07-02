@@ -24,7 +24,9 @@ make it fast. 90 percent of the time, if you make it beautiful, it will
 already be fast. So really, just make it beautiful!
   - Joe Armstrong]],
 [[Failure free operations require experience with failure.
-  - Richard I. Cook, MD. 'How Complex Systems Fail'.]]
+  - Richard I. Cook, MD. 'How Complex Systems Fail'.]],
+[[An expert is a person who has made most of the possible mistakes
+in a given field.]]
 }
 
 return M[math.random(#M)]
