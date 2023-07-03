@@ -23,7 +23,7 @@ return {
           description = "nvim-swap: Swap with previous item",
         },
         {
-          'g<',
+          'g>',
           '<Plug>(swap-next)',
           description = "nvim-swap: Swap with next item",
         },
