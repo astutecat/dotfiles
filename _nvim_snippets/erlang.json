@@ -206,7 +206,7 @@
     "body": [
       "#{",
       "    id         => ${1:?MODULE}",
-      "    ,start     => {${2:?MODULE}, ${3:start_link} [${4:[]}]}",
+      "    ,start     => {${2:?MODULE}, ${3:start_link}, [${4:[]}]}",
       "   %,restart   => permanent,  % permanent | transient | temporary",
       "   %,type      => worker      % worker | supervisor",
       "   %,shutdown  => shutdown(), % optional",
