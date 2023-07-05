@@ -4,7 +4,7 @@ type = "git-repo"
 url = "https://github.com/asdf-vm/asdf.git"
 refreshPeriod = 0
 [".asdf".clone]
-args = ["--branch", "v0.11.3", "--depth", "1"]
+args = ["--branch", "v0.12.0", "--depth", "1"]
 
 # git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 [".fzf"]
@@ -15,16 +15,6 @@ refreshPeriod = "672h"
 args = ["--depth", "1"]
 [".fzf".pull]
 args = ["--quiet"]
-
-# # git clone --depth 1 https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
-# [".tmux/plugins/tpm"]
-# type = "git-repo"
-# url = "https://github.com/tmux-plugins/tpm"
-# refreshPeriod = "672h"
-# [".tmux/plugins/tpm".clone]
-# args = ["--depth", "1"]
-# [".tmux/plugins/tpm".pull]
-# args = ["--quiet"]
 
 [".local/tmux"]
 type = "git-repo"
@@ -72,7 +62,7 @@ args = ["--quiet"]
   refreshPeriod = "672h"
   executable = true
 
-[".local/bin"]
+[".local/bin/.age"]
   type = "archive"
   url = "https://dl.filippo.io/age/latest?for={{.chezmoi.os}}/{{.chezmoi.arch}}"
   refreshPeriod = "672h"

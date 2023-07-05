@@ -9,6 +9,9 @@ tags
 {{ if eq .chezmoi.arch "arm" "arm64"}}
 .local/bin/nvim
 .local/bin/tmux
+.local/bin/age
+.local/bin/.age
+.local/bin/age-keygen
 {{ end }}
 
 {{ if ne .chezmoi.fqdnHostname "debian9.ntls.local" }}
