@@ -75,7 +75,8 @@ return {
           null_ls.builtins.formatting.black,
           null_ls.builtins.diagnostics.pylint,
           null_ls.builtins.diagnostics.selene,
-          null_ls.builtins.formatting.xmlformat
+          null_ls.builtins.formatting.xmlformat,
+          null_ls.builtins.formatting.latexindent
         },
         on_attach = shared_config.on_attach,
         debounce = 150
