@@ -10,7 +10,7 @@
 # session_path = "~/.key"
 
 ## date format used, either "us" or "uk"
-# dialect = "us"
+dialect = "uk"
 
 ## enable or disable automatic sync
 # auto_sync = true
@@ -32,7 +32,7 @@
 
 ## which filter mode to use
 ## possible values: global, host, session, directory
-# filter_mode = "global"
+filter_mode = "host"
 
 ## which filter mode to use when atuin is invoked from a shell up-key binding
 ## the accepted values are identical to those of "filter_mode"
