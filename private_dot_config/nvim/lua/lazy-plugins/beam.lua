@@ -41,7 +41,10 @@ return {
           enable = false
         },
         credo = {
-          enable = true
+          enable = true,
+          on_attach = function(client, bufnr)
+            shared_config.on_attach(client, bufnr)
+          end,
         },
         elixirls = {
           enable = true,
