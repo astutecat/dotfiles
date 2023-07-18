@@ -1,3 +1,5 @@
+
+local e = require("startup_events")
 local function mappings(bufnr)
   local k_opts = { silent = true, noremap = true, buffer = bufnr }
   return {
@@ -29,7 +31,9 @@ return {
       "nvim-lua/plenary.nvim",
       'hrsh7th/cmp-nvim-lsp',
     },
-    ft = { "elixir", "eex", "heex", "surface" },
+    version = '*',
+    -- ft = { "elixir", "eex", "heex", "surface" },
+    event = e.buf_read_pre_or_new,
     opts = {},
     config = function()
       local flags = require("config_flags")
