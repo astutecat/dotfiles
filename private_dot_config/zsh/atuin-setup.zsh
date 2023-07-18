@@ -1,5 +1,3 @@
-if [[ ! $(is_cmd atuin) ]]; then
-  return
+if is_cmd atuin; then
+  eval "$(atuin init zsh)"
 fi
-
-eval "$(atuin init zsh)"
