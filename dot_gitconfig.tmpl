@@ -29,7 +29,8 @@
 [gc]
 	autoDetach = false
 [init]
-	defaultBranch = main
+  defaultBranch = main
+  templateDir = "{{ .chezmoi.homeDir }}/.git-template"
 [core]
   editor = nvim
   pager = delta
