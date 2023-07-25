@@ -37,3 +37,19 @@ lg() {
     echo "Error: lazygit not on PATH."
   fi
 }
+
+git_squash_from() {
+    COMMIT_TO_SQUASH=$1
+    SQUASH_MESSAGE=$2
+
+    STARTING_BRANCH=$(git rev-parse --abbrev-ref HEAD)
+    CURRENT_HEAD=$(git rev-parse HEAD)
+
+    echo From $CURRENT_HEAD to the successor of  $COMMIT_TO_SQUASH will retain, from $COMMIT_TO_SQUASH to beginging will be squashed
+
+    git checkout $COMMIT_TO_SQUASH
+    git reset $(git commit-tree HEAD^{tree} -m "$SQUASH_MESSAGE")
+    git cherry-pick $CURRENT_HEAD...$COMMIT_TO_SQUASH
+    git branch -D $STARTING_BRANCH
+    git checkout -b $STARTING_BRANCH
+}
