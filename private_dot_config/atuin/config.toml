@@ -71,7 +71,9 @@ show_preview = true
 ## https://docs.rs/regex/latest/regex/#syntax
 history_filter = [
   "^git commit -m",
-  "^j commit"
+  "^j commit",
+  "^git checkout ",
+  "^git branch "
 ]
 
 ## prevent commands run with cwd matching any of these regexes from being written
