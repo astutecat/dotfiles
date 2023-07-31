@@ -10,7 +10,7 @@ return {
         }
       }
     },
-    config = function (_, opts)
+    config = function(_, opts)
       require("filetype").setup(opts)
     end,
     priority = 1000,
@@ -42,7 +42,8 @@ return {
         "julia",
         "markdown",
         "tlaplus",
-        "awk"
+        "awk",
+        "haskell"
       },
       highlight = {
         enable = true,
@@ -160,5 +161,10 @@ return {
     end,
     ft = { "tla" }
   },
+
+  {
+    'purescript-contrib/purescript-vim',
+    version = '*'
+  }
 
 }
