@@ -24,7 +24,6 @@ return {
         "bash",
         "elixir",
         "heex",
-        "eex",
         "erlang",
         "lua",
         "rust",

@@ -24,7 +24,7 @@ return {
       flags = {
         debounce_text_changes = 150,
       },
-      cmd = { mason_path .. "erlang_ls"}
+      cmd = { mason_path .. "erlang_ls" }
     }
   end,
   ["elixirls"] = function()
@@ -70,5 +70,27 @@ return {
         }
       }
     }
+  end,
+  ["tailwindcss"] = function()
+    require 'lspconfig'.tailwindcss.setup({
+      capabilities = shared_config.capabilities,
+      filetypes = { "html", "elixir", "eelixir", "heex" },
+      init_options = {
+        userLanguages = {
+          elixir = "html-eex",
+          eelixir = "html-eex",
+          heex = "html-eex",
+        },
+      },
+      settings = {
+        tailwindCSS = {
+          experimental = {
+            classRegex = {
+              'class[:]\\s*"([^"]*)"',
+            },
+          },
+        },
+      },
+    })
   end
 }
