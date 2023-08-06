@@ -23,6 +23,8 @@ return {
         "python",
         "bash",
         "elixir",
+        "heex",
+        "eex",
         "erlang",
         "lua",
         "rust",
