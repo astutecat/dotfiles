@@ -92,11 +92,11 @@ return {
         },
       },
     })
-    end,
-   ["emmet_ls"] = function ()
-     require 'lspconfig'.emmet_ls.setup({
-  capabilities = shared_config.capabilities,
-  filetypes = { "html", "css", "elixir", "eelixir", "heex" },
-})
+  end,
+  ["emmet_ls"] = function()
+    require 'lspconfig'.emmet_ls.setup({
+      capabilities = shared_config.capabilities,
+      filetypes = { "html", "css", "elixir", "eelixir", "heex" },
+    })
   end
 }
