@@ -76,7 +76,16 @@ return {
     lspconfig.tailwindcss.setup({
       capabilities = shared_config.capabilities,
       filetypes = { "html", "elixir", "eelixir", "heex" },
-      root_dir = lspconfig.util.root_pattern('tailwind.config.js', 'tailwind.config.ts', 'postcss.config.js', 'postcss.config.ts', 'package.json', 'node_modules', '.git', 'mix.exs'),
+      root_dir = lspconfig.util.root_pattern(
+        'tailwind.config.js',
+        'tailwind.config.ts',
+        'postcss.config.js',
+        'postcss.config.ts',
+        'package.json',
+        'node_modules',
+        '.git',
+        'mix.exs'
+      ),
       init_options = {
         userLanguages = {
           elixir = "html-eex",

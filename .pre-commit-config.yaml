@@ -1,6 +1,8 @@
 
 # yamllint disable rule:document-start
 default_install_hook_types: [pre-commit, commit-msg]
+default_stages:
+  - commit
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v4.4.0
@@ -8,12 +10,14 @@ repos:
       - id: trailing-whitespace
       - id: end-of-file-fixer
       - id: check-yaml
-        stages: [commit]
       - id: mixed-line-ending
         args: [--fix=lf]
-        stages: [commit]
   - repo: https://github.com/compilerla/conventional-pre-commit
     rev: v2.2.0
     hooks:
       - id: conventional-pre-commit
         stages: [commit-msg]
+  - repo: https://github.com/lunarmodules/luacheck
+    rev: v1.1.1
+    hooks:
+      - id: luacheck
