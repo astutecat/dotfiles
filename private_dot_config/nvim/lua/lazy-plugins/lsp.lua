@@ -7,7 +7,7 @@ if flags.on_d9 then
 end
 
 return {
-  { 'nvim-lua/lsp-status.nvim',  event = e.lsp_a },
+  { 'nvim-lua/lsp-status.nvim', event = e.lsp_a },
   {
     "williamboman/mason.nvim",
     opts = {},
