@@ -57,36 +57,6 @@ return {
     event = e.lsp_a
   },
   {
-    'jose-elias-alvarez/null-ls.nvim',
-    opts = {},
-    config = function(_, _)
-      local null_ls = require("null-ls")
-      local builtins = null_ls.builtins
-      local shared_config = require("lazy-plugins.opts.lsp-shared")
-      null_ls.setup({
-        sources = {
-          builtins.code_actions.gitsigns,
-          builtins.diagnostics.trail_space.with({
-            disabled_filetypes = { "lua", "python" },
-          }),
-          builtins.diagnostics.yamllint,
-          builtins.formatting.yamlfmt,
-          null_ls.builtins.diagnostics.zsh,
-          null_ls.builtins.formatting.black,
-          null_ls.builtins.diagnostics.pylint,
-          null_ls.builtins.diagnostics.selene,
-          null_ls.builtins.formatting.xmlformat,
-          null_ls.builtins.formatting.latexindent
-        },
-        on_attach = shared_config.on_attach,
-        debounce = 150
-      })
-    end,
-    dependencies = {
-      { 'lewis6991/gitsigns.nvim' }
-    }
-  },
-  {
     "mhanberg/output-panel.nvim",
     event = e.vl,
     config = function()

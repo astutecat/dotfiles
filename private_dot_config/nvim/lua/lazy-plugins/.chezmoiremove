@@ -2,3 +2,4 @@ dashboard.lua
 sessions.lua
 opts/telescope-nvim.lua
 keymaps/telescope-nvim.lua
+ale.lua
