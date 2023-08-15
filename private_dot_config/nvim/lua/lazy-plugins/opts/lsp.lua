@@ -157,6 +157,10 @@ return {
       },
       javascript = {
         formatter = prettier_d
+      },
+      python = {
+        formatter = formatter("black"),
+        linter = linter("pylint")
       }
     }
   end
