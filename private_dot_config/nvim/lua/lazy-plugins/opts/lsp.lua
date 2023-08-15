@@ -2,6 +2,13 @@ local shared_config = require("lazy-plugins.opts.lsp-shared")
 local mason_path = vim.fn.stdpath('data') .. "/mason/bin/"
 local lspconfig = require('lspconfig')
 
+local function linter(name)
+  return require("efmls-configs.linters."..name)
+end
+local function formatter(name)
+  return require("efmls-configs.formatters."..name)
+end
+
 return {
   -- The first entry (without a key) will be the default handler
   -- and will be called for each installed server that doesn't have
@@ -109,5 +116,48 @@ return {
       capabilities = shared_config.capabilities,
       filetypes = { "html", "css", "elixir", "eelixir", "heex" },
     })
+  end,
+  ["efm"] = function()
+    local efmls = require 'efmls-configs'
+    efmls.init {
+      on_attach = shared_config.on_attach,
+      capabilities = shared_config.capabilities,
+      init_options = {
+        documentFormatting = true,
+      },
+      default_config = true,
+    }
+    local shellcheck = linter("shellcheck")
+    local shfmt = formatter("shfmt")
+    local prettier_d = formatter("prettier_d")
+    efmls.setup {
+      sh = {
+        linter = shellcheck,
+        formatter = shfmt
+      },
+      bash = {
+        linter = shellcheck,
+        formatter = shfmt
+      },
+      lua = {
+        linter = linter("luacheck"),
+        formatter = formatter("lua_format")
+      },
+      yaml = {
+        linter = linter("yamllint")
+      },
+      css = {
+        formatter = prettier_d
+      },
+      html = {
+        formatter = prettier_d
+      },
+      typescript = {
+        formatter = prettier_d
+      },
+      javascript = {
+        formatter = prettier_d
+      }
+    }
   end
 }

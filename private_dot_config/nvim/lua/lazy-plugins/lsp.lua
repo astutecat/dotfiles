@@ -28,7 +28,7 @@ return {
       'hrsh7th/cmp-nvim-lsp',
     },
     version = false,
-    opts = require("lazy-plugins.opts.nvim-lspconfig"),
+    opts = require("lazy-plugins.opts.lsp"),
     config = function(_, opts)
       require("mason-lspconfig").setup_handlers(opts)
       local commands = {
@@ -69,5 +69,10 @@ return {
       }
       require("legendary").commands(commands)
     end,
+  },
+  {
+    'creativenull/efmls-configs-nvim',
+    version = '*', -- tag is optional
+    dependencies = { 'neovim/nvim-lspconfig' },
   }
 }
