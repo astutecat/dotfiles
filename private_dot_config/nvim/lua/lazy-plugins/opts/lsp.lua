@@ -144,7 +144,8 @@ return {
         formatter = formatter("lua_format")
       },
       yaml = {
-        linter = linter("yamllint")
+        linter = linter("yamllint"),
+        formatter = prettier_d
       },
       css = {
         formatter = prettier_d
