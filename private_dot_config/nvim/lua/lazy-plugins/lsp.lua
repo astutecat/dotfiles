@@ -21,6 +21,25 @@ return {
     event = e.vl
   },
   {
+    "WhoIsSethDaniel/mason-tool-installer.nvim",
+    dependencies = { 'mason.nvim' },
+    event = e.vl,
+    opts = {
+      ensure_installed = {
+        "efm",
+        "prettierd",
+        "luacheck",
+        "black",
+        "shellcheck",
+        "shfmt",
+        "pylint",
+        "lua-language-server",
+        "yamllint",
+        "yamlfmt"
+      }
+    }
+  },
+  {
     'neovim/nvim-lspconfig',
     dependencies = {
       'mason-lspconfig.nvim',
