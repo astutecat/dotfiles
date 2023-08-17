@@ -136,7 +136,7 @@ return {
         formatter = shfmt
       },
       bash = {
-        linter = shellcheck,
+        --linter = shellcheck,
         formatter = shfmt
       },
       lua = {
