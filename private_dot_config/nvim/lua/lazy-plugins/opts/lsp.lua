@@ -3,10 +3,10 @@ local mason_path = vim.fn.stdpath('data') .. "/mason/bin/"
 local lspconfig = require('lspconfig')
 
 local function linter(name)
-  return require("efmls-configs.linters."..name)
+  return require("efmls-configs.linters." .. name)
 end
 local function formatter(name)
-  return require("efmls-configs.formatters."..name)
+  return require("efmls-configs.formatters." .. name)
 end
 
 return {
@@ -118,51 +118,37 @@ return {
     })
   end,
   ["efm"] = function()
-    local efmls = require 'efmls-configs'
-    efmls.init {
-      on_attach = shared_config.on_attach,
-      capabilities = shared_config.capabilities,
-      init_options = {
-        documentFormatting = true,
-      },
-      default_config = true,
-    }
     local shellcheck = linter("shellcheck")
     local shfmt = formatter("shfmt")
     local prettier_d = formatter("prettier_d")
-    efmls.setup {
-      sh = {
-        linter = shellcheck,
-        formatter = shfmt
+
+    local languages = require('efmls-configs.defaults').languages()
+    languages = vim.tbl_extend('force', languages, {
+      sh = { shellcheck, shfmt },
+      bash = { shellcheck, shfmt },
+      lua = { linter("luacheck"), formatter("lua_format") },
+      yaml = { linter("yamllint"), prettier_d },
+      css = { prettier_d },
+      html = { prettier_d },
+      typescript = { prettier_d },
+      javascript = { linter("eslint"), prettier_d },
+      python = { formatter("black"), linter("pylint") }
+    })
+
+    local efmls_config = {
+      on_attach = shared_config.on_attach,
+      capabilities = shared_config.capabilities,
+      filetypes = vim.tbl_keys(languages),
+      settings = {
+        rootMarkers = { '.git/', 'mix.exs', 'justfile', 'Makefile' },
+        languages = languages,
       },
-      bash = {
-        --linter = shellcheck,
-        formatter = shfmt
+      init_options = {
+        documentFormatting = true,
+        documentRangeFormatting = true,
       },
-      lua = {
-        linter = linter("luacheck"),
-        formatter = formatter("lua_format")
-      },
-      yaml = {
-        linter = linter("yamllint"),
-        formatter = prettier_d
-      },
-      css = {
-        formatter = prettier_d
-      },
-      html = {
-        formatter = prettier_d
-      },
-      typescript = {
-        formatter = prettier_d
-      },
-      javascript = {
-        formatter = prettier_d
-      },
-      python = {
-        formatter = formatter("black"),
-        linter = linter("pylint")
-      }
     }
+
+    lspconfig.efm.setup(efmls_config)
   end
 }
