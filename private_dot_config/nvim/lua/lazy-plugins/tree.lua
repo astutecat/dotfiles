@@ -27,6 +27,10 @@ return {
           always_show = {
             ".gitignore",
             ".envrc",
+            ".pre-commit-config.yaml",
+            ".editorconfig",
+            ".envrc",
+            ".tool-versions"
           },
         }
       },
