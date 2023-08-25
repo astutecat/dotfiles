@@ -14,6 +14,10 @@ if is_cmd atuin; then
   atuin gen-completions --shell zsh >! "${ZDOTDIR:-$HOME}/.zfunc/_atuin"
 fi
 
+if is_cmd stg; then
+  stg completions zsh >! "${ZDOTDIR:-$HOME}/.zfunc/_stg"
+fi
+
 autoload -Uz compinit bashcompinit
 compinit
 bashcompinit
