@@ -15,7 +15,7 @@ if is_cmd atuin; then
 fi
 
 if is_cmd stg; then
-  stg completions zsh >! "${ZDOTDIR:-$HOME}/.zfunc/_stg"
+  stg completion zsh >! "${ZDOTDIR:-$HOME}/.zfunc/_stg"
 fi
 
 autoload -Uz compinit bashcompinit
