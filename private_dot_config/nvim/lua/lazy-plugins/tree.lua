@@ -13,7 +13,7 @@ return {
         winbar = true,
         sources = {
           { source = "filesystem", display_name = "  󰉓  " },
-          { source = "buffers", display_name = "  󱔘  " },
+          { source = "buffers",    display_name = "  󱔘  " },
           { source = "git_status", display_name = " 󰊢  " },
         },
       },
@@ -96,14 +96,27 @@ return {
           "<leader>ee",
           "<cmd>Neotree toggle<cr>",
           mode = { 'n' },
-          description = "Toggle Neotree"
+          description = "Neotree: Toggle (left split)"
         },
         {
-          "<leader>er",
+          "<leader>ew",
+          "<cmd>Neotree toggle position=current<cr>",
+          mode = { 'n' },
+          description = "Neotree: Toggle netrw style"
+        },
+        {
+          "<leader>err",
           "<cmd>Neotree reveal<cr>",
           mode = { 'n' },
-          description = "Reveal File in Neotree"
+          description = "Neotree: Reveal File"
+        },
+        {
+          "<leader>erw",
+          "<cmd>Neotree reveal position=current<cr>",
+          mode = { 'n' },
+          description = "Neotree: Reveal File netrw style"
         }
+
 
       }
       require('legendary').keymaps(mappings)
