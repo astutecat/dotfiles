@@ -13,7 +13,9 @@
 [difftool "meld"]
 	cmd = meld "$LOCAL" "$REMOTE"
 [difftool "bc3"]
-	trustExitCode = true
+  trustExitCode = true
+[diff "sopsdiffer"]
+  textconv = "sops -d"
 [merge]
   tool = bc3
   conflictstyle = diff3
