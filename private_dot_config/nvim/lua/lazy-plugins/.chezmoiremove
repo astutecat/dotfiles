@@ -7,3 +7,4 @@ nvim-lint.lua
 efm-ls.lua
 opts/nvim-lspconfig.lua
 formatter-nvim.lua
+opts/gitsigns.lua
