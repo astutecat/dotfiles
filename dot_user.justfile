@@ -10,7 +10,8 @@ alias n := nvim
   nvim
 
 alias trn := tmux-rename
-@tmux-rename name: # rename tmux window
+dir_leaf := `echo "${PWD##*/}"`
+@tmux-rename name=dir_leaf: # rename tmux window
   tmux rename-window "{{name}}"\;
 
 alias ns := split-nvim
