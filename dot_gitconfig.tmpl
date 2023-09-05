@@ -4,7 +4,8 @@
 [user]
 	name = {{ .git.name }}
 	email = {{ .git.email }}
-	signingKey = {{ .git.signing_key }}
+  signingKey = {{ .git.signing_key }}
+
 {{- if ne .location "other" }}
 [diff]
 	tool = bc3
@@ -28,6 +29,7 @@
   update = true
   initializenew = true
 {{ end -}}
+
 [gc]
 	autoDetach = false
 [init]
