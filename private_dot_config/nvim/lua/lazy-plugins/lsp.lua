@@ -35,7 +35,8 @@ return {
         "pylint",
         "lua-language-server",
         "yamllint",
-        "yamlfmt"
+        "yamlfmt",
+        "shellharden"
       }
     }
   },

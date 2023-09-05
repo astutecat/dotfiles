@@ -121,11 +121,12 @@ return {
     local shellcheck = linter("shellcheck")
     local shfmt = formatter("shfmt")
     local prettier_d = formatter("prettier_d")
+    local shellharden = formatter('shellharden')
 
     local languages = require('efmls-configs.defaults').languages()
     languages = vim.tbl_extend('force', languages, {
-      sh = { shellcheck, shfmt },
-      bash = { shellcheck, shfmt },
+      sh = { shellcheck, shfmt, shellharden },
+      bash = { shellcheck, shfmt, shellharden },
       lua = { linter("luacheck"), formatter("lua_format") },
       yaml = { linter("yamllint"), prettier_d },
       css = { prettier_d },

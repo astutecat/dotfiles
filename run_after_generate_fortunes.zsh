@@ -2,7 +2,7 @@
 setopt null_glob
 [[ -n $(command -v fortune) ]] || exit 0;
 
-output_dir="$HOME/.local/share/fortunes"
+output_dir=$HOME/.local/share/fortunes
 pushd $output_dir
   rm -f *.dat
   for file in *; do
