@@ -8,7 +8,7 @@
 
 {{- if ne .location "other" }}
 [diff]
-	tool = bc3
+	tool = difftastic
 [difftool]
 	prompt = false
 [difftool "meld"]
@@ -17,6 +17,8 @@
   trustExitCode = true
 [diff "sopsdiffer"]
   textconv = "sops -d"
+[difftool "difftastic"]
+  cmd = difft "$LOCAL" "$REMOTE"
 [merge]
   tool = bc3
   conflictstyle = diff3
@@ -29,6 +31,9 @@
   update = true
   initializenew = true
 {{ end -}}
+
+[alias]
+  dft = difftool -t difftastic
 
 [gc]
 	autoDetach = false
