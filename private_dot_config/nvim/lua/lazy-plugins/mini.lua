@@ -166,6 +166,7 @@ return {
       require('mini.splitjoin').setup(splitjoin_config())
       require('mini.cursorword').setup(cursorword_config())
       require('mini.starter').setup(starter_config())
+      require('mini.move').setup()
       post_config()
     end
   }
