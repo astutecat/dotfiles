@@ -28,6 +28,11 @@ if [[ -n $(command -v "npx") ]]; then
   alias log4brains='npx log4brains'
 fi
 
+if [[ -n $(command -v "eza") ]]; then
+  alias e='eza'
+fi
+
+
 if [[ -n $(command -v "docker") ]]; then
   alias kamal="docker run -it --rm -v '${PWD}:/workdir' -v '${SSH_AUTH_SOCK}:/ssh-agent' -v /var/run/docker.sock:/var/run/docker.sock -e 'SSH_AUTH_SOCK=/ssh-agent' ghcr.io/basecamp/kamal:latest"
   if [[ -z $(command -v "log4brains") ]]; then

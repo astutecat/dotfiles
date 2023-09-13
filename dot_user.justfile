@@ -51,6 +51,7 @@ update-rust:
 cargo-update-result := `cargo install --list | grep cargo-update\ v || true`
 update-cargo +crates="-a":
   @[[ -n $(echo "{{cargo-update-result}}") ]] || cargo install cargo-update
+  @[[ -n $(command -v eza ) ]] || cargo install eza
   cargo install-update {{crates}}
 
 @tldr +args:
