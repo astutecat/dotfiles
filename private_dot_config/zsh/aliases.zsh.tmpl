@@ -1,13 +1,7 @@
 alias hl='printf %"$COLUMNS"s |tr " " "-"'
 alias lcl='hl && clear'
 
-alias ls='ls --color=auto'
-alias ll='ls --color=auto -l'
-alias lal='ls --color=auto -al'
-alias la='ls --color=auto -a'
-alias dir='dir --color=auto'
 alias vdir='vdir --color=auto'
-
 alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
@@ -28,10 +22,19 @@ if [[ -n $(command -v "npx") ]]; then
   alias log4brains='npx log4brains'
 fi
 
+alias ls='ls --color=auto'
+alias ll='ls --color=auto -l'
+alias lal='ls --color=auto -al'
+alias la='ls --color=auto -a'
+
 if [[ -n $(command -v "eza") ]]; then
   alias e='eza'
+  alias ll='eza -l'
+  alias lal='eza -al'
+  alias la='eza -a'
 fi
 
+alias dir='dir --color=auto'
 
 if [[ -n $(command -v "docker") ]]; then
   alias kamal="docker run -it --rm -v '${PWD}:/workdir' -v '${SSH_AUTH_SOCK}:/ssh-agent' -v /var/run/docker.sock:/var/run/docker.sock -e 'SSH_AUTH_SOCK=/ssh-agent' ghcr.io/basecamp/kamal:latest"
