@@ -32,8 +32,10 @@ alias la='ls --color=auto -a'
 if [[ -n $(command -v "eza") ]]; then
   alias e='eza'
   alias ll='eza -l'
+  alias lh='eza -dl .* --group-directories-first'
   alias lal='eza -al'
   alias la='eza -a'
+  alias lt='eza -al --sort=modified'
 fi
 
 alias dir='dir --color=auto'
