@@ -37,16 +37,18 @@ fi
 alias dir='dir --color=auto'
 
 if [[ -n $(command -v "docker") ]]; then
-  alias kamal="docker run -it --rm -v '${PWD}:/workdir' -v '${SSH_AUTH_SOCK}:/ssh-agent' -v /var/run/docker.sock:/var/run/docker.sock -e 'SSH_AUTH_SOCK=/ssh-agent' ghcr.io/basecamp/kamal:latest"
+  alias kamal="docker run -it --rm -v '${PWD}:/workdir' -v '${SSH_AUTH_SOCK}:/ssh-agent' \
+  -v /var/run/docker.sock:/var/run/docker.sock -e 'SSH_AUTH_SOCK=/ssh-agent' ghcr.io/basecamp/kamal:latest"
+
   if [[ -z $(command -v "log4brains") ]]; then
     alias log4brains='docker run --rm -ti -v $(pwd):/workdir -p 4004:4004 thomvaill/log4brains'
   fi
 fi
 
 {{if eq .location "work"}}
+alias repos="cd ~/repos/"
 alias rts="cd ~/repos/RTS; tmux_rename RTS"
 alias zebra="cd ~/repos/Zebra/; tmux_rename Zebra"
-alias repos="cd ~/repos/"
 alias wiki="cd ~/repos/DemandResponse.wiki; tmux_rename Wiki"
 alias sentinel="cd ~/repos/sentinel; tmux_rename Sentinel"
 {{ end }}
