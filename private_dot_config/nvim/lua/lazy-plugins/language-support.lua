@@ -44,7 +44,8 @@ return {
         "markdown",
         "tlaplus",
         "awk",
-        "haskell"
+        "haskell",
+        "ssh_config"
       },
       highlight = {
         enable = true,
