@@ -5,6 +5,8 @@ tags.*
 
 {{ if eq .chezmoi.os "darwin" }}
 .local/share/fonts
+.local/share/man
+.config/zsh/.zfunc/_eza
 {{ end }}
 
 {{ if eq .chezmoi.arch "arm" "arm64"}}
