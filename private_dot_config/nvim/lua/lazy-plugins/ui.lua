@@ -26,12 +26,13 @@ return {
 
   {
     'lukas-reineke/indent-blankline.nvim',
+    main = "ibl",
     opts = {
-      space_char_blankline = " ",
-      char = "│",
-      filetype_exclude = require("lazy-plugins.opts.coding-shared").no_indent_filetypes,
-      show_trailing_blankline_indent = false,
-      show_current_context = false,
+      debounce = 100,
+      indent = { char = "│" },
+      exclude = {
+        filetypes = require("lazy-plugins.opts.coding-shared").no_indent_filetypes
+      },
     },
     event = e.buf_read_or_new
   },
