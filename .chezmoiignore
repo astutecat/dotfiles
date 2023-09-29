@@ -28,3 +28,4 @@ justfile
 CHANGELOG.md
 cog.toml
 neovim.yml
+selene.toml
