@@ -10,7 +10,7 @@ return {
     init = function()
       vim.g.toggle_list_no_mappings = 1
     end,
-    opt = {},
+    opts = {},
     config = function(_, _)
       local opts = { silent = true }
       local mappings = {
