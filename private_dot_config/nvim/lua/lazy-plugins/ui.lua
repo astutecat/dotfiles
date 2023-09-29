@@ -33,6 +33,10 @@ return {
       exclude = {
         filetypes = require("lazy-plugins.opts.coding-shared").no_indent_filetypes
       },
+      scope = {
+        show_start = false,
+        show_end = false,
+      }
     },
     event = e.buf_read_or_new
   },
