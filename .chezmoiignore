@@ -27,3 +27,4 @@ justfile
 .luarc.json
 CHANGELOG.md
 cog.toml
+neovim.yml
