@@ -25,3 +25,5 @@ justfile
 .wakatime-project
 .config/nvim/lua/packer-plugins
 .luarc.json
+CHANGELOG.md
+cog.toml
