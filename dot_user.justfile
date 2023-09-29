@@ -49,9 +49,12 @@ update-rust:
   rustup update
 
 cargo-update-result := `cargo install --list | grep cargo-update\ v || true`
+cargo-install-command := `[[ $(cargo binstall -V 2>/dev/null) ]] && echo binstall || echo install`
 update-cargo +crates="-a":
-  @[[ -n $(echo "{{cargo-update-result}}") ]] || cargo install cargo-update
-  @[[ -n $(command -v eza ) ]] || cargo install eza
+  @ echo installing cargo packages with {{cargo-install-command}}
+  @[[ -n $(echo "{{cargo-update-result}}") ]] || cargo {{cargo-install-command}} cargo-update
+  @[[ -n $(command -v eza ) ]] || cargo {{cargo-install-command}} eza
+  @[[ -n $(command -v tree-sitter ) ]] || cargo {{cargo-install-command}} tree-sitter-cli
   cargo install-update {{crates}}
 
 @tldr +args:
