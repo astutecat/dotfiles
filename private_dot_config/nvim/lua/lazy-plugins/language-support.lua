@@ -1,5 +1,4 @@
 local e = require("startup_events")
-
 return {
   {
     "nathom/filetype.nvim",
@@ -105,7 +104,9 @@ return {
     },
     opts = {
       server = {
-        on_attach = function(_, bufnr)
+        on_attach = function(client, bufnr)
+          require("lazy-plugins.opts.lsp-shared").on_attach(client, bufnr)
+
           local rt = require("rust-tools")
           -- Hover actions
           vim.keymap.set("n", "<C-space>", rt.hover_actions.hover_actions, { buffer = bufnr })

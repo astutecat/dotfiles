@@ -71,7 +71,7 @@ return {
       require("lsp_lines").setup()
       vim.diagnostic.config({
         virtual_text = false,
-        virtual_lines = false,
+        virtual_lines = { highlight_whole_line = false },
       })
     end,
     event = e.lsp_a
