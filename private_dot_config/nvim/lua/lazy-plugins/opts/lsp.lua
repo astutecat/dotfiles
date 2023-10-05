@@ -1,6 +1,6 @@
 local shared_config = require("lazy-plugins.opts.lsp-shared")
-local mason_path = vim.fn.stdpath('data') .. "/mason/bin/"
-local lspconfig = require('lspconfig')
+local mason_path = vim.fn.stdpath("data") .. "/mason/bin/"
+local lspconfig = require("lspconfig")
 
 local function linter(name)
   return require("efmls-configs.linters." .. name)
@@ -14,42 +14,44 @@ return {
   -- and will be called for each installed server that doesn't have
   -- a dedicated handler.
   function(server_name) -- default handler (optional)
-    lspconfig[server_name].setup {
-      on_attach = shared_config.on_attach,
-      capabilities = shared_config.capabilities,
-      flags = {
-        debounce_text_changes = 150,
-      }
-    }
-  end,
-  ["erlangls"] = function()
-    local beam_utils = require("beam_utils")
-    local flag = require("config_flags")
-    if flag.on_d9 and beam_utils.erl_version() < 22 then return end
-    lspconfig["erlangls"].setup {
+    lspconfig[server_name].setup({
       on_attach = shared_config.on_attach,
       capabilities = shared_config.capabilities,
       flags = {
         debounce_text_changes = 150,
       },
-      cmd = { mason_path .. "erlang_ls" }
-    }
+    })
+  end,
+  ["erlangls"] = function()
+    local beam_utils = require("beam_utils")
+    local flag = require("config_flags")
+    if flag.on_d9 and beam_utils.erl_version() < 22 then
+      return
+    end
+    lspconfig["erlangls"].setup({
+      on_attach = shared_config.on_attach,
+      capabilities = shared_config.capabilities,
+      flags = {
+        debounce_text_changes = 150,
+      },
+      cmd = { mason_path .. "erlang_ls" },
+    })
   end,
   ["elixirls"] = function()
     local has_elixir, _ = pcall(require, "elixir")
     if not has_elixir then
-      lspconfig.elixirls.setup {
+      lspconfig.elixirls.setup({
         on_attach = shared_config.on_attach,
         capabilities = shared_config.capabilities,
         flags = { debounce_text_changes = 150 },
-        cmd = { mason_path .. "elixir-ls" }
-      }
+        cmd = { mason_path .. "elixir-ls" },
+      })
     end
   end,
   -- Next, you can provide a dedicated handler for specific servers.
   -- For example, a handler override for the `rust_analyzer`:
   ["lua_ls"] = function()
-    lspconfig.lua_ls.setup {
+    lspconfig.lua_ls.setup({
       on_attach = shared_config.on_attach,
       capabilities = shared_config.capabilities,
       flags = { debounce_text_changes = 150 },
@@ -60,38 +62,38 @@ return {
             enable = true,
             defaultConfig = {
               indent_style = "space",
-              indent_size = 2
-            }
-          }
-        }
-      }
-    }
+              indent_size = 2,
+            },
+          },
+        },
+      },
+    })
   end,
   ["yamlls"] = function()
-    lspconfig.yamlls.setup {
+    lspconfig.yamlls.setup({
       on_attach = shared_config.on_attach,
       capabilities = shared_config.capabilities,
       flags = { debounce_text_changes = 150 },
       settings = {
         yaml = {
-          keyOrdering = false
-        }
-      }
-    }
+          keyOrdering = false,
+        },
+      },
+    })
   end,
   ["tailwindcss"] = function()
     lspconfig.tailwindcss.setup({
       capabilities = shared_config.capabilities,
       filetypes = { "html", "elixir", "eelixir", "heex" },
       root_dir = lspconfig.util.root_pattern(
-        'tailwind.config.js',
-        'tailwind.config.ts',
-        'postcss.config.js',
-        'postcss.config.ts',
-        'package.json',
-        'node_modules',
-        '.git',
-        'mix.exs'
+        "tailwind.config.js",
+        "tailwind.config.ts",
+        "postcss.config.js",
+        "postcss.config.ts",
+        "package.json",
+        "node_modules",
+        ".git",
+        "mix.exs"
       ),
       init_options = {
         userLanguages = {
@@ -117,23 +119,33 @@ return {
       filetypes = { "html", "css", "elixir", "eelixir", "heex" },
     })
   end,
+  ["bashls"] = function()
+    lspconfig.bashls.setup({
+      on_attach = shared_config.on_attach,
+      capabilities = shared_config.capabilities,
+      settings = {
+        bashIde = {
+          shellcheckPath = "",
+        },
+      },
+    })
+  end,
   ["efm"] = function()
     local shellcheck = linter("shellcheck")
     local shfmt = formatter("shfmt")
     local prettier_d = formatter("prettier_d")
-    local shellharden = formatter('shellharden')
+    local shellharden = formatter("shellharden")
 
-    local languages = require('efmls-configs.defaults').languages()
-    languages = vim.tbl_extend('force', languages, {
+    local languages = require("efmls-configs.defaults").languages()
+    languages = vim.tbl_extend("force", languages, {
       sh = { shellcheck, shfmt, shellharden },
       bash = { shellcheck, shfmt, shellharden },
-      lua = { linter("luacheck"), formatter("lua_format") },
       yaml = { linter("yamllint"), prettier_d },
       css = { prettier_d },
       html = { prettier_d },
       typescript = { prettier_d },
       javascript = { linter("eslint"), prettier_d },
-      python = { formatter("black"), linter("pylint") }
+      python = { formatter("black"), linter("pylint") },
     })
 
     local efmls_config = {
@@ -141,7 +153,7 @@ return {
       capabilities = shared_config.capabilities,
       filetypes = vim.tbl_keys(languages),
       settings = {
-        rootMarkers = { '.git/', 'mix.exs', 'justfile', 'Makefile' },
+        rootMarkers = { ".git/", "mix.exs", "justfile", "Makefile" },
         languages = languages,
       },
       init_options = {
@@ -151,5 +163,5 @@ return {
     }
 
     lspconfig.efm.setup(efmls_config)
-  end
+  end,
 }
