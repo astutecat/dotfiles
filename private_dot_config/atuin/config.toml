@@ -70,7 +70,6 @@ show_preview = true
 ## For details on the supported regular expression syntax, see
 ## https://docs.rs/regex/latest/regex/#syntax
 history_filter = [
-  "^git commit -m",
   "^j commit",
   "^git checkout ",
   "^git branch "
