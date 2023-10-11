@@ -2,12 +2,19 @@ local e = require("startup_events")
 
 return {
   {
+    'sheerun/vim-polyglot',
+    opts = {},
+    config = function(_, _)
+      vim.g.ployglot_disabled = {"autoindent"}
+    end,
+    event = e.buf_read_or_new
+  },
+  {
     'tpope/vim-sleuth',
     dependencies = { 'sheerun/vim-polyglot' },
-    event = e.vl
+    event = e.buf_read_pre_or_new
   },
-  { 'fidian/hexmode',               event = e.vl },
-  { 'christoomey/vim-sort-motion',  event = e.vl },
+  { 'christoomey/vim-sort-motion' },
   { 'ludovicchabant/vim-gutentags', event = e.vl },
   {
     'machakann/vim-swap',
@@ -63,10 +70,5 @@ return {
       require('legendary').keymaps(mappings)
     end,
     event = e.vl
-  },
-  {
-    'lambdalisue/suda.vim',
-    version = '^0.4',
-    event = e.vl,
   }
 }

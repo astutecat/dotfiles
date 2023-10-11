@@ -8,3 +8,4 @@ efm-ls.lua
 opts/nvim-lspconfig.lua
 formatter-nvim.lua
 opts/gitsigns.lua
+opts/legendary-nvim.lua

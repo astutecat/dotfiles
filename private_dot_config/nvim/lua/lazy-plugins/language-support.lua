@@ -77,14 +77,6 @@ return {
     event = e.buf_read_or_new
   },
   {
-    'sheerun/vim-polyglot',
-    opts = {},
-    config = function(_, _)
-      vim.g.ployglot_disabled = "autoindent"
-    end,
-    event = e.buf_read_pre_or_new,
-  },
-  {
     'preservim/vim-markdown',
     dependencies = {
       { 'godlygeek/tabular' }
@@ -95,7 +87,6 @@ return {
     'alker0/chezmoi.vim',
     event = "VeryLazy"
   },
-
   {
     'simrat39/rust-tools.nvim',
     dependencies = {

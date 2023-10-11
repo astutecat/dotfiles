@@ -37,7 +37,7 @@ local gitsigns_config = {
     -- Text object
     map({ 'o', 'x' }, 'ih', ':<C-U>Gitsigns select_hunk<CR>')
   end,
-  update_debounce = 500,
+  update_debounce = 100,
   attach_to_untracked = false
 }
 

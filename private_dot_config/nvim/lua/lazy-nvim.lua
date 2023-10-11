@@ -28,6 +28,7 @@ local opts = {
     enabled = true,
     notify = false, -- get a notification when changes are found
   },
+  debug = false
 }
 
 require("lazy").setup("lazy-plugins", opts)
