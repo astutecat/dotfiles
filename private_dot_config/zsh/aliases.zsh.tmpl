@@ -39,6 +39,7 @@ if [[ -n $(command -v "eza") ]]; then
 fi
 
 alias dir='dir --color=auto'
+alias g='git'
 
 if [[ -n $(command -v "docker") ]]; then
   alias kamal="docker run -it --rm -v '${PWD}:/workdir' -v '${SSH_AUTH_SOCK}:/ssh-agent' \
