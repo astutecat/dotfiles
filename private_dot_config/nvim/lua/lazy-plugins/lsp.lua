@@ -1,10 +1,5 @@
 local e = require("startup_events")
-local flags = require("config_flags")
 local lsp_lines_source = "https://git.sr.ht/~whynothugo/lsp_lines.nvim"
---TODO: Remove this when no longer on d9.
-if flags.on_d9 then
-  lsp_lines_source = "git@github.com:astutecat/lsp_lines.nvim.git"
-end
 
 return {
   { 'nvim-lua/lsp-status.nvim', event = e.lsp_a },
