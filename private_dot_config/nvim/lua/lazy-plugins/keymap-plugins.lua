@@ -60,7 +60,6 @@ local legendary_keymaps = {
 
 
 local legendary_config = {
-  which_key = legendary_extension_config.which_key,
   extensions = legendary_extension_config,
   -- Initial keymaps to bind
   keymaps = legendary_keymaps,

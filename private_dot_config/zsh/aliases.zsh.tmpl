@@ -14,10 +14,10 @@ if [[ -n $(command -v "just") ]]; then
   if [[ -f "$HOME/.user.justfile" ]]; then
     alias .just="just --justfile $HOME/.user.justfile --working-directory ."
     alias .j=".just"
-  fi
 
-  alias dotfiles=".j dotfiles"
-  alias trn=".j trn"
+    alias dotfiles=".j dotfiles"
+    alias trn=".j trn"
+  fi
 fi
 
 if [[ -n $(command -v "npx") ]]; then
