@@ -23,24 +23,6 @@ return {
   },
   { 'kshenoy/vim-signature',             event = e.buf_read_or_new },
   { 'jeffkreeftmeijer/vim-numbertoggle', event = e.buf_read_or_new },
-
-  {
-    'lukas-reineke/indent-blankline.nvim',
-    main = "ibl",
-    opts = {
-      debounce = 100,
-      indent = { char = "│" },
-      exclude = {
-        filetypes = require("lazy-plugins.opts.coding-shared").no_indent_filetypes
-      },
-      scope = {
-        show_start = false,
-        show_end = false,
-      }
-    },
-    event = e.buf_read_or_new
-  },
-
   {
     'folke/todo-comments.nvim',
     opts = {
@@ -129,18 +111,18 @@ return {
 
   {
     "luukvbaal/statuscol.nvim",
-    event = 'BufEnter',
+    event = e.buf_read_pre_or_new,
     config = function()
       local builtin = require("statuscol.builtin")
       require("statuscol").setup({
         segments = {
-          { text = { "%s" },                  click = "v:lua.ScSa" },
-          { text = { builtin.foldfunc, " " }, click = "v:lua.ScFa" },
+          -- { text = { builtin.foldfunc, " " }, click = "v:lua.ScFa" },
           {
             text = { builtin.lnumfunc, " " },
             condition = { true, builtin.not_empty },
             click = "v:lua.ScLa",
           },
+          { text = { "%s" },                  click = "v:lua.ScSa" },
         },
       })
     end

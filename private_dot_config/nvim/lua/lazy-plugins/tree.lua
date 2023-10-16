@@ -9,6 +9,7 @@ return {
       "MunifTanjim/nui.nvim",
     },
     opts = {
+      enable_git_status = true,
       source_selector = {
         winbar = true,
         sources = {
@@ -116,8 +117,6 @@ return {
           mode = { 'n' },
           description = "Neotree: Reveal File netrw style"
         }
-
-
       }
       require('legendary').keymaps(mappings)
 
