@@ -8,3 +8,7 @@ Host *
   AddKeysToAgent yes
   IgnoreUnknown AddKeysToAgent
 {{- end }}
+
+{{if ne .chezmoi.fqdnHostname "debian9.ntls.local"}}
+Include config.d/*
+{{end}}
