@@ -2,7 +2,7 @@ local e = require("startup_events")
 
 return {
   {
-    'stevearc/dressing.nvim',
+    "stevearc/dressing.nvim",
     lazy = true,
     init = function()
       ---@diagnostic disable-next-line: duplicate-set-field
@@ -18,13 +18,18 @@ return {
     end,
   },
   {
-    "nvim-tree/nvim-web-devicons",
-    lazy = true
+    "lukas-reineke/headlines.nvim",
+    dependencies = "nvim-treesitter/nvim-treesitter",
+    opts = {},
   },
-  { 'kshenoy/vim-signature',             event = e.buf_read_or_new },
-  { 'jeffkreeftmeijer/vim-numbertoggle', event = e.buf_read_or_new },
   {
-    'folke/todo-comments.nvim',
+    "nvim-tree/nvim-web-devicons",
+    lazy = true,
+  },
+  { "kshenoy/vim-signature", event = e.buf_read_or_new },
+  { "jeffkreeftmeijer/vim-numbertoggle", event = e.buf_read_or_new },
+  {
+    "folke/todo-comments.nvim",
     opts = {
       -- your configuration comes here
       -- or leave it empty to use the default settings
@@ -39,7 +44,7 @@ return {
           "--column",
           "--glob=!node_modules",
           "--glob=!.git",
-          "--glob=!.hg"
+          "--glob=!.hg",
         },
         pattern = [[\b(KEYWORDS):]],
       },
@@ -47,16 +52,16 @@ return {
     config = function(_, opts)
       require("todo-comments").setup(opts)
       local mappings = require("lazy-plugins.keymaps.todo_comments")
-      require('legendary').keymaps(mappings)
+      require("legendary").keymaps(mappings)
     end,
-    event = e.buf_read_or_new
+    event = e.buf_read_or_new,
   },
 
   {
-    'SmiteshP/nvim-navic',
+    "SmiteshP/nvim-navic",
     opts = {
-      separator = '  ',
-    }
+      separator = "  ",
+    },
   },
 
   {
@@ -67,14 +72,14 @@ return {
       "nvim-tree/nvim-web-devicons",
     },
     opts = {
-      theme = 'tokyonight',
+      theme = "tokyonight",
     },
-    event = e.buf_read_or_new
+    event = e.buf_read_or_new,
   },
 
   {
-    'nvim-lualine/lualine.nvim',
-    dependencies = { 'nvim-tree/nvim-web-devicons', 'SmiteshP/nvim-navic' },
+    "nvim-lualine/lualine.nvim",
+    dependencies = { "nvim-tree/nvim-web-devicons", "SmiteshP/nvim-navic" },
     opts = require("lazy-plugins.opts.lualine"),
   },
 
@@ -86,27 +91,33 @@ return {
       require("scrollbar.handlers.gitsigns").setup()
     end,
     dependencies = {
-      { 'lewis6991/gitsigns.nvim' }
-    }
+      { "lewis6991/gitsigns.nvim" },
+    },
   },
 
   {
-    'kevinhwang91/nvim-hlslens',
+    "kevinhwang91/nvim-hlslens",
     dependencies = { "nvim-scrollbar" },
     opts = {},
     config = function(_, _)
       require("scrollbar.handlers.search").setup()
       local kopts = { noremap = true, silent = true }
-      vim.api.nvim_set_keymap('n', 'n',
+      vim.api.nvim_set_keymap(
+        "n",
+        "n",
         [[<Cmd>execute('normal! ' . v:count1 . 'n')<CR><Cmd>lua require('hlslens').start()<CR>]],
-        kopts)
-      vim.api.nvim_set_keymap('n', 'N',
+        kopts
+      )
+      vim.api.nvim_set_keymap(
+        "n",
+        "N",
         [[<Cmd>execute('normal! ' . v:count1 . 'N')<CR><Cmd>lua require('hlslens').start()<CR>]],
-        kopts)
+        kopts
+      )
       local mappings = require("lazy-plugins.keymaps.hlslens")
-      require('legendary').keymaps(mappings)
+      require("legendary").keymaps(mappings)
     end,
-    event = e.buf_read_or_new
+    event = e.buf_read_or_new,
   },
 
   {
@@ -122,21 +133,20 @@ return {
             condition = { true, builtin.not_empty },
             click = "v:lua.ScLa",
           },
-          { text = { "%s" },                  click = "v:lua.ScSa" },
+          { text = { "%s" }, click = "v:lua.ScSa" },
         },
       })
-    end
+    end,
   },
 
   {
-    'NvChad/nvim-colorizer.lua',
+    "NvChad/nvim-colorizer.lua",
     opts = {
       user_default_options = {
         names = false,
-        mode = "virtualtext"
-      }
+        mode = "virtualtext",
+      },
     },
-    event = e.buf_read_or_new
-  }
-
+    event = e.buf_read_or_new,
+  },
 }
