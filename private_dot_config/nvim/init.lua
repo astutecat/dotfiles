@@ -55,4 +55,7 @@ vim.cmd([[
   set formatprg=par
 
   let &t_ut=''
+
+  aunmenu PopUp.How-to\ disable\ mouse
+  aunmenu PopUp.-1-
 ]])
