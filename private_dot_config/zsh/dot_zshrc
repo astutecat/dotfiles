@@ -22,8 +22,10 @@ source "${ZDOTDIR:-$HOME}/completion.zsh"
 
 if is_cmd fastfetch; then
   fastfetch
+  echo ""
 fi
 
 if (( $+commands[fortune] )); then
   fortune -s ~/.local/share/fortunes/ | fmt
+  echo ""
 fi
