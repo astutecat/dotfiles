@@ -55,6 +55,9 @@ that counts as a ghost of done.
   - Kio Stark & Bre Pettis, The Cult of Done Manifesto]],
 [[Done is the engine of more.
   - Kio Stark & Bre Pettis, The Cult of Done Manifesto]],
+[[Software development is best seen as a learning process where running programs
+are the proof of learning, rather than a factory or production process.
+- Kent Beck]],
 }
 
 return M[math.random(#M)]
