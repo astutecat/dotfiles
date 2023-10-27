@@ -26,4 +26,8 @@ if [[ -d "$HOME/.local/share/nvim/mason/bin" ]]; then
   export PATH="$HOME/.local/share/nvim/mason/bin:$PATH"
 fi
 
+if [[ -d "$HOME/.moon/bin" ]]; then
+  export PATH="$HOME/.moon/bin:$PATH"
+fi
+
 source_if_exists "$HOME/.cargo/env"
