@@ -31,7 +31,8 @@ return {
             ".pre-commit-config.yaml",
             ".editorconfig",
             ".envrc",
-            ".tool-versions"
+            ".tool-versions",
+            ".moon"
           },
         }
       },

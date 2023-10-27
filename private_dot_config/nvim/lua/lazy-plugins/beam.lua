@@ -42,7 +42,7 @@ return {
       local elixirls = require("elixir.elixirls")
       require("elixir").setup {
         nextls = {
-          enable = true,
+          enable = false,
           on_attach = function(client,bufnr)
             shared_config.on_attach(client, bufnr)
           end
@@ -54,7 +54,7 @@ return {
           end,
         },
         elixirls = {
-          enable = false,
+          enable = true,
           on_attach = function(client, bufnr)
             require('legendary').keymaps(mappings(bufnr))
             shared_config.on_attach(client, bufnr)
