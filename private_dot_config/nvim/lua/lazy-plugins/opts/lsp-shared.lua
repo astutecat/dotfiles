@@ -54,7 +54,7 @@ local on_attach_keymap = function(bufnr)
           k_opts
     },
     {
-      '<space>c',
+      '<space>cl',
       '<cmd>lua vim.lsp.codelens.run()<CR>',
       description = 'LSP: Codelens',
       opts =
