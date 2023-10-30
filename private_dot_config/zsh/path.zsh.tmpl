@@ -30,4 +30,9 @@ if [[ -d "$HOME/.moon/bin" ]]; then
   export PATH="$HOME/.moon/bin:$PATH"
 fi
 
+if [[ -d "$HOME/.fly/bin" ]]; then
+  export FLYCTL_INSTALL="/home/debian/.fly"
+  export PATH="$FLYCTL_INSTALL/bin:$PATH"
+fi
+
 source_if_exists "$HOME/.cargo/env"
