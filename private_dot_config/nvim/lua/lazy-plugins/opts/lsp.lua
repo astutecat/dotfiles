@@ -23,9 +23,8 @@ return {
     })
   end,
   ["erlangls"] = function()
-    local beam_utils = require("beam_utils")
     local flag = require("config_flags")
-    if flag.on_d9 and beam_utils.erl_version() < 22 then
+    if flag.on_d9 then
       return
     end
     lspconfig["erlangls"].setup({
@@ -36,17 +35,6 @@ return {
       },
       cmd = { mason_path .. "erlang_ls" },
     })
-  end,
-  ["elixirls"] = function()
-    local has_elixir, _ = pcall(require, "elixir")
-    if not has_elixir then
-      lspconfig.elixirls.setup({
-        on_attach = shared_config.on_attach,
-        capabilities = shared_config.capabilities,
-        flags = { debounce_text_changes = 150 },
-        cmd = { mason_path .. "elixir-ls" },
-      })
-    end
   end,
   -- Next, you can provide a dedicated handler for specific servers.
   -- For example, a handler override for the `rust_analyzer`:
