@@ -65,6 +65,24 @@ return {
       settings = {
         yaml = {
           keyOrdering = false,
+          schemaStore = {
+            enable = false,
+            url = "",
+          },
+          schemas = require("schemastore").yaml.schemas(),
+        },
+      },
+    })
+  end,
+  ["jsonls"] = function()
+    lspconfig.jsonls.setup({
+      on_attach = shared_config.on_attach,
+      capabilities = shared_config.capabilities,
+      flags = { debounce_text_changes = 150 },
+      settings = {
+        json = {
+          schemas = require("schemastore").json.schemas(),
+          validate = { enable = true },
         },
       },
     })

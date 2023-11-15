@@ -33,7 +33,8 @@ return {
         "bash-language-server",
         "yamllint",
         "yamlfmt",
-        "shellharden"
+        "shellharden",
+        "json-lsp"
       }
     }
   },

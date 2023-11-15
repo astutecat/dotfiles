@@ -64,6 +64,10 @@ return {
     event = e.buf_read_or_new
   },
   {
+    'b0o/schemastore.nvim',
+    ft = { "json", "yaml" }
+  },
+  {
     'RRethy/nvim-treesitter-endwise',
     dependencies = { 'nvim-treesitter' },
     opts = {
