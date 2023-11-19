@@ -83,24 +83,27 @@ return {
     opts = require("lazy-plugins.opts.lualine"),
   },
 
-  {
-    "petertriho/nvim-scrollbar",
-    opts = {},
-    config = function(_, opts)
-      require("scrollbar").setup(opts)
-      require("scrollbar.handlers.gitsigns").setup()
-    end,
-    dependencies = {
-      { "lewis6991/gitsigns.nvim" },
-    },
-  },
+  -- {
+  --   "petertriho/nvim-scrollbar",
+  --   opts = {},
+  --   config = function(_, opts)
+  --     require("scrollbar").setup(opts)
+  --     require("scrollbar.handlers.gitsigns").setup()
+  --   end,
+  --   dependencies = {
+  --     { "lewis6991/gitsigns.nvim" },
+  --   },
+  -- },
 
   {
     "kevinhwang91/nvim-hlslens",
-    dependencies = { "nvim-scrollbar" },
-    opts = {},
-    config = function(_, _)
-      require("scrollbar.handlers.search").setup()
+    dependencies = { "kevinhwang91/nvim-ufo" },
+    opts = {
+      auto_enable = true
+    },
+    config = function(_, opts)
+      -- require("scrollbar.handlers.search").setup()
+      require("hlslens").setup(opts)
       local kopts = { noremap = true, silent = true }
       vim.api.nvim_set_keymap(
         "n",
@@ -117,7 +120,7 @@ return {
       local mappings = require("lazy-plugins.keymaps.hlslens")
       require("legendary").keymaps(mappings)
     end,
-    event = e.buf_read_or_new,
+    event = e.vl,
   },
 
   {

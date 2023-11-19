@@ -26,6 +26,58 @@ local function trailspace_mappings()
   require('legendary').keymaps(mappings)
 end
 
+local function minimap_config()
+  local prefix = "<leader>m"
+  local d_prefix = "MiniMap: "
+  local mappings = {
+    {
+      prefix .. "c",
+      "<cmd>lua MiniMap.close()<cr>",
+      description = d_prefix .. "Close"
+    },
+    {
+      prefix .. "f",
+      "<cmd>lua MiniMap.toggle_focus()<cr>",
+      description = d_prefix .. "Toggle Focus"
+    },
+    {
+      prefix .. "o",
+      "<cmd>lua MiniMap.open()<cr>",
+      description = d_prefix .. "Open"
+    },
+    {
+      prefix .. "r",
+      "<cmd>lua MiniMap.refresh()<cr>",
+      description = d_prefix .. "Refresh"
+    },
+    {
+      prefix .. "s",
+      "<cmd>lua MiniMap.toggle_side()<cr>",
+      description = d_prefix .. "Toggle Side"
+    },
+    {
+      prefix .. "t",
+      "<cmd>lua MiniMap.toggle()<cr>",
+      description = d_prefix .. "Toggle"
+    }
+  }
+
+  require('legendary').keymaps(mappings)
+  local map = require('mini.map')
+
+  return {
+    integrations = {
+      map.gen_integration.builtin_search(),
+      map.gen_integration.gitsigns(),
+      map.gen_integration.diagnostic(),
+    },
+    window = { show_integration_count = false, },
+    symbols = {
+      encode = map.gen_encode_symbols.dot('4x2')
+    }
+  }
+end
+
 local function splitjoin_config()
   local mappings = {
     {
@@ -167,6 +219,7 @@ return {
       require('mini.cursorword').setup(cursorword_config())
       require('mini.starter').setup(starter_config())
       require('mini.move').setup()
+      require('mini.map').setup(minimap_config())
       post_config()
     end
   }
