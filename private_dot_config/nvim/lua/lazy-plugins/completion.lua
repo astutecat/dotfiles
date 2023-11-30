@@ -84,15 +84,15 @@ return {
         }),
         sources = {
           { name = 'vsnip',    keyword_length = 1 },
-          { name = 'nvim_lsp', keyword_length = 2 },
+          { name = 'nvim_lsp', keyword_length = 1 },
           { name = 'buffer',   keyword_length = 3 },
-          { name = 'tags',     keyword_length = 3 },
+          { name = 'tags',     keyword_length = 4 },
         },
         performance = {
           debounce = 200,
           -- throttle = 60,
           -- fetching_timeout = 200,
-          max_view_entries = 20
+          max_view_entries = 30
         },
       }
       -- Set configuration for specific filetype.
@@ -107,7 +107,7 @@ return {
       cmp.setup.cmdline({ '/', '?' }, {
         mapping = cmp.mapping.preset.cmdline(),
         sources = {
-          { name = 'buffer', max_item_count = 10 }
+          { name = 'buffer', max_item_count = 15 }
         },
       })
 
@@ -116,7 +116,7 @@ return {
         sources = cmp.config.sources({
           { name = 'cmdline' }
         }, {
-          { name = 'path', max_item_count = 10 }
+          { name = 'path', max_item_count = 15 }
         })
       })
     end
