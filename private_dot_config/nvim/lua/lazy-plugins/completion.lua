@@ -107,7 +107,7 @@ return {
       cmp.setup.cmdline({ '/', '?' }, {
         mapping = cmp.mapping.preset.cmdline(),
         sources = {
-          { name = 'buffer', max_item_count = 15 }
+          { name = 'buffer', max_item_count = 10 }
         },
       })
 
@@ -116,7 +116,7 @@ return {
         sources = cmp.config.sources({
           { name = 'cmdline' }
         }, {
-          { name = 'path', max_item_count = 15 }
+          { name = 'path', max_item_count = 10 }
         })
       })
     end
