@@ -63,6 +63,9 @@ return {
     lualine_a = {
       {
         'buffers',
+        show_filename_only = false,
+        use_mode_colors = true,
+        max_length = vim.o.columns,
         separator = ' ',
         symbols = {
           modified = ' ●',              -- Text to show when the buffer is modified
@@ -89,7 +92,6 @@ return {
   inactive_winbar = {
   },
   extensions = {
-    'neo-tree',
-    'fugitive'
+    'neo-tree'
   }
 }
