@@ -1,5 +1,5 @@
 
-local e = require("startup_events")
+-- local e = require("startup_events")
 local function mappings(bufnr)
   local k_opts = { silent = true, noremap = true, buffer = bufnr }
   return {
@@ -32,8 +32,7 @@ return {
       'hrsh7th/cmp-nvim-lsp',
     },
     version = '*',
-    -- ft = { "elixir", "eex", "heex", "surface" },
-    event = e.buf_read_pre_or_new,
+    ft = { "elixir", "eex", "heex", "surface" },
     opts = {},
     config = function()
       local flags = require("config_flags")
@@ -48,7 +47,7 @@ return {
           end
         },
         credo = {
-          enable = true,
+          enable = false,
           on_attach = function(client, bufnr)
             shared_config.on_attach(client, bufnr)
           end,
