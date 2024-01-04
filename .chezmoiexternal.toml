@@ -68,3 +68,9 @@ args = ["--quiet"]
   executable = true
   stripComponents = 1
   exclude = ["**/LICENSE"]
+
+[".local/share/fonts/monaspace"]
+  type = "archive"
+  url = "https://github.com/ryanoasis/nerd-fonts/releases/latest/download/Monaspace.zip"
+  refreshPeriod = "672h"
+  exact = true
