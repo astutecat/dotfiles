@@ -4,9 +4,12 @@ tags
 tags.*
 
 {{ if eq .chezmoi.os "darwin" }}
-.local/share/fonts
 .local/share/man
 .config/zsh/.zfunc/_eza
+{{ end }}
+
+{{ if .no_fonts }}
+.local/share/fonts
 {{ end }}
 
 {{ if eq .chezmoi.arch "arm" "arm64"}}
@@ -20,6 +23,7 @@ tags.*
 {{ if ne .chezmoi.fqdnHostname "debian9.ntls.local" }}
 .local/bin/tmux
 {{ end }}
+
 
 justfile
 .wakatime-project

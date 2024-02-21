@@ -43,6 +43,7 @@ args = ["--depth", "1", "--quiet"]
 [".local/bin/tfg.py".pull]
 args = ["--quiet"]
 
+{{ if not .is_macos }}
 [".local/bin/nvim"]
   type = "file"
   url = "https://github.com/neovim/neovim/releases/latest/download/nvim.appimage"
@@ -68,9 +69,11 @@ args = ["--quiet"]
   executable = true
   stripComponents = 1
   exclude = ["**/LICENSE"]
-
+{{ end }}
+{{ if not .no_fonts }}
 [".local/share/fonts/monaspace"]
   type = "archive"
   url = "https://github.com/ryanoasis/nerd-fonts/releases/latest/download/Monaspace.zip"
   refreshPeriod = "672h"
   exact = true
+{{ end }}
