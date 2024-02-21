@@ -84,3 +84,6 @@ history_filter = [
 # cwd_filter = [
 #   "^/very/secret/area"
 # ]
+
+[sync]
+records = true
