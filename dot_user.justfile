@@ -54,6 +54,7 @@ update-cargo +crates="-a":
   @ echo installing cargo packages with {{cargo-install-command}}
   @[[ -n $(echo "{{cargo-update-result}}") ]] || cargo {{cargo-install-command}} cargo-update
   @[[ -n $(command -v eza ) ]] || cargo {{cargo-install-command}} eza
+  @[[ -n $(command -v atuin ) ]] || cargo {{cargo-install-command}} atuin
   @[[ -n $(command -v tree-sitter ) ]] || cargo {{cargo-install-command}} tree-sitter-cli
   cargo install-update {{crates}}
 

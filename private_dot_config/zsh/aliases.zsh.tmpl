@@ -3,22 +3,7 @@
 alias hl='printf %"$COLUMNS"s |tr " " "-"'
 alias lcl='hl && clear'
 
-alias vdir='vdir --color=auto'
-alias grep='grep --color=auto'
-alias fgrep='fgrep --color=auto'
-alias egrep='egrep --color=auto'
-
-if [[ -n $(command -v "just") ]]; then
-  alias j='just'
-
-  if [[ -f "$HOME/.user.justfile" ]]; then
-    alias .just="just --justfile $HOME/.user.justfile --working-directory ."
-    alias .j=".just"
-
-    alias dotfiles=".j dotfiles"
-    alias trn=".j trn"
-  fi
-fi
+# NOTE: A lot of aliases are now managed via atuin.
 
 if [[ -n $(command -v "npx") ]]; then
   alias log4brains='npx log4brains'
@@ -29,17 +14,7 @@ alias ll='ls --color=auto -l'
 alias lal='ls --color=auto -al'
 alias la='ls --color=auto -a'
 
-if [[ -n $(command -v "eza") ]]; then
-  alias e='eza'
-  alias ll='eza -l'
-  alias lh='eza -dl .* --group-directories-first'
-  alias lal='eza -al'
-  alias la='eza -a'
-  alias lt='eza -al --sort=modified'
-fi
-
 alias dir='dir --color=auto'
-alias g='git'
 
 if [[ -n $(command -v "docker") ]]; then
   alias kamal="docker run -it --rm -v '${PWD}:/workdir' -v '${SSH_AUTH_SOCK}:/ssh-agent' \

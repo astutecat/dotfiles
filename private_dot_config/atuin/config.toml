@@ -87,3 +87,6 @@ history_filter = [
 
 [sync]
 records = true
+
+[dotfiles]
+enabled = true
