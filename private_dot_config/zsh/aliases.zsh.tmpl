@@ -5,6 +5,17 @@ alias lcl='hl && clear'
 
 # NOTE: A lot of aliases are now managed via atuin.
 
+if [[ -n $(command -v "just") ]]; then
+  if [[ -f "$HOME/.user.justfile" ]]; then
+    alias .just="just --justfile $HOME/.user.justfile --working-directory ."
+    alias .j=".just"
+
+    alias dotfiles=".j dotfiles"
+    alias trn=".j trn"
+  fi
+fi
+
+
 if [[ -n $(command -v "npx") ]]; then
   alias log4brains='npx log4brains'
 fi
