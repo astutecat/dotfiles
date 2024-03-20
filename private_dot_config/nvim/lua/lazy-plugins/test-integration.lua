@@ -8,6 +8,7 @@ return {
       "jfpedroza/neotest-elixir",
       "rouge8/neotest-rust",
       "vim-test/vim-test",
+      "nvim-neotest/nvim-nio"
     },
     opts = {},
     config = function()
