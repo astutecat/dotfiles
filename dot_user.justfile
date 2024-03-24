@@ -56,6 +56,7 @@ update-cargo +crates="-a":
   @[[ -n $(command -v eza ) ]] || cargo {{cargo-install-command}} eza
   @[[ -n $(command -v atuin ) ]] || cargo {{cargo-install-command}} atuin
   @[[ -n $(command -v tree-sitter ) ]] || cargo {{cargo-install-command}} tree-sitter-cli
+  @[[ -n $(command -v zoxide ) ]] || cargo {{cargo-install-command}} zoxide
   cargo install-update {{crates}}
 
 @tldr +args:
