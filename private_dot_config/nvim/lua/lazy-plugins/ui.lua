@@ -28,7 +28,6 @@ return {
   },
   {
     "chentoast/marks.nvim",
-    event = e.buf_read_or_new,
     opts = {}
   },
   { "jeffkreeftmeijer/vim-numbertoggle", event = e.buf_read_or_new },
