@@ -18,11 +18,6 @@ return {
     end,
   },
   {
-    "lukas-reineke/headlines.nvim",
-    dependencies = "nvim-treesitter/nvim-treesitter",
-    opts = {},
-  },
-  {
     "nvim-tree/nvim-web-devicons",
     lazy = true,
   },
