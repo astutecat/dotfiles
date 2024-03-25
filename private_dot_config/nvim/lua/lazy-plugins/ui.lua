@@ -26,7 +26,11 @@ return {
     "nvim-tree/nvim-web-devicons",
     lazy = true,
   },
-  { "chentoast/marks.nvim", event = e.buf_read_or_new },
+  {
+    "chentoast/marks.nvim",
+    event = e.buf_read_or_new,
+    opts = {}
+  },
   { "jeffkreeftmeijer/vim-numbertoggle", event = e.buf_read_or_new },
   {
     "folke/todo-comments.nvim",
