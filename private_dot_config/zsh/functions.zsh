@@ -23,21 +23,6 @@ tmux_rename() {
   [[ -n $TMUX ]] && tmux rename-window $1 || :
 }
 
-lg() {
-  if [[ -n $(command -v lazygit) ]]; then
-    export LAZYGIT_NEW_DIR_FILE=~/.lazygit/newdir
-
-    lazygit "$@"
-
-    if [ -f $LAZYGIT_NEW_DIR_FILE ]; then
-      cd "$(cat $LAZYGIT_NEW_DIR_FILE)"
-      rm -f $LAZYGIT_NEW_DIR_FILE > /dev/null
-    fi
-  else
-    echo "Error: lazygit not on PATH."
-  fi
-}
-
 git_squash_from() {
     COMMIT_TO_SQUASH=$1
     SQUASH_MESSAGE=$2
