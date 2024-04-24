@@ -46,3 +46,10 @@ alias wiki="cd ~/repos/DemandResponse.wiki; tmux_rename Wiki"
 alias sentinel="cd ~/repos/sentinel; tmux_rename Sentinel"
 alias services="cd ~/repos/Services; tmux_rename Services"
 {{ end }}
+
+{{ if not .is_macos }}
+if [[ -n $(command -v "xclip") ]]; then
+  alias pbcopy="xclip -selection c"
+  alias pbpaste="xclip -selection c -o"
+fi
+{{ end }}
