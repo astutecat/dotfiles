@@ -20,10 +20,12 @@ if [[ -n $(command -v "npx") ]]; then
   alias log4brains='npx log4brains'
 fi
 
-alias ls='ls --color=auto'
-alias ll='ls --color=auto -l'
-alias lal='ls --color=auto -al'
-alias la='ls --color=auto -a'
+if [[ -z $(command -v "eza") ]]; then
+  alias ls='ls --color=auto'
+  alias ll='ls --color=auto -l'
+  alias lal='ls --color=auto -al'
+  alias la='ls --color=auto -a'
+fi
 
 alias dir='dir --color=auto'
 
