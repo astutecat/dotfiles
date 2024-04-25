@@ -228,7 +228,7 @@
     "prefix": ["set_test_unit_sendout"],
 
     "body": [
-      "${1:tennet_srl_def}:cl({set_test_sendout, ${2:sendout_name}, ${3:Value}})."
+      "${1:tennet_srl_def}:cl({set_test_unit_sendout, ${2:Nickname}, ${3:Unitname}, ${4:signal_name}, ${5:Value}})."
     ]
   }
 }
