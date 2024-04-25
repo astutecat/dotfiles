@@ -214,5 +214,21 @@
       "}"
     ],
     "description": "erlang supervisor childspec map"
+  },
+
+  "set_test_sendout" : {
+    "prefix": ["set_test_sendout"],
+
+    "body": [
+      "${1:tennet_srl_def}:cl({set_test_sendout, ${2:sendout_name}, ${3:Value}})."
+    ]
+  },
+
+  "set_test_unit_sendout" : {
+    "prefix": ["set_test_unit_sendout"],
+
+    "body": [
+      "${1:tennet_srl_def}:cl({set_test_sendout, ${2:sendout_name}, ${3:Value}})."
+    ]
   }
 }
