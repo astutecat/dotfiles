@@ -30,7 +30,6 @@
 
 [alias]
   dft = difftool -t difftastic
-
 [gc]
 	autoDetach = false
 [init]
@@ -51,10 +50,12 @@
   gpgSign = false
 [pull]
   rebase = true
-
+[column]
+  ui = auto
+[branch]
+  sort = -committerdate
 [rerere]
   enabled = true
-
 [delta]
   line-numbers = true
   hunk-header-decoration-style=""
