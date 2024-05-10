@@ -24,7 +24,7 @@ split-nvim: # launch nvim in a tmux split
     tmux new-session\; rename-window "$dir"\; split-window -hd\; send-keys 'nvim' C-m \;
   fi
 
-update-all: update-chezmoi update-brew update-asdf update-rust update-mise
+update-all: update-chezmoi update-brew update-rust update-mise
 [macos]
 update-brew:
   brew update
@@ -38,11 +38,6 @@ update-brew:
 update-chezmoi:
   chezmoi update --init
   chezmoi apply
-
-update-asdf:
-  asdf plugin update --all
-  asdf update
-  @source $HOME/.config/asdf/update_asdf_tools.zsh
 
 update-rust:
   rustup update
