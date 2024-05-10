@@ -14,10 +14,6 @@ source "${ZDOTDIR:-$HOME}/zoxide-setup.zsh"
 source "${ZDOTDIR:-$HOME}/aliases.zsh"
 source "${ZDOTDIR:-$HOME}/atuin-setup.zsh"
 
-if [[ -f "${XDG_CONFIG_HOME:-$HOME/.config}/asdf-direnv/zshrc" ]]; then
-  source "${XDG_CONFIG_HOME:-$HOME/.config}/asdf-direnv/zshrc"
-fi
-
 if is_cmd mise; then
   eval "$(mise activate zsh)"
 fi
