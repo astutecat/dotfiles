@@ -14,9 +14,9 @@ if is_cmd brew; then
 fi
 {{end}}
 
-if [[ -f "$HOME/.asdf/asdf.sh" ]]; then
-  . "$HOME/.asdf/asdf.sh"
-fi
+# if [[ -f "$HOME/.asdf/asdf.sh" ]]; then
+#   . "$HOME/.asdf/asdf.sh"
+# fi
 
 if [[ -d "$HOME/.cache/rebar3" ]]; then
   export PATH="$HOME/.cache/rebar3/bin:$PATH"

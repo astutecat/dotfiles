@@ -38,6 +38,7 @@ format = "yaml"
   {{ else }}
   asdf_tools_to_install = "('fd' 'just' 'delta')"
   {{ end -}}
+  on_d9 = {{ eq .chezmoi.fqdnHostname "debian9.ntls.local" }}
 
 [data.git]
 {{- if eq $location "work" }}
