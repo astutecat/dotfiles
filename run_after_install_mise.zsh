@@ -1,5 +1,7 @@
 #!/bin/zsh
 setopt null_glob
-[[ -n $(command -v mise) ]] || exit 0;
-
-curl https://mise.run | sh
+if [[ -n $(command -v mise) ]]; then
+  :
+else
+  curl https://mise.run | sh
+fi

@@ -24,8 +24,7 @@ split-nvim: # launch nvim in a tmux split
     tmux new-session\; rename-window "$dir"\; split-window -hd\; send-keys 'nvim' C-m \;
   fi
 
-update-all: update-chezmoi update-brew update-asdf update-rust update-cargo
-
+update-all: update-chezmoi update-brew update-asdf update-rust update-mise
 [macos]
 update-brew:
   brew update
@@ -48,16 +47,10 @@ update-asdf:
 update-rust:
   rustup update
 
-cargo-update-result := `cargo install --list | grep cargo-update\ v || true`
-cargo-install-command := `[[ $(cargo binstall -V 2>/dev/null) ]] && echo binstall || echo install`
-update-cargo +crates="-a":
-  @ echo installing cargo packages with {{cargo-install-command}}
-  @[[ -n $(echo "{{cargo-update-result}}") ]] || cargo {{cargo-install-command}} cargo-update
-  @[[ -n $(command -v eza ) ]] || cargo {{cargo-install-command}} eza
-  @[[ -n $(command -v atuin ) ]] || cargo {{cargo-install-command}} atuin
-  @[[ -n $(command -v tree-sitter ) ]] || cargo {{cargo-install-command}} tree-sitter-cli
-  @[[ -n $(command -v zoxide ) ]] || cargo {{cargo-install-command}} zoxide
-  cargo install-update {{crates}}
+update-mise:
+  mise plugins install lazydocker https://github.com/comdotlinux/asdf-lazydocker.git
+  mise plugins install lazygit https://github.com/nklmilojevic/asdf-lazygit.git
+  mise upgrade
 
 @tldr +args:
   [[ -n $TMUX ]] && tmux split-window -vb -d tldr --pager "{{args}}" || tldr --pager "{{args}}"
