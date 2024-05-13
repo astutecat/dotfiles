@@ -40,35 +40,35 @@ local on_attach_keymap = function(bufnr)
           k_opts
     },
     {
-      '<space>rn',
+      '<leader>lrn',
       '<cmd>lua vim.lsp.buf.rename()<CR>',
       description = 'LSP: Rename',
       opts =
           k_opts
     },
     {
-      '<space>gr',
+      'leader<lr>',
       '<cmd>lua vim.lsp.buf.references()<CR>',
       description = 'LSP: References',
       opts =
           k_opts
     },
     {
-      '<space>cl',
+      '<leader>cl',
       '<cmd>lua vim.lsp.codelens.run()<CR>',
       description = 'LSP: Codelens',
       opts =
           k_opts
     },
     {
-      '<space>s',
+      '<leader>ls',
       '<cmd>Telescope lsp_document_symbols<CR>',
       description = 'LSP: Document Sumbols',
       opts =
           k_opts
     },
     {
-      '<space>e',
+      '<leader>le',
       '<cmd>lua vim.diagnostic.open_float()<CR>',
       description = "LSP: Open Diagnostics",
       opts =
@@ -89,14 +89,14 @@ local on_attach_keymap = function(bufnr)
           k_opts
     },
     {
-      '<space>q',
+      '<leader>lq',
       '<cmd>lua vim.diagnostic.setloclist()<CR>',
       description = "LSP: Set Diagnostics Location List",
       opts =
           k_opts
     },
     {
-      '<space>f',
+      '<leader>lf',
       '<cmd>lua vim.lsp.buf.format()<CR>',
       description = "LSP: Format Buffer",
       opts =
