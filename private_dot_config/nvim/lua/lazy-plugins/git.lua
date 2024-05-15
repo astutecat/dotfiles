@@ -67,4 +67,9 @@ return {
     opts = gitsigns_config,
   },
 
+  {
+    "FabijanZulj/blame.nvim",
+    opts = {}
+  }
+
 }
