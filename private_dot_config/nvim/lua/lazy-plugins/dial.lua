@@ -13,9 +13,7 @@ return {
           augend.integer.alias.hex,
           augend.date.alias["%Y-%m-%d"],
           augend.constant.alias.bool,
-          augend.semver.alias.semver,
-          augend.paren.alias.quote,
-          augend.paren.alias.brackets
+          augend.semver.alias.semver
         },
       }
 

@@ -81,18 +81,6 @@ return {
     opts = require("lazy-plugins.opts.lualine"),
   },
 
-  -- {
-  --   "petertriho/nvim-scrollbar",
-  --   opts = {},
-  --   config = function(_, opts)
-  --     require("scrollbar").setup(opts)
-  --     require("scrollbar.handlers.gitsigns").setup()
-  --   end,
-  --   dependencies = {
-  --     { "lewis6991/gitsigns.nvim" },
-  --   },
-  -- },
-
   {
     "kevinhwang91/nvim-hlslens",
     dependencies = { "kevinhwang91/nvim-ufo" },
