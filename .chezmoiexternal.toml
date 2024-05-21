@@ -43,11 +43,16 @@ args = ["--depth", "1", "--quiet"]
 [".local/bin/tfg.py".pull]
 args = ["--quiet"]
 
+{{- $nvim_url := "https://github.com/neovim/neovim/releases/latest/download/nvim.appimage" -}}
+{{- if .on_d9 -}}
+{{-   $nvim_url = "https://github.com/neovim/neovim-releases/releases/latest/download/nvim.appimage" -}}
+{{- end -}}
+
 {{ if not .is_macos }}
 [".local/bin/nvim"]
   type = "file"
-  url = "https://github.com/neovim/neovim/releases/latest/download/nvim.appimage"
-  refreshPeriod = "672h"
+  url = {{ $nvim_url | quote }}
+  refreshPeriod = "72h"
   executable = true
 
 [".local/bin/tmux"]
