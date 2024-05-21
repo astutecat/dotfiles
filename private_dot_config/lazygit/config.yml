@@ -1,7 +1,10 @@
 gui:
   skipRewordInEditorWarning: false
-  showIcons: false # Disable until https://github.com/jesseduffield/lazygit/issues/2603 is fixed
-  parseEmoji: true
+  nerdFontsVersion: "3"
+  spinner:
+      frames: ['⠋', '⠙', '⠹', '⠸', '⠼', '⠴', '⠦', '⠧', '⠇', '⠏']
+      rate: 100
+
 git:
   paging:
     colorArg: always
