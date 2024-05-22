@@ -15,7 +15,15 @@ return {
     event = e.buf_read_pre_or_new
   },
   { 'christoomey/vim-sort-motion' },
-  { 'ludovicchabant/vim-gutentags', event = e.vl },
+  {
+    'ludovicchabant/vim-gutentags',
+    event = e.vl,
+    config = function(_, _)
+      vim.cmd [[
+      let g:gutentags_project_root = [ 'mix.exs', 'cargo.toml', 'rebar.config' ]
+    ]]
+    end
+  },
   {
     'machakann/vim-swap',
     init = function()
@@ -43,7 +51,7 @@ return {
     end,
     event = e.vl
   },
-  { 'wakatime/vim-wakatime', event = e.vl },
+  { 'wakatime/vim-wakatime',      event = e.vl },
   {
     'astutecat/nclipper.vim',
     init = function()
