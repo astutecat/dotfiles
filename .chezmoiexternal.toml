@@ -81,4 +81,14 @@ args = ["--quiet"]
   url = "https://github.com/ryanoasis/nerd-fonts/releases/latest/download/Monaspace.zip"
   refreshPeriod = "672h"
   exact = true
+[".local/share/fonts/iosevka"]
+  type = "archive"
+  url = "https://github.com/ryanoasis/nerd-fonts/releases/latest/download/Iosevka.zip"
+  refreshPeriod = "672h"
+  exact = true
+[".local/share/fonts/iosevka_term"]
+  type = "archive"
+  url = "https://github.com/ryanoasis/nerd-fonts/releases/latest/download/IosevkaTerm.zip"
+  refreshPeriod = "672h"
+  exact = true
 {{ end }}
