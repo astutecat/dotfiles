@@ -50,7 +50,7 @@ return {
         credo = {
         },
         elixirls = {
-          enable = true,
+          enable = false,
           -- on_attach = function(client, bufnr)
           --   require('legendary').keymaps(mappings(bufnr))
           --   shared_config.on_attach(client, bufnr)
