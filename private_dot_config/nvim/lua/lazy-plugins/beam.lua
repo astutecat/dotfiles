@@ -32,7 +32,7 @@ return {
       'hrsh7th/cmp-nvim-lsp',
     },
     version = '*',
-    ft = { "elixir", "eex", "heex", "surface" },
+    event = { "BufReadPre", "BufNewFile" },
     opts = {},
     config = function()
       local flags = require("config_flags")
@@ -41,27 +41,25 @@ return {
       local elixirls = require("elixir.elixirls")
       require("elixir").setup {
         nextls = {
-          enable = true,
-          on_attach = function(client,bufnr)
-            require('legendary').keymaps(mappings(bufnr))
-            shared_config.on_attach(client, bufnr)
-          end
+          enable = false,
+          -- on_attach = function(client,bufnr)
+          --   require('legendary').keymaps(mappings(bufnr))
+          --   shared_config.on_attach(client, bufnr)
+          -- end
         },
         credo = {
         },
         elixirls = {
-          enable = false,
-          -- on_attach = function(client, bufnr)
-          --   require('legendary').keymaps(mappings(bufnr))
-          --   shared_config.on_attach(client, bufnr)
-          -- end,
+          enable = true,
+          on_attach = function(client, bufnr)
+            require('legendary').keymaps(mappings(bufnr))
+            shared_config.on_attach(client, bufnr)
+          end,
           capabilities = shared_config.capabilities,
           -- cmd = { vim.fn.stdpath('data') .. "/mason/bin/elixir-ls" },
           settings = elixirls.settings({
             dialyzerEnabled = true,
-            fetchDeps = false,
-            enableTestLenses = false,
-            suggestSpecs = false,
+            enableTestLenses = false
           }),
         }
       }
