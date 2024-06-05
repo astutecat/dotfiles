@@ -12,8 +12,8 @@ if is_cmd delta; then
   export DELTA_PAGER="less -R"
 fi
 
-export ASDF_PYTHON_DEFAULT_PACKAGES_FILE="$HOME/.config/asdf/.default-python-packages"
-export ASDF_PERL_DEFAULT_PACKAGES_FILE="$HOME/.config/asdf/.default-perl-modules"
+export KERL_BUILD_DOCS="yes"
+export ERL_AFLAGS="+pc unicode -kernel shell_history enabled -enable-feature all"
 
 # Erlang Related Stuff
 {{- if eq .chezmoi.os "darwin" }}
@@ -25,6 +25,3 @@ export KERL_CONFIGURE_OPTIONS="
       --with-odbc=$(brew --prefix unixodbc)
       "
 {{ end -}}
-
-export KERL_BUILD_DOCS="yes"
-export ERL_AFLAGS="+pc unicode -kernel shell_history enabled -enable-feature all"
