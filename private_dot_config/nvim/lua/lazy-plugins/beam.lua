@@ -43,21 +43,18 @@ return {
         nextls = {
           enable = true,
           on_attach = function(client,bufnr)
+            require('legendary').keymaps(mappings(bufnr))
             shared_config.on_attach(client, bufnr)
           end
         },
         credo = {
-          enable = false,
-          on_attach = function(client, bufnr)
-            shared_config.on_attach(client, bufnr)
-          end,
         },
         elixirls = {
           enable = true,
-          on_attach = function(client, bufnr)
-            require('legendary').keymaps(mappings(bufnr))
-            shared_config.on_attach(client, bufnr)
-          end,
+          -- on_attach = function(client, bufnr)
+          --   require('legendary').keymaps(mappings(bufnr))
+          --   shared_config.on_attach(client, bufnr)
+          -- end,
           capabilities = shared_config.capabilities,
           -- cmd = { vim.fn.stdpath('data') .. "/mason/bin/elixir-ls" },
           settings = elixirls.settings({
