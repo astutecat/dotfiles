@@ -15,13 +15,13 @@ dir_leaf := `echo "${PWD##*/}"`
   tmux rename-window "{{name}}"\;
 
 alias ns := split-nvim
-split-nvim: # launch nvim in a tmux split
+split-nvim percent="30": # launch nvim in a tmux split
   #!/bin/bash
   dir="${PWD##*/}"
   if [[ -n $TMUX ]]; then
-    tmux rename-window "$dir"\; split-window -hd\; send-keys 'nvim' C-m \;
+    tmux rename-window "$dir"\; split-window -hd -p {{percent}}\; send-keys 'nvim' C-m \;
   else
-    tmux new-session\; rename-window "$dir"\; split-window -hd\; send-keys 'nvim' C-m \;
+    tmux new-session\; rename-window "$dir"\; split-window -hd -p {{percent}}\; send-keys 'nvim' C-m \;
   fi
 
 update-all: update-chezmoi update-brew update-rust update-mise
