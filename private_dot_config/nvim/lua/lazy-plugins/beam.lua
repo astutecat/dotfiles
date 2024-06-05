@@ -62,9 +62,9 @@ return {
           -- cmd = { vim.fn.stdpath('data') .. "/mason/bin/elixir-ls" },
           settings = elixirls.settings({
             dialyzerEnabled = true,
-            fetchDeps = true,
+            fetchDeps = false,
             enableTestLenses = false,
-            suggestSpecs = true,
+            suggestSpecs = false,
           }),
         }
       }
