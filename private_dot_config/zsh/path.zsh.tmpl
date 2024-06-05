@@ -35,4 +35,8 @@ if [[ -d "$HOME/.fly/bin" ]]; then
   export PATH="$FLYCTL_INSTALL/bin:$PATH"
 fi
 
+if is_cmd direnv; then
+  eval "$(direnv hook zsh)"
+fi
+
 source_if_exists "$HOME/.cargo/env"
