@@ -41,7 +41,7 @@ return {
       local elixirls = require("elixir.elixirls")
       require("elixir").setup {
         nextls = {
-          enable = false,
+          enable = true,
           on_attach = function(client,bufnr)
             shared_config.on_attach(client, bufnr)
           end
