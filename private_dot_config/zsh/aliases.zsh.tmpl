@@ -5,30 +5,15 @@ alias lcl='hl && clear'
 
 # NOTE: A lot of aliases are now managed via atuin.
 
-if [[ -n $(command -v "just") ]]; then
-  if [[ -f "$HOME/.user.justfile" ]]; then
-    alias .just="just --justfile $HOME/.user.justfile --working-directory ."
-    alias .j=".just"
-
-    alias dotfiles=".j dotfiles"
-    alias trn=".j trn"
-  fi
-fi
-
-
 if [[ -n $(command -v "npx") ]]; then
   alias log4brains='npx log4brains'
 fi
-
-alias ls='ls --color=auto'
 
 if [[ -z $(command -v "eza") ]]; then
   alias ll='ls --color=auto -l'
   alias lal='ls --color=auto -al'
   alias la='ls --color=auto -a'
 fi
-
-alias dir='dir --color=auto'
 
 if [[ -n $(command -v "docker") ]]; then
   alias kamal="docker run -it --rm -v '${PWD}:/workdir' -v '${SSH_AUTH_SOCK}:/ssh-agent' \
