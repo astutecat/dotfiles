@@ -9,14 +9,10 @@ fi
 
 source "${ZDOTDIR:-$HOME}/functions.zsh"
 source "${ZDOTDIR:-$HOME}/variables.zsh"
-if is_cmd mise; then
-  eval "$(mise activate zsh)"
-fi
 source "${ZDOTDIR:-$HOME}/path.zsh"
 source "${ZDOTDIR:-$HOME}/zoxide-setup.zsh"
 source "${ZDOTDIR:-$HOME}/aliases.zsh"
 source "${ZDOTDIR:-$HOME}/atuin-setup.zsh"
-
 source "${ZDOTDIR:-$HOME}/completion.zsh"
 
 if is_cmd fastfetch; then

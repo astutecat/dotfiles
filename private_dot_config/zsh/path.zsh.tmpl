@@ -17,6 +17,14 @@ fi
 # if [[ -f "$HOME/.asdf/asdf.sh" ]]; then
 #   . "$HOME/.asdf/asdf.sh"
 # fi
+#
+
+source_if_exists "$HOME/.cargo/env"
+
+if [[ -n $(command -v mise) ]]; then
+  export PATH="$HOME/.local/share/mise/shims:$PATH"
+  eval "$(mise activate zsh)"
+fi
 
 if [[ -d "$HOME/.cache/rebar3" ]]; then
   export PATH="$HOME/.cache/rebar3/bin:$PATH"
@@ -38,5 +46,3 @@ fi
 if is_cmd direnv; then
   eval "$(direnv hook zsh)"
 fi
-
-source_if_exists "$HOME/.cargo/env"
