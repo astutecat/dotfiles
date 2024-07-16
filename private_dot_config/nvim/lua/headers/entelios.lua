@@ -1,4 +1,6 @@
-return [[
+local M = {}
+
+M[1] = [[
                  ▄▓▀█┐
                 █▀   █▄
                ▄▀  ▄▓▀▀▀▓▄
@@ -12,3 +14,5 @@ return [[
                   └█▄   ▄█╙
                     └▀▀▀└
 ]]
+
+return M[math.random(#M)]
