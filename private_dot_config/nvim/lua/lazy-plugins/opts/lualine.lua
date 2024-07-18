@@ -65,7 +65,7 @@ return {
         'buffers',
         show_filename_only = false,
         use_mode_colors = true,
-        max_length = vim.o.columns * 2 / 2.25,
+        max_length = vim.o.columns * 2,
         separator = ' ',
         symbols = {
           modified = ' ●',              -- Text to show when the buffer is modified
