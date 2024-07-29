@@ -32,6 +32,8 @@
   dft = difftool -t difftastic
   sdft = dft --staged
   fpush = push --force-with-lease
+  prune-branches = !git remote prune origin && git branch -vv | grep ': gone]' | awk '{print $1}' | xargs -r git branch -d
+
 [gc]
 	autoDetach = false
 [init]
