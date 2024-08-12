@@ -36,6 +36,16 @@ args = ["--depth", "1", "--quiet"]
 [".local/bin/tfg.py".pull]
 args = ["--quiet"]
 
+[".local/bin/pert-bash"]
+type = "git-repo"
+url = "https://github.com/arzzen/pert.git"
+refreshPeriod = "672h"
+[".local/bin/pert-bash".clone]
+args = ["--depth", "1", "--quiet"]
+[".local/bin/pert-bash".pull]
+args = ["--quiet"]
+
+
 {{- $nvim_url := "https://github.com/neovim/neovim/releases/latest/download/nvim.appimage" -}}
 {{- if .on_d9 -}}
 {{-   $nvim_url = "https://github.com/neovim/neovim-releases/releases/latest/download/nvim.appimage" -}}
