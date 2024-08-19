@@ -45,6 +45,7 @@ update-rust:
 update-mise:
   mise plugins install lazydocker https://github.com/comdotlinux/asdf-lazydocker.git
   mise plugins install lazygit https://github.com/nklmilojevic/asdf-lazygit.git
+  mise plugins install moonrepo https://github.com/asdf-community/asdf-moonrepo.git
   mise cache clear
   mise upgrade
 
