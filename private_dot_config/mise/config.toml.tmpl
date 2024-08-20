@@ -29,4 +29,7 @@ node = "17.6.0"
 {{else}}
 "cargo:cargo-binstall" = "latest"
 node = "latest"
+{{end -}}
+{{if ne .chezmoi.os "darwin" -}}
+"cargo:stgit" = "latest"
 {{end}}
