@@ -42,10 +42,12 @@ update-chezmoi:
 update-rust:
   rustup update
 
-update-mise:
+ensure-mise-plugins:
   mise plugins install lazydocker https://github.com/comdotlinux/asdf-lazydocker.git
   mise plugins install lazygit https://github.com/nklmilojevic/asdf-lazygit.git
   mise plugins install moonrepo https://github.com/asdf-community/asdf-moonrepo.git
+
+update-mise: ensure-mise-plugins
   mise cache clear
   mise upgrade
 
