@@ -125,10 +125,11 @@ local function starter_config()
     items = {
       starter.sections.sessions(4, true),
       starter.sections.recent_files(6, true, false),
-      { action = "Telescope find_files", name = "Find file", section = "Quick Actions" },
-      { action = "Telescope projects", name = "Recent Projects", section = "Quick Actions" },
-      { action = "Legendary", name = "Command pallete", section = "Quick Actions" },
-      { action = "Lazy", name = "Lazy", section = "Quick Actions" },
+      { action = "Telescope find_files", name = "Find file",       section = "Quick Actions" },
+      { action = "Telescope projects",   name = "Recent Projects", section = "Quick Actions" },
+      { action = "Legendary",            name = "Command pallete", section = "Quick Actions" },
+      { action = "Mason",                name = "Mason",           section = "Quick Actions" },
+      { action = "Lazy",                 name = "Lazy",            section = "Quick Actions" },
     },
   }
 end
