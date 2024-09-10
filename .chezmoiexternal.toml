@@ -45,6 +45,11 @@ args = ["--depth", "1", "--quiet"]
 [".local/bin/pert-bash".pull]
 args = ["--quiet"]
 
+[".config/zsh/.zfunc/_git"]
+type = "file"
+url = "https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.zsh"
+refreshPeriod = "672h"
+
 
 {{- $nvim_url := "https://github.com/neovim/neovim/releases/latest/download/nvim.appimage" -}}
 {{- if .on_d9 -}}
