@@ -29,6 +29,7 @@ vim.o.shiftwidth = 2
 vim.o.expandtab = true
 vim.o.breakindent = true
 vim.o.linebreak = true
+vim.o.colorcolumn = "+0"
 
 vim.o.signcolumn = 'yes'
 

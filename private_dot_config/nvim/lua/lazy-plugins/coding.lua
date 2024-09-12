@@ -14,6 +14,14 @@ return {
     dependencies = { 'sheerun/vim-polyglot' },
     event = e.buf_read_pre_or_new
   },
+  {
+    "lukas-reineke/virt-column.nvim",
+    dependencies = { 'tpope/vim-sleuth' },
+    opts = {
+      char = "┆"
+    },
+    event = e.buf_read_pre_or_new
+  },
   { 'christoomey/vim-sort-motion' },
   { 'ludovicchabant/vim-gutentags' },
   {
