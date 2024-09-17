@@ -37,6 +37,7 @@ return {
         "yamlfmt",
         "shellharden",
         "json-lsp",
+        "gitlint"
       },
     },
   },
