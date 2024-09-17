@@ -1,5 +1,15 @@
-local function multiple_tabs_exist()
-  return vim.fn.tabpagenr("$") > 1
+local function number_of_tabs()
+  return vim.fn.tabpagenr("$")
+end
+
+local function tab_width()
+  local tabs = number_of_tabs()
+  return 20 + ((tabs - 1) * 4)
+end
+
+local function buffer_width()
+  local cols = vim.o.columns
+  return cols - tab_width()
 end
 
 local function custom_location()
@@ -65,7 +75,7 @@ return {
         'buffers',
         show_filename_only = false,
         use_mode_colors = true,
-        max_length = vim.o.columns * 2,
+        max_length = buffer_width,
         separator = ' ',
         symbols = {
           modified = ' ●',              -- Text to show when the buffer is modified
@@ -84,7 +94,9 @@ return {
       {
         'tabs',
         mode = 2,
-        cond = multiple_tabs_exist
+        use_mode_colors = true,
+        tab_max_length = 20,
+        max_length = tab_width
       }
     },
   },
