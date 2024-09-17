@@ -4,7 +4,7 @@ end
 
 local function tab_width()
   local tabs = number_of_tabs()
-  return 20 + ((tabs - 1) * 4)
+  return tabs * 20
 end
 
 local function buffer_width()

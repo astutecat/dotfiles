@@ -79,8 +79,18 @@ return {
     "nvim-lualine/lualine.nvim",
     dependencies = { "nvim-tree/nvim-web-devicons", "SmiteshP/nvim-navic" },
     opts = require("lazy-plugins.opts.lualine"),
+    config = function(_, opts)
+      require("lualine").setup(opts)
+      local commands = {
+        {
+          ":LualineRenameTab", description = "Lualine: Rename Tab",
+          unfinished = true
+        }
+      }
+      require("legendary").commands(commands)
+      vim.cmd([[call SetupCommandAlias("tabr", "LualineRenameTab")]])
+    end
   },
-
   {
     "kevinhwang91/nvim-hlslens",
     dependencies = { "kevinhwang91/nvim-ufo" },
