@@ -1,0 +1,9 @@
+[general]
+contrib=contrib-title-conventional-commits
+ignore=B6
+
+[title-max-length]
+line-length=120
+
+[body-max-line-length]
+line-length=120

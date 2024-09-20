@@ -20,11 +20,3 @@ repos:
     rev: v0.19.1
     hooks:
       - id: gitlint
-        args: [
-          --contrib=contrib-title-conventional-commits,
-          --ignore=body-is-missing,
-          -ctitle-max-length.line-length=120,
-          -cbody-max-line-length.line-length=120,
-        # Note: --msg-filename must be the last argument.
-          --msg-filename
-        ]

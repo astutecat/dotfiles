@@ -152,6 +152,7 @@ return {
       typescript = { prettier_d },
       javascript = { linter("eslint"), prettier_d },
       python = { formatter("black"), linter("pylint") },
+      gitcommit = { linter("gitlint") },
     })
 
     local efmls_config = {
