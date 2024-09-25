@@ -32,7 +32,13 @@ return {
             ".editorconfig",
             ".envrc",
             ".tool-versions",
-            ".moon"
+            ".moon",
+            ".chezmoiremove",
+            ".chezmoiignore",
+            ".chezmoiexternal.toml",
+            ".gitlint",
+            ".envrc",
+            ".editorconfig"
           },
         }
       },
