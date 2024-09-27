@@ -215,7 +215,10 @@ return {
   {
     "echasnovski/mini.nvim",
     version = "*",
+    dependencies = { "nvim-tree/nvim-web-devicons" },
     config = function(_, _)
+      require("mini.icons").setup()
+      require("mini.icons").mock_nvim_web_devicons()
       require("mini.comment").setup()
       require("mini.indentscope").setup(indent_scope_opts())
       require("mini.pairs").setup()
