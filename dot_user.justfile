@@ -48,6 +48,7 @@ ensure-mise-plugins:
   mise plugins install moonrepo https://github.com/asdf-community/asdf-moonrepo.git
 
 update-mise: ensure-mise-plugins
+  mise self-update
   mise cache clear
   mise upgrade
 
