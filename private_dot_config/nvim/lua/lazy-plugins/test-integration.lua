@@ -2,12 +2,12 @@ return {
   {
     "nvim-neotest/neotest",
     dependencies = {
+      "nvim-neotest/nvim-nio",
       "nvim-lua/plenary.nvim",
       "nvim-treesitter/nvim-treesitter",
+      "vim-test/vim-test",
       "jfpedroza/neotest-elixir",
       "rouge8/neotest-rust",
-      "vim-test/vim-test",
-      "nvim-neotest/nvim-nio"
     },
     opts = {},
     config = function()
