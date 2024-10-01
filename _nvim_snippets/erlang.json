@@ -216,6 +216,16 @@
     "description": "erlang supervisor childspec map"
   },
 
+  "eunit_include" : {
+    "prefix": ["eunit_include"],
+    "body": [
+      "-ifdef(EUNIT).",
+      "%-include_lib(\"proper/include/proper.hrl\").",
+      "-include_lib(\"eunit/include/eunit.hrl\").",
+      "-endif."
+    ]
+  },
+
   "set_test_sendout" : {
     "prefix": ["set_test_sendout"],
 
