@@ -138,14 +138,14 @@ return {
   end,
   ["efm"] = function()
     local shellcheck = linter("shellcheck")
-    local shfmt = formatter("shfmt")
+    local beautysh = formatter("beautysh")
     local prettier_d = formatter("prettier_d")
     local shellharden = formatter("shellharden")
 
     local languages = require("efmls-configs.defaults").languages()
     languages = vim.tbl_extend("force", languages, {
-      sh = { shellcheck, shfmt, shellharden },
-      bash = { shellcheck, shfmt, shellharden },
+      sh = { shellcheck, beautysh, shellharden },
+      bash = { shellcheck, beautysh, shellharden },
       yaml = { linter("yamllint"), prettier_d },
       css = { prettier_d },
       html = { prettier_d },
@@ -153,6 +153,7 @@ return {
       javascript = { linter("eslint"), prettier_d },
       python = { formatter("black"), linter("pylint") },
       gitcommit = { linter("gitlint") },
+      zsh = { beautysh }
     })
 
     local efmls_config = {

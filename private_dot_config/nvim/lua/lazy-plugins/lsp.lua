@@ -29,7 +29,6 @@ return {
         "stylua",
         "black",
         "shellcheck",
-        "shfmt",
         "pylint",
         "lua-language-server",
         "bash-language-server",
@@ -37,7 +36,8 @@ return {
         "yamlfmt",
         "shellharden",
         "json-lsp",
-        "gitlint"
+        "gitlint",
+        "beautysh"
       },
     },
   },

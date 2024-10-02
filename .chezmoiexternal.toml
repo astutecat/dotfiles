@@ -1,3 +1,5 @@
+# vim:ft=toml.chezmoitmpl
+
 # git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 [".fzf"]
 type = "git-repo"
@@ -84,19 +86,20 @@ refreshPeriod = "672h"
   exclude = ["**/LICENSE"]
 {{ end }}
 {{ if not .no_fonts }}
-[".local/share/fonts/monaspace"]
-  type = "archive"
-  url = "https://github.com/ryanoasis/nerd-fonts/releases/latest/download/Monaspace.zip"
-  refreshPeriod = "672h"
-  exact = true
-[".local/share/fonts/iosevka"]
-  type = "archive"
-  url = "https://github.com/ryanoasis/nerd-fonts/releases/latest/download/Iosevka.zip"
-  refreshPeriod = "672h"
-  exact = true
+# [".local/share/fonts/monaspace"]
+#  type = "archive"
+#  url = "https://github.com/ryanoasis/nerd-fonts/releases/latest/download/Monaspace.zip"
+#  refreshPeriod = "672h"
+#  exclude = ["*Propo*.ttf", "*.md"]
+#
+# [".local/share/fonts/iosevka"]
+#  type = "archive"
+#  url = "https://github.com/ryanoasis/nerd-fonts/releases/latest/download/Iosevka.zip"
+#  refreshPeriod = "672h"
+#  exclude = ["*Propo-*.ttf", "*.md"]
+
 [".local/share/fonts/iosevka_term"]
   type = "archive"
-  url = "https://github.com/ryanoasis/nerd-fonts/releases/latest/download/IosevkaTerm.zip"
+  url = "https://github.com/ryanoasis/nerd-fonts/releases/latest/download/IosevkaTerm.tar.xz"
   refreshPeriod = "672h"
-  exact = true
 {{ end }}

@@ -4,8 +4,8 @@ setopt null_glob
 
 output_dir=$HOME/.local/share/fortunes
 pushd $output_dir
-  rm -f *.dat
-  for file in *; do
-      strfile -s ${file}
-  done
+rm -f *.dat
+for file in *; do
+    strfile -s ${file}
+done
 popd
