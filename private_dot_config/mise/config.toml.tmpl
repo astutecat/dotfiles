@@ -6,26 +6,15 @@ cache_prune_age = "14d"
 disable_hints = [ "python_multi", "python_precompiled" ]
 
 [tools]
-"cargo:eza" = "latest"
 "cargo:atuin" = "latest"
-"cargo:tree-sitter-cli" = "latest"
-"cargo:zoxide" = "latest"
-"cargo:tealdeer" = "latest"
-"cargo:just" = "latest"
-"cargo:difftastic" = "latest"
 "cargo:cargo-cache" = "latest"
 "cargo:du-dust" = "latest"
 "cargo:cocogitto" = "latest"
 pre-commit = "latest"
-sops = "latest"
-direnv = "latest"
 adr-tools = "latest"
 go = "1.21.1"
 lua = "latest"
-lazydocker = "latest"
-lazygit = "latest"
 chezmoi = "latest"
-watchexec = "latest"
 moonrepo = "latest"
 dotnet = "latest"
 {{- if .on_d9 }}
@@ -34,6 +23,3 @@ node = "17.6.0"
 "cargo:cargo-binstall" = "latest"
 node = "latest"
 {{end -}}
-{{if ne .chezmoi.os "darwin" -}}
-"cargo:stgit" = "latest"
-{{end}}
