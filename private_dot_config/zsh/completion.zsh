@@ -18,6 +18,10 @@ if is_cmd stg; then
   stg completion zsh >! "${ZDOTDIR:-$HOME}/.zfunc/_stg"
 fi
 
+if is_cmd devox; then
+  devbox completion zsh >! "${ZDOTDIR:-$HOME}.zfunc/_devbox"
+fi
+
 autoload -Uz compinit bashcompinit
 compinit
 bashcompinit
