@@ -153,7 +153,8 @@ return {
       javascript = { linter("eslint"), prettier_d },
       python = { formatter("black"), linter("pylint") },
       gitcommit = { linter("gitlint") },
-      zsh = { beautysh }
+      zsh = { beautysh },
+      toml = { formatter("taplo") },
     })
 
     local efmls_config = {
@@ -161,7 +162,13 @@ return {
       capabilities = shared_config.capabilities,
       filetypes = vim.tbl_keys(languages),
       settings = {
-        rootMarkers = { ".git/", "mix.exs", "justfile", "Makefile" },
+        rootMarkers = {
+          ".git/",
+          "mix.exs",
+          "justfile",
+          "Makefile",
+          "cargo.toml",
+        },
         languages = languages,
       },
       init_options = {

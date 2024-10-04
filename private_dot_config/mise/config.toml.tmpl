@@ -1,7 +1,9 @@
 # vim:ft=toml.chezmoitmpl
 
 [settings]
-experimental = true
+experimental = false
+cache_prune_age = "14d"
+disable_hints = [ "python_multi", "python_precompiled" ]
 
 [tools]
 "cargo:eza" = "latest"

@@ -37,7 +37,8 @@ return {
         "shellharden",
         "json-lsp",
         "gitlint",
-        "beautysh"
+        "beautysh",
+        "taplo"
       },
     },
   },
