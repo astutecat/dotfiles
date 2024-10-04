@@ -15,9 +15,7 @@ export ERL_AFLAGS="+pc unicode -kernel shell_history enabled -enable-feature all
 {{- if eq .chezmoi.os "darwin" }}
 export CPPFLAGS="-I$(brew --prefix unixodbc)/include"
 export LDFLAGS="-L$(brew --prefix unixodbc)/lib"
-export KERL_CONFIGURE_OPTIONS="
-      --enable-wx \
-      --without-javac \
-      --with-odbc=$(brew --prefix unixodbc)
-      "
+export KERL_CONFIGURE_OPTIONS=" --without-javac \
+      --without-wx \
+      --with-odbc=$(brew --prefix unixodbc)"
 {{ end -}}
