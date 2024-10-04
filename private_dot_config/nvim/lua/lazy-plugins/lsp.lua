@@ -53,7 +53,11 @@ return {
           "SmiteshP/nvim-navic",
           "MunifTanjim/nui.nvim",
         },
-        opts = { lsp = { auto_attach = true } },
+        opts = {
+          lsp = {
+            auto_attach = false,
+          }
+        },
       },
     },
     version = false,

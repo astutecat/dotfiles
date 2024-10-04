@@ -23,7 +23,7 @@ return {
   },
   {
     "chentoast/marks.nvim",
-    opts = {}
+    opts = {},
   },
   { "jeffkreeftmeijer/vim-numbertoggle", event = e.buf_read_or_new },
   {
@@ -56,10 +56,15 @@ return {
   },
 
   {
-    "SmiteshP/nvim-navic",
+    "rcarriga/nvim-notify",
     opts = {
-      separator = "  ",
+      fps = 60,
+      timeout = 3000,
     },
+    config = function(_, opts)
+      require("notify").setup(opts)
+      vim.notify = require("notify")
+    end,
   },
 
   {
@@ -71,6 +76,7 @@ return {
     },
     opts = {
       theme = "tokyonight",
+      attach_navic = false,
     },
     event = e.buf_read_or_new,
   },
@@ -83,19 +89,20 @@ return {
       require("lualine").setup(opts)
       local commands = {
         {
-          ":LualineRenameTab", description = "Lualine: Rename Tab",
-          unfinished = true
-        }
+          ":LualineRenameTab",
+          description = "Lualine: Rename Tab",
+          unfinished = true,
+        },
       }
       require("legendary").commands(commands)
       vim.cmd([[call SetupCommandAlias("tabr", "LualineRenameTab")]])
-    end
+    end,
   },
   {
     "kevinhwang91/nvim-hlslens",
     dependencies = { "kevinhwang91/nvim-ufo" },
     opts = {
-      auto_enable = true
+      auto_enable = true,
     },
     config = function(_, opts)
       -- require("scrollbar.handlers.search").setup()

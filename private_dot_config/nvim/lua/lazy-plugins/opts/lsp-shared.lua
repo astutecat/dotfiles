@@ -120,10 +120,11 @@ local on_attach_keymap = function(bufnr)
 end
 
 M.on_attach = function(client, bufnr)
-  local navic = require("nvim-navic")
-  if client.server_capabilities.documentSymbolProvider then
+  if client.server_capabilities.documentSymbolProvider and client.name ~= "Next LS" then
+    local navic = require("nvim-navic")
     navic.attach(client, bufnr)
   end
+  require("nvim-navbuddy").attach(client, bufnr)
   local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
   -- Enable completion triggered by <c-x><c-o>
   buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
