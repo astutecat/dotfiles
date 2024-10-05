@@ -24,7 +24,7 @@ split-nvim percent="30": # launch nvim in a tmux split
     tmux new-session\; rename-window "$dir"\; split-window -hd -p {{percent}}\; send-keys 'nvim' C-m \;
   fi
 
-update-all: update-chezmoi update-brew update-rust update-mise
+update-all: update-chezmoi update-brew update-rust update-devbox update-mise
 [macos]
 update-brew:
   brew update
@@ -35,6 +35,9 @@ update-brew:
 update-brew:
   @ :
 
+update-devbox:
+  [[ -n $(command -v devbox) ]] && devbox global update
+
 update-chezmoi:
   chezmoi update --init
   chezmoi apply
@@ -43,8 +46,6 @@ update-rust:
   rustup update
 
 ensure-mise-plugins:
-  mise plugins install lazydocker https://github.com/comdotlinux/asdf-lazydocker.git
-  mise plugins install lazygit https://github.com/nklmilojevic/asdf-lazygit.git
   mise plugins install moonrepo https://github.com/asdf-community/asdf-moonrepo.git
 
 update-mise: ensure-mise-plugins
