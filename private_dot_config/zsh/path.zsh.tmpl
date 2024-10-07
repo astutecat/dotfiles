@@ -14,14 +14,6 @@ if is_cmd brew; then
 fi
 {{end}}
 
-# if [[ -f "$HOME/.asdf/asdf.sh" ]]; then
-#   . "$HOME/.asdf/asdf.sh"
-# fi
-
-if [[ -n $(command -v devbox) ]]; then
-  eval "$(devbox global shellenv --init-hook)"
-fi
-
 source_if_exists "$HOME/.cargo/env"
 
 if [[ -n $(command -v mise) ]]; then
@@ -44,6 +36,10 @@ fi
 if [[ -d "$HOME/.fly/bin" ]]; then
   export FLYCTL_INSTALL="/home/debian/.fly"
   export PATH="$FLYCTL_INSTALL/bin:$PATH"
+fi
+
+if [[ -n $(command -v devbox) ]]; then
+  eval "$(devbox global shellenv --init-hook)"
 fi
 
 if is_cmd direnv; then
