@@ -1,5 +1,0 @@
-[tools]
-pre-commit = "latest"
-lua = "latest"
-just = "latest"
-direnv = "latest"
