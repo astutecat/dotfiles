@@ -13,8 +13,7 @@
     "direnv@latest",
     "git@latest",
     "stgit@latest",
-    "sops@latest",
-    "pre-commit@latest"
+    "sops@latest"
   ],
   "shell": {
     "init_hook": [
