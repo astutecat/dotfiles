@@ -1,7 +1,7 @@
 # yamllint disable rule:document-start
 default_install_hook_types: [pre-commit, commit-msg]
 default_stages:
-  - commit
+  - pre-commit
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v4.4.0
