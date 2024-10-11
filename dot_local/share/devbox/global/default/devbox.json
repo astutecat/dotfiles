@@ -14,7 +14,8 @@
     "git@latest",
     "stgit@latest",
     "sops@latest",
-    "neovim@latest"
+    "neovim@latest",
+    "ag@latest"
   ],
   "shell": {
     "init_hook": [
