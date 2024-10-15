@@ -64,6 +64,7 @@ return {
     opts = require("lazy-plugins.opts.lsp"),
     config = function(_, opts)
       require("mason-lspconfig").setup_handlers(opts)
+      require('lspconfig').gleam.setup({})
       local commands = {
         { ":LspRestart", description = "LSP: Restart" },
         { ":LspStart", description = "LSP: Start" },
