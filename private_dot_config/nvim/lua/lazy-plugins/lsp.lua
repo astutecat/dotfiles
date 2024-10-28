@@ -38,7 +38,7 @@ return {
         "json-lsp",
         "gitlint",
         "beautysh",
-        "taplo"
+        "taplo",
       },
     },
   },
@@ -56,21 +56,25 @@ return {
         opts = {
           lsp = {
             auto_attach = false,
-          }
+          },
         },
       },
     },
     version = false,
     opts = require("lazy-plugins.opts.lsp"),
     config = function(_, opts)
+      local shared_config = require("lazy-plugins.opts.lsp-shared")
       require("mason-lspconfig").setup_handlers(opts)
-      require('lspconfig').gleam.setup({})
+      require("lspconfig").gleam.setup({
+        on_attach = shared_config.on_attach,
+        capabilities = shared_config.capabilities,
+      })
       local commands = {
         { ":LspRestart", description = "LSP: Restart" },
-        { ":LspStart", description = "LSP: Start" },
-        { ":LspStop", description = "LSP: Stop" },
-        { ":LspInfo", description = "LSP: Show Info" },
-        { ":Mason", description = "Show Mason" },
+        { ":LspStart",   description = "LSP: Start" },
+        { ":LspStop",    description = "LSP: Stop" },
+        { ":LspInfo",    description = "LSP: Show Info" },
+        { ":Mason",      description = "Show Mason" },
       }
       local kopts = { noremap = true, silent = true }
       local keymaps = {
