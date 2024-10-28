@@ -12,8 +12,6 @@
 {{-   $location = "personal" -}}
 {{- end -}}
 
-{{- $asdf_all_tools_to_update := "('adr' 'just' 'fd' 'lazygit' 'lazydocker' 'pre-commit' 'delta')" -}}
-
 encryption = "gpg"
 format = "yaml"
 
@@ -32,13 +30,8 @@ format = "yaml"
   is_macos = {{ eq .chezmoi.os "darwin" }}
   no_fonts = {{ or (eq $location "other") (eq .chezmoi.os "darwin") }}
   zdotdir = "{{.chezmoi.homeDir}}/.config/zsh"
-  asdf_all_tools_to_update = {{$asdf_all_tools_to_update | quote}}
-  {{- if ne $location "other" }}
-  asdf_tools_to_install = {{$asdf_all_tools_to_update | quote}}
-  {{ else }}
-  asdf_tools_to_install = "('fd' 'just' 'delta')"
-  {{ end -}}
   on_d9 = {{ eq .chezmoi.fqdnHostname "debian9.ntls.local" }}
+  devbox_beam = {{ ne $location "other" }}
 
 [data.git]
 {{- if eq $location "work" }}
