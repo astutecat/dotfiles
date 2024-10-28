@@ -1,4 +1,5 @@
 # vim:ft=toml.chezmoitmpl
+encryption = "gpg"
 
 {{- $osid := .chezmoi.os -}}
 {{- if hasKey .chezmoi.osRelease "id" -}}
@@ -12,7 +13,6 @@
 {{-   $location = "personal" -}}
 {{- end -}}
 
-encryption = "gpg"
 format = "yaml"
 
 [diff]
