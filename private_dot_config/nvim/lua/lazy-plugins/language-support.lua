@@ -44,7 +44,8 @@ return {
         "tlaplus",
         "awk",
         "haskell",
-        "ssh_config"
+        "ssh_config",
+        "gleam"
       },
       highlight = {
         enable = true,
