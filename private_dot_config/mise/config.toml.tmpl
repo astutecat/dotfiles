@@ -17,9 +17,6 @@ lua = "latest"
 chezmoi = "latest"
 moonrepo = "latest"
 dotnet = "latest"
-{{- if .on_d9 }}
-node = "17.6.0"
-{{else}}
+{{- if not .on_d9 }}
 "cargo:cargo-binstall" = "latest"
-node = "latest"
 {{end -}}
