@@ -15,7 +15,9 @@
     "stgit@latest",
     "sops@latest",
     "neovim@latest",
-    "ag@latest"
+    "ag@latest"{{- if .on_d9}},
+    "nodejs@18"
+    {{- end }}
   ],
   "shell": {
     "init_hook": [
