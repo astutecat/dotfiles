@@ -9,14 +9,15 @@ disable_hints = [ "python_multi", "python_precompiled" ]
 "cargo:atuin" = "latest"
 "cargo:cargo-cache" = "latest"
 "cargo:du-dust" = "latest"
-"cargo:cocogitto" = "latest"
 pre-commit = "latest"
 adr-tools = "latest"
 go = "1.21.1"
 lua = "latest"
 chezmoi = "latest"
-moonrepo = "latest"
+{{- if ne .location "other"}}
 dotnet = "latest"
+{{ end -}}
+elixir = "latest"
 {{- if not .on_d9 }}
 "cargo:cargo-binstall" = "latest"
 {{end -}}

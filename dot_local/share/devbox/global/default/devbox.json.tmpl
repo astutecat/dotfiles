@@ -16,7 +16,9 @@
     "sops@latest",
     "neovim@latest",
     "ag@latest",
-    "nodejs@latest"
+    "nodejs@latest"{{- if ne .location "other"}},
+    "erlang_27@latest"
+    {{- end }}
   ],
   "shell": {
     "init_hook": [
