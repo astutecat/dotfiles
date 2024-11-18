@@ -37,7 +37,6 @@ return {
     })
   end,
   -- Next, you can provide a dedicated handler for specific servers.
-  -- For example, a handler override for the `rust_analyzer`:
   ["lua_ls"] = function()
     lspconfig.lua_ls.setup({
       on_attach = shared_config.on_attach,

@@ -103,6 +103,7 @@ return {
     dependencies = { "kevinhwang91/nvim-ufo" },
     opts = {
       auto_enable = true,
+      calm_down = true,
     },
     config = function(_, opts)
       -- require("scrollbar.handlers.search").setup()
