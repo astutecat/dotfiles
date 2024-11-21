@@ -38,6 +38,10 @@ if [[ -d "$HOME/.fly/bin" ]]; then
   export PATH="$FLYCTL_INSTALL/bin:$PATH"
 fi
 
+if [[ -f "$HOME/.atuin/bin/env" ]]; then
+  source "$HOME/.atuin/bin/env"
+fi
+
 if [[ -n $(command -v devbox) ]]; then
   eval "$(devbox global shellenv --init-hook)"
 fi
