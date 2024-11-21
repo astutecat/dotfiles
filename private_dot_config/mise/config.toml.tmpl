@@ -21,3 +21,8 @@ elixir = "latest"
 {{- if not .on_d9 }}
 "cargo:cargo-binstall" = "latest"
 {{end -}}
+{{- if eq chezmoi.os "darwin"}}
+
+[aliases]
+erlang = 'asdf:michallepicki/asdf-erlang-prebuilt-macos'
+{{end -}}
