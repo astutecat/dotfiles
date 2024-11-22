@@ -36,8 +36,8 @@ update-brew:
   @ :
 
 update-devbox:
-  [[ -n $(command -v devbox) ]] && devbox version update
-  [[ -n $(command -v devbox) ]] && devbox global update
+  [[ -n $(command -v devbox) ]] && devbox version update || :
+  [[ -n $(command -v devbox) ]] && devbox global update  || :
 
 update-chezmoi:
   chezmoi update --init
