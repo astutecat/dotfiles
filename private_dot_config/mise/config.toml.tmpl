@@ -1,27 +1,9 @@
 # vim:ft=toml.chezmoitmpl
 
-[settings]
-experimental = false
-cache_prune_age = "14d"
-disable_hints = [ "python_multi", "python_precompiled" ]
-
-[tools]
-"cargo:cargo-cache" = "latest"
-"cargo:du-dust" = "latest"
-pre-commit = "latest"
-adr-tools = "latest"
-go = "1.21.1"
-lua = "latest"
-chezmoi = "latest"
-{{- if ne .location "other"}}
-dotnet = "latest"
-{{ end -}}
-elixir = "latest"
-{{- if not .on_d9 }}
-"cargo:cargo-binstall" = "latest"
-{{end -}}
-{{- if eq .chezmoi.os "darwin"}}
-
-[aliases]
-erlang = 'asdf:michallepicki/asdf-erlang-prebuilt-macos'
-{{end -}}
+{{- if eq .chezmoi.os "darwin" -}}
+{{-   include "config-darwin.toml.tmpl" -}}
+{{- else if eq .location "other" -}}
+{{-   include "config-other.toml.tmpl" -}}
+{{- else -}}
+{{-   include "config-main.toml.tmpl" -}}
+{{- end -}}

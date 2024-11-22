@@ -1,7 +1,7 @@
 {{- if .on_d9 -}}
 {{-   include "devbox-d9.json" -}}
 {{- else if eq .location "other" -}}
-{{-   include "devbox-minimal.json" -}}
+{{-   include "devbox-other.json" -}}
 {{- else -}}
 {{-   include "devbox-main.json" -}}
 {{- end -}}
