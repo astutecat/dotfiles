@@ -14,4 +14,5 @@ go = "1.21.1"
 lua = "latest"
 chezmoi = "latest"
 dotnet = "latest"
-elixir = "latest"
+elixir = "latest",
+erlang = "latest"

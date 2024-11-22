@@ -46,6 +46,12 @@ update-chezmoi:
 update-rust:
   rustup update
 
+[macos]
+ensure-mise-plugins:
+  mise plugins install erlang https://github.com/michallepicki/asdf-erlang-prebuilt-macos.git
+  mise plugins install moonrepo https://github.com/asdf-community/asdf-moonrepo.git
+
+[linux]
 ensure-mise-plugins:
   mise plugins install moonrepo https://github.com/asdf-community/asdf-moonrepo.git
 
