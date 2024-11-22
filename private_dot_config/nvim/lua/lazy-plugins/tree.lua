@@ -38,7 +38,9 @@ return {
             ".chezmoiexternal.toml",
             ".gitlint",
             ".envrc",
-            ".editorconfig"
+            ".editorconfig",
+            ".chezmoitemplates",
+            ".ignore"
           },
         }
       },

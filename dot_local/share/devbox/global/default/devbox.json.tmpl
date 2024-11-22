@@ -1,7 +1,7 @@
 {{- if .on_d9 -}}
-{{-   template "devbox-d9.json" -}}
+{{-   template "d9/devbox.json" -}}
 {{- else if eq .location "other" -}}
-{{-   template "devbox-other.json" -}}
+{{-   template "other/devbox.json" -}}
 {{- else -}}
-{{-   template "devbox-main.json" -}}
+{{-   template "devbox.json" -}}
 {{- end -}}
