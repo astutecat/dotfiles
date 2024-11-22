@@ -1,9 +1,9 @@
 # vim:ft=toml.chezmoitmpl
 
 {{- if eq .chezmoi.os "darwin" -}}
-{{-   include "config-darwin.toml.tmpl" -}}
+{{-   template "mise_config-darwin.toml.tmpl" -}}
 {{- else if eq .location "other" -}}
-{{-   include "config-other.toml.tmpl" -}}
+{{-   template "mise_config-other.toml.tmpl" -}}
 {{- else -}}
-{{-   include "config-main.toml.tmpl" -}}
+{{-   template "mise_config-main.toml.tmpl" -}}
 {{- end -}}
