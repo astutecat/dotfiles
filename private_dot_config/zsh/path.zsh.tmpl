@@ -16,10 +16,6 @@ fi
 
 source_if_exists "$HOME/.cargo/env"
 
-if [[ -n $(command -v mise) ]]; then
-  export PATH="$HOME/.local/share/mise/shims:$PATH"
-  eval "$(mise activate zsh)"
-fi
 
 if [[ -d "$HOME/.cache/rebar3" ]]; then
   export PATH="$HOME/.cache/rebar3/bin:$PATH"
@@ -44,6 +40,11 @@ fi
 
 if [[ -n $(command -v devbox) ]]; then
   eval "$(devbox global shellenv --init-hook)"
+fi
+
+if [[ -n $(command -v mise) ]]; then
+  export PATH="$HOME/.local/share/mise/shims:$PATH"
+  eval "$(mise activate zsh)"
 fi
 
 if is_cmd direnv; then
