@@ -33,3 +33,5 @@ CHANGELOG.md
 cog.toml
 neovim.yml
 selene.toml
+devbox.json
+devbox.lock
