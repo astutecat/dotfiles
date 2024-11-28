@@ -13,6 +13,7 @@
     "direnv@latest",
     "git@latest",
     "stgit@latest",
+    "git-absorb@latest",
     "sops@latest",
     "neovim@latest",
     "ag@latest",
