@@ -1,5 +1,5 @@
 {
-	"GenServer": {
+  "GenServer": {
     "prefix": "gen_server",
     "body": [
       "defmodule $1 do",
@@ -19,7 +19,7 @@
     "description": "Insert code for a OTP GenServer",
     "scope": "source.elixir"
   },
-	"Supervisor": {
+  "Supervisor": {
     "prefix": "supervisor",
     "body": [
       "defmodule $1 do",
@@ -70,44 +70,54 @@
     "description": "Insert code for a DynamicSupervisor",
     "scope": "source.elixir"
   },
-	"handle_info": {
-		"prefix": "handle_info",
-		"body": [
-			"@impl GenServer",
-			"def handle_info($1, state) do",
-			"  $0",
-			"  {:noreply, state}",
-			"end"
-		]
-	},
-	"handle_continue": {
-		"prefix": "handle_continue",
-		"body": [
-			"@impl GenServer",
-			"def handle_continue($1, state) do",
-			"  $0",
-			"  {:noreply, state}",
-			"end"
-		]
-	},
-	"handle_call": {
-		"prefix": "handle_call",
-		"body": [
-			"@impl GenServer",
-			"def handle_call($1, _from, state) do",
-			"  $0",
-			"  {:reply, :ok, state}",
-			"end"
-		]
-	},
-	"handle_cast": {
-		"prefix": "handle_cast",
-		"body": [
-			"@impl GenServer",
-			"def handle_cast($1, state) do",
-			"  $0",
-			"  {:noreply, state}",
-			"end"
-		]
-	}
+  "handle_info": {
+    "prefix": "handle_info",
+    "body": [
+      "@impl GenServer",
+      "def handle_info($1, state) do",
+      "  $0",
+      "  {:noreply, state}",
+      "end"
+    ]
+  },
+  "handle_continue": {
+    "prefix": "handle_continue",
+    "body": [
+      "@impl GenServer",
+      "def handle_continue($1, state) do",
+      "  $0",
+      "  {:noreply, state}",
+      "end"
+    ]
+  },
+  "handle_call": {
+    "prefix": "handle_call",
+    "body": [
+      "@impl GenServer",
+      "def handle_call($1, _from, state) do",
+      "  $0",
+      "  {:reply, :ok, state}",
+      "end"
+    ]
+  },
+  "handle_cast": {
+    "prefix": "handle_cast",
+    "body": [
+      "@impl GenServer",
+      "def handle_cast($1, state) do",
+      "  $0",
+      "  {:noreply, state}",
+      "end"
+    ]
+  },
+  "moduledoc_external": {
+    "prefix": "moduledoc_external",
+    "body": [
+      "@external_resource ${\"README.md\"}",
+      "@moduledoc @external_resource",
+      "           |> File.read!()",
+      "           |> String.split(\"<!-- MDOC !-->\")",
+      "           |> Enum.fetch!(1)"
+    ]
+  }
 }

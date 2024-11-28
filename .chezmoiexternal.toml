@@ -84,6 +84,12 @@ refreshPeriod = "672h"
   executable = true
   stripComponents = 1
   exclude = ["**/LICENSE"]
+
+[".local/share/man/man1/git-absorb.1"]
+  type = "file"
+  url = "https://raw.githubusercontent.com/tummychow/git-absorb/master/Documentation/git-absorb.1"
+  refreshPeriod = "672h"
+
 {{ end }}
 {{ if not .no_fonts }}
 # [".local/share/fonts/monaspace"]
