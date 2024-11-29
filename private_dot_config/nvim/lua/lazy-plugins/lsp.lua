@@ -39,6 +39,7 @@ return {
         "gitlint",
         "beautysh",
         "taplo",
+        "hadolint",
       },
     },
   },
