@@ -38,3 +38,5 @@ git_squash_from() {
     git branch -D $STARTING_BRANCH
     git checkout -b $STARTING_BRANCH
 }
+
+precmd () { echo -n "\x1b]1337;CurrentDir=$(pwd)\x07" }
