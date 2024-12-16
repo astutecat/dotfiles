@@ -1,8 +1,6 @@
 math.randomseed(os.time())
 
 require('functions')
--- require('plugins')
--- require('spell')
 require('lazy-nvim')
 require('mappings')
 
