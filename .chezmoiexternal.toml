@@ -104,8 +104,14 @@ refreshPeriod = "672h"
 #  refreshPeriod = "672h"
 #  exclude = ["*Propo-*.ttf", "*.md"]
 
-[".local/share/fonts/iosevka_term"]
-  type = "archive"
-  url = "https://github.com/ryanoasis/nerd-fonts/releases/latest/download/IosevkaTerm.tar.xz"
-  refreshPeriod = "672h"
+# [".local/share/fonts/iosevka_term"]
+#   type = "archive"
+#   url = "https://github.com/ryanoasis/nerd-fonts/releases/latest/download/IosevkaTerm.tar.xz"
+#   refreshPeriod = "672h"
+#
+# [".local/share/fonts/iosevka_term"]
+#   type = "archive"
+#   url = "https://github.com/ryanoasis/nerd-fonts/releases/latest/download/ZedMono.tar.xz"
+#   refreshPeriod = "730h"
+#
 {{ end }}
