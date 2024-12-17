@@ -47,6 +47,15 @@ args = ["--depth", "1", "--quiet"]
 [".local/bin/pert-bash".pull]
 args = ["--quiet"]
 
+[".local/bin/myrepos"]
+type = "git-repo"
+url = "git://myrepos.branchable.com/"
+refreshPeriod = "672h"
+[".local/bin/myrepos".clone]
+args = ["--depth", "1", "--quiet"]
+[".local/bin/myrepos".pull]
+args = ["--quiet"]
+
 [".config/zsh/.zfunc/_git"]
 type = "file"
 url = "https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.zsh"
