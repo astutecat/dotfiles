@@ -32,6 +32,10 @@ return {
       -- your configuration comes here
       -- or leave it empty to use the default settings
       -- refer to the configuration section below
+      highlight = {
+        comments_only = true,
+        multiline_context = 10,
+      },
       search = {
         comaand = "rg",
         args = {
