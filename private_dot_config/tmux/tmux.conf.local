@@ -459,7 +459,10 @@ setw -g pane-base-index 1
 
 set -g status-interval 2
 
-set-option -a terminal-features 'xterm-256color:RGB'
+
+set -g default-terminal "xterm-256color" #!important
+# set-option -ga terminal-overrides ",xterm-256color:Tc"
+# set-option -a terminal-features 'xterm-256color:RGB'
 
 # -- custom variables ----------------------------------------------------------
 
