@@ -459,9 +459,7 @@ setw -g pane-base-index 1
 
 set -g status-interval 2
 
-
-
-
+set-option -a terminal-features 'xterm-256color:RGB'
 
 # -- custom variables ----------------------------------------------------------
 
