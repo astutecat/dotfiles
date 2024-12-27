@@ -34,7 +34,7 @@ return {
       -- refer to the configuration section below
       highlight = {
         comments_only = true,
-        multiline_context = 10,
+        multiline_context = 5,
       },
       search = {
         comaand = "rg",
