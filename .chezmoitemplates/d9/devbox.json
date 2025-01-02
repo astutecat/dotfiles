@@ -19,7 +19,8 @@
     "ag@latest",
     "atuin@latest",
     "nodejs@latest",
-    "erlang_27@latest"
+    "erlang_27@latest",
+    "tmate@latest"
   ],
   "shell": {
     "init_hook": [
