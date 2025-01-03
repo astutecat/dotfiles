@@ -2,82 +2,77 @@ local e = require("startup_events")
 
 return {
   {
-    'sheerun/vim-polyglot',
+    "sheerun/vim-polyglot",
     opts = {},
     config = function(_, _)
       vim.g.ployglot_disabled = { "autoindent" }
     end,
-    event = e.buf_read_or_new
+    event = e.buf_read_or_new,
   },
   {
-    'tpope/vim-sleuth',
-    dependencies = { 'sheerun/vim-polyglot' },
-    event = e.buf_read_pre_or_new
+    "tpope/vim-sleuth",
+    dependencies = { "sheerun/vim-polyglot" },
+    event = e.buf_read_pre_or_new,
   },
   {
     "lukas-reineke/virt-column.nvim",
-    dependencies = { 'tpope/vim-sleuth' },
+    dependencies = { "tpope/vim-sleuth" },
     opts = {
-      char = "┆"
+      char = "┆",
     },
-    event = e.buf_read_pre_or_new
+    event = e.buf_read_pre_or_new,
   },
-  { 'christoomey/vim-sort-motion' },
-  { 'ludovicchabant/vim-gutentags' },
+  { "christoomey/vim-sort-motion" },
+  { "ludovicchabant/vim-gutentags" },
   {
-    'machakann/vim-swap',
+    "machakann/vim-swap",
     init = function()
       vim.g.swap_no_default_key_mappings = 1
     end,
     opts = {},
+    keys = {
+      {
+        "g<",
+        "<Plug>(swap-prev)",
+        desc = "nvim-swap: Swap with previous item",
+      },
+      {
+        "g>",
+        "<Plug>(swap-next)",
+        desc = "nvim-swap: Swap with next item",
+      },
+    },
     config = function(_, _)
-      local mappings = {
-        {
-          'g<',
-          '<Plug>(swap-prev)',
-          description = "nvim-swap: Swap with previous item",
-        },
-        {
-          'g>',
-          '<Plug>(swap-next)',
-          description = "nvim-swap: Swap with next item",
-        },
-      }
-      require('legendary').keymaps(mappings)
-      vim.cmd [[
+      vim.cmd([[
         nmap gS <Plug>(swap-interactive)
         xmap gS <Plug>(swap-interactive)
-      ]]
+      ]])
     end,
-    event = e.vl
+    event = e.vl,
   },
-  { 'wakatime/vim-wakatime', event = e.vl },
+  { "wakatime/vim-wakatime", event = e.vl },
   {
-    'astutecat/nclipper.vim',
+    "astutecat/nclipper.vim",
     init = function()
       vim.g.nclipper_nomap = 1
     end,
-    config = function()
-      local opts = { noremap = true }
-      local mappings = {
-        {
-          '<M-y>',
-          '<Plug>(nclipper)',
-          description = "NClipper: Context Copy (No Filename)",
-          mode = { 'v' },
-          opts = opts
-        },
-        {
-          '<C-y>',
-          '<Plug>(nclipper-with-filename)',
-          description = "NClipper: Context Copy",
-          mode = { 'v' },
-          opts = opts
-        },
-      }
-      require('legendary').keymaps(mappings)
-    end,
-    event = e.vl
+    keys = {
+      {
+        "<M-y>",
+        "<Plug>(nclipper)",
+        desc = "NClipper: Context Copy (No Filename)",
+        mode = { "v" },
+        noremap = true,
+      },
+      {
+        "<C-y>",
+        "<Plug>(nclipper-with-filename)",
+        desc = "NClipper: Context Copy",
+        mode = { "v" },
+        noremap = true,
+      },
+    },
+    event = e.vl,
   },
   {
     "folke/flash.nvim",
@@ -86,12 +81,12 @@ return {
     opts = {
       modes = {
         search = {
-          enabled = true
+          enabled = true,
         },
         char = {
-          jump_labels = true
-        }
-      }
+          jump_labels = true,
+        },
+      },
     },
     -- stylua: ignore
     keys = {
@@ -101,5 +96,5 @@ return {
       { "R",     mode = { "o", "x" },      function() require("flash").treesitter_search() end, desc = "Treesitter Search" },
       { "<c-s>", mode = { "c" },           function() require("flash").toggle() end,            desc = "Toggle Flash Search" },
     },
-  }
+  },
 }

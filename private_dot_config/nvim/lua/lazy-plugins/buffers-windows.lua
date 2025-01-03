@@ -11,34 +11,31 @@ return {
       vim.g.toggle_list_no_mappings = 1
     end,
     opts = {},
-    config = function(_, _)
-      local opts = { silent = true }
-      local mappings = {
-        {
-          '<leader>tq',
-          '<cmd>call ToggleQuickfixList()<cr>',
-          description = "Toggle Quickfix List",
-          opts = opts
-        },
-        {
-          '<leader>qn',
-          '<cmd>cn<cr>',
-          opts = opts
-        },
-        {
-          '<leader>qp',
-          '<cmd>cp<cr>',
-          opts = opts
-        },
-        {
-          '<leader>tl',
-          '<cmd>call ToggleLocationList()<CR>',
-          description = "Toggle Location List",
-          opts = opts
-        },
-      }
-      require('legendary').keymaps(mappings)
-    end
+    keys = {
+      {
+        '<leader>tq',
+        '<cmd>call ToggleQuickfixList()<cr>',
+        desc = "Toggle Quickfix List",
+        silent = true
+      },
+      {
+        '<leader>qn',
+        '<cmd>cn<cr>',
+        silent = true
+      },
+      {
+        '<leader>qp',
+        '<cmd>cp<cr>',
+        silent = true
+      },
+      {
+        '<leader>tl',
+        '<cmd>call ToggleLocationList()<CR>',
+        desc = "Toggle Location List",
+        silent = true
+      },
+    },
+    config = function(_, _) end
   },
   {
     'kevinhwang91/nvim-ufo',
