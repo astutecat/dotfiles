@@ -1,5 +1,5 @@
 local legendary_extension_config = {
-  lazy_nvim = false,
+  lazy_nvim = true,
   which_key = {
     -- Automatically add which-key tables to legendary
     -- see ./doc/WHICH_KEY.md for more details
