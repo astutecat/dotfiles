@@ -11,8 +11,7 @@ local function telescope_opts()
       },
       file_ignore_patterns = {
         "node_modules",
-        ".git",
-        ".hg"
+        "\\.git",
       },
     },
     pickers = {
@@ -35,20 +34,20 @@ local function keymaps()
   end
   local find_files_command = cmd('find_files hidden=true no_ignore=false')
   return {
-    { "<leader>ff",  find_files_command,         description = desc('Find Files') },
-    { "<leader>ftt", cmd('current_buffer_tags'), description = desc('Current Buffer Tags') },
-    { "<leader>fts", cmd('treesitter'),          description = desc('Treesitter') },
-    { "<leader>ftg", cmd('tags'),                description = desc('Global Tags') },
-    { "<leader>fb",  cmd('buffers'),             description = desc('Buffers') },
-    { "<leader>fh",  cmd('help_tags'),           description = desc('Help Tags') },
-    { "<leader>fm",  cmd('marks'),               description = desc('Marks') },
-    { "<leader>fy",  cmd('filetypes'),           description = desc('Filetypes') },
-    { "<leader>fp",  cmd('projects'),            description = desc('Projects') },
-    { "<leader>fr",  cmd('resume'),              description = desc('Resume') },
-    { "<leader>fo",  cmd('oldfiles'),            description = desc('Recent Files') },
-    { "<leader>fgb", cmd('git_branches'),        description = desc('Git Branches') },
-    { "<leader>fgc", cmd('git_bcommits'),        description = desc('Git Commits (Buffer)') },
-    { "<leader>fgs", cmd('git_stash'),           description = desc("Git Stash") },
+    { "<leader>ff",  find_files_command,         desc = desc('Find Files') },
+    { "<leader>ftt", cmd('current_buffer_tags'), desc = desc('Current Buffer Tags') },
+    { "<leader>fts", cmd('treesitter'),          desc = desc('Treesitter') },
+    { "<leader>ftg", cmd('tags'),                desc = desc('Global Tags') },
+    { "<leader>fb",  cmd('buffers'),             desc = desc('Buffers') },
+    { "<leader>fh",  cmd('help_tags'),           desc = desc('Help Tags') },
+    { "<leader>fm",  cmd('marks'),               desc = desc('Marks') },
+    { "<leader>fy",  cmd('filetypes'),           desc = desc('Filetypes') },
+    { "<leader>fp",  cmd('projects'),            desc = desc('Projects') },
+    { "<leader>fr",  cmd('resume'),              desc = desc('Resume') },
+    { "<leader>fo",  cmd('oldfiles'),            desc = desc('Recent Files') },
+    { "<leader>fgb", cmd('git_branches'),        desc = desc('Git Branches') },
+    { "<leader>fgc", cmd('git_bcommits'),        desc = desc('Git Commits (Buffer)') },
+    { "<leader>fgs", cmd('git_stash'),           desc = desc("Git Stash") },
   }
 end
 
@@ -61,12 +60,8 @@ return {
       { 'rcarriga/nvim-notify' }
 
     },
-    opts = {
-    },
-    config = function()
-      require('telescope').setup(telescope_opts())
-      require("legendary").keymaps(keymaps())
-    end,
+    opts = telescope_opts(),
+    keys = keymaps(),
     version = "*"
   },
 

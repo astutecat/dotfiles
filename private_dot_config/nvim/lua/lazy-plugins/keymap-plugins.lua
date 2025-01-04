@@ -16,11 +16,11 @@ local legendary_extension_config = {
   }
 }
 
-local legendary_keymaps = {
+local legendary_keys = {
     {
       "<C-P>",
       '<cmd>Legendary<cr>',
-      description = "Show Commands (Legendary)"
+      desc = "Show Commands (Legendary)"
     },
     {
       '<cr>',
@@ -29,32 +29,32 @@ local legendary_keymaps = {
     {
       "<leader>r",
       '<cmd> set relativenumber!<cr>',
-      description = "Toggle relative line numbering"
+      desc = "Toggle relative line numbering"
     },
     {
       "<leader>w",
       '<cmd> set wrap!<cr>',
-      description = "Toggle line wrapping"
+      desc = "Toggle line wrapping"
     },
     {
       "<leader>bd",
       '<cmd>Bclose<cr>',
-      description = "Buffer: Close"
+      desc = "Buffer: Close"
     },
     {
       "<leader>bn",
       '<cmd>bn<cr>',
-      description = "Buffer: Next"
+      desc = "Buffer: Next"
     },
     {
       "<leader>bp",
       '<cmd>bp<cr>',
-      description = "Buffer: Previous"
+      desc = "Buffer: Previous"
     },
     {
       '<M-C-]>',
       ':tselect <C-R><C-W><CR>',
-      description = 'Tag Select',
+      desc = 'Tag Select',
     },
   }
 
@@ -62,7 +62,7 @@ local legendary_keymaps = {
 local legendary_config = {
   extensions = legendary_extension_config,
   -- Initial keymaps to bind
-  keymaps = legendary_keymaps,
+  keymaps = {},
   -- Initial commands to bind
   commands = {
     { ':Lazy', description = "Show lazy.nvim" },
@@ -126,6 +126,7 @@ return {
       'nvim-telescope/telescope.nvim',
       'folke/which-key.nvim',
     },
-    opts = legendary_config
+    opts = legendary_config,
+    keys = legendary_keys
   }
 }

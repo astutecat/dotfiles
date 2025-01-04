@@ -10,6 +10,32 @@ return {
       "rouge8/neotest-rust",
     },
     opts = {},
+    keys = {
+      {
+        '<leader>tn',
+        function()
+          require("neotest").run.run()
+        end,
+        desc = "Neotest: Run the nearest test",
+        silent = true
+      },
+      {
+        '<leader>tf',
+        function()
+          require("neotest").run.run(vim.fn.expand("%"))
+        end,
+        desc = "Neotest: Run the current file",
+        silent = true
+      },
+      {
+        '<leader>ts',
+        function()
+          require("neotest").run.stop()
+        end,
+        desc = "Neotest: Stop the nearest test",
+        silent = true
+      },
+    },
     config = function()
       local n_opts = {
         adapters = {
@@ -17,36 +43,7 @@ return {
           require("neotest-elixir"),
         },
       }
-
       require("neotest").setup(n_opts)
-
-      local mappings = {
-        {
-          '<leader>tn',
-          function()
-            require("neotest").run.run()
-          end,
-          description = "Neotest: Run the nearest test",
-          opts = { silent = true }
-        },
-        {
-          '<leader>tf',
-          function()
-            require("neotest").run.run(vim.fn.expand("%"))
-          end,
-          description = "Neotest: Run the current file",
-          opts = { silent = true }
-        },
-        {
-          '<leader>ts',
-          function()
-            require("neotest").run.stop()
-          end,
-          description = "Neotest: Stop the nearest test",
-          opts = { silent = true }
-        },
-      }
-      require('legendary').keymaps(mappings)
     end,
     event = "VeryLazy"
   }

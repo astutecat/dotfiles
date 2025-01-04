@@ -1,3 +1,9 @@
+local function join_tables(t1, t2)
+  for _, v in ipairs(t2) do
+    table.insert(t1, v)
+  end
+end
+
 local function indent_scope_opts()
   vim.api.nvim_create_autocmd("FileType", {
     pattern = require("lazy-plugins.opts.coding-shared").no_indent_filetypes,
@@ -26,43 +32,44 @@ local function trailspace_mappings()
   require("legendary").keymaps(mappings)
 end
 
-local function minimap_config()
+local function minimap_keys()
   local prefix = "<leader>m"
   local d_prefix = "MiniMap: "
-  local mappings = {
+  return {
     {
       prefix .. "c",
       "<cmd>lua MiniMap.close()<cr>",
-      description = d_prefix .. "Close",
+      desc = d_prefix .. "Close",
     },
     {
       prefix .. "f",
       "<cmd>lua MiniMap.toggle_focus()<cr>",
-      description = d_prefix .. "Toggle Focus",
+      desc = d_prefix .. "Toggle Focus",
     },
     {
       prefix .. "o",
       "<cmd>lua MiniMap.open()<cr>",
-      description = d_prefix .. "Open",
+      desc = d_prefix .. "Open",
     },
     {
       prefix .. "r",
       "<cmd>lua MiniMap.refresh()<cr>",
-      description = d_prefix .. "Refresh",
+      desc = d_prefix .. "Refresh",
     },
     {
       prefix .. "s",
       "<cmd>lua MiniMap.toggle_side()<cr>",
-      description = d_prefix .. "Toggle Side",
+      desc = d_prefix .. "Toggle Side",
     },
     {
       prefix .. "t",
       "<cmd>lua MiniMap.toggle()<cr>",
-      description = d_prefix .. "Toggle",
+      desc = d_prefix .. "Toggle",
     },
   }
+end
 
-  require("legendary").keymaps(mappings)
+local function minimap_config()
   local map = require("mini.map")
 
   return {
@@ -79,14 +86,6 @@ local function minimap_config()
 end
 
 local function splitjoin_config()
-  local mappings = {
-    {
-      "<leader>s",
-      description = "Toggle split to multiple lines",
-    },
-  }
-  require("legendary").keymaps(mappings)
-
   return {
     mappings = {
       toggle = "<leader>s",
@@ -94,17 +93,6 @@ local function splitjoin_config()
       join = "",
     },
   }
-end
-
-local function files_config()
-  local mappings = {
-    {
-      "<leader>em",
-      "<cmd>lua MiniFiles.open()<cr>",
-      description = "mini.nvim: open files.",
-    },
-  }
-  require("legendary").keymaps(mappings)
 end
 
 local function get_header()
@@ -235,8 +223,14 @@ return {
       require("mini.move").setup()
       require("mini.map").setup(minimap_config())
       require("mini.files").setup()
-      files_config()
       post_config()
     end,
+    keys = join_tables(
+      {
+        { "<leader>s",  desc = "Toggle split to multiple lines" },
+        { "<leader>em", "<cmd>lua MiniFiles.open()<cr>",        desc = "mini.nvim: open files." },
+      },
+      minimap_keys()
+    ),
   },
 }
