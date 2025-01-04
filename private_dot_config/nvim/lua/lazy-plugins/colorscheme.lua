@@ -6,7 +6,7 @@ local cs_opts = {
   styles = {
     comments = { italic = true },
     keywords = { italic = true },
-    functions = {},
+    functions = { },
     variables = {},
     sidebars = "dark",
     floats = "dark",
@@ -18,7 +18,11 @@ local cs_opts = {
   lualine_bold = false,
   on_colors = function (colors)
     colors.border = "#565f89"
-  end
+  end,
+  cache = true,
+  plugins = {
+    auto = true
+  }
 }
 
 return {
