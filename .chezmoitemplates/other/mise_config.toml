@@ -16,6 +16,7 @@ disable_hints = [ "python_multi", "python_precompiled" ]
 "cargo:tealdeer" = "latest"
 "cargo:tree-sitter-cli" = "latest"
 "cargo:zoxide" = "latest"
+"cargo:cargo-nextest"   = "latest"
 chezmoi = "latest"
 direnv = "latest"
 go = "latest"
