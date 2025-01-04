@@ -1,3 +1,5 @@
+local prefix = "<leader>u"
+
 return {
   {
     "nvim-neotest/neotest",
@@ -13,7 +15,7 @@ return {
     opts = {},
     keys = {
       {
-        '<leader>tn',
+        prefix .. 'n',
         function()
           require("neotest").run.run()
         end,
@@ -21,7 +23,15 @@ return {
         silent = true
       },
       {
-        '<leader>tf',
+        prefix .. 'a',
+        function()
+          require("neotest").run.run(true)
+        end,
+        desc = "Neotest: Run all tests",
+        silent = true
+      },
+      {
+        prefix .. 'f',
         function()
           require("neotest").run.run(vim.fn.expand("%"))
         end,
@@ -29,7 +39,7 @@ return {
         silent = true
       },
       {
-        '<leader>ts',
+        prefix .. 's',
         function()
           require("neotest").run.stop()
         end,
@@ -37,7 +47,7 @@ return {
         silent = true
       },
       {
-        '<leader>tu',
+        prefix .. 'u',
         function()
           require("neotest").summary.toggle()
         end,
@@ -45,7 +55,21 @@ return {
         silent = true
       },
       {
-        '<leader>to',
+        prefix .. 'wf',
+        function()
+          require("neotest").watch.toggle(vim.fn.expand("%"))
+        end,
+        desc = "Neotest: Watch the current file"
+      },
+      {
+        prefix .. 'wa',
+        function()
+          require("neotest").watch.toggle(true)
+        end,
+        desc = "Neotest: Watch all files"
+      },
+      {
+        prefix .. 'o',
         function ()
           require("neotest").output.open({ enter = true, auto_close = true })
         end,

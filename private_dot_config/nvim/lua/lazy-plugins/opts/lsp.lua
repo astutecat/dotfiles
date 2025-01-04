@@ -44,7 +44,7 @@ return {
       flags = { debounce_text_changes = 150 },
       settings = {
         Lua = {
-          diagnostics = { enable = false },
+          diagnostics = { enable = true },
           format = {
             enable = true,
             defaultConfig = {
@@ -154,6 +154,7 @@ return {
       gitcommit = { linter("gitlint") },
       zsh = { beautysh },
       toml = { formatter("taplo") },
+      lua = {},
     })
 
     local efmls_config = {
