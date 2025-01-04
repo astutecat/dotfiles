@@ -115,12 +115,14 @@ local legendary_config = {
 return {
   {
     'folke/which-key.nvim',
-    opts = {},
-    version = "^1.5.0"
+    opts = {
+      preset = "helix"
+    },
+    version = "*"
   },
   {
     'mrjones2014/legendary.nvim',
-    version = "^2.13.0",
+    version = "*",
     dependencies = {
       'kkharji/sqlite.lua',
       'nvim-telescope/telescope.nvim',
