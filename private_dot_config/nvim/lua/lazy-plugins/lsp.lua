@@ -1,6 +1,69 @@
 local e = require("startup_events")
 local lsp_lines_source = "https://git.sr.ht/~whynothugo/lsp_lines.nvim"
 
+local function trouble_entry()
+  local key_prefix = "<leader>r"
+  local function key(k) return key_prefix .. k end
+  local function cmd(x) return "<cmd> Trouble " .. x .. "<cr>" end
+  local function desc(x) return "Trouble: " .. x end
+
+return {
+    "folke/trouble.nvim",
+    opts = {
+    },
+    cmd = "Trouble",
+    keys = {
+      {
+        key("xx"),
+        cmd("diagnostics toggle"),
+        desc = desc("Toggle Diagnostics"),
+      },
+      {
+        key("xf"),
+        cmd("diagnostics toggle filter.buf=0"),
+        desc = desc("Toggle Diagnostics (Buffer)"),
+      },
+      {
+        key("tt"),
+        cmd("telescope toggle"),
+        desc = desc("Toggle Telescope")
+      },
+      {
+        key("s"),
+        cmd("symbols toggle focus=false"),
+        desc = desc("Symbols Toggle")
+      },
+      {
+        key("l"),
+        cmd("lsp toggle focus=false win.position=right"),
+        desc = desc("LSP")
+      },
+      {
+        key("L"),
+        cmd("loclist toggle"),
+        desc = desc("Location List Toggle"),
+      },
+      {
+        key("Q"),
+        cmd("qflist toggle"),
+        desc = desc("Quickfix List"),
+      },
+    },
+    config = function(_, opts)
+      require("trouble").setup(opts)
+      vim.api.nvim_create_autocmd("QuickFixCmdPost", {
+        callback = function()
+          vim.cmd([[Trouble qflist open]])
+        end,
+      })
+      local wk = require("which-key")
+      wk.add({key_prefix, group = "trouble"})
+      wk.add({key_prefix .. "t", group = "telescope"})
+      wk.add({key_prefix .. "x", group = "diagnostics"})
+    end
+  }
+end
+
 return {
   { "nvim-lua/lsp-status.nvim", event = e.lsp_a },
   {
@@ -124,49 +187,5 @@ return {
     version = "*", -- tag is optional
     dependencies = { "neovim/nvim-lspconfig" },
   },
-  {
-    "folke/trouble.nvim",
-    opts = {}, -- for default options, refer to the configuration section for custom setup.
-    cmd = "Trouble",
-    keys = {
-      {
-        "<leader>xx",
-        "<cmd>Trouble diagnostics toggle<cr>",
-        desc = "Diagnostics (Trouble)",
-      },
-      {
-        "<leader>xX",
-        "<cmd>Trouble diagnostics toggle filter.buf=0<cr>",
-        desc = "Buffer Diagnostics (Trouble)",
-      },
-      {
-        "<leader>cs",
-        "<cmd>Trouble symbols toggle focus=false<cr>",
-        desc = "Symbols (Trouble)",
-      },
-      {
-        "<leader>lt",
-        "<cmd>Trouble lsp toggle focus=false win.position=right<cr>",
-        desc = "LSP Definitions / references / ... (Trouble)",
-      },
-      {
-        "<leader>xL",
-        "<cmd>Trouble loclist toggle<cr>",
-        desc = "Location List (Trouble)",
-      },
-      {
-        "<leader>xQ",
-        "<cmd>Trouble qflist toggle<cr>",
-        desc = "Quickfix List (Trouble)",
-      },
-    },
-    config = function(_, opts)
-      require("trouble").setup(opts)
-      vim.api.nvim_create_autocmd("QuickFixCmdPost", {
-        callback = function()
-          vim.cmd([[Trouble qflist open]])
-        end,
-      })
-    end
-  }
+  trouble_entry()
 }

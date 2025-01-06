@@ -27,7 +27,7 @@ local legendary_keys = {
       '<cmd>nohlsearch<cr><cr>'
     },
     {
-      "<leader>r",
+      "<leader>tr",
       '<cmd> set relativenumber!<cr>',
       desc = "Toggle relative line numbering"
     },
