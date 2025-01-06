@@ -1,13 +1,21 @@
 local function telescope_opts()
   local actions = require("telescope.actions")
+  local open_with_trouble = require("trouble.sources.telescope").open
+  local add_to_trouble = require("trouble.sources.telescope").add
   return {
     defaults = {
       -- Default configuration for telescope goes here:
       -- config_key = value,
       mappings = {
         i = {
-          ["<esc>"] = actions.close
+          ["<esc>"] = actions.close,
+          ["<c-t>"] = open_with_trouble,
+          ["<c-a-t>"] = add_to_trouble
         },
+        n = {
+          ["<c-t>"] = open_with_trouble,
+          ["<c-a-t>"] = add_to_trouble
+        }
       },
       file_ignore_patterns = {
         "node_modules",
@@ -25,6 +33,8 @@ local function telescope_opts()
   }
 end
 
+local prefix = "<leader>f"
+
 local function keymaps()
   local function desc(d)
     return "Telescope: " .. d
@@ -34,20 +44,21 @@ local function keymaps()
   end
   local find_files_command = cmd('find_files hidden=true no_ignore=false')
   return {
-    { "<leader>ff",  find_files_command,         desc = desc('Find Files') },
-    { "<leader>ftt", cmd('current_buffer_tags'), desc = desc('Current Buffer Tags') },
-    { "<leader>fts", cmd('treesitter'),          desc = desc('Treesitter') },
-    { "<leader>ftg", cmd('tags'),                desc = desc('Global Tags') },
-    { "<leader>fb",  cmd('buffers'),             desc = desc('Buffers') },
-    { "<leader>fh",  cmd('help_tags'),           desc = desc('Help Tags') },
-    { "<leader>fm",  cmd('marks'),               desc = desc('Marks') },
-    { "<leader>fy",  cmd('filetypes'),           desc = desc('Filetypes') },
-    { "<leader>fp",  cmd('projects'),            desc = desc('Projects') },
-    { "<leader>fr",  cmd('resume'),              desc = desc('Resume') },
-    { "<leader>fo",  cmd('oldfiles'),            desc = desc('Recent Files') },
-    { "<leader>fgb", cmd('git_branches'),        desc = desc('Git Branches') },
-    { "<leader>fgc", cmd('git_bcommits'),        desc = desc('Git Commits (Buffer)') },
-    { "<leader>fgs", cmd('git_stash'),           desc = desc("Git Stash") },
+    { prefix .. "f",  find_files_command,         desc = desc('Find Files') },
+    { prefix .. "tt", cmd('current_buffer_tags'), desc = desc('Current Buffer Tags') },
+    { prefix .. "ts", cmd('treesitter'),          desc = desc('Treesitter') },
+    { prefix .. "tg", cmd('tags'),                desc = desc('Global Tags') },
+    { prefix .. "l",  cmd('live_grep'),           desc = desc('Live Grep') },
+    { prefix .. "b",  cmd('buffers'),             desc = desc('Buffers') },
+    { prefix .. "h",  cmd('help_tags'),           desc = desc('Help Tags') },
+    { prefix .. "m",  cmd('marks'),               desc = desc('Marks') },
+    { prefix .. "y",  cmd('filetypes'),           desc = desc('Filetypes') },
+    { prefix .. "p",  cmd('projects'),            desc = desc('Projects') },
+    { prefix .. "r",  cmd('resume'),              desc = desc('Resume') },
+    { prefix .. "o",  cmd('oldfiles'),            desc = desc('Recent Files') },
+    { prefix .. "gb", cmd('git_branches'),        desc = desc('Git Branches') },
+    { prefix .. "gc", cmd('git_bcommits'),        desc = desc('Git Commits (Buffer)') },
+    { prefix .. "gs", cmd('git_stash'),           desc = desc("Git Stash") },
   }
 end
 
@@ -57,12 +68,19 @@ return {
     dependencies = {
       { 'nvim-lua/plenary.nvim', },
       { 'nvim-telescope/telescope-fzy-native.nvim' },
-      { 'rcarriga/nvim-notify' }
-
+      { 'rcarriga/nvim-notify' },
+      { 'folke/trouble.nvim' }
     },
     opts = telescope_opts(),
     keys = keymaps(),
-    version = "*"
+    version = "*",
+    config = function(_, opts)
+      require("telescope").setup(opts)
+      local wk = require("which-key")
+      wk.add({ prefix, group = "telescope" })
+      wk.add({ prefix .. "g", group = "git" })
+      wk.add({ prefix .. "t", group = "tags" })
+    end
   },
 
   {

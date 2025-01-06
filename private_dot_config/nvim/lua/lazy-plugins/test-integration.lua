@@ -86,7 +86,7 @@ return {
       }
       require("neotest").setup(n_opts)
       require("which-key").add({prefix, group="tests"})
-      require("which-key").add({prefix .. "w", group="tests"})
+      require("which-key").add({prefix .. "w", group="watch"})
     end,
     event = "VeryLazy"
   }
