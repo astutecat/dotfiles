@@ -10,8 +10,8 @@ local function trouble_entry()
   return {
     "folke/trouble.nvim",
     opts = {
-      warn_no_results = true,
-      open_no_result = true,
+      warn_no_results = false,
+      open_no_results = true,
       preview = {
         scratch = false
       }
