@@ -7,9 +7,14 @@ local function trouble_entry()
   local function cmd(x) return "<cmd> Trouble " .. x .. "<cr>" end
   local function desc(x) return "Trouble: " .. x end
 
-return {
+  return {
     "folke/trouble.nvim",
     opts = {
+      warn_no_results = true,
+      open_no_result = true,
+      preview = {
+        scratch = false
+      }
     },
     cmd = "Trouble",
     keys = {
@@ -39,12 +44,12 @@ return {
         desc = desc("LSP")
       },
       {
-        key("L"),
+        key("l"),
         cmd("loclist toggle"),
         desc = desc("Location List Toggle"),
       },
       {
-        key("Q"),
+        key("q"),
         cmd("qflist toggle"),
         desc = desc("Quickfix List"),
       },
@@ -57,9 +62,9 @@ return {
         end,
       })
       local wk = require("which-key")
-      wk.add({key_prefix, group = "trouble"})
-      wk.add({key_prefix .. "t", group = "telescope"})
-      wk.add({key_prefix .. "x", group = "diagnostics"})
+      wk.add({ key_prefix, group = "trouble" })
+      wk.add({ key_prefix .. "t", group = "telescope" })
+      wk.add({ key_prefix .. "x", group = "diagnostics" })
     end
   }
 end

@@ -10,11 +10,15 @@ local function telescope_opts()
         i = {
           ["<esc>"] = actions.close,
           ["<c-t>"] = open_with_trouble,
-          ["<c-a-t>"] = add_to_trouble
+          ["<c-a-t>"] = add_to_trouble,
+          ["<C-q>"] = actions.smart_send_to_qflist,
+          ["<M-q>"] = actions.nop,
         },
         n = {
           ["<c-t>"] = open_with_trouble,
-          ["<c-a-t>"] = add_to_trouble
+          ["<c-a-t>"] = add_to_trouble,
+          ["<C-q>"] = actions.smart_send_to_qflist,
+          ["<M-q>"] = actions.nop,
         }
       },
       file_ignore_patterns = {
