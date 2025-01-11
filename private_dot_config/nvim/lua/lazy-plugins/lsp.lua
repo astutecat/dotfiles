@@ -108,6 +108,7 @@ return {
         "beautysh",
         "taplo",
         "hadolint",
+        "julials",
       },
     },
   },
