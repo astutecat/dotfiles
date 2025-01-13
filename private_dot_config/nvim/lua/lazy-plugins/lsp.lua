@@ -177,8 +177,13 @@ return {
   {
     "mhanberg/output-panel.nvim",
     event = e.vl,
-    config = function()
-      require("output_panel").setup()
+    cmd = { "OutputPanel" },
+    version = "*",
+    opts = {
+      max_buffer_size = 5000
+    },
+    config = function(_, opts)
+      require("output_panel").setup(opts)
       local commands = {
         {
           ":OutputPanel",
