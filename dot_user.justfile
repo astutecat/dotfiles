@@ -9,6 +9,10 @@ alias n := nvim
 @nvim: # nvim
   nvim
 
+alias t := tmux
+@tmux:
+  tmux new-session -A -s main
+
 alias trn := tmux-rename
 dir_leaf := `echo "${PWD##*/}"`
 @tmux-rename name=dir_leaf: # rename tmux window
@@ -18,11 +22,7 @@ alias ns := split-nvim
 split-nvim percent="30": # launch nvim in a tmux split
   #!/bin/bash
   dir="${PWD##*/}"
-  if [[ -n $TMUX ]]; then
-    tmux rename-window "$dir"\; split-window -hd -p {{percent}}\; send-keys 'nvim' C-m \;
-  else
-    tmux new-session\; rename-window "$dir"\; split-window -hd -p {{percent}}\; send-keys 'nvim' C-m \;
-  fi
+  tmux new-session -A -s main\; rename-window "$dir"\; split-window -hd -p {{percent}}\; send-keys 'nvim' C-m \;
 
 update-all: update-chezmoi update-brew update-devbox update-mise
 [macos]
