@@ -10,19 +10,23 @@ alias n := nvim
   nvim
 
 alias t := tmux
-@tmux:
-  tmux new-session -A -s main
+tmux:
+  #!/bin/bash
+  if [ -z "$TMUX" ] && [ ${UID} != 0 ]
+  then
+      tmux new-session -A -s main
+  fi
 
 alias trn := tmux-rename
 dir_leaf := `echo "${PWD##*/}"`
-@tmux-rename name=dir_leaf: # rename tmux window
+@tmux-rename name=dir_leaf: tmux # rename tmux window
   tmux rename-window "{{name}}"\;
 
 alias ns := split-nvim
-split-nvim percent="30": # launch nvim in a tmux split
+split-nvim percent="30": tmux # launch nvim in a tmux split
   #!/bin/bash
   dir="${PWD##*/}"
-  tmux new-session -A -s main\; rename-window "$dir"\; split-window -hd -p {{percent}}\; send-keys 'nvim' C-m \;
+  tmux rename-window "$dir"\; split-window -hd -p {{percent}}\; send-keys 'nvim' C-m \;
 
 update-all: update-chezmoi update-brew update-devbox update-mise
 [macos]
@@ -42,7 +46,6 @@ update-devbox:
 update-chezmoi:
   chezmoi update --init
   chezmoi apply
-
 
 [macos]
 ensure-mise-plugins:
