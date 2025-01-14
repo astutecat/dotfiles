@@ -23,7 +23,7 @@ local function telescope_opts()
       },
       file_ignore_patterns = {
         "node_modules",
-        "\\.git",
+        ".git",
       },
     },
     pickers = {
