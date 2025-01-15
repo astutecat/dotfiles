@@ -34,6 +34,11 @@ local function trouble_entry()
         desc = desc("Toggle Telescope")
       },
       {
+        key("o"),
+        cmd("todo toggle"),
+        desc = desc("Toggle Todo")
+      },
+      {
         key("s"),
         cmd("symbols toggle focus=false"),
         desc = desc("Symbols Toggle")
@@ -44,7 +49,7 @@ local function trouble_entry()
         desc = desc("LSP")
       },
       {
-        key("l"),
+        key("L"),
         cmd("loclist toggle"),
         desc = desc("Location List Toggle"),
       },
