@@ -20,7 +20,8 @@
     "atuin@latest",
     "nodejs@latest",
     "erlang_27@latest",
-    "tmate@latest"
+    "tmate@latest",
+    "jujutsu@latest"
   ],
   "shell": {
     "init_hook": [
