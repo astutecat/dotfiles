@@ -98,29 +98,4 @@ refreshPeriod = "672h"
   type = "file"
   url = "https://raw.githubusercontent.com/tummychow/git-absorb/master/Documentation/git-absorb.1"
   refreshPeriod = "672h"
-
-{{ end }}
-{{ if not .no_fonts }}
-# [".local/share/fonts/monaspace"]
-#  type = "archive"
-#  url = "https://github.com/ryanoasis/nerd-fonts/releases/latest/download/Monaspace.zip"
-#  refreshPeriod = "672h"
-#  exclude = ["*Propo*.ttf", "*.md"]
-#
-# [".local/share/fonts/iosevka"]
-#  type = "archive"
-#  url = "https://github.com/ryanoasis/nerd-fonts/releases/latest/download/Iosevka.zip"
-#  refreshPeriod = "672h"
-#  exclude = ["*Propo-*.ttf", "*.md"]
-
-# [".local/share/fonts/iosevka_term"]
-#   type = "archive"
-#   url = "https://github.com/ryanoasis/nerd-fonts/releases/latest/download/IosevkaTerm.tar.xz"
-#   refreshPeriod = "672h"
-#
-# [".local/share/fonts/iosevka_term"]
-#   type = "archive"
-#   url = "https://github.com/ryanoasis/nerd-fonts/releases/latest/download/ZedMono.tar.xz"
-#   refreshPeriod = "730h"
-#
 {{ end }}
