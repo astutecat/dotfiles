@@ -62,9 +62,9 @@ url = "https://raw.githubusercontent.com/git/git/master/contrib/completion/git-c
 refreshPeriod = "672h"
 
 
-{{- $nvim_url := "https://github.com/neovim/neovim/releases/latest/download/nvim.appimage" -}}
+{{- $nvim_url := "https://github.com/neovim/neovim/releases/latest/download/nvim-linux-x86_64.appimage" -}}
 {{- if .on_d9 -}}
-{{-   $nvim_url = "https://github.com/neovim/neovim-releases/releases/latest/download/nvim.appimage" -}}
+{{-   $nvim_url = "https://github.com/neovim/neovim-releases/releases/latest/download/nvim-linux-x86_64.appimage" -}}
 {{- end -}}
 
 {{ if not .is_macos }}
