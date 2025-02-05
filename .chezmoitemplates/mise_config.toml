@@ -22,6 +22,7 @@ disable_hints = [ "python_multi", "python_precompiled" ]
 "cargo:cargo-generate"  = "latest"
 "cargo:cross"           = "latest"
 "cargo:jujutsu"         = "latest"
+"cargo:adrs"            = "latest"
 chezmoi                 = "latest"
 direnv                  = "latest"
 go                      = "latest"

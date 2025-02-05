@@ -18,6 +18,7 @@ disable_hints = [ "python_multi", "python_precompiled" ]
 "cargo:zoxide"          = "latest"
 "cargo:cargo-nextest"   = "latest"
 "cargo:cargo-generate"  = "latest"
+"cargo:adrs"            = "latest"
 chezmoi                 = "latest"
 direnv                  = "latest"
 go                      = "latest"
