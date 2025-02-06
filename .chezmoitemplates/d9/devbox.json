@@ -21,7 +21,8 @@
     "nodejs@latest",
     "erlang_27@latest",
     "tmate@latest",
-    "jujutsu@latest"
+    "jujutsu@latest",
+    "cocogitto@latest"
   ],
   "shell": {
     "init_hook": [
