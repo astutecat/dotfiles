@@ -41,18 +41,20 @@ return {
         "javascript",
         "julia",
         "markdown",
+        "markdown_inline",
         "tlaplus",
         "awk",
         "haskell",
         "ssh_config",
-        "gleam"
+        "gleam",
+        "latex"
       },
       highlight = {
         enable = true,
         additional_vim_regex_highlighting = {
-          "markdown"
         },
-        disable = { "latex" },
+        disable = {
+        },
       },
       indent = {
         enable = true,
@@ -82,12 +84,17 @@ return {
     event = e.buf_read_or_new
   },
   {
-    'preservim/vim-markdown',
-    dependencies = {
-      { 'godlygeek/tabular' }
-    },
-    ft = "markdown"
+    'MeanderingProgrammer/render-markdown.nvim',
+    dependencies = { 'nvim-treesitter/nvim-treesitter', 'echasnovski/mini.nvim' }, -- if you use the mini.nvim suite
+    opts = {},
   },
+  -- {
+  --   "tadmccorkle/markdown.nvim",
+  --   ft = "markdown", -- or 'event = "VeryLazy"'
+  --   opts = {
+  --     -- configuration here or empty for defaults
+  --   },
+  -- },
   {
     'alker0/chezmoi.vim',
     event = "VeryLazy"

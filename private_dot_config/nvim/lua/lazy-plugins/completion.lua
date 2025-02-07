@@ -26,6 +26,7 @@ return {
       { 'hrsh7th/cmp-nvim-lua' },
       { 'hrsh7th/cmp-cmdline' },
       { 'hrsh7th/cmp-nvim-lsp' },
+      'MeanderingProgrammer/render-markdown.nvim',
       "petertriho/cmp-git",
     },
     opts = {},
@@ -85,6 +86,7 @@ return {
         sources = {
           { name = 'vsnip',    keyword_length = 1 },
           { name = 'nvim_lsp', keyword_length = 1 },
+          { name = 'render-markdown' },
           { name = 'buffer',   keyword_length = 3 },
           { name = 'tags',     keyword_length = 4 },
         },
