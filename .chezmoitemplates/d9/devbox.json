@@ -22,7 +22,8 @@
     "erlang_27@latest",
     "tmate@latest",
     "jujutsu@latest",
-    "cocogitto@latest"
+    "cocogitto@latest",
+    "timg@latest"
   ],
   "shell": {
     "init_hook": [
