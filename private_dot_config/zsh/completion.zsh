@@ -19,7 +19,11 @@ if is_cmd stg; then
 fi
 
 if is_cmd devox; then
-  devbox completion zsh >! "${ZDOTDIR:-$HOME}.zfunc/_devbox"
+  devbox completion zsh >! "${ZDOTDIR:-$HOME}/.zfunc/_devbox"
+fi
+
+if is_cmd restic; then
+  restic generate --zsh-completion "${ZDOTDIR:-$HOME}/.zfunc/_restic" > /dev/null
 fi
 
 autoload -Uz compinit bashcompinit
