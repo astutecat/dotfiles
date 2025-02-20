@@ -26,6 +26,10 @@ if is_cmd restic; then
   restic generate --zsh-completion "${ZDOTDIR:-$HOME}/.zfunc/_restic" > /dev/null
 fi
 
+if is_cmd zellij; then
+  zellij setup --generate-completion zsh >! "${ZDOTDIR:-$HOME}/.zfunc/_zellij"
+fi
+
 autoload -Uz compinit bashcompinit
 compinit
 bashcompinit
