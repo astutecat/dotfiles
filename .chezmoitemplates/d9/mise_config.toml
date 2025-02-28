@@ -16,7 +16,6 @@ disable_hints = [ "python_multi", "python_precompiled" ]
 pre-commit             = "latest"
 go                     = "1.21.1"
 lua                    = "latest"
-chezmoi                = "latest"
 dotnet                 = "latest"
 elixir                 = "latest"
 lazydocker             = "latest"

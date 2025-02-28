@@ -23,7 +23,8 @@
     "tmate@latest",
     "jujutsu@latest",
     "cocogitto@latest",
-    "timg@latest"
+    "timg@latest",
+    "chezmoi@latest"
   ],
   "shell": {
     "init_hook": [
