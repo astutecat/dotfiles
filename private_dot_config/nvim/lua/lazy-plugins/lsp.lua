@@ -9,9 +9,13 @@ local function trouble_entry()
 
   return {
     "folke/trouble.nvim",
+    dependencies = {
+      "folke/todo-comments.nvim"
+    },
     opts = {
       warn_no_results = false,
       open_no_results = true,
+      auto_preview = false,
       preview = {
         scratch = false
       }
@@ -58,6 +62,11 @@ local function trouble_entry()
         cmd("qflist toggle"),
         desc = desc("Quickfix List"),
       },
+      {
+        key("r"),
+        function() require("trouble").close() end,
+        desc = desc("Close")
+      }
     },
     config = function(_, opts)
       require("trouble").setup(opts)
