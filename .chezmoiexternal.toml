@@ -94,8 +94,8 @@ refreshPeriod = "672h"
   stripComponents = 1
   exclude = ["**/LICENSE"]
 
-[".local/share/man/man1/git-absorb.1"]
-  type = "file"
-  url = "https://raw.githubusercontent.com/tummychow/git-absorb/master/Documentation/git-absorb.1"
-  refreshPeriod = "672h"
+# [".local/share/man/man1/git-absorb.1"]
+#   type = "file"
+#   url = "https://raw.githubusercontent.com/tummychow/git-absorb/master/Documentation/git-absorb.1"
+#   refreshPeriod = "672h"
 {{ end }}
