@@ -137,6 +137,8 @@ return {
   end,
   ["typos_lsp"] = function ()
     lspconfig.typos_lsp.setup({
+      on_attach = shared_config.on_attach,
+      capabilities = shared_config.capabilities,
       -- Logging level of the language server. Logs appear in :LspLog. Defaults to error.
       cmd_env = { RUST_LOG = "error" },
       init_options = {
