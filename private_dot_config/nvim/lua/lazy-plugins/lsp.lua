@@ -123,6 +123,7 @@ return {
         "taplo",
         "hadolint",
         "julials",
+        "typos-lsp"
       },
     },
   },
