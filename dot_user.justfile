@@ -64,6 +64,7 @@ ensure-mise-plugins:
   mise plugins install lazygit https://github.com/nklmilojevic/asdf-lazygit.git
 
 update-mise: ensure-mise-plugins
+  mise self-update --no-plugins
   mise upgrade
 
 @tldr +args:
