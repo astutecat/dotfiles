@@ -5,10 +5,6 @@ set shell := ["zsh", "-c"]
 default:
   @just --justfile "{{justfile()}}" --list
 
-alias n := nvim
-@nvim: # nvim
-  nvim
-
 alias t := tmux
 tmux:
   #!/bin/bash
