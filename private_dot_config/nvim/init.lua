@@ -17,7 +17,7 @@ vim.o.mouse = 'a'
 vim.o.mousehide = true
 
 vim.o.showmatch = true
-vim.o.ignorecase = true
+vim.o.smartcase = true
 vim.o.incsearch = true
 
 vim.o.updatetime = 100
