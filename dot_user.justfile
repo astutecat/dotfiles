@@ -50,18 +50,20 @@ update-chezmoi:
 
 [macos]
 ensure-mise-plugins:
-  mise plugins install erlang https://github.com/michallepicki/asdf-erlang-prebuilt-macos.git
-  mise plugins install lazydocker https://github.com/comdotlinux/asdf-lazydocker.git
-  mise plugins install lazygit https://github.com/nklmilojevic/asdf-lazygit.git
+  mise --quiet plugins install erlang https://github.com/michallepicki/asdf-erlang-prebuilt-macos.git
+  mise --quiet plugins install lazydocker https://github.com/comdotlinux/asdf-lazydocker.git
+  mise --quiet plugins install lazygit https://github.com/nklmilojevic/asdf-lazygit.git
 
 [linux]
 ensure-mise-plugins:
-  mise plugins install lazydocker https://github.com/comdotlinux/asdf-lazydocker.git
-  mise plugins install lazygit https://github.com/nklmilojevic/asdf-lazygit.git
+  mise --quiet plugins install lazydocker https://github.com/comdotlinux/asdf-lazydocker.git
+  mise --quiet plugins install lazygit https://github.com/nklmilojevic/asdf-lazygit.git
 
+gh_token := `[[ -n $(command -v gh) ]] && gh auth token 2>/dev/null`
 update-mise: ensure-mise-plugins
-  mise self-update --no-plugins
-  mise upgrade
+  #!/bin/bash
+  GITHUB_TOKEN={{gh_token}} mise self-update --no-plugins
+  GITHUB_TOKEN={{gh_token}} mise upgrade
 
 @tldr +args:
   [[ -n $TMUX ]] && tmux split-window -vb -d tldr --pager "{{args}}" || tldr --pager "{{args}}"
