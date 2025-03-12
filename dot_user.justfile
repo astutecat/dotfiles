@@ -30,6 +30,7 @@ split-nvim percent="30": # launch nvim in a tmux split
 
 
 update-all: update-chezmoi update-brew update-devbox update-mise
+
 [macos]
 update-brew:
   brew update
@@ -62,7 +63,7 @@ ensure-mise-plugins:
 gh_token := `[[ -n $(command -v gh) ]] && gh auth token 2>/dev/null`
 update-mise: ensure-mise-plugins
   #!/bin/bash
-  GITHUB_TOKEN={{gh_token}} mise self-update --no-plugins
+  GITHUB_TOKEN={{gh_token}} mise self-update
   GITHUB_TOKEN={{gh_token}} mise upgrade
 
 @tldr +args:
