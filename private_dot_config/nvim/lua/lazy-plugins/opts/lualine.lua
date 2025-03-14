@@ -43,8 +43,9 @@ return {
     lualine_b = { 'branch', 'diff', 'diagnostics' },
     lualine_c = { 'filename' },
     lualine_x = {
+      'lsp_status',
       'encoding',
-      'fileformat',
+      -- 'fileformat',
       'filetype',
       {
         require("lazy.status").updates,
