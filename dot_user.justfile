@@ -5,18 +5,19 @@ set shell := ["zsh", "-c"]
 default:
   @just --justfile "{{justfile()}}" --list
 
-alias t := tmux
-tmux:
-  #!/bin/bash
-  if [ -z "$TMUX" ] && [ ${UID} != 0 ]
-  then
-      tmux new-session -A -s main
-  fi
+@zellij:
+  [ $ZELLIJ != 0 ] && [ ${UID} != 0 ] && zellij || :
 
-alias trn := tmux-rename
 dir_leaf := `echo "${PWD##*/}"`
-@tmux-rename name=dir_leaf: tmux # rename tmux window
-  tmux rename-window "{{name}}"\;
+alias trn := tab-rename
+@tab-rename name=dir_leaf: zellij # rename zellij tab
+  zellij action rename-tab {{name}}
+alias prn := pane-rename
+@pane-rename name=dir_leaf: zellij # rename zellij pane
+  zellij action rename-pane {{name}}
+alias srn := session-rename
+@session-rename name=dir_leaf: zellij # rename zellij session
+  zellij action rename-tab {{name}}
 
 alias ns := split-nvim
 split-nvim: # launch nvim in a tmux split
@@ -60,10 +61,10 @@ update-mise: ensure-mise-plugins
   GITHUB_TOKEN={{gh_token}} mise upgrade
 
 @tldr +args:
-  [[ -n $TMUX ]] && tmux split-window -vb -d tldr --pager "{{args}}" || tldr --pager "{{args}}"
+  zellij run -c -- tldr --pager "{{args}}"
 
 @dotfiles:
-  [[ -n $TMUX ]] && tmux rename-window dotfiles || :
+  [ "$ZELLIJ" ] && zellij ac rename-tab dotfiles || :
   chezmoi cd
 
 alias lg := lazygit
