@@ -19,15 +19,8 @@ dir_leaf := `echo "${PWD##*/}"`
   tmux rename-window "{{name}}"\;
 
 alias ns := split-nvim
-split-nvim percent="30": # launch nvim in a tmux split
-  #!/bin/bash
-  dir="${PWD##*/}"
-  if [[ -n $TMUX ]]; then
-    tmux rename-window "$dir"\; split-window -hd -p {{percent}}\; send-keys 'nvim' C-m \;
-  else
-    tmux new-session -A -s main\; rename-window "$dir"\; split-window -hd -p {{percent}}\; send-keys 'nvim' C-m \;
-  fi
-
+split-nvim: # launch nvim in a tmux split
+  zellij --layout nvim_split
 
 update-all: update-chezmoi update-brew update-devbox update-mise
 
