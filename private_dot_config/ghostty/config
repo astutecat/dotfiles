@@ -24,3 +24,7 @@ foreground = #c0caf5
 cursor-color = #c0caf5
 selection-background = #283457
 selection-foreground = #c0caf5
+
+macos-option-as-alt = left
+keybind = alt+left=unbind
+keybind = alt+right=unbind
