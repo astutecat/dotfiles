@@ -226,6 +226,60 @@
     ]
   },
 
+  "eunit_ifdef" : {
+    "prefix": ["ifdef"],
+    "body": [
+      "-ifdef(${1:EUNIT}).",
+      "$2",
+      "-endif."
+    ]
+  },
+
+  "eunit_module" : {
+    "prefix": ["eunit_module"],
+    "body": [
+      "-module(${1:module_name}).",
+      "",
+      "%-include_lib(\"proper/include/proper.hrl\").",
+      "-include_lib(\"eunit/include/eunit.hrl\").",
+      "",
+      "-include_lib(\"noc_lib/include/notifier.hrl\").",
+      "",
+      "-define(setup(F), {setup, fun setup/0, fun cleanup/1, F}).",
+      "",
+      "%%%%%%%%%%%%%%%%%%%%%%%%%%",
+      "%%% TESTS DESCRIPTIONS %%%",
+      "%%%%%%%%%%%%%%%%%%%%%%%%%%",
+      "",
+      "%% example_test_() ->",
+      "%%     {\"Description of test here.\", ?setup(fun example/1)}.",
+      "",
+      "",
+      "%%%%%%%%%%%%%%%%%%%%%%%",
+      "%%% SETUP FUNCTIONS %%%",
+      "%%%%%%%%%%%%%%%%%%%%%%%",
+      "",
+      "setup() ->",
+      "    test_config.",
+      "",
+      "cleanup(_TestConfig) ->",
+      "    ok.",
+      "",
+      "%%%%%%%%%%%%%%%%%%%%",
+      "%%% ACTUAL TESTS %%%",
+      "%%%%%%%%%%%%%%%%%%%%",
+      "",
+      "%% example(_Config) ->",
+      "%%    ?assert(true).",
+      "",
+      "%%%%%%%%%%%%%%%%%%%%%%%%",
+      "%%% HELPER FUNCTIONS %%%",
+      "%%%%%%%%%%%%%%%%%%%%%%%%",
+      "",
+      ""
+    ]
+  },
+
   "set_test_sendout" : {
     "prefix": ["set_test_sendout"],
 

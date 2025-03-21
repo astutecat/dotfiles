@@ -54,11 +54,11 @@ ensure-mise-plugins:
   mise --quiet plugins install lazydocker https://github.com/comdotlinux/asdf-lazydocker.git
   mise --quiet plugins install lazygit https://github.com/nklmilojevic/asdf-lazygit.git
 
-gh_token := `[[ -n $(command -v gh) ]] && gh auth token 2>/dev/null`
 update-mise: ensure-mise-plugins
   #!/bin/bash
-  GITHUB_TOKEN={{gh_token}} mise self-update
-  GITHUB_TOKEN={{gh_token}} mise upgrade
+  gh_token=$([[ -n $(command -v gh) ]] && gh auth token 2>/dev/null || "")
+  GITHUB_TOKEN="$gh_token" mise self-update
+  GITHUB_TOKEN="$gh_token" mise upgrade
 
 @tldr +args:
   zellij run -c -- tldr --pager "{{args}}"
