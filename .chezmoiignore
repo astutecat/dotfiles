@@ -2,6 +2,7 @@ _nvim_snippets
 _fonts
 tags
 tags.*
+typos.toml
 
 {{ if eq .chezmoi.os "darwin" }}
 .local/share/man
