@@ -1,0 +1,18 @@
+[default]
+
+extend-ignore-re = [
+    "(?Rm)^.*(%|#|//)\\s*spellcheck:disable-line$",                      # spellcheck:disable-line
+    "(?s)(%|#|//)\\s*spellcheck:off.*?\\n\\s*(%|#|//)\\s*spellcheck:on", # spellcheck:<on|off>
+    "(?s)(%|#|//)\\s*spellcheck:off\n?.*", # spellcheck:off open ended
+    "(?s).*(%|#|//)\\s*spellcheck:disable-file\n?.*", # spellcheck:disable-file
+]
+
+[default.extend-identifiers]
+
+[default.extend-words]
+
+
+[files]
+extend-exclude = [
+  "CHANGELOG.md"
+]
