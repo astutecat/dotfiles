@@ -15,7 +15,6 @@
     "stgit@latest",
     "git-absorb@latest",
     "sops@latest",
-    "neovim@latest",
     "ag@latest",
     "atuin@latest",
     "nodejs@latest",
