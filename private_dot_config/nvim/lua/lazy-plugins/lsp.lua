@@ -79,6 +79,17 @@ local function trouble_entry()
       wk.add({ key_prefix, group = "trouble" })
       wk.add({ key_prefix .. "t", group = "telescope" })
       wk.add({ key_prefix .. "x", group = "diagnostics" })
+
+      vim.diagnostic.config({
+        signs = {
+          text = {
+            [vim.diagnostic.severity.ERROR] = '',
+            [vim.diagnostic.severity.WARN] = '',
+            [vim.diagnostic.severity.INFO] = '',
+            [vim.diagnostic.severity.HINT] = '󰌵',
+          },
+        }
+      })
     end
   }
 end
