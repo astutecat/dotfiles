@@ -31,7 +31,7 @@
 [alias]
   dft = difftool -t difftastic
   dfts = dft --staged
-  fpush = push --force-with-lease
+  fpush = push --force-with-lease --force-if-includes
   sw = switch
   res = restore
   prune-branches = !git remote prune origin && git branch -vv | grep ': gone]' | awk '{print $1}' | xargs -r git branch -d
