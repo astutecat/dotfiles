@@ -1,12 +1,21 @@
 layout {
-  pane size=1 borderless=true {
-    plugin location="tab-bar"
+  tab_template name="ui" {
+    pane size=1 borderless=true {
+      plugin location="tab-bar"
+    }
+    children
+    pane size=1 borderless=true {
+      plugin location="status-bar"
+    }
   }
-  pane split_direction="vertical" {
-    pane size="70%" command="nvim" focus=true
-    pane size="30%"
-  }
-  pane size=1 borderless=true {
-    plugin location="status-bar"
+
+  ui max_panes=5 {
+    pane split_direction="vertical" {
+      pane size="65%" command="nvim" focus=true
+      pane stacked=true {
+        pane command="lazygit"
+        pane expanded=true
+      }
+    }
   }
 }
