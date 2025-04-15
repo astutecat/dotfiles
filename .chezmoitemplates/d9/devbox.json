@@ -23,7 +23,8 @@
     "jujutsu@latest",
     "cocogitto@latest",
     "timg@latest",
-    "chezmoi@latest"
+    "chezmoi@latest",
+    "fastfetch@latest"
   ],
   "shell": {
     "init_hook": [

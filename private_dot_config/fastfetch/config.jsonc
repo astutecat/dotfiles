@@ -1,0 +1,28 @@
+{
+  "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
+  "modules": [
+    "title",
+    "separator",
+    "os",
+    "host",
+    "kernel",
+    "uptime",
+    "packages",
+    "shell",
+    "terminal",
+    "terminalfont",
+    "localip",
+    "break",
+    "colors"
+  ],
+  "logo": {
+    "type": "auto", // Logo type: auto, builtin, small, file, etc.
+    "width": 30, // Width in characters (for image logos)
+    "height": 25, // Height in characters (for image logos)
+    "padding": {
+      "top": 0, // Top padding
+      "left": 0, // Left padding
+      "right": 1 // Right padding
+    }
+  }
+}
