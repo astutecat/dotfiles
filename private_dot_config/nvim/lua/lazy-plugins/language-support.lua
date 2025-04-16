@@ -90,13 +90,6 @@ return {
     dependencies = { 'nvim-treesitter/nvim-treesitter', 'echasnovski/mini.nvim' }, -- if you use the mini.nvim suite
     opts = {},
   },
-  -- {
-  --   "tadmccorkle/markdown.nvim",
-  --   ft = "markdown", -- or 'event = "VeryLazy"'
-  --   opts = {
-  --     -- configuration here or empty for defaults
-  --   },
-  -- },
   {
     'alker0/chezmoi.vim',
     event = "VeryLazy"
@@ -158,7 +151,6 @@ return {
 
   {
     'tlaplus-community/tlaplus-nvim-plugin',
-    -- ft = { "tla" }
   },
 
   {

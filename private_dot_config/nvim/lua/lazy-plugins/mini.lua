@@ -1,9 +1,3 @@
-local function join_tables(t1, t2)
-  for _, v in ipairs(t2) do
-    table.insert(t1, v)
-  end
-end
-
 local function indent_scope_opts()
   vim.api.nvim_create_autocmd("FileType", {
     pattern = require("lazy-plugins.opts.coding-shared").no_indent_filetypes,
@@ -30,43 +24,6 @@ local function trailspace_mappings()
     },
   }
   require("legendary").keymaps(mappings)
-end
-
-local function minimap_keys()
-  local prefix = "<leader>m"
-  local d_prefix = "MiniMap: "
-  return {
-    {
-      prefix .. "c",
-      "<cmd>lua MiniMap.close()<cr>",
-      desc = d_prefix .. "Close",
-    },
-    {
-      prefix .. "f",
-      "<cmd>lua MiniMap.toggle_focus()<cr>",
-      desc = d_prefix .. "Toggle Focus",
-    },
-    {
-      prefix .. "o",
-      "<cmd>lua MiniMap.open()<cr>",
-      desc = d_prefix .. "Open",
-    },
-    {
-      prefix .. "r",
-      "<cmd>lua MiniMap.refresh()<cr>",
-      desc = d_prefix .. "Refresh",
-    },
-    {
-      prefix .. "s",
-      "<cmd>lua MiniMap.toggle_side()<cr>",
-      desc = d_prefix .. "Toggle Side",
-    },
-    {
-      prefix .. "t",
-      "<cmd>lua MiniMap.toggle()<cr>",
-      desc = d_prefix .. "Toggle",
-    },
-  }
 end
 
 local function minimap_config()
@@ -115,7 +72,7 @@ local function starter_config()
       starter.sections.recent_files(6, true, false),
       { action = "Telescope find_files", name = "Find file",       section = "Quick Actions" },
       { action = "Telescope projects",   name = "Recent Projects", section = "Quick Actions" },
-      { action = "Legendary",            name = "Command pallete", section = "Quick Actions" },
+      { action = "Legendary",            name = "Command palette", section = "Quick Actions" },
       { action = "Mason",                name = "Mason",           section = "Quick Actions" },
       { action = "Lazy",                 name = "Lazy",            section = "Quick Actions" },
     },
@@ -199,6 +156,9 @@ local function post_config()
   ]])
 end
 
+local minimap_prefix = "<leader>m"
+local minimap_d_prefix = "MiniMap: "
+
 return {
   {
     "echasnovski/mini.nvim",
@@ -225,12 +185,39 @@ return {
       require("mini.files").setup()
       post_config()
     end,
-    keys = join_tables(
+    keys = {
+      { "<leader>s",  desc = "Toggle split to multiple lines" },
+      { "<leader>em", "<cmd>lua MiniFiles.open()<cr>",        desc = "mini.nvim: open files." },
       {
-        { "<leader>s",  desc = "Toggle split to multiple lines" },
-        { "<leader>em", "<cmd>lua MiniFiles.open()<cr>",        desc = "mini.nvim: open files." },
+        minimap_prefix .. "c",
+        "<cmd>lua MiniMap.close()<cr>",
+        desc = minimap_d_prefix .. "Close",
       },
-      minimap_keys()
-    ),
+      {
+        minimap_prefix .. "f",
+        "<cmd>lua MiniMap.toggle_focus()<cr>",
+        desc = minimap_d_prefix .. "Toggle Focus",
+      },
+      {
+        minimap_prefix .. "o",
+        "<cmd>lua MiniMap.open()<cr>",
+        desc = minimap_d_prefix .. "Open",
+      },
+      {
+        minimap_prefix .. "r",
+        "<cmd>lua MiniMap.refresh()<cr>",
+        desc = minimap_d_prefix .. "Refresh",
+      },
+      {
+        minimap_prefix .. "s",
+        "<cmd>lua MiniMap.toggle_side()<cr>",
+        desc = minimap_d_prefix .. "Toggle Side",
+      },
+      {
+        minimap_prefix .. "t",
+        "<cmd>lua MiniMap.toggle()<cr>",
+        desc = minimap_d_prefix .. "Toggle",
+      },
+    }
   },
 }
