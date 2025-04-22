@@ -227,11 +227,18 @@
   },
 
   "eunit_ifdef" : {
-    "prefix": ["ifdef"],
+    "prefix": ["eunit_ifdef", "ifdef"],
     "body": [
       "-ifdef(${1:EUNIT}).",
       "$2",
       "-endif."
+    ]
+  },
+
+  "eunit_ct_fn" : {
+    "prefix": ["eunit_ct_fn"],
+    "body": [
+      "eunit(_) -> ok = eunit:test($1)."
     ]
   },
 
