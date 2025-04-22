@@ -133,7 +133,6 @@ return {
         "beautysh",
         "taplo",
         "hadolint",
-        "julials",
         "typos-lsp"
       },
     },
