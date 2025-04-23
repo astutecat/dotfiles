@@ -74,7 +74,7 @@ return {
     dependencies = { "nvim-tree/nvim-web-devicons", "SmiteshP/nvim-navic" },
     opts = require("lazy-plugins.opts.lualine"),
     config = function(_, opts)
-      require("lualine").setup(opts)
+      require('lualine').setup(opts)
       local commands = {
         {
           ":LualineRenameTab",

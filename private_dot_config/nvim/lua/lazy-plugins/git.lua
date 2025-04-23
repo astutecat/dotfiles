@@ -1,3 +1,4 @@
+local git_prefix = "<leader>g"
 local gitsigns_config = {
   on_attach = function(bufnr)
     local gs = package.loaded.gitsigns
@@ -28,26 +29,13 @@ local gitsigns_config = {
       end)
       return "<Ignore>"
     end, { expr = true })
-
-    --TODO: Refactor this to use legendary.nvim
-
-    -- Actions
-    map({ "n", "v" }, "<leader>hs", ":Gitsigns stage_hunk<CR>")
-    map({ "n", "v" }, "<leader>hr", ":Gitsigns reset_hunk<CR>")
-    map("n", "<leader>hS", ":Gitsigns stage_buffer<cr>")
-    map("n", "<leader>hu", ":Gitsigns undo_stage_hunk<cr>")
-    map("n", "<leader>hR", ":Gitsigns reset_buffer<cr>")
-    map("n", "<leader>hp", ":Gitsigns preview_hunk<cr>")
-    map("n", "<leader>tb", ":Gitsigns toggle_current_line_blame<cr>")
-    map("n", "<leader>hd", ":Gitsigns diffthis<cr>")
-    map("n", "<leader>td", ":Gitsigns toggle_deleted<cr>")
-
-    -- Text object
-    map({ "o", "x" }, "ih", ":<C-U>Gitsigns select_hunk<CR>")
   end,
   update_debounce = 100,
   attach_to_untracked = false,
 }
+
+local gitsigns_cmd = function(cmd) return ":Gitsigns " .. cmd .. "<cr>" end
+local desc = function(suffix) return "Git: " .. suffix end
 
 return {
   {
@@ -63,10 +51,76 @@ return {
   {
     "lewis6991/gitsigns.nvim",
     opts = gitsigns_config,
+    lazy = false,
+    keys = {
+      {
+        git_prefix .. "hs",
+        gitsigns_cmd("stage_hunk"),
+        desc("stage hunk"),
+        mode = { "n", "v" }
+      },
+      {
+        git_prefix .. "hr",
+        gitsigns_cmd("reset_hunk"),
+        desc("reset hunt")
+      },
+      {
+        "ih",
+        ":<C-U>Gitsigns select_hunk<cr>",
+        desc("hunk"),
+        mode = { "o", "x" }
+      },
+      {
+        git_prefix .. "hS",
+        gitsigns_cmd("stage_buffer"),
+        desc("stage buffer")
+      },
+      {
+        git_prefix .. "hu",
+        gitsigns_cmd("undo_stage_hunk"),
+        desc("undo stage hunk")
+      },
+      {
+        git_prefix .. "hR",
+        gitsigns_cmd("reset_buffer"),
+        desc("reset buffer")
+      },
+      {
+        git_prefix .. "hp",
+        gitsigns_cmd("preview_hunk"),
+        desc("preview hunk")
+      },
+      {
+        git_prefix .. "l",
+        gitsigns_cmd("toggle_current_line_blame"),
+        desc("toggle current line blame")
+      },
+      {
+        git_prefix .. "hd",
+        gitsigns_cmd("diffthis"),
+        desc("diff this")
+      },
+      {
+        git_prefix .. "td",
+        gitsigns_cmd("toggle_deleted"),
+        desc("toggle deleted")
+      },
+    }
   },
-
   {
     "FabijanZulj/blame.nvim",
-    opts = {},
-  },
+    lazy = false,
+    config = function()
+      require('blame').setup {}
+      local wk = require("which-key")
+      wk.add({ git_prefix, group = "git" })
+    end,
+    keys = {
+      {
+        git_prefix .. "b",
+        ":BlameToggle virtual<cr>",
+        desc = desc("blame"),
+      },
+    },
+  }
 }
