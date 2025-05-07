@@ -150,11 +150,12 @@ return {
   {
     "mason-org/mason.nvim",
     opts = {},
-    version = false,
+    version = '*',
     event = e.vl,
   },
   {
     "mason-org/mason-lspconfig.nvim",
+    version = '*',
     dependencies = {
       "mason.nvim",
     },
