@@ -94,16 +94,67 @@ local function trouble_entry()
   }
 end
 
+local function linter(name)
+  return require("efmls-configs.linters." .. name)
+end
+local function formatter(name)
+  return require("efmls-configs.formatters." .. name)
+end
+
+local function efm_config()
+  local shellcheck = linter("shellcheck")
+  local beautysh = formatter("beautysh")
+  local prettier_d = formatter("prettier_d")
+  local shellharden = formatter("shellharden")
+
+  local languages = require("efmls-configs.defaults").languages()
+  languages = vim.tbl_extend("force", languages, {
+    sh = { shellcheck, beautysh, shellharden },
+    bash = { shellcheck, beautysh, shellharden },
+    yaml = { linter("yamllint"), prettier_d },
+    css = { prettier_d },
+    html = { prettier_d },
+    typescript = { prettier_d },
+    javascript = { linter("eslint"), prettier_d },
+    python = { formatter("black"), linter("pylint") },
+    gitcommit = { linter("gitlint") },
+    zsh = { beautysh },
+    toml = { formatter("taplo") },
+    lua = {},
+  })
+
+  return {
+    filetypes = vim.tbl_keys(languages),
+    settings = {
+      rootMarkers = {
+        ".git/",
+        "mix.exs",
+        "justfile",
+        "Makefile",
+        "cargo.toml",
+      },
+      languages = languages,
+    },
+    init_options = {
+      documentFormatting = true,
+      documentRangeFormatting = true,
+    },
+  }
+end
+
 return {
-  { "nvim-lua/lsp-status.nvim", event = e.lsp_a },
   {
-    "williamboman/mason.nvim",
+    "nvim-lua/lsp-status.nvim",
+    event = e.lsp_a
+  },
+  {
+    "mason-org/mason.nvim",
     opts = {},
     version = false,
     event = e.vl,
   },
   {
-    "williamboman/mason-lspconfig.nvim",
+    "mason-org/mason-lspconfig.nvim",
     dependencies = {
       "mason.nvim",
     },
@@ -157,13 +208,51 @@ return {
     },
     version = false,
     opts = require("lazy-plugins.opts.lsp"),
-    config = function(_, opts)
+    config = function(_, _)
       local shared_config = require("lazy-plugins.opts.lsp-shared")
-      require("mason-lspconfig").setup_handlers(opts)
-      require("lspconfig").gleam.setup({
-        on_attach = shared_config.on_attach,
+      vim.lsp.config('*', {
         capabilities = shared_config.capabilities,
+        on_attach = shared_config.on_attach
       })
+      vim.lsp.config('lua_ls', {
+        settings = {
+          Lua = {
+            diagnostics = { enable = true },
+            format = { enable = true, defaultConfig = { indent_style = "space", indent_size = 2, }, },
+          }
+        }
+      })
+      vim.lsp.config('yamlls', {
+        settings = {
+          yaml = {
+            keyOrdering = false,
+            schemaStore = { enable = false, url = "", },
+            schemas = require("schemastore").yaml.schemas(),
+          },
+        },
+      })
+      vim.lsp.config('jsonls', {
+        settings = {
+          json = {
+            schemas = require("schemastore").json.schemas(),
+            validate = { enable = true },
+          },
+        },
+      })
+      vim.lsp.config('typos_lsp', {
+        cmd_env = { RUST_LOG = "error" },
+        init_options = {
+          -- Custom config. Used together with a config file found in the workspace or its parents,
+          -- taking precedence for settings declared in both.
+          -- Equivalent to the typos `--config` cli argument.
+          -- config = '~/.config/typos.toml',
+          -- How typos are rendered in the editor, can be one of an Error, Warning, Info or Hint.
+          -- Defaults to error.
+          diagnosticSeverity = "Hint"
+        }
+      })
+      vim.lsp.config('efm', efm_config())
+
       local commands = {
         { ":LspRestart", description = "LSP: Restart" },
         { ":LspStart",   description = "LSP: Start" },
