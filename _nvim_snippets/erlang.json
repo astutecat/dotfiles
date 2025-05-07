@@ -242,10 +242,26 @@
     ]
   },
 
+  "entelios_module" : {
+    "prefix": ["entelios_module"],
+    "body": [
+      "%% -*- mode: erlang; coding: us-ascii; indent-tabs-mode: nil -*-",
+      "%% vim: set filetype=erlang fileencoding=utf-8 expandtab sw=4 sts=4:",
+      "%%",
+      "%% $1 ",
+      "%%",
+      "%% WR, created $CURRENT_YEAR-$CURRENT_MONTH-$CURRENT_DATE, in Erlang/OTP 19.",
+      "",
+      "-module($TM_FILENAME_BASE).",
+      "",
+      "$2"
+    ]
+  },
+
   "eunit_module" : {
     "prefix": ["eunit_module"],
     "body": [
-      "-module(${1:module_name}).",
+      "-module($TM_FILENAME_BASE).",
       "",
       "%-include_lib(\"proper/include/proper.hrl\").",
       "-include_lib(\"eunit/include/eunit.hrl\").",
