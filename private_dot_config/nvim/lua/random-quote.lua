@@ -59,6 +59,8 @@ that counts as a ghost of done.
 [[Software development is best seen as a learning process where running programs
 are the proof of learning, rather than a factory or production process.
 - Kent Beck]],
+[[Everyone has a plan until they get punched in the face.
+- Mike Tyson]],
 }
 
 return M[math.random(#M)]
