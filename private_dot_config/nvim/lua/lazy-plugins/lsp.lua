@@ -1,5 +1,6 @@
 local e = require("startup_events")
 local lsp_lines_source = "https://git.sr.ht/~whynothugo/lsp_lines.nvim"
+local shared_config = require("lazy-plugins.opts.lsp-shared")
 
 local function trouble_entry()
   local key_prefix = "<leader>r"
@@ -210,7 +211,6 @@ return {
     version = false,
     opts = require("lazy-plugins.opts.lsp"),
     config = function(_, _)
-      local shared_config = require("lazy-plugins.opts.lsp-shared")
       vim.lsp.config('*', {
         capabilities = shared_config.capabilities,
         on_attach = shared_config.on_attach
@@ -306,6 +306,59 @@ return {
         },
       }
       require("legendary").commands(commands)
+    end,
+  },
+  {
+    "elixir-tools/elixir-tools.nvim",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "hrsh7th/cmp-nvim-lsp",
+    },
+    version = "*",
+    event = { "BufReadPre", "BufNewFile" },
+    opts = {},
+    config = function()
+      local flags = require("config_flags")
+      local enable_elixirls = true
+      local enable_nextls = true
+      if flags.on_d9 then
+        return
+      end
+
+      local elixir_opts = {
+        nextls = {
+          enable = enable_nextls,
+          on_attach = function(client, bufnr)
+            if enable_elixirls then
+              return
+            end
+            shared_config.on_attach(client, bufnr)
+          end,
+          capabilities = shared_config.capabilities,
+        },
+        elixirls = {
+          enable = enable_elixirls,
+          on_attach = function(client, bufnr)
+            shared_config.on_attach(client, bufnr)
+          end,
+          capabilities = shared_config.capabilities,
+          settings = require("elixir.elixirls").settings({
+            dialyzerEnabled = false,
+            enableTestLenses = false,
+            fetchDeps = false,
+            suggestSpecs = true,
+          }),
+        },
+        projectionist = {
+          enable = true,
+        },
+      }
+      if enable_nextls then
+        elixir_opts.elixirls.handlers = {
+          ['textDocument/publishDiagnostics'] = function() end
+        }
+      end
+      require("elixir").setup(elixir_opts)
     end,
   },
   {

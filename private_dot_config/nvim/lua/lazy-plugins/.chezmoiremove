@@ -10,3 +10,4 @@ formatter-nvim.lua
 opts/gitsigns.lua
 opts/legendary-nvim.lua
 keymaps-plugins.lua
+beam.lua

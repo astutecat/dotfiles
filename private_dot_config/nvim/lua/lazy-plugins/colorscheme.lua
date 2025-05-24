@@ -37,22 +37,4 @@ return {
     end,
     priority = 1000,
   },
-  -- {
-  --   "EdenEast/nightfox.nvim",
-  --   lazy = false,
-  --   opts = {
-  --     options = {
-  --       styles = {
-  --         comments = "italic",
-  --         keywords = "italic",
-  --         types = "NONE",
-  --       }
-  --     }
-  --   },
-  --   config = function(_, opts)
-  --     require("nightfox").setup(opts)
-  --     vim.cmd("colorscheme carbonfox")
-  --   end,
-  --   priority = 1000
-  -- }
 }
