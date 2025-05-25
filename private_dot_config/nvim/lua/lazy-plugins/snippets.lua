@@ -1,5 +1,8 @@
 return {
-  { 'rafamadriz/friendly-snippets', event = "VeryLazy" },
+  -- {
+  --   'rafamadriz/friendly-snippets',
+  --   event = "VeryLazy"
+  -- },
   {
     'hrsh7th/vim-vsnip',
     event = "VeryLazy",
@@ -23,13 +26,11 @@ return {
         ]])
     end
   },
-
   {
     'hrsh7th/vim-vsnip-integ',
     dependencies = { 'vim-vsnip' },
     event = "VeryLazy"
   },
-
   {
     "chrisgrieser/nvim-scissors",
     dependencies = "nvim-telescope/telescope.nvim", -- optional
