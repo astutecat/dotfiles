@@ -320,7 +320,7 @@ return {
     config = function()
       local flags = require("config_flags")
       local enable_elixirls = true
-      local enable_nextls = true
+      local enable_nextls = not flags.work_config
       if flags.on_d9 then
         return
       end
