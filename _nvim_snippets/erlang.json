@@ -201,8 +201,8 @@
         "description" : "generate an empty gen_statem"
     },
 
-  "childspec" : {
-    "prefix": ["childspec"],
+  "childspec_map" : {
+    "prefix": ["childspec_map"],
     "body": [
       "#{",
       "    id         => ${1:?MODULE}",
@@ -215,6 +215,23 @@
     ],
     "description": "erlang supervisor childspec map"
   },
+
+  "childspec_fn" : {
+    "prefix": ["childspec_fn"],
+    "body": [
+      "child_spec() ->",
+      "    #{",
+      "        id         => ${1:?MODULE}",
+      "        ,start     => {${2:?MODULE}, ${3:start_link}, [${4:[]}]}",
+      "       %,restart   => permanent,  % permanent | transient | temporary",
+      "       %,type      => worker      % worker | supervisor",
+      "       %,shutdown  => shutdown(), % optional",
+      "       %,modules   => [$2] % optional",
+      "    }."
+    ],
+    "description": "erlang supervisor childspec function"
+  },
+
 
   "eunit_include" : {
     "prefix": ["eunit_include"],
