@@ -72,7 +72,8 @@ return {
             ".envrc",
             ".editorconfig",
             ".chezmoitemplates",
-            ".ignore"
+            ".ignore",
+            ".github"
           },
         }
       },
