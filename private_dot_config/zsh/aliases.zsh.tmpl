@@ -26,11 +26,11 @@ fi
 
 {{if eq .location "work"}}
 alias repos="cd ~/repos/"
-alias rts="cd ~/repos/RTS; tmux_rename RTS"
-alias zebra="cd ~/repos/Zebra/; tmux_rename Zebra"
-alias wiki="cd ~/repos/DemandResponse.wiki; tmux_rename Wiki"
-alias sentinel="cd ~/repos/sentinel; tmux_rename Sentinel"
-alias services="cd ~/repos/Services; tmux_rename Services"
+alias rts="z rts"
+alias zebra="z zebra"
+alias wiki="z DemandResponse.wiki"
+alias sentinel="z sentinel"
+alias services="z Services"
 {{ end }}
 
 {{ if not .is_macos }}
