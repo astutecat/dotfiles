@@ -25,13 +25,7 @@ split-nvim: # launch nvim in a tmux split
 
 update-all: update-chezmoi update-brew update-devbox update-mise
 
-[macos]
-update-brew:
-  brew update
-  brew upgrade
-
 brewfile := `echo "$HOME/.config/homebrew/chezmoi.Brewfile"`
-[linux]
 update-brew:
   [[ -n $(command -v brew) ]] && brew update || :
   [[ -n $(command -v brew) ]] && brew bundle upgrade --file={{brewfile}}
