@@ -9,9 +9,11 @@ return {
     "petertriho/cmp-git",
     dependencies = "nvim-lua/plenary.nvim",
     event = "VeryLazy",
-    opts = {
-
-    }
+    opts = {}
+  },
+  {
+    "jc-doyle/cmp-pandoc-references",
+    event = "VeryLazy"
   },
 
   {
@@ -28,6 +30,7 @@ return {
       { 'hrsh7th/cmp-nvim-lsp' },
       'MeanderingProgrammer/render-markdown.nvim',
       "petertriho/cmp-git",
+      { "jc-doyle/cmp-pandoc-references" }
     },
     opts = {},
     event = "VeryLazy",
@@ -84,11 +87,12 @@ return {
           ['<CR>'] = cmp.mapping.confirm({ select = false }),
         }),
         sources = {
-          { name = 'vsnip',    keyword_length = 1 },
-          { name = 'nvim_lsp', keyword_length = 1 },
+          { name = 'vsnip',            keyword_length = 1 },
+          { name = 'nvim_lsp',         keyword_length = 1 },
+          { name = 'pandoc_references' },
           { name = 'render-markdown' },
-          { name = 'buffer',   keyword_length = 3 },
-          { name = 'tags',     keyword_length = 4 },
+          { name = 'buffer',           keyword_length = 3 },
+          { name = 'tags',             keyword_length = 4 },
         },
         performance = {
           debounce = 200,

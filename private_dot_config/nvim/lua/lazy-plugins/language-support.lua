@@ -102,6 +102,15 @@ return {
     },
 
   },
+
+  {
+    "quarto-dev/quarto-nvim",
+    dependencies = {
+      "jmbuhr/otter.nvim",
+      "nvim-treesitter/nvim-treesitter",
+    },
+  },
+
   {
     'alker0/chezmoi.vim',
     event = "VeryLazy"
