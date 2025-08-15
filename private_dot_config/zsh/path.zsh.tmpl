@@ -2,6 +2,11 @@
 if [[ -f /opt/homebrew/bin/brew ]]; then
   eval $(/opt/homebrew/bin/brew shellenv)
 fi
+{{ else }}
+if [[ -f /home/linuxbrew/.linuxbrew/bin/brew ]]; then
+  eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+fi
+{{end}}
 
 if is_cmd brew; then
   brew_prefix=$(brew --prefix)
@@ -12,7 +17,7 @@ if is_cmd brew; then
     ln -s $brew_prefix/bin/ctags ~/.local/bin/ctags
   fi
 fi
-{{end}}
+
 
 source_if_exists "$HOME/.cargo/env"
 

@@ -30,10 +30,12 @@ update-brew:
   brew update
   brew upgrade
 
+brewfile := `echo "$HOME/.config/homebrew/Brewfile"`
 [linux]
-[private]
 update-brew:
-  @ :
+  [[ -n $(command -v brew) ]] && brew update || :
+  [[ -n $(command -v brew) ]] && brew bundle install --file={{brewfile}}
+  [[ -n $(command -v brew) ]] && brew upgrade || :
 
 update-devbox:
   [[ -n $(command -v devbox) ]] && devbox version update || :
@@ -46,13 +48,10 @@ update-chezmoi:
 [macos]
 ensure-mise-plugins:
   mise --quiet plugins install erlang https://github.com/michallepicki/asdf-erlang-prebuilt-macos.git
-  mise --quiet plugins install lazydocker https://github.com/comdotlinux/asdf-lazydocker.git
-  mise --quiet plugins install lazygit https://github.com/nklmilojevic/asdf-lazygit.git
 
 [linux]
 ensure-mise-plugins:
-  mise --quiet plugins install lazydocker https://github.com/comdotlinux/asdf-lazydocker.git
-  mise --quiet plugins install lazygit https://github.com/nklmilojevic/asdf-lazygit.git
+  @:
 
 update-mise: ensure-mise-plugins
   #!/bin/bash

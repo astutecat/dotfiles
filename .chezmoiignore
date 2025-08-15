@@ -7,6 +7,7 @@ typos.toml
 {{ if eq .chezmoi.os "darwin" }}
 .local/share/man
 .config/zsh/.zfunc/_eza
+.config/homebrew
 {{ end }}
 
 {{ if .no_fonts }}
