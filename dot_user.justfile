@@ -30,11 +30,11 @@ update-brew:
   brew update
   brew upgrade
 
-brewfile := `echo "$HOME/.config/homebrew/Brewfile"`
+brewfile := `echo "$HOME/.config/homebrew/chezmoi.Brewfile"`
 [linux]
 update-brew:
   [[ -n $(command -v brew) ]] && brew update || :
-  [[ -n $(command -v brew) ]] && brew bundle install --file={{brewfile}}
+  [[ -n $(command -v brew) ]] && brew bundle upgrade --file={{brewfile}}
   [[ -n $(command -v brew) ]] && brew upgrade || :
 
 update-devbox:
