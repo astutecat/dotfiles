@@ -1,7 +1,7 @@
 # Execute code that does not affect the current session in the background.
 {
-  zcompare() {
-    if [[ -s ${1} && ( ! -s ${1}.zwc || ${1} -nt ${1}.zwc) ]]; then
+  function  zcompare() {
+    if [[ -s ${1} && ( ! -s "${1}.zwc" || ${1} -nt "${1}.zwc") ]]; then
       zcompile ${1}
     fi
   }
@@ -19,8 +19,15 @@
       zcompare ${file}
   done
 
-  for file in ${ZDOTDIR:-$HOME}/.zfunc/^(*.zwc)(.); do
-      zcompare ${file}
+  for f in ${ZDOTDIR:-$HOME}/.zfunc/*; do
+    case $f in
+      *.zwc)
+        continue
+        ;;
+      *)
+        zcompare $f
+        ;;
+    esac
   done
 
   zcompare "${ZDOTDIR:-$HOME}/.zshrc"
