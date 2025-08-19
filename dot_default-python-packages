@@ -1,4 +1,2 @@
 neovim
-visidata
-pandas
-matplotlib
+numpy
