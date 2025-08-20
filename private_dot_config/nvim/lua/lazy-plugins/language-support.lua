@@ -116,25 +116,9 @@ return {
     event = "VeryLazy"
   },
   {
-    'simrat39/rust-tools.nvim',
-    dependencies = {
-      { 'mfussenegger/nvim-dap' },
-      { 'neovim/nvim-lspconfig' }
-    },
-    opts = {
-      server = {
-        on_attach = function(client, bufnr)
-          require("lazy-plugins.opts.lsp-shared").on_attach(client, bufnr)
-
-          local rt = require("rust-tools")
-          -- Hover actions
-          vim.keymap.set("n", "<C-space>", rt.hover_actions.hover_actions, { buffer = bufnr })
-          -- Code action groups
-          vim.keymap.set("n", "<Leader>a", rt.code_action_group.code_action_group, { buffer = bufnr })
-        end,
-      },
-    },
-    ft = "rust"
+    'mrcjkb/rustaceanvim',
+    version = '^6',
+    lazy = false,
   },
   {
     'lervag/vimtex',

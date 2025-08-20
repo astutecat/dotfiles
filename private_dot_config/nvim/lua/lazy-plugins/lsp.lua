@@ -160,7 +160,13 @@ return {
     dependencies = {
       "mason.nvim",
     },
-    opts = {},
+    opts = {
+      automatic_enable = {
+        exclude = {
+          "rust_analyzer",
+        }
+      }
+    },
     event = e.vl,
   },
   {
@@ -208,7 +214,11 @@ return {
       },
     },
     version = false,
-    opts = require("lazy-plugins.opts.lsp"),
+    opts = {
+      document_highlight = {
+        enabled = false,
+      },
+    },
     config = function(_, _)
       vim.lsp.config('*', {
         capabilities = shared_config.capabilities,

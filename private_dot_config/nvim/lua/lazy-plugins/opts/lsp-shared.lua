@@ -135,6 +135,12 @@ M.on_attach = function(client, bufnr)
 end
 
 local capabilities = require('blink.cmp').get_lsp_capabilities()
+
+capabilities.textDocument.foldingRange = {
+  dynamicRegistration = false,
+  lineFoldingOnly = true
+}
+
 M.capabilities = capabilities
 
 return M

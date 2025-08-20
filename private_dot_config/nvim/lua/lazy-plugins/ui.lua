@@ -144,9 +144,4 @@ return {
     },
     event = e.buf_read_or_new,
   },
-
-  {
-    "xzbdmw/colorful-menu.nvim",
-    opts = {}
-  }
 }
