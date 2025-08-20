@@ -194,7 +194,6 @@ return {
     "neovim/nvim-lspconfig",
     dependencies = {
       "mason-lspconfig.nvim",
-      "hrsh7th/cmp-nvim-lsp",
       {
         "SmiteshP/nvim-navbuddy",
         dependencies = {
@@ -312,7 +311,6 @@ return {
     "elixir-tools/elixir-tools.nvim",
     dependencies = {
       "nvim-lua/plenary.nvim",
-      "hrsh7th/cmp-nvim-lsp",
     },
     version = "*",
     event = { "BufReadPre", "BufNewFile" },
