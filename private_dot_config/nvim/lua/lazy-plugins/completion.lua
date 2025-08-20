@@ -24,24 +24,24 @@ local blink_opts = {
     keyword = { range = "full" },
     menu = {
       auto_show = true,
-      -- draw = {
-      --   columns = { { 'kind_icon' }, { 'label', 'label_description', gap = 1 }, { 'source_id' } },
-      -- },
       draw = {
-        -- We don't need label_description now because label and label_description are already
-        -- combined together in label by colorful-menu.nvim.
-        columns = { { "kind_icon" }, { "label", gap = 1 }, { 'source_id' } },
-        components = {
-          label = {
-            text = function(ctx)
-              return require("colorful-menu").blink_components_text(ctx)
-            end,
-            highlight = function(ctx)
-              return require("colorful-menu").blink_components_highlight(ctx)
-            end,
-          },
-        },
+        columns = { { 'kind_icon' }, { 'label', 'label_description', gap = 1 }, { 'source_id' } },
       },
+      -- draw = {
+      --   -- We don't need label_description now because label and label_description are already
+      --   -- combined together in label by colorful-menu.nvim.
+      --   columns = { { "kind_icon" }, { "label", gap = 1 }, { 'source_id' } },
+      --   components = {
+      --     label = {
+      --       text = function(ctx)
+      --         return require("colorful-menu").blink_components_text(ctx)
+      --       end,
+      --       highlight = function(ctx)
+      --         return require("colorful-menu").blink_components_highlight(ctx)
+      --       end,
+      --     },
+      --   },
+      -- },
     },
     -- Show documentation when selecting a completion item
     documentation = { auto_show = true, auto_show_delay_ms = 500 },
