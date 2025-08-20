@@ -30,7 +30,7 @@ local blink_opts = {
       draw = {
         -- We don't need label_description now because label and label_description are already
         -- combined together in label by colorful-menu.nvim.
-        columns = { { "kind_icon" }, { "label", gap = 1 }, {'source_id'} },
+        columns = { { "kind_icon" }, { "label", gap = 1 }, { 'source_id' } },
         components = {
           label = {
             text = function(ctx)
@@ -66,7 +66,17 @@ local blink_opts = {
     },
   },
 
-  fuzzy = { implementation = "prefer_rust" }
+  fuzzy = {
+    implementation = "prefer_rust",
+    sorts = {
+      'exact',
+      -- defaults
+      'score',
+      'sort_text',
+    },
+  },
+
+
 }
 
 return {
