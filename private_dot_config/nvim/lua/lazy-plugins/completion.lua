@@ -23,7 +23,7 @@ local blink_opts = {
   completion = {
     keyword = { range = "full" },
     menu = {
-      auto_show = false,
+      auto_show = true,
       -- draw = {
       --   columns = { { 'kind_icon' }, { 'label', 'label_description', gap = 1 }, { 'source_id' } },
       -- },
@@ -47,7 +47,7 @@ local blink_opts = {
     documentation = { auto_show = true, auto_show_delay_ms = 500 },
 
     -- Display a preview of the selected item on the current line
-    ghost_text = { enabled = true },
+    ghost_text = { enabled = false },
   },
 
   -- Default list of enabled providers defined so that you can extend it
