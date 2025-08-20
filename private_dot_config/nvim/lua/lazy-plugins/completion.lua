@@ -33,7 +33,7 @@ return {
         documentation = { auto_show = false },
         menu = {
           draw = {
-            columns = { { 'kind_icon' }, { 'label', 'label_description', gap = 1 }, {'source_name'} },
+            columns = { { 'kind_icon' }, { 'label', 'label_description', gap = 1 }, { 'source_name' } },
           }
         }
       },
@@ -43,12 +43,15 @@ return {
       sources = {
         default = { 'git', 'lsp', 'path', 'snippets', 'buffer' },
         providers = {
-                git = {
-                    module = 'blink-cmp-git',
-                    name = 'Git',
-                    opts = {},
-                },
-            },
+          git = {
+            module = 'blink-cmp-git',
+            name = 'Git',
+            enabled = function()
+              return vim.tbl_contains({ 'octo', 'gitcommit', 'markdown' }, vim.bo.filetype)
+            end,
+            opts = {},
+          },
+        },
       },
       -- (Default) Rust fuzzy matcher for typo resistance and significantly better performance
       -- You may use a lua implementation instead by using `implementation = "lua"` or fallback to the lua implementation,
