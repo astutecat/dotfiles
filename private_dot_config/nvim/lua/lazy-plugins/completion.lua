@@ -19,11 +19,10 @@ local blink_opts = {
     nerd_font_variant = 'normal'
   },
 
-  -- (Default) Only show the documentation popup when manually triggered
   completion = {
     keyword = { range = "full" },
     menu = {
-      auto_show = true,
+      auto_show = false,
       draw = {
         components = {
           label = {
