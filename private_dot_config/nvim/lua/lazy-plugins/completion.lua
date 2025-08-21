@@ -61,7 +61,19 @@ local blink_opts = {
   -- Default list of enabled providers defined so that you can extend it
   -- elsewhere in your config, without redefining it, due to `opts_extend`
   sources = {
-    default = { 'git', 'lsp', 'path', 'snippets', 'buffer' },
+    -- default = { 'git', 'lsp', 'path', 'snippets', 'buffer' },
+    default = function(_)
+      local success, node = pcall(vim.treesitter.get_node)
+      if success and node and vim.tbl_contains({ 'comment', 'line_comment', 'block_comment' }, node:type()) then
+        return { 'buffer' }
+      elseif vim.bo.filetype == 'lua' then
+        return { 'lsp', 'path' }
+      elseif vim.bo.filetype == 'elixir' then
+        return { 'lsp', 'snippets', 'path' }
+      else
+        return { 'snippets', 'lsp', 'path', 'buffer', 'git' }
+      end
+    end,
     providers = {
       git = {
         module = 'blink-cmp-git',
