@@ -25,26 +25,34 @@ local blink_opts = {
     menu = {
       auto_show = true,
       draw = {
+        components = {
+          label = {
+            text = function(ctx)
+              -- Fix for weird rendering in ElixirLS structs/behaviours etc
+              -- structs, behaviours and others have a label_detail emitted
+              -- by ElixirLS, and it looks bad when there's no space between
+              -- the module label and the label_detail.
+              --
+              -- The label_detail has no space because it is normally meant
+              -- for function signatures, e.g. `my_function(arg1, arg2)` -
+              -- this case the label is `my_function` and the label_detail
+              -- is `(arg1, arg2)`.
+              --
+              -- In an ideal world ElixirLS would not emit them for these
+              -- types - these belong in `kind` only.
+              if ctx.item.client_name == 'ElixirLS' and ctx.kind ~= 'Function' and ctx.kind ~= 'Macro' then
+                return ctx.label
+              end
+
+              return ctx.label .. ctx.label_detail
+            end,
+          },
+        },
         columns = { { 'kind_icon' }, { 'label', 'label_description', gap = 1 }, { 'source_id' } },
       },
-      -- draw = {
-      --   -- We don't need label_description now because label and label_description are already
-      --   -- combined together in label by colorful-menu.nvim.
-      --   columns = { { "kind_icon" }, { "label", gap = 1 }, { 'source_id' } },
-      --   components = {
-      --     label = {
-      --       text = function(ctx)
-      --         return require("colorful-menu").blink_components_text(ctx)
-      --       end,
-      --       highlight = function(ctx)
-      --         return require("colorful-menu").blink_components_highlight(ctx)
-      --       end,
-      --     },
-      --   },
-      -- },
     },
     -- Show documentation when selecting a completion item
-    documentation = { auto_show = true, auto_show_delay_ms = 500 },
+    documentation = { auto_show = true, auto_show_delay_ms = 300 },
 
     -- Display a preview of the selected item on the current line
     ghost_text = { enabled = false },
