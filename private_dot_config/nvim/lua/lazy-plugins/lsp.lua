@@ -201,8 +201,9 @@ return {
     dependencies = {
       "mason-lspconfig.nvim",
       {
-        "SmiteshP/nvim-navbuddy",
+        "hasansujon786/nvim-navbuddy",
         dependencies = {
+          "neovim/nvim-lspconfig",
           "SmiteshP/nvim-navic",
           "MunifTanjim/nui.nvim",
         },
