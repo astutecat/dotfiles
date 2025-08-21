@@ -40,6 +40,10 @@ return {
       vim.cmd([[
         colorscheme nightfox
         ]])
+      vim.api.nvim_set_hl(0, '@markup.strikethrough', {
+        strikethrough = false,
+        force = true,
+      })
     end
   }
 }
