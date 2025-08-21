@@ -52,7 +52,7 @@ local blink_opts = {
       },
     },
     -- Show documentation when selecting a completion item
-    documentation = { auto_show = true, auto_show_delay_ms = 300 },
+    documentation = { auto_show = true, auto_show_delay_ms = 700 },
 
     -- Display a preview of the selected item on the current line
     ghost_text = { enabled = false },
