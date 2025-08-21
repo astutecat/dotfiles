@@ -28,6 +28,7 @@ vim.o.expandtab = true
 vim.o.breakindent = true
 vim.o.linebreak = true
 vim.o.colorcolumn = "+0"
+vim.o.autoindent = true
 
 vim.o.signcolumn = 'yes'
 

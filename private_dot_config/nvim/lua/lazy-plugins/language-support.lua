@@ -66,7 +66,8 @@ return {
     config = function(_, opts)
       require("nvim-treesitter.configs").setup(opts)
     end,
-    event = e.buf_read_or_new
+    branch = "master",
+    lazy = false
   },
   {
     'b0o/schemastore.nvim',

@@ -10,6 +10,14 @@ return {
     event = e.buf_read_or_new,
   },
   {
+    'vidocqh/auto-indent.nvim',
+    opts = {
+      indentexpr = function(lnum)
+        return require("nvim-treesitter.indent").get_indent(lnum)
+      end
+    },
+  },
+  {
     "tpope/vim-sleuth",
     dependencies = { "sheerun/vim-polyglot" },
     event = e.buf_read_pre_or_new,
