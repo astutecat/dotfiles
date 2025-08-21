@@ -68,10 +68,8 @@ local blink_opts = {
         return { 'buffer' }
       elseif vim.bo.filetype == 'lua' then
         return { 'lsp', 'path' }
-      elseif vim.bo.filetype == 'elixir' then
-        return { 'lsp', 'snippets', 'path' }
       else
-        return { 'snippets', 'lsp', 'path', 'buffer', 'git' }
+        return { 'lsp', 'snippets', 'path', 'buffer', 'git' }
       end
     end,
     providers = {
