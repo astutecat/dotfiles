@@ -39,6 +39,8 @@ return {
       require("todo-comments").setup(opts)
       local mappings = require("lazy-plugins.keymaps.todo_comments")
       require("legendary").keymaps(mappings)
+      local wk = require("which-key")
+      wk.add({ "<Leader>tt", group = "todo-comments" })
     end,
     event = e.buf_read_or_new,
   },

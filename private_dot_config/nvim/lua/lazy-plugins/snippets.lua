@@ -36,7 +36,24 @@ return {
     dependencies = "nvim-telescope/telescope.nvim", -- optional
     opts = {
       snippetDir = "~/.config/nvim/snippets",
-    }
+    },
+    keys = {
+      {
+        "<Leader>ne",
+        function() require("scissors").editSnippet() end,
+        desc = "Snippets: edit"
+      },
+      {
+        "<Leader>na",
+        function() require("scissors").addNewSnippet() end,
+        desc = "Snippets: add",
+        mode = {"n", "x"}
+      },
+    },
+    init = function ()
+      local wk = require("which-key")
+      wk.add({ "<Leader>n", group = "snippets" })
+    end
   },
 
 }

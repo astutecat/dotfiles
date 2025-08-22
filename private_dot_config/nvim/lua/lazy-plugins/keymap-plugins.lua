@@ -129,6 +129,11 @@ return {
       'folke/which-key.nvim',
     },
     opts = legendary_config,
-    keys = legendary_keys
+    keys = legendary_keys,
+    init = function ()
+      local wk = require("which-key")
+      wk.add({ "<Leader>b", group = "buffer" })
+      wk.add({ "<Leader>t", group = "toggle" })
+    end
   }
 }

@@ -1,4 +1,5 @@
 local git_prefix = "<leader>g"
+
 local gitsigns_config = {
   on_attach = function(bufnr)
     local gs = package.loaded.gitsigns

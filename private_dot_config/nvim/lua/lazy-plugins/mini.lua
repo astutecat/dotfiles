@@ -198,10 +198,14 @@ return {
         desc = minimap_d_prefix .. "Toggle Side",
       },
       {
-        minimap_prefix .. "t",
+        minimap_prefix .. "m",
         "<cmd>lua MiniMap.toggle()<cr>",
         desc = minimap_d_prefix .. "Toggle",
       },
-    }
+    },
+    init = function ()
+      local wk = require("which-key")
+      wk.add({ "minimap_prefix", group = "minimap" })
+    end
   },
 }

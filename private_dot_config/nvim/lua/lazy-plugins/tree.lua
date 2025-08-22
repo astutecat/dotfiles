@@ -161,7 +161,8 @@ return {
         }
       }
       require('legendary').keymaps(mappings)
-
+      local wk = require("which-key")
+      wk.add({ "<Leader>e", group = "explore" })
       require("neo-tree").setup(opts)
     end
   },
