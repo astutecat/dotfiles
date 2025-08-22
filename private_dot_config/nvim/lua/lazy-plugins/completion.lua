@@ -22,7 +22,7 @@ local blink_opts = {
   completion = {
     keyword = { range = "full" },
     menu = {
-      auto_show = false,
+      auto_show = true,
       draw = {
         components = {
           label = {
