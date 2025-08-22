@@ -75,8 +75,7 @@ return {
     "nvim-lualine/lualine.nvim",
     dependencies = { "nvim-tree/nvim-web-devicons", "SmiteshP/nvim-navic" },
     opts = require("lazy-plugins.opts.lualine"),
-    config = function(_, opts)
-      require('lualine').setup(opts)
+    init = function()
       local commands = {
         {
           ":LualineRenameTab",
@@ -95,9 +94,7 @@ return {
       auto_enable = true,
       calm_down = true,
     },
-    config = function(_, opts)
-      -- require("scrollbar.handlers.search").setup()
-      require("hlslens").setup(opts)
+    init = function()
       local kopts = { noremap = true, silent = true }
       vim.api.nvim_set_keymap(
         "n",
@@ -114,7 +111,7 @@ return {
       local mappings = require("lazy-plugins.keymaps.hlslens")
       require("legendary").keymaps(mappings)
     end,
-    event = e.vl,
+    event = e.buf_read_pre_or_new,
   },
 
   {
