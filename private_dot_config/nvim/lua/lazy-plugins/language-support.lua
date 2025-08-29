@@ -47,7 +47,8 @@ return {
         "haskell",
         "ssh_config",
         "gleam",
-        "latex"
+        "latex",
+        "sql"
       },
       highlight = {
         enable = true,
