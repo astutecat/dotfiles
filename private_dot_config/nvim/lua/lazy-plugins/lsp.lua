@@ -265,12 +265,12 @@ return {
       })
       vim.lsp.config('efm', efm_config())
 
-      vim.lsp.config('expert', {
-        cmd = { 'expert' },
-        root_markers = { 'mix.exs', '.git' },
-        filetypes = { 'elixir', 'eelixir', 'heex' },
-      })
-
+      -- vim.lsp.config('expert', {
+      --   cmd = { 'expert' },
+      --   root_markers = { 'mix.exs', '.git' },
+      --   filetypes = { 'elixir', 'eelixir', 'heex' },
+      -- })
+      --
       local commands = {
         { ":LspRestart", description = "LSP: Restart" },
         { ":LspStart",   description = "LSP: Start" },
@@ -325,58 +325,25 @@ return {
       require("legendary").commands(commands)
     end,
   },
-  -- {
-  --   "elixir-tools/elixir-tools.nvim",
-  --   dependencies = {
-  --     "nvim-lua/plenary.nvim",
-  --   },
-  --   version = "*",
-  --   event = { "BufReadPre", "BufNewFile" },
-  --   opts = {},
-  --   config = function()
-  --     local flags = require("config_flags")
-  --     local enable_elixirls = true
-  --     local enable_nextls = not flags.work_config
-  --     if flags.on_d9 then
-  --       return
-  --     end
-  --
-  --     local elixir_opts = {
-  --       nextls = {
-  --         enable = enable_nextls,
-  --         on_attach = function(client, bufnr)
-  --           if enable_elixirls then
-  --             return
-  --           end
-  --           shared_config.on_attach(client, bufnr)
-  --         end,
-  --         capabilities = shared_config.capabilities,
-  --       },
-  --       elixirls = {
-  --         enable = enable_elixirls,
-  --         on_attach = function(client, bufnr)
-  --           shared_config.on_attach(client, bufnr)
-  --         end,
-  --         capabilities = shared_config.capabilities,
-  --         settings = require("elixir.elixirls").settings({
-  --           dialyzerEnabled = false,
-  --           enableTestLenses = false,
-  --           fetchDeps = false,
-  --           suggestSpecs = true,
-  --         }),
-  --       },
-  --       projectionist = {
-  --         enable = true,
-  --       },
-  --     }
-  --     if enable_nextls then
-  --       elixir_opts.elixirls.handlers = {
-  --         ['textDocument/publishDiagnostics'] = function() end
-  --       }
-  --     end
-  --     require("elixir").setup(elixir_opts)
-  --   end,
-  -- },
+  {
+    "elixir-tools/elixir-tools.nvim",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+    },
+    version = "*",
+    event = { "BufReadPre", "BufNewFile" },
+    opts = {
+      nextls = {
+        enable = false,
+      },
+      elixirls = {
+        enable = false,
+      },
+      projectionist = {
+        enable = true,
+      },
+    }
+  },
   {
     "creativenull/efmls-configs-nvim",
     version = "*", -- tag is optional

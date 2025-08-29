@@ -120,11 +120,12 @@ local on_attach_keymap = function(bufnr)
 end
 
 M.on_attach = function(client, bufnr)
-  if client.server_capabilities.documentSymbolProvider and client.name ~= "Next LS" then
+  if client.server_capabilities.documentSymbolProvider then
     local navic = require("nvim-navic")
     navic.attach(client, bufnr)
     require("nvim-navbuddy").attach(client, bufnr)
   end
+
   local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
   -- Enable completion triggered by <c-x><c-o>
   buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
@@ -135,11 +136,11 @@ M.on_attach = function(client, bufnr)
 end
 
 local capabilities = require('blink.cmp').get_lsp_capabilities()
-
-capabilities.textDocument.foldingRange = {
-  dynamicRegistration = false,
-  lineFoldingOnly = true
-}
+--
+-- capabilities.textDocument.foldingRange = {
+--   dynamicRegistration = false,
+--   lineFoldingOnly = true
+-- }
 
 M.capabilities = capabilities
 
