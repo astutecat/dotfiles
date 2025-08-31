@@ -52,6 +52,15 @@ type = "file"
 url = "https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.zsh"
 refreshPeriod = "672h"
 
+[".local/share/imhex/imhex-patterns"]
+type = "git-repo"
+url = "git@github.com:WerWolv/ImHex-Patterns.git"
+refreshPeriod = "672h"
+[".local/share/imhex/imhex-patterns".clone]
+args = ["--depth", "1", "--quiet"]
+[".local/share/imhex/imhex-patterns".pull]
+args = ["--quiet"]
+
 {{ if not .is_macos }}
 [".local/bin/git-squash"]
   type = "file"
