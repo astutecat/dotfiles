@@ -1,3 +1,6 @@
+local gh_exists = vim.fn.executable('gh') == 1
+local is_git_filetype = vim.tbl_contains({ 'octo', 'gitcommit', 'markdown' }, vim.bo.filetype)
+
 local blink_opts = {
   -- 'default' (recommended) for mappings similar to built-in completions (C-y to accept)
   -- 'super-tab' for mappings similar to vscode (tab to accept)
@@ -63,12 +66,15 @@ local blink_opts = {
     -- default = { 'git', 'lsp', 'path', 'snippets', 'buffer' },
     default = function(_)
       local success, node = pcall(vim.treesitter.get_node)
+
       if success and node and vim.tbl_contains({ 'comment', 'line_comment', 'block_comment' }, node:type()) then
-        return { 'buffer' }
+        return { 'snippets', 'buffer' }
       elseif vim.bo.filetype == 'lua' then
         return { 'lsp', 'path' }
+      elseif gh_exists and is_git_filetype then
+        return { 'lsp', 'snippets', 'git', 'path', 'buffer' }
       else
-        return { 'lsp', 'snippets', 'path', 'buffer', 'git' }
+        return { 'lsp', 'snippets', 'path', 'buffer' }
       end
     end,
     providers = {
@@ -76,8 +82,7 @@ local blink_opts = {
         module = 'blink-cmp-git',
         name = 'Git',
         enabled = function()
-          local gh_exists = vim.fn.executable('gh') == 1
-          return vim.tbl_contains({ 'octo', 'gitcommit', 'markdown' }, vim.bo.filetype) and gh_exists
+          return gh_exists
         end,
         opts = {},
       },
