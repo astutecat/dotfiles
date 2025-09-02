@@ -192,7 +192,6 @@ return {
         "beautysh",
         "taplo",
         "hadolint",
-        "typos-lsp",
         "expert"
       },
     },
@@ -263,14 +262,9 @@ return {
           diagnosticSeverity = "Hint"
         }
       })
-      vim.lsp.config('efm', efm_config())
+      vim.lsp.enable('typos_lsp')
 
-      -- vim.lsp.config('expert', {
-      --   cmd = { 'expert' },
-      --   root_markers = { 'mix.exs', '.git' },
-      --   filetypes = { 'elixir', 'eelixir', 'heex' },
-      -- })
-      --
+      vim.lsp.config('efm', efm_config())
       local commands = {
         { ":LspRestart", description = "LSP: Restart" },
         { ":LspStart",   description = "LSP: Start" },
