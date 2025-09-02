@@ -133,6 +133,7 @@ M.on_attach = function(client, bufnr)
   -- See `:help vim.lsp.*` for documentation on any of the below functions
   local keymaps = on_attach_keymap(bufnr)
   require('legendary').keymaps(keymaps)
+  require("lsp-format").on_attach(client, bufnr)
 end
 
 local capabilities = require('blink.cmp').get_lsp_capabilities()

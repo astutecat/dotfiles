@@ -122,6 +122,7 @@ local function efm_config()
     zsh = { beautysh },
     toml = { formatter("taplo") },
     lua = {},
+    markdown = { prettier_d }
   })
 
   return {
@@ -147,6 +148,12 @@ return {
   {
     "nvim-lua/lsp-status.nvim",
     event = e.lsp_a
+  },
+  {
+    "lukas-reineke/lsp-format.nvim",
+    opts = {
+    },
+    event = e.vl
   },
   {
     "mason-org/mason.nvim",
