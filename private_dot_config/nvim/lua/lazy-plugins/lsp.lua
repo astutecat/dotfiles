@@ -122,7 +122,8 @@ local function efm_config()
     zsh = { beautysh },
     toml = { formatter("taplo") },
     lua = {},
-    markdown = { prettier_d }
+    markdown = { prettier_d },
+    sql = { formatter("sql-formatter") }
   })
 
   return {
@@ -199,7 +200,9 @@ return {
         "beautysh",
         "taplo",
         "hadolint",
-        "expert"
+        "expert",
+        "sql-formatter",
+        "sqlls"
       },
     },
   },
