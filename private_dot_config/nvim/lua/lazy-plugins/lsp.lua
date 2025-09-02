@@ -301,25 +301,6 @@ return {
     event = e.lsp_a,
   },
   {
-    "mhanberg/output-panel.nvim",
-    event = e.vl,
-    cmd = { "OutputPanel" },
-    version = "*",
-    opts = {
-      max_buffer_size = 5000
-    },
-    config = function(_, opts)
-      require("output_panel").setup(opts)
-      local commands = {
-        {
-          ":OutputPanel",
-          description = "LSP: Show Output Panel",
-        },
-      }
-      require("legendary").commands(commands)
-    end,
-  },
-  {
     "elixir-tools/elixir-tools.nvim",
     dependencies = {
       "nvim-lua/plenary.nvim",
