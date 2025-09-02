@@ -76,7 +76,8 @@ local blink_opts = {
         module = 'blink-cmp-git',
         name = 'Git',
         enabled = function()
-          return vim.tbl_contains({ 'octo', 'gitcommit', 'markdown' }, vim.bo.filetype)
+          local gh_exists = vim.fn.executable('gh') == 1
+          return vim.tbl_contains({ 'octo', 'gitcommit', 'markdown' }, vim.bo.filetype) and gh_exists
         end,
         opts = {},
       },
