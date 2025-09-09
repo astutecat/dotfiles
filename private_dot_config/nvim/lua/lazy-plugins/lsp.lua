@@ -202,7 +202,8 @@ return {
         "hadolint",
         "expert",
         "sql-formatter",
-        "sqlls"
+        "sqlls",
+        "ols"
       },
     },
   },
