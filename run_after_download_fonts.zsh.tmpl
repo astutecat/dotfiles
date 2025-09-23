@@ -13,9 +13,10 @@ for font in "${selected_fonts[@]}"; do
       mkdir -p "$font_install_dir"
     fi
 
+    echo ""
     printf "%b\n" '\033[0;34mDownloading and installing '"$font"'\033[0m'
     font_name=$(printf "%b\n" "$font" | awk '{print $1}')
-    curl -sSLo "/tmp/font-download/$font_name.tar.xz" "https://github.com/ryanoasis/nerd-fonts/releases/latest/download/$font_name.tar.xz"
+    gh release download --dir "/tmp/font-download/" --repo ryanoasis/nerd-fonts --pattern "$font_name.tar.xz"
     tar -xJf "/tmp/font-download/$font_name.tar.xz" --directory="$font_install_dir"
     rm "/tmp/font-download/$font_name.tar.xz"
 done
