@@ -28,7 +28,7 @@ update-all: update-chezmoi update-brew update-devbox update-mise
 brewfile := `echo "$HOME/.config/homebrew/chezmoi.Brewfile"`
 update-brew:
   [[ -n $(command -v brew) ]] && brew update || :
-  [[ -n $(command -v brew) ]] && brew bundle upgrade --file={{brewfile}}
+  [[ -n $(command -v brew) ]] && brew bundle upgrade --file={{brewfile}} || :
   [[ -n $(command -v brew) ]] && brew upgrade || :
 
 update-devbox:
