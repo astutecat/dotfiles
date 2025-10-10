@@ -31,6 +31,10 @@ return {
     event = e.buf_read_pre_or_new,
   },
   { "christoomey/vim-sort-motion" },
+  {
+    "skywind3000/gutentags_plus",
+    dependencies = { "ludovicchabant/vim-gutentags" }
+  },
   { "ludovicchabant/vim-gutentags" },
   {
     "machakann/vim-swap",

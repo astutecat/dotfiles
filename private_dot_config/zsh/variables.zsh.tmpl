@@ -11,6 +11,8 @@ fi
 
 export ERL_AFLAGS="+pc unicode -kernel shell_history enabled -enable-feature all"
 
+export COLORTERM=truecolor
+
 # Erlang Related Stuff
 {{- if eq .chezmoi.os "darwin" }}
 export CPPFLAGS="-I$(brew --prefix unixodbc)/include"
