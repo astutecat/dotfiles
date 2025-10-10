@@ -12,9 +12,9 @@ if is_cmd brew; then
   brew_prefix=$(brew --prefix)
   FPATH=$brew_prefix/share/zsh/site-functions:$FPATH
 
-  if [ -f $brew_prefix/bin/ctags ] && [ ! -h ~/.local/bin/ctags ]; then
+  if [ -f $brew_prefix/bin/ctags ] && [[ -n $(command -v ctags) ]]; then
     mkdir -p ~/.local/bin
-    ln -s $brew_prefix/bin/ctags ~/.local/bin/ctags
+    ln -sf $brew_prefix/bin/ctags ~/.local/bin/ctags
   fi
 fi
 
