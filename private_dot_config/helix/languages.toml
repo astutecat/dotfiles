@@ -1,0 +1,10 @@
+[language-server.expert]
+command = "expert"
+
+[[language]]
+name = "elixir"
+language-servers = ["expert"]
+
+[[language]]
+name = "heex"
+language-servers = ["expert"]

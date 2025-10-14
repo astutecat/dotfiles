@@ -9,6 +9,7 @@ select = "underline"
 line-number = "relative"
 color-modes = true
 trim-trailing-whitespace = true
+bufferline = "always"
 
 [editor.statusline]
 separator = "│"
