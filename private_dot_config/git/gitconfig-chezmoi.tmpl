@@ -1,16 +1,15 @@
-# vim:ft=gitconfig.chezmoitmpl
+# vim:ft=gitconfig
 
 # This is Git's per-user configuration file.
 [user]
-	name = {{ .git.name }}
-	email = {{ .git.email }}
+  name = {{ .git.name }}
+  email = {{ .git.email }}
   signingKey = {{ .git.signing_key }}
-
-{{- if ne .location "other" }}
+{{ if ne .location "other" }}
 [diff]
-	tool = difftastic
+  tool = difftastic
 [difftool]
-	prompt = false
+  prompt = false
 [difftool "bc3"]
   trustExitCode = true
 [difftool "difftastic"]
@@ -19,15 +18,14 @@
   tool = bc3
   conflictstyle = diff3
 [mergetool "bc3"]
-	trustExitCode = true
+  trustExitCode = true
 [gui]
   pruneduringfetch = true
 [smartgit "submodule"]
   fetchalways = false
   update = true
   initializenew = true
-{{ end -}}
-
+{{ end }}
 [alias]
   dft = difftool -t difftastic
   dfts = dft --staged
@@ -35,9 +33,9 @@
   sw = switch
   res = restore
   prune-branches = !git remote prune origin && git branch -vv | grep ': gone]' | awk '{print $1}' | xargs -r git branch -d
-
+  prune-branches-force = !git remote prune origin && git branch -vv | grep ': gone]' | awk '{print $1}' | xargs -r git branch -d
 [gc]
-	autoDetach = false
+  autoDetach = false
 [init]
   defaultBranch = main
   templateDir = "{{ .chezmoi.homeDir }}/.git-template"
@@ -45,16 +43,16 @@
   editor = nvim
   pager = delta
 [advice]
-	detachedHead = false
+  detachedHead = false
   skippedCherryPicks = false
 [rebase]
   autoStash = true
   updateRefs = true
   autoSquash = true
 [push]
-	recurseSubmodules = check
-	default = current
-	autoSetupRemote = true
+  recurseSubmodules = check
+  default = current
+  autoSetupRemote = true
 [commit]
   gpgSign = false
 [pull]
