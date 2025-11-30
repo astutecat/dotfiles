@@ -13,6 +13,8 @@ typos.toml
 .local/share/fonts
 {{ end }}
 
+
+.config/zsh
 justfile
 .wakatime-project
 .config/nvim/lua/packer-plugins

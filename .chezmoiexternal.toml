@@ -19,16 +19,6 @@ args = ["--depth", "1"]
 [".local/tmux".pull]
 args = ["--quiet"]
 
-# git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
-[".config/zsh/.zprezto"]
-type = "git-repo"
-url = "https://github.com/sorin-ionescu/prezto.git"
-refreshPeriod = "672h"
-[".config/zsh/.zprezto".clone]
-args = ["--recursive", "--depth", "1", "--quiet"]
-[".config/zsh/.zprezto".pull]
-args = ["--recurse-submodules", "--quiet"]
-
 [".local/bin/tfg.py"]
 type = "git-repo"
 url = "https://github.com/4rtzel/tfg.git"
@@ -46,11 +36,6 @@ refreshPeriod = "672h"
 args = ["--depth", "1", "--quiet"]
 [".local/bin/pert-bash".pull]
 args = ["--quiet"]
-
-[".config/zsh/.zfunc/_git"]
-type = "file"
-url = "https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.zsh"
-refreshPeriod = "672h"
 
 [".local/share/imhex/imhex-patterns"]
 type = "git-repo"

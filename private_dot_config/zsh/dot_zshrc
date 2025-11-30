@@ -1,25 +1,25 @@
 #!/bin/zsh
 
-# Source Prezto.
-if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
-  source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
-fi
-
-# Customize to your needs...
-
-source "${ZDOTDIR:-$HOME}/functions.zsh"
-source "${ZDOTDIR:-$HOME}/variables.zsh"
-source "${ZDOTDIR:-$HOME}/path.zsh"
-source "${ZDOTDIR:-$HOME}/zoxide-setup.zsh"
-source "${ZDOTDIR:-$HOME}/aliases.zsh"
-source "${ZDOTDIR:-$HOME}/atuin-setup.zsh"
-source "${ZDOTDIR:-$HOME}/completion.zsh"
-
-if is_cmd fastfetch; then
-  fastfetch
-fi
-
-if (( $+commands[fortune] )); then
-  fortune -s ~/.local/share/fortunes/ | fmt
-  echo ""
-fi
+# # Source Prezto.
+# if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
+#   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
+# fi
+#
+# # Customize to your needs...
+#
+# source "${ZDOTDIR:-$HOME}/functions.zsh"
+# source "${ZDOTDIR:-$HOME}/variables.zsh"
+# source "${ZDOTDIR:-$HOME}/path.zsh"
+# source "${ZDOTDIR:-$HOME}/zoxide-setup.zsh"
+# source "${ZDOTDIR:-$HOME}/aliases.zsh"
+# source "${ZDOTDIR:-$HOME}/atuin-setup.zsh"
+# source "${ZDOTDIR:-$HOME}/completion.zsh"
+#
+# if is_cmd fastfetch; then
+#   fastfetch
+# fi
+#
+# if (( $+commands[fortune] )); then
+#   fortune -s ~/.local/share/fortunes/ | fmt
+#   echo ""
+# fi

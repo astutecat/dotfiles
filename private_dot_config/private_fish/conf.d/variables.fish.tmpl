@@ -1,0 +1,21 @@
+if status is-interactive
+    if type -q nvim
+        set -gx EDITOR nvim
+        set -gx VISUAL nvim
+    end
+
+  if type -q most
+    set -gx PAGER most
+  end
+
+{{- if eq .chezmoi.os "unix" }}
+  if type -q brew
+    set -gx CPPFLAGS -I(brew --prefix unixodbc)/include
+    set -gx LDFLAGS -I(brew --prefix unixodbc)/lib
+    set -gx KERL_CONFIGURE_OPTIONS \
+    "--without-javac" \
+    "--enable-wx" \
+    "--with-odbc=$(brew --prefix unixodbc)"
+  end
+{{ end }}
+end

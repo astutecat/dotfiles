@@ -1,0 +1,31 @@
+fish_add_path "/opt/homebrew/bin/"
+
+if type -q
+  brew shellenv | source
+end
+
+fish_add_path $HOME/.local/bin
+fish_add_path $HOME/.cargo/bin
+fish_add_path $HOME/.cache/rebar3/bin
+fish_add_path $HOME/.local/share/nvim/mason/bin
+fish_add_path $HOME/.moon/bin
+fish_add_path $HOME/.fly/bin
+
+if type -q devbox
+  set -gx SHELL fish
+  devbox global shellenv --init-hook | source
+end
+
+if type -q mise
+  fish_add_path $HOME/.local/share/mise/shims
+  mise activate fish | source
+end
+
+if type -q direnv
+  direnv hook fish | source
+end
+
+if status is-interactive
+  atuin init fish | source
+  zoxide init fish | source
+end
