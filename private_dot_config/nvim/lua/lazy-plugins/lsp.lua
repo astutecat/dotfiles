@@ -4,22 +4,28 @@ local shared_config = require("lazy-plugins.opts.lsp-shared")
 
 local function trouble_entry()
   local key_prefix = "<leader>r"
-  local function key(k) return key_prefix .. k end
-  local function cmd(x) return "<cmd> Trouble " .. x .. "<cr>" end
-  local function desc(x) return "Trouble: " .. x end
+  local function key(k)
+    return key_prefix .. k
+  end
+  local function cmd(x)
+    return "<cmd> Trouble " .. x .. "<cr>"
+  end
+  local function desc(x)
+    return "Trouble: " .. x
+  end
 
   return {
     "folke/trouble.nvim",
     dependencies = {
-      "folke/todo-comments.nvim"
+      "folke/todo-comments.nvim",
     },
     opts = {
       warn_no_results = false,
       open_no_results = true,
       auto_preview = false,
       preview = {
-        scratch = false
-      }
+        scratch = false,
+      },
     },
     cmd = "Trouble",
     keys = {
@@ -36,22 +42,22 @@ local function trouble_entry()
       {
         key("tt"),
         cmd("telescope toggle"),
-        desc = desc("Toggle Telescope")
+        desc = desc("Toggle Telescope"),
       },
       {
         key("o"),
         cmd("todo toggle"),
-        desc = desc("Toggle Todo")
+        desc = desc("Toggle Todo"),
       },
       {
         key("s"),
         cmd("symbols toggle focus=false"),
-        desc = desc("Symbols Toggle")
+        desc = desc("Symbols Toggle"),
       },
       {
         key("l"),
         cmd("lsp toggle focus=false win.position=right"),
-        desc = desc("LSP")
+        desc = desc("LSP"),
       },
       {
         key("L"),
@@ -65,9 +71,11 @@ local function trouble_entry()
       },
       {
         key("r"),
-        function() require("trouble").close() end,
-        desc = desc("Close")
-      }
+        function()
+          require("trouble").close()
+        end,
+        desc = desc("Close"),
+      },
     },
     config = function(_, opts)
       require("trouble").setup(opts)
@@ -84,14 +92,14 @@ local function trouble_entry()
       vim.diagnostic.config({
         signs = {
           text = {
-            [vim.diagnostic.severity.ERROR] = '',
-            [vim.diagnostic.severity.WARN] = '',
-            [vim.diagnostic.severity.INFO] = '',
-            [vim.diagnostic.severity.HINT] = '󰌵',
+            [vim.diagnostic.severity.ERROR] = "",
+            [vim.diagnostic.severity.WARN] = "",
+            [vim.diagnostic.severity.INFO] = "",
+            [vim.diagnostic.severity.HINT] = "󰌵",
           },
-        }
+        },
       })
-    end
+    end,
   }
 end
 
@@ -123,7 +131,7 @@ local function efm_config()
     toml = { formatter("taplo") },
     lua = {},
     markdown = { prettier_d },
-    sql = { formatter("sql-formatter") }
+    sql = { formatter("sql-formatter") },
   })
 
   return {
@@ -148,23 +156,22 @@ end
 return {
   {
     "nvim-lua/lsp-status.nvim",
-    event = e.lsp_a
+    event = e.lsp_a,
   },
   {
     "lukas-reineke/lsp-format.nvim",
-    opts = {
-    },
-    event = e.vl
+    opts = {},
+    event = e.vl,
   },
   {
     "mason-org/mason.nvim",
     opts = {},
-    version = '*',
+    version = "*",
     event = e.vl,
   },
   {
     "mason-org/mason-lspconfig.nvim",
-    version = '*',
+    version = "*",
     dependencies = {
       "mason.nvim",
     },
@@ -172,8 +179,8 @@ return {
       automatic_enable = {
         exclude = {
           "rust_analyzer",
-        }
-      }
+        },
+      },
     },
     event = e.vl,
   },
@@ -203,7 +210,7 @@ return {
         "expert",
         "sql-formatter",
         "sqlls",
-        "ols"
+        "ols",
       },
     },
   },
@@ -232,28 +239,28 @@ return {
       },
     },
     config = function(_, _)
-      vim.lsp.config('*', {
+      vim.lsp.config("*", {
         capabilities = shared_config.capabilities,
-        on_attach = shared_config.on_attach
+        on_attach = shared_config.on_attach,
       })
-      vim.lsp.config('lua_ls', {
+      vim.lsp.config("lua_ls", {
         settings = {
           Lua = {
             diagnostics = { enable = true },
-            format = { enable = true, defaultConfig = { indent_style = "space", indent_size = 2, }, },
-          }
-        }
+            format = { enable = true, defaultConfig = { indent_style = "space", indent_size = 2 } },
+          },
+        },
       })
-      vim.lsp.config('yamlls', {
+      vim.lsp.config("yamlls", {
         settings = {
           yaml = {
             keyOrdering = false,
-            schemaStore = { enable = false, url = "", },
+            schemaStore = { enable = false, url = "" },
             schemas = require("schemastore").yaml.schemas(),
           },
         },
       })
-      vim.lsp.config('jsonls', {
+      vim.lsp.config("jsonls", {
         settings = {
           json = {
             schemas = require("schemastore").json.schemas(),
@@ -261,7 +268,7 @@ return {
           },
         },
       })
-      vim.lsp.config('typos_lsp', {
+      vim.lsp.config("typos_lsp", {
         cmd_env = { RUST_LOG = "error" },
         init_options = {
           -- Custom config. Used together with a config file found in the workspace or its parents,
@@ -270,18 +277,19 @@ return {
           -- config = '~/.config/typos.toml',
           -- How typos are rendered in the editor, can be one of an Error, Warning, Info or Hint.
           -- Defaults to error.
-          diagnosticSeverity = "Hint"
-        }
+          diagnosticSeverity = "Hint",
+        },
       })
-      vim.lsp.enable('typos_lsp')
+      vim.lsp.enable("typos_lsp")
 
-      vim.lsp.config('efm', efm_config())
+      vim.lsp.config("efm", efm_config())
+
       local commands = {
         { ":LspRestart", description = "LSP: Restart" },
-        { ":LspStart",   description = "LSP: Start" },
-        { ":LspStop",    description = "LSP: Stop" },
-        { ":LspInfo",    description = "LSP: Show Info" },
-        { ":Mason",      description = "Show Mason" },
+        { ":LspStart", description = "LSP: Start" },
+        { ":LspStop", description = "LSP: Stop" },
+        { ":LspInfo", description = "LSP: Show Info" },
+        { ":Mason", description = "Show Mason" },
       }
       local kopts = { noremap = true, silent = true }
       local keymaps = {
@@ -307,6 +315,7 @@ return {
       vim.diagnostic.config({
         virtual_text = false,
         virtual_lines = false,
+        underline = false,
       })
     end,
     event = e.lsp_a,
@@ -328,12 +337,12 @@ return {
       projectionist = {
         enable = true,
       },
-    }
+    },
   },
   {
     "creativenull/efmls-configs-nvim",
     version = "*", -- tag is optional
     dependencies = { "neovim/nvim-lspconfig" },
   },
-  trouble_entry()
+  trouble_entry(),
 }

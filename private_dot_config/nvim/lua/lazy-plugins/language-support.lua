@@ -5,9 +5,9 @@ return {
     opts = {
       overrides = {
         extensions = {
-          tla = "tlaplus"
-        }
-      }
+          tla = "tlaplus",
+        },
+      },
     },
     config = function(_, opts)
       require("filetype").setup(opts)
@@ -15,7 +15,7 @@ return {
     priority = 1000,
   },
   {
-    'nvim-treesitter/nvim-treesitter',
+    "nvim-treesitter/nvim-treesitter",
     opts = {
       ensure_installed = {
         "nix",
@@ -48,15 +48,15 @@ return {
         "ssh_config",
         "gleam",
         "latex",
-        "sql"
+        "sql",
       },
       highlight = {
         enable = true,
         additional_vim_regex_highlighting = {
-           "latex"
+          "latex",
         },
         disable = {
-          "latex"
+          "latex",
         },
       },
       indent = {
@@ -68,30 +68,30 @@ return {
       require("nvim-treesitter.configs").setup(opts)
     end,
     branch = "master",
-    lazy = false
+    lazy = false,
   },
   {
-    'b0o/schemastore.nvim',
-    ft = { "json", "yaml" }
+    "b0o/schemastore.nvim",
+    ft = { "json", "yaml" },
   },
   {
-    'RRethy/nvim-treesitter-endwise',
-    dependencies = { 'nvim-treesitter' },
+    "RRethy/nvim-treesitter-endwise",
+    dependencies = { "nvim-treesitter" },
     opts = {
       endwise = {
         enable = true,
       },
     },
     config = function(_, opts)
-      require('nvim-treesitter.configs').setup(opts)
+      require("nvim-treesitter.configs").setup(opts)
     end,
-    event = e.buf_read_or_new
+    event = e.buf_read_or_new,
   },
   {
-    'MeanderingProgrammer/render-markdown.nvim',
+    "MeanderingProgrammer/render-markdown.nvim",
     dependencies = {
-      'nvim-treesitter/nvim-treesitter',
-      'echasnovski/mini.nvim'
+      "nvim-treesitter/nvim-treesitter",
+      "echasnovski/mini.nvim",
     },
     opts = {
       preset = "obsidian",
@@ -99,10 +99,9 @@ return {
         atx = true,
         setext = true,
         sign = false,
-        icons = {}
-      }
+        icons = {},
+      },
     },
-
   },
 
   {
@@ -114,16 +113,16 @@ return {
   },
 
   {
-    'alker0/chezmoi.vim',
-    event = "VeryLazy"
+    "alker0/chezmoi.vim",
+    event = "VeryLazy",
   },
   {
-    'mrcjkb/rustaceanvim',
-    version = '^6',
+    "mrcjkb/rustaceanvim",
+    version = "^6",
     lazy = false,
   },
   {
-    'lervag/vimtex',
+    "lervag/vimtex",
     config = function()
       vim.cmd([[
               if executable('zathura')
@@ -153,11 +152,11 @@ return {
               augroup END
             ]])
     end,
-    ft = { 'tex' }
+    ft = { "tex" },
   },
 
   {
-    'tlaplus-community/tlaplus-nvim-plugin',
+    "tlaplus-community/tlaplus-nvim-plugin",
   },
 
   {
@@ -166,12 +165,11 @@ return {
     config = function(_, _)
       require("tla").setup()
     end,
-    ft = { "tla" }
+    ft = { "tla" },
   },
 
   {
-    'purescript-contrib/purescript-vim',
-    version = '*'
-  }
-
+    "purescript-contrib/purescript-vim",
+    version = "*",
+  },
 }
