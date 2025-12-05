@@ -76,7 +76,6 @@ return {
           require("neotest").output.open({ enter = true, auto_close = true })
         end,
         desc = "Neotest: Open the output of a test result",
-        silent = true,
       },
     },
     config = function()
