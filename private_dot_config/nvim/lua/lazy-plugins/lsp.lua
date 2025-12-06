@@ -98,6 +98,7 @@ local function trouble_entry()
             [vim.diagnostic.severity.HINT] = "󰌵",
           },
         },
+        severity_sort = true,
       })
     end,
   }
