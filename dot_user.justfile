@@ -23,7 +23,7 @@ alias ns := split-nvim
 split-nvim: # launch nvim in a tmux split
   zellij --layout nvim_split
 
-update-all: update-chezmoi update-brew update-devbox update-mise
+update-all: update-chezmoi update-fish update-brew update-devbox update-mise
 
 brewfile := `echo "$HOME/.config/homebrew/chezmoi.Brewfile"`
 update-brew:
@@ -38,6 +38,10 @@ update-devbox:
 update-chezmoi:
   chezmoi update --init
   chezmoi apply
+
+update-fish:
+  #!/usr/bin/env fish
+  fisher update
 
 [macos]
 ensure-mise-plugins:
