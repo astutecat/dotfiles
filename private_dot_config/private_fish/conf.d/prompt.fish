@@ -5,3 +5,5 @@ set --universal pure_symbol_title_bar_separator :
 set --universal pure_show_numbered_git_indicator true
 set --universal pure_color_primary cyan
 set --universal pure_color_success FF4F00
+set --universal fish_transient_prompt 1
+set --universal pure_enable_single_line_prompt true
