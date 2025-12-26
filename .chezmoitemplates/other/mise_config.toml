@@ -13,5 +13,5 @@ disable_hints = [ "python_multi", "python_precompiled" ]
 "cargo:adrs"            = "latest"
 go                      = "latest"
 lua                     = "latest"
-pre-commit              = "latest"
+prek                    = "latest"
 rust                    = "latest"
