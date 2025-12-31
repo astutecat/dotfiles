@@ -25,3 +25,4 @@ neovim.yml
 selene.toml
 devbox.json
 devbox.lock
+mise.toml
