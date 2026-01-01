@@ -163,6 +163,7 @@ return {
     "lukas-reineke/lsp-format.nvim",
     opts = {},
     event = e.vl,
+    enabled = false,
   },
   {
     "mason-org/mason.nvim",
