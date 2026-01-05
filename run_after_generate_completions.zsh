@@ -32,7 +32,7 @@
 #   stg completion zsh >! "${zfuncdir}/_stg"
 # fi
 #
-# if is_cmd devox; then
+# if is_cmd devbox; then
 #   devbox completion zsh >! "${zfuncdir}/_devbox"
 # fi
 #
