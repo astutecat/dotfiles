@@ -11,4 +11,16 @@ abbr -a j just
 abbr -a .j just -g
 abbr -a .just just -g
 abbr -a e eza
+
 abbr -a lg lazygit
+abbr -a lj lazyjj
+
+abbr -a adr adrs
+
+abbr -a la eza -a
+abbr -a lal eza -al
+abbr -a lh eza -dl .* --group-directories-first
+
+abbr -a zj zellij
+
+abbr -a qm qman
