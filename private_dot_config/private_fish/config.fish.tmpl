@@ -30,10 +30,6 @@ if status is-interactive
     direnv hook fish | source
   end
 
-  if type -q opam
-    eval (opam env)
-  end
-
   atuin init fish | source
   zoxide init fish | source
 end
