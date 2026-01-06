@@ -96,13 +96,6 @@ local on_attach_keymap = function(bufnr)
           k_opts
     },
     {
-      '<leader>lf',
-      '<cmd>lua vim.lsp.buf.format()<CR>',
-      description = "LSP: Format Buffer",
-      opts =
-          k_opts
-    },
-    {
       '<space>ca',
       '<cmd>lua vim.lsp.buf.code_action()<CR>',
       description = "LSP: Code Actions",

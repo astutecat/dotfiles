@@ -104,66 +104,108 @@ local function trouble_entry()
   }
 end
 
-local function linter(name)
-  return require("efmls-configs.linters." .. name)
-end
-local function formatter(name)
-  return require("efmls-configs.formatters." .. name)
-end
-
-local function efm_config()
-  local shellcheck = linter("shellcheck")
-  local beautysh = formatter("beautysh")
-  local prettier_d = formatter("prettier_d")
-  local shellharden = formatter("shellharden")
-
-  local languages = require("efmls-configs.defaults").languages()
-  languages = vim.tbl_extend("force", languages, {
-    sh = { shellcheck, beautysh, shellharden },
-    bash = { shellcheck, beautysh, shellharden },
-    yaml = { linter("yamllint"), prettier_d },
-    css = { prettier_d },
-    html = { prettier_d },
-    typescript = { prettier_d },
-    javascript = { linter("eslint"), prettier_d },
-    python = { formatter("black"), linter("pylint") },
-    gitcommit = { linter("gitlint") },
-    zsh = { beautysh },
-    toml = { formatter("taplo") },
-    lua = {},
-    markdown = { prettier_d },
-    sql = { formatter("sql-formatter") },
-  })
+local function conform_opts()
+  local prettier = { "prettierd", "prettier", stop_after_first = true }
 
   return {
-    filetypes = vim.tbl_keys(languages),
-    settings = {
-      rootMarkers = {
-        ".git/",
-        "mix.exs",
-        "justfile",
-        "Makefile",
-        "cargo.toml",
-      },
-      languages = languages,
+    -- Define your formatters
+    formatters_by_ft = {
+      lua = { "stylua" },
+      python = { "isort", "black" },
+      javascript = prettier,
+      typescript = prettier,
+      javascriptreact = prettier,
+      typescriptreact = prettier,
+      svelte = prettier,
+      css = prettier,
+      html = prettier,
+      json = prettier,
+      markdown = prettier,
+      graphql = prettier,
+      yaml = { "yamlfmt", "prettierd", "prettier", stop_after_first = true },
+      zsh = { "beautysh" },
+      toml = { "taplo" },
+      sql = { "sqlfmt", "sql-formatter", stop_after_first = true },
+      sh = { "beautysh", "shellharden" },
+      bash = { "beautysh", "shellharden" },
+      elixir = { "mix" },
+      rust = { "rustfmt" },
+      gleam = { "gleam" },
+      erlang = { "erlfmt", "efmt", stop_after_first = true },
+      dockerfile = { "dockerfmt" },
     },
-    init_options = {
-      documentFormatting = true,
-      documentRangeFormatting = true,
+    -- Set default options
+    default_format_opts = {
+      lsp_format = "fallback",
+    },
+    -- Set up format-on-save
+    format_on_save = { timeout_ms = 500 },
+    -- Customize formatters
+    formatters = {
+      shfmt = {
+        append_args = { "-i", "2" },
+      },
     },
   }
 end
 
 return {
   {
-    "nvim-lua/lsp-status.nvim",
-    event = e.lsp_a,
+    "stevearc/conform.nvim",
+    event = { "BufWritePre" },
+    cmd = { "ConformInfo" },
+    keys = {
+      {
+        -- Customize or remove this keymap to your liking
+        "<leader>lf",
+        function()
+          require("conform").format({ async = true })
+        end,
+        mode = "",
+        desc = "Conform: Format buffer",
+      },
+    },
+    opts = conform_opts(),
+    init = function()
+      -- If you want the formatexpr, here is the place to set it
+      vim.o.formatexpr = "v:lua.require'conform'.formatexpr()"
+    end,
   },
   {
-    "lukas-reineke/lsp-format.nvim",
-    opts = {},
-    event = e.vl,
-    enabled = false,
+    "mfussenegger/nvim-lint",
+    event = {
+      "BufReadPre",
+      "BufNewFile",
+    },
+    config = function()
+      local lint = require("lint")
+
+      lint.linters_by_ft = {
+        javascript = { "eslint_d" },
+        typescript = { "eslint_d" },
+        javascriptreact = { "eslint_d" },
+        typescriptreact = { "eslint_d" },
+        svelte = { "eslint_d" },
+        python = { "pylint" },
+        yaml = { "yamllint" },
+        gitcommit = { "gitlint" },
+        sh = { "shellcheck" },
+        bash = { "shellcheck" },
+      }
+
+      local lint_augroup = vim.api.nvim_create_augroup("lint", { clear = true })
+
+      vim.api.nvim_create_autocmd({ "BufEnter", "BufWritePost", "InsertLeave" }, {
+        group = lint_augroup,
+        callback = function()
+          lint.try_lint()
+        end,
+      })
+    end,
+  },
+  {
+    "nvim-lua/lsp-status.nvim",
+    event = e.lsp_a,
   },
   {
     "mason-org/mason.nvim",
@@ -192,10 +234,8 @@ return {
     event = e.vl,
     opts = {
       ensure_installed = {
-        "efm",
         "prettierd",
         "luacheck",
-        "stylua",
         "black",
         "shellcheck",
         "pylint",
@@ -210,9 +250,10 @@ return {
         "taplo",
         "hadolint",
         "expert",
-        "sql-formatter",
         "sqlls",
         "ols",
+        "sqlfmt",
+        "isort",
       },
     },
   },
@@ -284,8 +325,6 @@ return {
       })
       vim.lsp.enable("typos_lsp")
 
-      vim.lsp.config("efm", efm_config())
-
       local commands = {
         { ":LspRestart", description = "LSP: Restart" },
         { ":LspStart", description = "LSP: Start" },
@@ -340,11 +379,6 @@ return {
         enable = true,
       },
     },
-  },
-  {
-    "creativenull/efmls-configs-nvim",
-    version = "*", -- tag is optional
-    dependencies = { "neovim/nvim-lspconfig" },
   },
   trouble_entry(),
 }
