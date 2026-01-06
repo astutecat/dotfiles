@@ -191,8 +191,6 @@ return {
         gitcommit = { "gitlint" },
         sh = { "shellcheck" },
         bash = { "shellcheck" },
-        elixir = { "trivy" },
-        rust = { "trivy" },
       }
 
       local lint_augroup = vim.api.nvim_create_augroup("lint", { clear = true })
