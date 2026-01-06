@@ -33,5 +33,9 @@ function update_fish_completions
     restic generate --fish-completion $completions_dir/restic.fish
   end
 
+  if type -q trivy
+    trivy completion fish > $completions_dir/trivy.fish
+  end
+
   echo ...done
 end
