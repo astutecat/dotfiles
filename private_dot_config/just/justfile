@@ -34,6 +34,8 @@ update-brew:
 update-devbox:
   [[ -n $(command -v devbox) ]] && devbox version update || :
   [[ -n $(command -v devbox) ]] && devbox global update  || :
+  [[ -n $(command -v devbox) ]] && refresh-global || :
+  [[ -n $(command -v devbox) ]] && devbox global run -- nix store gc --extra-experimental-features nix-command || :
 
 update-chezmoi:
   chezmoi update --init
