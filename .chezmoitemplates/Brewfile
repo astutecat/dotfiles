@@ -1,8 +1,0 @@
-{{ range .packages.brews -}}
-brew {{ . | quote }}
-{{ end -}}
-{{ if eq .chezmoi.os "darwin" -}}
-{{ range .packages.casks -}}
-cask {{ . | quote }}
-{{ end -}}
-{{ end -}}
