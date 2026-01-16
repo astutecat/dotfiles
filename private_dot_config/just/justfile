@@ -28,13 +28,11 @@ update-all: update-chezmoi update-fish update-brew update-devbox update-mise upd
 brewfile := `echo "$HOME/.config/homebrew/chezmoi.Brewfile"`
 update-brew:
   [[ -n $(command -v brew) ]] && brew update || :
-  [[ -n $(command -v brew) ]] && brew bundle upgrade --file={{brewfile}} || :
   [[ -n $(command -v brew) ]] && brew upgrade || :
 
 update-devbox:
   [[ -n $(command -v devbox) ]] && devbox version update || :
   [[ -n $(command -v devbox) ]] && devbox global update  || :
-  [[ -n $(command -v devbox) ]] && refresh-global || :
   [[ -n $(command -v devbox) ]] && devbox global run -- nix store gc --extra-experimental-features nix-command || :
 
 update-chezmoi:
