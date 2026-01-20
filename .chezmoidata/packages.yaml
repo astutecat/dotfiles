@@ -46,3 +46,8 @@ packages:
     - 'yamllint'
     - 'luacheck'
   casks:
+    - 'raycast'
+    - 'rstudio'
+    - 'wezterm'
+    - '1password-cli'
+    - 'r-app'
