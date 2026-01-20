@@ -44,4 +44,5 @@ packages:
     - 'shellharden'
     - 'trivy'
     - 'yamllint'
+    - 'luacheck'
   casks:
