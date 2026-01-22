@@ -3,23 +3,24 @@
 [settings]
 experimental = false
 cache_prune_age = "14d"
-disable_hints = [ "python_multi", "python_precompiled" ]
+disable_hints = ["python_multi", "python_precompiled"]
+disable_backends = ["asdf"]
 
 [tools]
-"cargo:cargo-binstall"  = "latest"
-"cargo:cargo-cache"     = "latest"
-"cargo:cargo-add"       = "latest"
-"cargo:cargo-nextest"   = "latest"
-"cargo:cargo-generate"  = "latest"
-"cargo:cross"           = "latest"
-"cargo:adrs"            = "latest"
-go                      = "latest"
-lua                     = "latest"
-prek                    = "latest"
-elixir                  = "latest"
-erlang                  = "latest"
-gleam                   = "latest"
-node                    = "latest"
-python                  = "3.13"
-rust                    = "latest"
-usage                   = "latest"
+"cargo:cargo-binstall" = "latest"
+"cargo:cargo-cache" = "latest"
+"cargo:cargo-add" = "latest"
+"cargo:cargo-nextest" = "latest"
+"cargo:cargo-generate" = "latest"
+"cargo:cross" = "latest"
+"cargo:adrs" = "latest"
+go = "latest"
+lua = "latest"
+prek = "latest"
+elixir = "latest"
+erlang = "latest"
+gleam = "latest"
+node = "latest"
+python = "3.13"
+rust = "latest"
+usage = "latest"
