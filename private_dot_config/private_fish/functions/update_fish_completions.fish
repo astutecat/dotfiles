@@ -37,5 +37,10 @@ function update_fish_completions
     trivy completion fish > $completions_dir/trivy.fish
   end
 
+  if type -q jj
+    jj util completion fish > $completions_dir/jj.fish
+    jj util install-man-pages ~/.local/share/man
+  end
+
   echo ...done
 end

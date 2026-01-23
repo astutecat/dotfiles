@@ -1,13 +1,4 @@
 if status is-interactive
-    if type -q nvim
-        set -gx EDITOR nvim
-        set -gx VISUAL nvim
-    end
-
-  if type -q most
-    set -gx PAGER most
-  end
-
 {{- if eq .chezmoi.os "unix" }}
   if type -q brew
     set -gx CPPFLAGS -I(brew --prefix unixodbc)/include

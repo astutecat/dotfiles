@@ -16,6 +16,10 @@ fish_add_path $HOME/.fly/bin
 
 if status is-interactive
 
+  if type -q most
+    set -gx PAGER most
+  end
+
   if type -q devbox
     set -gx SHELL fish
     devbox global shellenv --init-hook | source
@@ -24,6 +28,12 @@ if status is-interactive
   if type -q mise
     fish_add_path $HOME/.local/share/mise/shims
     mise activate fish | source
+  end
+
+  if type -q nvim
+      set -gx EDITOR nvim
+      set -gx VISUAL nvim
+    end
   end
 
   if type -q direnv

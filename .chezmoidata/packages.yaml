@@ -15,6 +15,7 @@ packages:
     - 'git-delta'
     - 'hyperfine'
     - 'jujutsu'
+    - 'jjui'
     - 'just'
     - 'lazydocker'
     - 'lazygit'
