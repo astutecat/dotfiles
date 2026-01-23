@@ -12,3 +12,5 @@
 set --universal hydro_symbol_prompt λ
 set --universal hydro_color_prompt FF4F00
 set --universal hydro_multiline true
+set --universal fish_prompt_pwd_dir_length 100
+set --universal hydro_fetch true
