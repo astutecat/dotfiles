@@ -5,3 +5,6 @@ default-command = "log"
 [user]
 name = "{{ .git.name }}"
 email = "{{ .git.email }}"
+
+[aliases]
+push = ["util", "exec", "--", "jj-pre-push", "--checker", "prek", "push"]
