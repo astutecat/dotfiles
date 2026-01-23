@@ -19,7 +19,6 @@ abbr -a adr adrs
 
 abbr -a la eza -a
 abbr -a lal eza -al
-abbr -a lh eza -dl .* --group-directories-first
 
 abbr -a zj zellij
 
