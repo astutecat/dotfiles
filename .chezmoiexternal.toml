@@ -1,24 +1,5 @@
 # vim:ft=toml.chezmoitmpl
 
-# git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
-[".fzf"]
-type = "git-repo"
-url = "https://github.com/junegunn/fzf.git"
-refreshPeriod = "672h"
-[".fzf".clone]
-args = ["--depth", "1"]
-[".fzf".pull]
-args = ["--quiet"]
-
-[".local/tmux"]
-type = "git-repo"
-url = "https://github.com/gpakosz/.tmux.git"
-refreshPeriod = "672h"
-[".local/tmux".clone]
-args = ["--depth", "1"]
-[".local/tmux".pull]
-args = ["--quiet"]
-
 [".local/bin/tfg.py"]
 type = "git-repo"
 url = "https://github.com/4rtzel/tfg.git"

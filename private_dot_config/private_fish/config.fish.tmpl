@@ -15,6 +15,9 @@ fish_add_path $HOME/.moon/bin
 fish_add_path $HOME/.fly/bin
 
 if status is-interactive
+  if type -q /usr/sbin/wsl2-ssh-agent
+    eval "$(/usr/sbin/wsl2-ssh-agent)"
+  end
 
   if type -q most
     set -gx PAGER most
@@ -39,6 +42,11 @@ if status is-interactive
     direnv hook fish | source
   end
 
-  atuin init fish | source
-  zoxide init fish | source
+  if type -q atuin
+    atuin init fish | source
+  end
+
+  if type -q zoxide
+    zoxide init fish | source
+  end
 end
