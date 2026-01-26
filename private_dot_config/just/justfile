@@ -36,6 +36,7 @@ update-devbox:
   [[ -n $(command -v devbox) ]] && devbox global run -- nix store gc --extra-experimental-features nix-command || :
 
 update-chezmoi:
+  chezmoi git checkout main
   chezmoi update --init
   chezmoi apply
 
