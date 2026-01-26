@@ -6,6 +6,10 @@ function _tide_item_jj
                 change_id.shortest(),
                 commit_id.shortest(),
                 bookmarks.join(", "),
+                if(empty, "(∅)"),
+                if(conflict, "(conflict)"),
+                if(divergent, "(divergent)"),
+                if(hidden, "(hidden)"),
                 coalesce(
                     surround(
                         "\"",
@@ -17,11 +21,7 @@ function _tide_item_jj
                         )
                     ),
                     "(no description set)"
-                ),
-                if(conflict, "(conflict)"),
-                if(empty, "(∅)"),
-                if(divergent, "(divergent)"),
-                if(hidden, "(hidden)"),
+                )
             )
     ')
         _tide_print_item jj $tide_jj_icon $vcs_info
