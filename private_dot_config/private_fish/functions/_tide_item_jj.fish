@@ -20,7 +20,7 @@ function _tide_item_jj
                             description.first_line().substr(0, 23) ++ "…"
                         )
                     ),
-                    "(no description set)"
+                    "(no desc)"
                 )
             )
     ')
