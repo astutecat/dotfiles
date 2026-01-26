@@ -14,7 +14,7 @@
 # set --universal hydro_multiline true
 # set --universal fish_prompt_pwd_dir_length 100
 
-set --global tide_left_prompt_items pwd git newline character
-set --global tide_right_prompt_items status jj cmd_duration context jobs direnv bun node python rustc java php pulumi ruby go gcloud kubectl distrobox toolbox terraform aws nix_shell crystal elixir zig
+set --global tide_left_prompt_items pwd jj newline character
+set --global tide_right_prompt_items status git cmd_duration context jobs direnv bun node python rustc java php pulumi ruby go gcloud kubectl distrobox toolbox terraform aws nix_shell crystal elixir zig
 set --global tide_character_icon λ
 set --global tide_character_color FF4F00
