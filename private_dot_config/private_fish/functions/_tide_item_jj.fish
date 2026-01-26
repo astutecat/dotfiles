@@ -19,7 +19,7 @@ function _tide_item_jj
                     "(no description set)"
                 ),
                 if(conflict, "(conflict)"),
-                if(empty, "(empty)"),
+                if(empty, "(∅)"),
                 if(divergent, "(divergent)"),
                 if(hidden, "(hidden)"),
             )
