@@ -15,9 +15,9 @@ function _tide_item_jj
                         "\"",
                         "\"",
                         if(
-                            description.first_line().substr(0, 24).starts_with(description.first_line()),
-                            description.first_line().substr(0, 24),
-                            description.first_line().substr(0, 23) ++ "…"
+                            description.first_line().substr(0, 30).starts_with(description.first_line()),
+                            description.first_line().substr(0, 30),
+                            description.first_line().substr(0, 29) ++ "…"
                         )
                     ),
                     "(no desc)"
