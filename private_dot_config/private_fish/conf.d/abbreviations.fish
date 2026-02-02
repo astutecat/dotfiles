@@ -23,3 +23,16 @@ abbr -a lal eza -al
 abbr -a zj zellij
 
 abbr -a qm qman
+
+abbr -a --command jj aba abandon
+abbr -a --command jj abs absorb
+abbr -a --command jj b bookmark
+abbr -a --command jj desc describe
+abbr -a --command jj r redo
+abbr -a --command jj u undo
+abbr -a --command={jj,git,hg} st status
+
+function last_history_item
+    echo $history[1]
+end
+abbr -a !! --position anywhere --function last_history_item
