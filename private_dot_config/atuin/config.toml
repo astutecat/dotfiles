@@ -13,7 +13,7 @@ db_path = "~/.local/share/atuin/history.db"
 dialect = "uk"
 
 ## enable or disable automatic sync
-# auto_sync = true
+auto_sync = true
 
 ## enable or disable automatic update checks
 # update_check = true
@@ -83,6 +83,9 @@ history_filter = []
 # cwd_filter = [
 #   "^/very/secret/area"
 # ]
+
+[dotfiles]
+enabled = true
 
 [sync]
 records = true

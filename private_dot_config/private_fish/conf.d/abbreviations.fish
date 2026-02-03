@@ -19,6 +19,8 @@ abbr -a adr adrs
 
 abbr -a la eza -a
 abbr -a lal eza -al
+abbr -a ll eza -l
+abbr -a lt eza -al --sort=modified
 
 abbr -a zj zellij
 
