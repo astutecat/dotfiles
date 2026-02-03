@@ -8,3 +8,4 @@ email = "{{ .git.email }}"
 
 [aliases]
 push = ["util", "exec", "--", "jj-pre-push", "--checker", "prek", "push"]
+fetch = ["git", "fetch"]

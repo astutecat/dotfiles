@@ -124,7 +124,7 @@ local function conform_opts()
       graphql = prettier,
       yaml = { "yamlfmt", "prettierd", "prettier", stop_after_first = true },
       zsh = { "beautysh" },
-      toml = { "taplo" },
+      toml = { "tombi", "taplo", stop_after_first = true },
       sql = { "sqlfmt", "sql-formatter", stop_after_first = true },
       sh = { "beautysh", "shellharden" },
       bash = { "beautysh", "shellharden" },
@@ -215,6 +215,7 @@ return {
         gitcommit = { "gitlint" },
         sh = { "shellcheck" },
         bash = { "shellcheck" },
+        toml = { "tombi" },
       }
 
       local lint_augroup = vim.api.nvim_create_augroup("lint", { clear = true })
@@ -269,7 +270,7 @@ return {
         "json-lsp",
         "gitlint",
         "beautysh",
-        "taplo",
+        "tombi",
         "hadolint",
         "expert",
         "sqlls",
@@ -346,6 +347,7 @@ return {
         },
       })
       vim.lsp.enable("typos_lsp")
+      vim.lsp.enable("taplo")
 
       local commands = {
         { ":LspRestart", description = "LSP: Restart" },
