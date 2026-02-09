@@ -33,7 +33,6 @@ abbr -a --command jj desc describe
 abbr -a --command jj r redo
 abbr -a --command jj u undo
 abbr -a --command jj g git
-abbr -a --command jj l log
 abbr -a --command={jj,git,hg} st status
 
 function last_history_item
