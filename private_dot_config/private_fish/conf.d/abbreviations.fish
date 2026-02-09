@@ -26,14 +26,44 @@ abbr -a zj zellij
 
 abbr -a qm qman
 
-abbr -a --command jj aba abandon
-abbr -a --command jj abs absorb
-abbr -a --command jj b bookmark
-abbr -a --command jj desc describe
-abbr -a --command jj r redo
-abbr -a --command jj u undo
-abbr -a --command jj g git
-abbr -a --command={jj,git,hg} st status
+
+abbr -a jst        'jj status'
+abbr -a jsh        'jj show'
+abbr -a jshs       'jj show --summary'
+abbr -a jl         'jj log'
+abbr -a jb         'jj bookmark'
+abbr -a jbc        'jj bookmark create'
+abbr -a jbd        'jj bookmark delete'
+abbr -a jbm        'jj bookmark move'
+abbr -a jbm@       'jj bookmark move --to @'
+abbr -a jcl        'jj git clone --colocate'
+abbr -a jclo       'jj git clone --colocate --remote upstream'
+abbr -a jd         'jj desc'
+abbr -a jdm        'jj desc -m'
+abbr -a jdf        'jj diff'
+abbr -a jdg        'jj diff --git'
+abbr -a je         'jj edit'
+abbr -a jfa        'jj git fetch --all-remotes'
+abbr -a jf         'jj git fetch'
+abbr -a jp         'jj git push'
+abbr -a jpa        'jj git push --all'
+abbr -a jpb        'jj git push --bookmark'
+abbr -a jpc        'jj git push --change'
+abbr -a jpd        'jj git push --deleted'
+abbr -a jn         'jj new'
+abbr -a jna        'jj new -A'
+abbr -a jnb        'jj new -B'
+abbr -a jnn        'jj new --no-edit'
+abbr -a jnna       'jj new --no-edit -A'
+abbr -a jnnb       'jj new --no-edit -B'
+abbr -a jsq        'jj squash'
+abbr -a jgr        'jj git remote'
+abbr -a jgra       'jj git remote add'
+abbr -a jgrl       'jj git remote list'
+abbr -a jrb        'jj rebase'
+abbr -a jrbr       'jj rebase -r'
+abbr -a jrbs       'jj rebase -s'
+abbr -a ja         'jj abandon'
 
 function last_history_item
     echo $history[1]
