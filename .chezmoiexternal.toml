@@ -27,6 +27,16 @@ args = ["--depth", "1", "--quiet"]
 [".local/share/imhex/imhex-patterns".pull]
 args = ["--quiet"]
 
+[".config/cheat/cheatsheets/community"]
+type = "git-repo"
+url = "git@github.com:cheat/cheatsheets.git"
+refreshPeriod = "672h"
+[".config/cheat/cheatsheets/community".clone]
+args = ["--depth", "1", "--quiet"]
+[".config/cheat/cheatsheets/community".pull]
+args = ["--quiet"]
+
+
 {{ if not .is_macos }}
 [".local/bin/git-squash"]
   type = "file"
