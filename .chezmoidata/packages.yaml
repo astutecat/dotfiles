@@ -46,6 +46,7 @@ packages:
     - 'trivy'
     - 'yamllint'
     - 'luacheck'
+    - 'cheat'
   casks:
     - 'raycast'
     - 'rstudio'

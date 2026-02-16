@@ -28,7 +28,7 @@ format = "yaml"
   osid = {{ $osid | quote }}
   is_macos = {{ eq .chezmoi.os "darwin" }}
   no_fonts = {{ or (eq $location "other") (eq .chezmoi.os "darwin") }}
-  zdotdir = "{{.chezmoi.homeDir}}/.config/zsh"
+  config_dir = "{{.chezmoi.homeDir}}/.config"
   on_d9 = {{ and (eq $location "work") (eq .chezmoi.fqdnHostname "d9") }}
   devbox_beam = {{ ne $location "other" }}
 
