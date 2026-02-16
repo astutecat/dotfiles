@@ -47,6 +47,7 @@ packages:
     - 'yamllint'
     - 'luacheck'
     - 'cheat'
+    - 'most'
   casks:
     - 'raycast'
     - 'rstudio'
