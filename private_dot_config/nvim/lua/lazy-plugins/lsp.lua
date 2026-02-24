@@ -348,6 +348,15 @@ return {
       vim.lsp.enable("typos_lsp")
       vim.lsp.enable("taplo")
 
+      vim.lsp.config("expert", {
+        settings = {
+          workspaceSymbols = {
+            minQueryLength = 0,
+          },
+        },
+      })
+      vim.lsp.enable("expert")
+
       local commands = {
         { ":LspRestart", description = "LSP: Restart" },
         { ":LspStart", description = "LSP: Start" },
