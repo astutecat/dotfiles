@@ -272,7 +272,6 @@ return {
         "beautysh",
         "tombi",
         "hadolint",
-        "expert",
         "sqlls",
         "ols",
         "sqlfmt",
