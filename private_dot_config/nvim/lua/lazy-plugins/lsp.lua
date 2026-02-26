@@ -125,7 +125,7 @@ local function conform_opts()
       yaml = { "yamlfmt", "prettierd", "prettier", stop_after_first = true },
       zsh = { "beautysh" },
       toml = { "tombi", "taplo", stop_after_first = true },
-      sql = { "sqlfmt", "sql-formatter", stop_after_first = true },
+      sql = { "sleek", "sql-formatter", stop_after_first = true },
       sh = { "beautysh", "shellharden" },
       bash = { "beautysh", "shellharden" },
       elixir = { "mix" },

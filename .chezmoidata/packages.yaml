@@ -48,6 +48,7 @@ packages:
     - 'luacheck'
     - 'cheat'
     - 'most'
+    - 'sleek'
   casks:
     - 'raycast'
     - 'rstudio'
