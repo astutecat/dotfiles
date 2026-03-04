@@ -131,7 +131,7 @@ local function conform_opts()
       elixir = { "mix" },
       rust = { "rustfmt" },
       gleam = { "gleam" },
-      erlang = { "erlfmt", "efmt", stop_after_first = true },
+      erlang = { "efmt", "erlfmt", stop_after_first = true },
       dockerfile = { "dockerfmt" },
     },
     -- Set default options

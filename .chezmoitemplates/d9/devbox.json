@@ -1,17 +1,10 @@
 {
   "$schema": "https://raw.githubusercontent.com/jetify-com/devbox/0.13.3/.schema/devbox.schema.json",
-  "packages": [
-    "nodejs@latest",
-    "erlang_28@latest"
-  ],
+  "packages": ["nodejs@latest", "erlang_28@latest", "beamMinimal28Packages.erlfmt@latest"],
   "shell": {
-    "init_hook": [
-      "echo 'Welcome to devbox!' > /dev/null"
-    ],
+    "init_hook": ["echo 'Welcome to devbox!' > /dev/null"],
     "scripts": {
-      "test": [
-        "echo \"Error: no test specified\" && exit 1"
-      ]
+      "test": ["echo \"Error: no test specified\" && exit 1"]
     }
   }
 }
