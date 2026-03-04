@@ -10,7 +10,7 @@ format = "yaml"
 {{- $location := "other" -}}
 {{- if and (eq $osid "linux-debian") (eq .chezmoi.fqdnHostname "d9" "d12") -}}
 {{-   $location = "work" -}}
-{{- else if eq .chezmoi.fqdnHostname "AstuteMBP" "astutemanjaro" "PHOENIX10.localdomain" -}}
+{{- else if eq .chezmoi.fqdnHostname "AstuteMBP" "astutecachy" "PHOENIX10.localdomain" -}}
 {{-   $location = "personal" -}}
 {{- end }}
 
