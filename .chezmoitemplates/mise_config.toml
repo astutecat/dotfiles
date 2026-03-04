@@ -9,7 +9,6 @@ disable_backends = ["asdf"]
 [tools]
 "cargo:cargo-binstall" = "latest"
 "cargo:cargo-cache" = "latest"
-"cargo:cargo-add" = "latest"
 "cargo:cargo-nextest" = "latest"
 "cargo:cargo-generate" = "latest"
 "cargo:cross" = "latest"

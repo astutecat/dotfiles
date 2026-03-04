@@ -2,6 +2,12 @@
 Host *
   IdentityAgent "~/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"
   Compression yes
+{{else if eq .chezmoi.fqdnHostname ""}}
+Host *
+  Compression yes
+  AddKeysToAgent yes
+  IgnoreUnknown AddKeysToAgent
+  IdentityAgent ~/.1password/agent.sock
 {{else}}
 Host *
   Compression yes
