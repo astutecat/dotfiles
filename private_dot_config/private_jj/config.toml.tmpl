@@ -1,6 +1,6 @@
 [ui]
 pager = "cat"
-default-command = "log"
+default-command = ["log", "--reversed"]
 
 [user]
 name = "{{ .git.name }}"
@@ -9,6 +9,7 @@ email = "{{ .git.email }}"
 [aliases]
 push = ["util", "exec", "--", "jj-pre-push", "--checker", "prek", "push"]
 fetch = ["git", "fetch"]
+rlog = ["log", "--reversed"]
 
 [remotes.origin]
 auto-track-created-bookmarks = "*"
