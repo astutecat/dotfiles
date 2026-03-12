@@ -15,7 +15,6 @@ disable_backends = ["asdf"]
 prek = "latest"
 go = "1.21.1"
 lua = "latest"
-dotnet = "latest"
 elixir = "latest"
 rust = "latest"
 usage = "latest"
