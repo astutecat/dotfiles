@@ -71,19 +71,6 @@ return {
     ft = { "json", "yaml" },
   },
   {
-    "RRethy/nvim-treesitter-endwise",
-    dependencies = { "nvim-treesitter" },
-    opts = {
-      endwise = {
-        enable = true,
-      },
-    },
-    config = function(_, opts)
-      require("nvim-treesitter.configs").setup(opts)
-    end,
-    event = e.buf_read_or_new,
-  },
-  {
     "MeanderingProgrammer/render-markdown.nvim",
     dependencies = {
       "nvim-treesitter/nvim-treesitter",
