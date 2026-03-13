@@ -9,6 +9,7 @@ config.font = wezterm.font_with_fallback({
   "Fira Code",
   "Iosevka",
 })
+config.font_size = 11
 config.hide_tab_bar_if_only_one_tab = true
 config.allow_win32_input_mode = true
 config.send_composed_key_when_left_alt_is_pressed = false
