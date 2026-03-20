@@ -1,6 +1,7 @@
 [ui]
 pager = "cat"
 default-command = ["log", "--reversed"]
+diff-formatter = ["difft", "--color=always", "$left", "$right"]
 
 [user]
 name = "{{ .git.name }}"
