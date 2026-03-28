@@ -41,5 +41,9 @@ function update_fish_completions
         jj util install-man-pages ~/.local/share/man
     end
 
+    if type -q podman
+        podman completion -f ~/.config/fish/completions/podman.fish fish
+    end
+
     echo ...done
 end
