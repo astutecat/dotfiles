@@ -7,6 +7,25 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "indent_guides": {
+    "coloring": "indent_aware"
+  },
+  "preferred_line_length": 120,
+  "tab_size": 2,
+  "vim": {
+    "toggle_relative_line_numbers": false
+  },
+  "toolbar": {
+    "code_actions": true
+  },
+  "which_key": {
+    "enabled": true
+  },
+  "icon_theme": "Zed (Default)",
+  "telemetry": {
+    "diagnostics": false,
+    "metrics": false
+  },
   "agent_ui_font_size": 14.0,
   "buffer_font_family": "MonoLisa",
   "vim_mode": true,
