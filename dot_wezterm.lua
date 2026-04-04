@@ -13,4 +13,6 @@ config.font_size = 11
 config.hide_tab_bar_if_only_one_tab = true
 config.allow_win32_input_mode = true
 config.send_composed_key_when_left_alt_is_pressed = false
+config.initial_cols = 120
+config.initial_rows = 30
 return config
