@@ -12,12 +12,24 @@
 (add-to-list 'package-archives
              '("melpa" . "https://melpa.org/packages/"))
 (package-initialize)
-(package-refresh-contents)
-
-;; Download Evil
-(unless (package-installed-p 'evil)
-  (package-install 'evil))
+(unless package-archive-contents
+  (package-refresh-contents))
+(package-install-selected-packages)
 
 ;; Enable Evil
 (require 'evil)
-(evil-mode 1)
+(evil-mode 0)
+
+;; Theme
+(require 'modus-themes)
+(setq modus-themes-disable-other-themes t)
+(load-theme 'modus-vivendi-tritanopia)
+
+;; UI Tweaks
+(menu-bar-mode -1)
+
+;; Doom Modeline
+
+(use-package doom-modeline
+  :ensure t
+  :init (doom-modeline-mode 1))
