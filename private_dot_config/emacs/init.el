@@ -29,7 +29,9 @@
 (menu-bar-mode -1)
 
 ;; Doom Modeline
-
 (use-package doom-modeline
   :ensure t
   :init (doom-modeline-mode 1))
+
+;; Rainbow Delimeters
+(add-hook 'prog-mode-hook #'rainbow-delimiters-mode)
