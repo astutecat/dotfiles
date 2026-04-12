@@ -22,7 +22,12 @@
 
 ;; Theme
 (require 'modus-themes)
-(setq modus-themes-disable-other-themes t)
+(setq modus-themes-italic-constructs t
+      modus-themes-bold-constructs t
+      modus-themes-mixed-fonts t
+      ;modus-themes-variable-pitch-ui nil
+      modus-themes-disable-other-themes t)
+
 (load-theme 'modus-vivendi-tritanopia)
 
 ;; UI Tweaks
