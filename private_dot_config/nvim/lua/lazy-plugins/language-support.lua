@@ -15,7 +15,7 @@ return {
     priority = 1000,
   },
   {
-    "nvim-treesitter/nvim-treesitter",
+    "neovim-treesitter/nvim-treesitter",
     opts = {
       ensure_installed = {
         "nix",
@@ -73,7 +73,7 @@ return {
   {
     "MeanderingProgrammer/render-markdown.nvim",
     dependencies = {
-      "nvim-treesitter/nvim-treesitter",
+      "neovim-treesitter/nvim-treesitter",
       "echasnovski/mini.nvim",
     },
     opts = {
@@ -91,7 +91,7 @@ return {
     "quarto-dev/quarto-nvim",
     dependencies = {
       "jmbuhr/otter.nvim",
-      "nvim-treesitter/nvim-treesitter",
+      "neovim-treesitter/nvim-treesitter",
     },
   },
 

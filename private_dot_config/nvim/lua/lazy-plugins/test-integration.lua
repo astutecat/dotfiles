@@ -7,7 +7,7 @@ return {
       "nvim-neotest/nvim-nio",
       "nvim-lua/plenary.nvim",
       "antoinemadec/FixCursorHold.nvim",
-      "nvim-treesitter/nvim-treesitter",
+      "neovim-treesitter/nvim-treesitter",
       "vim-test/vim-test",
       "jfpedroza/neotest-elixir",
       "mrcjkb/rustaceanvim",
