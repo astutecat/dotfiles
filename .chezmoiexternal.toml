@@ -36,6 +36,15 @@ args = ["--depth", "1", "--quiet"]
 [".config/cheat/cheatsheets/community".pull]
 args = ["--quiet"]
 
+[".config/emacs"]
+type = "git-repo"
+url = "https://github.com/doomemacs/doomemacs"
+refreshPeriod = "672h"
+[".config/emacs".clone]
+args = ["--depth", "1", "--quiet"]
+[".config/emacs".pull]
+args = ["--quiet"]
+
 
 {{ if not .is_macos }}
 [".local/bin/git-squash"]

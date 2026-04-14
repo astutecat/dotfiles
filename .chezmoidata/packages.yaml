@@ -50,6 +50,7 @@ packages:
     - 'sleek'
     - 'yazi'
     - 'fzf'
+    - 'fd'
   casks:
     - 'raycast'
     - 'rstudio'
