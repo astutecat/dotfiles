@@ -16,6 +16,7 @@ return {
   },
   {
     "neovim-treesitter/nvim-treesitter",
+    dependencies = { "neovim-treesitter/treesitter-parser-registry" },
     opts = {
       ensure_installed = {
         "nix",
