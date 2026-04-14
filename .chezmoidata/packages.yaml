@@ -48,6 +48,8 @@ packages:
     - 'cheat'
     - 'most'
     - 'sleek'
+    - 'yazi'
+    - 'fzf'
   casks:
     - 'raycast'
     - 'rstudio'
