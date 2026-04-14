@@ -8,7 +8,10 @@
    '("2f4ccea8fdfc36df17e70e9e253e1085e30b08270ac5e1bfbd19fc738ef003db"
      "0e4a97c12619ddf2892b0de051512ecc3c4d896042a4392b052177bfab23a6e4"
      default))
- '(package-selected-packages '(doom-modeline evil modus-themes rainbow-delimiters slime))
+ '(package-selected-packages
+   '(affe consult consult-ag consult-lsp doom-modeline evil marginalia
+	  modus-themes nerd-icons-completion orderless
+	  rainbow-delimiters slime undo-tree vertico vertigo))
  '(xterm-mouse-mode t))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.

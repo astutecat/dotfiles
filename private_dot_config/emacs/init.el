@@ -32,6 +32,7 @@
 
 ;; UI Tweaks
 (menu-bar-mode -1)
+(mouse-wheel-mode 1)
 
 ;; Doom Modeline
 (use-package doom-modeline
@@ -40,3 +41,55 @@
 
 ;; Rainbow Delimeters
 (add-hook 'prog-mode-hook #'rainbow-delimiters-mode)
+
+;; Vertico
+(use-package vertigo
+  :ensure t
+  :custom
+  (vertico-cycle t)
+  :init
+  (vertico-mode))
+
+;; Save History
+(use-package savehist
+  :init
+  (savehist-mode))
+
+;; Enable rich annotations using the Marginalia package
+(use-package marginalia
+  ;; Bind `marginalia-cycle' locally in the minibuffer.  To make the binding
+  ;; available in the *Completions* buffer, add it to the
+  ;; `completion-list-mode-map'.
+  :bind (:map minibuffer-local-map
+         ("M-A" . marginalia-cycle))
+
+  ;; The :init section is always executed.
+  :init
+
+  ;; Marginalia must be activated in the :init section of use-package such that
+  ;; the mode gets enabled right away. Note that this forces loading the
+  ;; package.
+  (marginalia-mode))
+
+(use-package nerd-icons-completion
+  :after marginalia
+  :config
+  (nerd-icons-completion-mode)
+  (add-hook 'marginalia-mode-hook #'nerd-icons-completion-marginalia-setup))
+
+(use-package affe
+  :config
+  ;; Manual preview key for `affe-grep'
+  (consult-customize affe-grep :preview-key "M-."))
+
+(use-package orderless
+  :ensure t
+  :custom
+  (completion-styles '(orderless basic))
+  (completion-category-overrides '((file (styles partial-completion))))
+  (completion-pcm-leading-wildcard t))
+
+(defun affe-orderless-regexp-compiler (input _type _ignorecase)
+  (setq input (cdr (orderless-compile input)))
+  (cons input (apply-partially #'orderless--highlight input t)))
+(setq affe-regexp-compiler #'affe-orderless-regexp-compiler)
