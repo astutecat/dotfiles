@@ -134,6 +134,7 @@ local function conform_opts()
       erlang = { "efmt", "erlfmt", stop_after_first = true },
       dockerfile = { "dockerfmt" },
       just = { "just" },
+      fish = { "fish_indent" },
     },
     -- Set default options
     default_format_opts = {
