@@ -51,6 +51,7 @@ packages:
     - 'yazi'
     - 'fzf'
     - 'fd'
+    - 'comby'
   casks:
     - 'raycast'
     - 'rstudio'
