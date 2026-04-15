@@ -133,6 +133,7 @@ local function conform_opts()
       gleam = { "gleam" },
       erlang = { "efmt", "erlfmt", stop_after_first = true },
       dockerfile = { "dockerfmt" },
+      just = { "just" },
     },
     -- Set default options
     default_format_opts = {
@@ -144,7 +145,7 @@ local function conform_opts()
       if vim.g.disable_autoformat or vim.b[bufnr].disable_autoformat then
         return
       end
-      return { timeout_ms = 500, lsp_format = "fallback" }
+      return { timeout_ms = 750, lsp_format = "fallback" }
     end,
     -- Customize formatters
     formatters = {

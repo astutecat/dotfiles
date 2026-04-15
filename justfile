@@ -2,20 +2,20 @@ set shell := ["zsh", "-cu"]
 
 [private]
 default:
-  @just --justfile "{{justfile()}}" --list
+    @just --justfile "{{ justfile() }}" --list
 
 @apply:
-  echo -n "applying dotfiles..."
-  chezmoi apply
-  echo "done"
+    echo -n "applying dotfiles..."
+    chezmoi apply
+    echo "done"
 
 watch:
-  watchexec -- just apply
+    watchexec -- just apply
 
 commit message: apply
-  git add .
-  git commit -m "{{message}}"
-  git push
+    git add .
+    git commit -m "{{ message }}"
+    git push
 
 install-hooks:
-  pre-commit install
+    pre-commit install
