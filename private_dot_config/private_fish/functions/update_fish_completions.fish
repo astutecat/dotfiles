@@ -45,5 +45,9 @@ function update_fish_completions
         podman completion -f ~/.config/fish/completions/podman.fish fish
     end
 
+    if type -q exercism
+        exercism completion fish >$completions_dir/exercism.fish
+    end
+
     echo ...done
 end
