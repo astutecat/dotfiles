@@ -55,6 +55,16 @@
 ;;
 ;;   (with-eval-after-load 'PACKAGE
 ;;     (setq x y))
+
+(with-eval-after-load 'sly
+  (defun my-sly-mrepl-goto-end (&rest _)
+    (with-selected-window (get-buffer-window (sly-mrepl))
+      ;;(goto-char (point-max))
+      (recenter -1)))
+  (advice-add 'sly-mrepl--insert-prompt :after #'my-sly-mrepl-goto-end))
+
+(use-package! sly-highlight
+  :hook (sly-mode . sly-highlight-buffer-symbols))
 ;;
 ;; The exceptions to this rule:
 ;;
