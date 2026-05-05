@@ -37,3 +37,5 @@ palette = 16=#f4a261
 macos-option-as-alt = left
 keybind = alt+left=unbind
 keybind = alt+right=unbind
+
+command = "fish"

@@ -1,10 +1,10 @@
-fish_add_path "/opt/homebrew/bin/"
-fish_add_path "/opt/homebrew/sbin/"
+fish_add_path /opt/homebrew/bin/
+fish_add_path /opt/homebrew/sbin/
 fish_add_path "/home/linuxbrew/.linuxbrew/bin/"
 fish_add_path "/home/linuxbrew/.linuxbrew/sbin/"
 
 if type -q brew
-  brew shellenv | source
+    brew shellenv | source
 end
 
 fish_add_path $HOME/.local/bin
@@ -16,39 +16,50 @@ fish_add_path $HOME/.fly/bin
 fish_add_path /Applications/Obsidian.app/Contents/MacOS
 fish_add_path $HOME/.config/emacs/bin/
 
+function fish_greeting
+    if type -q fastfetch
+        fastfetch
+    end
+
+    if type -q fortune
+        fortune -s ~/.local/share/fortunes/ | fmt
+        echo ""
+    end
+end
+
 if status is-interactive
-  if type -q /usr/sbin/wsl2-ssh-agent
-    eval "$(/usr/sbin/wsl2-ssh-agent)"
-  end
+    if type -q /usr/sbin/wsl2-ssh-agent
+        eval "$(/usr/sbin/wsl2-ssh-agent)"
+    end
 
-  if type -q most
-    set -gx PAGER most
-  end
+    if type -q most
+        set -gx PAGER most
+    end
 
-  if type -q devbox
-    set -gx SHELL fish
-    devbox global shellenv --init-hook | source
-  end
+    if type -q devbox
+        set -gx SHELL fish
+        devbox global shellenv --init-hook | source
+    end
 
-  if type -q mise
-    fish_add_path $HOME/.local/share/mise/shims
-    mise activate fish | source
-  end
+    if type -q mise
+        fish_add_path $HOME/.local/share/mise/shims
+        mise activate fish | source
+    end
 
-  if type -q nvim
-      set -gx EDITOR nvim
-      set -gx VISUAL nvim
-  end
+    if type -q nvim
+        set -gx EDITOR nvim
+        set -gx VISUAL nvim
+    end
 
-  if type -q direnv
-    direnv hook fish | source
-  end
+    if type -q direnv
+        direnv hook fish | source
+    end
 
-  if type -q atuin
-    atuin init fish | source
-  end
+    if type -q atuin
+        atuin init fish | source
+    end
 
-  if type -q zoxide
-    zoxide init fish | source
-  end
+    if type -q zoxide
+        zoxide init fish | source
+    end
 end
