@@ -16,18 +16,20 @@ fish_add_path $HOME/.fly/bin
 fish_add_path /Applications/Obsidian.app/Contents/MacOS
 fish_add_path $HOME/.config/emacs/bin/
 
-function fish_greeting
-    if type -q fastfetch
-        fastfetch
-    end
-
-    if type -q fortune
-        fortune -s ~/.local/share/fortunes/ | fmt
-        echo ""
-    end
-end
+fish_config theme choose "fish default"
 
 if status is-interactive
+    function fish_greeting
+        if type -q fastfetch
+            fastfetch
+        end
+
+        if type -q fortune
+            fortune -s ~/.local/share/fortunes/ | fmt
+            echo ""
+        end
+    end
+
     if type -q /usr/sbin/wsl2-ssh-agent
         eval "$(/usr/sbin/wsl2-ssh-agent)"
     end
