@@ -3,93 +3,92 @@ set shell := ["zsh", "-c"]
 
 [private]
 default:
-  @just --justfile "{{justfile()}}" --list
+    @just --justfile "{{ justfile() }}" --list
 
 @zellij:
-  [ $ZELLIJ != 0 ] && [ ${UID} != 0 ] && zellij || :
+    [ $ZELLIJ != 0 ] && [ ${UID} != 0 ] && zellij || :
 
 dir_leaf := `echo "${PWD##*/}"`
 alias trn := tab-rename
-@tab-rename name=dir_leaf: zellij # rename zellij tab
-  zellij action rename-tab {{name}}
+@tab-rename name=dir_leaf: zellij
+    zellij action rename-tab {{ name }}
 alias prn := pane-rename
-@pane-rename name=dir_leaf: zellij # rename zellij pane
-  zellij action rename-pane {{name}}
+@pane-rename name=dir_leaf: zellij
+    zellij action rename-pane {{ name }}
 alias srn := session-rename
-@session-rename name=dir_leaf: zellij # rename zellij session
-  zellij action rename-tab {{name}}
+@session-rename name=dir_leaf: zellij
+    zellij action rename-tab {{ name }}
 
 alias ns := split-nvim
-split-nvim: # launch nvim in a tmux split
-  zellij --layout nvim_split
+split-nvim:
+    zellij --layout nvim_split
 
-update-all: update-chezmoi update-fish update-flatpak update-brew update-devbox update-mise update-fish-completions
+update-all:
+    just -g update-fish
+    just -g update-devbox
+    topgrade
+    just -g update-fish-completions
 
 update-flatpak:
-  [[ -n $(command -v flatpak) ]] && flatpak update || :
+    topgrade --only flatpak --yes
 
 brewfile := `echo "$HOME/.config/homebrew/chezmoi.Brewfile"`
 update-brew:
-  [[ -n $(command -v brew) ]] && brew update || :
-  [[ -n $(command -v brew) ]] && brew upgrade || :
+    topgrade --only brew_formula brew_cask
 
 update-devbox:
-  [[ -n $(command -v devbox) ]] && devbox version update || :
-  [[ -n $(command -v devbox) ]] && devbox global update  || :
-  [[ -n $(command -v devbox) ]] && devbox global run -- nix store gc --extra-experimental-features nix-command || :
+    [[ -n $(command -v devbox) ]] && devbox version update || :
+    [[ -n $(command -v devbox) ]] && devbox global update  || :
+    [[ -n $(command -v devbox) ]] && devbox global run -- nix store gc --extra-experimental-features nix-command || :
 
 update-chezmoi:
-  chezmoi git checkout main
-  chezmoi update --init
-  chezmoi apply
+    chezmoi git checkout main
+    topgrade --only chezmoi --yes
 
 update-fish:
-  #!/usr/bin/env fish
-  fisher update
+    #!/usr/bin/env fish
+    fisher update
 
 update-fish-completions:
-  #!/usr/bin/env fish
-  update_fish_completions
+    #!/usr/bin/env fish
+    update_fish_completions
 
 [macos]
 ensure-mise-plugins:
-  mise --quiet plugins install erlang https://github.com/michallepicki/asdf-erlang-prebuilt-macos.git
+    mise --quiet plugins install erlang https://github.com/michallepicki/asdf-erlang-prebuilt-macos.git
 
 [linux]
 ensure-mise-plugins:
-  @:
+    @:
 
 update-mise: ensure-mise-plugins
-  #!/bin/bash
-  gh_token=$([[ -n $(command -v gh) ]] && gh auth token 2>/dev/null || "")
-  GITHUB_TOKEN="$gh_token" mise self-update
-  GITHUB_TOKEN="$gh_token" mise upgrade
+    topgrade --only mise --yes
 
 @tldr +args:
-  zellij run -c -- tldr --pager "{{args}}"
+    zellij run -c -- tldr --pager "{{ args }}"
 
 @dotfiles:
-  [ "$ZELLIJ" ] && zellij ac rename-tab dotfiles || :
-  chezmoi cd
+    [ "$ZELLIJ" ] && zellij ac rename-tab dotfiles || :
+    chezmoi cd
 
 alias lg := lazygit
 lazygit:
-  #!/bin/bash
-  if [[ -n $(command -v lazygit) ]]; then
-    export LAZYGIT_NEW_DIR_FILE=~/.lazygit/newdir
+    #!/bin/bash
+    if [[ -n $(command -v lazygit) ]]; then
+      export LAZYGIT_NEW_DIR_FILE=~/.lazygit/newdir
 
-    lazygit "$@"
+      lazygit "$@"
 
-    if [ -f $LAZYGIT_NEW_DIR_FILE ]; then
-      cd "$(cat $LAZYGIT_NEW_DIR_FILE)"
-      rm -f $LAZYGIT_NEW_DIR_FILE > /dev/null
+      if [ -f $LAZYGIT_NEW_DIR_FILE ]; then
+        cd "$(cat $LAZYGIT_NEW_DIR_FILE)"
+        rm -f $LAZYGIT_NEW_DIR_FILE > /dev/null
+      fi
+    else
+      echo "Error: lazygit not on PATH."
     fi
-  else
-    echo "Error: lazygit not on PATH."
-  fi
 
 fortune +args="-s":
-  #!/bin/zsh
-  if (( $+commands[fortune] )); then
-    fortune -s ~/.local/share/fortunes/ | fmt
-  fi
+    #!/bin/zsh
+    if (( $+commands[fortune] )); then
+      fortune -s ~/.local/share/fortunes/ | fmt
+    fi
