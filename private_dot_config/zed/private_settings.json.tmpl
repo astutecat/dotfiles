@@ -1,0 +1,5 @@
+{{- if eq .location "work" -}}
+{{-   template "work/zed/settings.json" -}}
+{{- else -}}
+{{-   template "zed/settings.json" -}}
+{{- end -}}
