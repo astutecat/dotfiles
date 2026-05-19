@@ -57,10 +57,10 @@ ignore_failures = ["powershell", "containers", "helix", "typst"]
 # display_time = true
 
 # Don't ask for confirmations (no default value)
-# assume_yes = true
+assume_yes = true
 
 # Whether to ask what to do after a step fails (default: true)
-# ask_retry = true
+ask_retry = false
 
 # Number of times to automatically retry a step when it fails (default: 0)
 # auto_retry = 0
@@ -82,14 +82,14 @@ ignore_failures = ["powershell", "containers", "helix", "typst"]
 # tmux_session_mode = "attach_if_not_in_session"
 
 # Cleanup temporary or old files (default: false)
-# cleanup = true
+cleanup = true
 
 # Send a notification for every step (default: false)
 # notify_each_step = false
 
 # When to send a notification at the end of a run
 # (default: "always", allowed values: "always", "never", "on_failure")
-# notify_end = "on_failure"
+notify_end = "always"
 
 # Deprecated: use `notify_end = "never"` instead (default: false)
 # skip_notify = true
@@ -196,7 +196,7 @@ autoremove = true
 # Arch Package Manager to use.
 # Allowed values:
 #   autodetect, aura, garuda_update, pacman, pamac, paru, pikaur, shelly, trizen, yay
-# arch_package_manager = "pacman"
+arch_package_manager = "autodetect"
 
 # Arguments to pass yay (or paru) when updating packages
 # yay_arguments = "--nodevel"
