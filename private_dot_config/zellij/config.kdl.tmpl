@@ -350,10 +350,6 @@ default_shell "fish"
 // Examples:
 //
 
-{{ if .on_d9 }}
-copy_command "xclip -selection clipboard"
-{{ end }}
-
 // Choose the destination for copied text
 // Allows using the primary selection buffer (on x11/wayland) instead of the system clipboard.
 // Does not apply when using copy_command.
