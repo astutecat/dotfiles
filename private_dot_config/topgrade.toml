@@ -27,7 +27,7 @@
 # sudo_command = "sudo"
 
 # Disable specific steps - same options as the command line flag
-disable = ["powershell", "typst", "helix"]
+disable = ["powershell", "typst", "helix", "waydroid", "nix", "toolbx"]
 
 # Run these steps before all others
 first = ["chezmoi"]
@@ -36,7 +36,14 @@ first = ["chezmoi"]
 # last = ["system"]
 
 # Ignore failures for these steps
-ignore_failures = ["powershell", "containers", "helix", "typst"]
+ignore_failures = [
+  "powershell",
+  "containers",
+  "helix",
+  "typst",
+  "mise",
+  "emacs"
+]
 
 # List of remote machines with Topgrade installed on them
 # remote_topgrades = ["toothless", "pi", "parnas"]
