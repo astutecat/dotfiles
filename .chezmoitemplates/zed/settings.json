@@ -7,6 +7,23 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "project_panel": {
+    "dock": "left"
+  },
+  "outline_panel": {
+    "dock": "left"
+  },
+  "collaboration_panel": {
+    "dock": "left"
+  },
+  "agent": {
+    "dock": "right",
+    "favorite_models": [],
+    "model_parameters": []
+  },
+  "git_panel": {
+    "dock": "left"
+  },
   "indent_guides": {
     "coloring": "indent_aware"
   },
@@ -34,10 +51,10 @@
   "theme": {
     "mode": "system",
     "light": "One Light",
-    "dark": "Nightfox - opaque",
+    "dark": "Nightfox - opaque"
   },
   "disable_ai": false,
   "auto_install_extensions": {
-    "nvim-nightfox": true,
-  },
+    "nvim-nightfox": true
+  }
 }
