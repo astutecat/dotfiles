@@ -1,9 +1,9 @@
 local flags = require("config_flags")
-
-local mappings = {}
+local e = require("startup_events")
+local custom_mappings = {}
 
 if flags.work_config then
-  mappings = {
+  custom_mappings = {
     {
       pattern = "src/(.*).erl$",
       target = "test/%1_SUITE.erl",
@@ -27,14 +27,34 @@ if flags.work_config then
   }
 end
 
+local commands = {
+  { ":Other", description = "Other: open other file picker" },
+  { ":OtherSplit", description = "Other: open other file in a split" },
+  { ":OtherVSplit", description = "Other: open other file in a vertical split" },
+}
+
 return {
   "rgroli/other.nvim",
-  opts = {
-    mappings = mappings,
-  },
   keys = {
-    "<Leader>o",
-    "<cmd>Other",
-    desc = "Open Other",
+    { "<leader>o", "<cmd>Other<cr>", desc = "Other", silent = true },
   },
+  event = e.vl,
+  init = function()
+    require("legendary").commands(commands)
+    require("other-nvim").setup({
+      mappings = {
+        "livewire",
+        "angular",
+        "laravel",
+        "rails",
+        "golang",
+        "python",
+        "react",
+        "rust",
+        "elixir",
+        "clojure",
+        custom_mappings,
+      },
+    })
+  end,
 }
