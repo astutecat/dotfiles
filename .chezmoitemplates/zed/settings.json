@@ -17,6 +17,13 @@
     "dock": "left"
   },
   "agent": {
+    "default_profile": "ask",
+    "default_model": {
+      "provider": "ollama",
+      "model": "qwen3.5:9b",
+      "enable_thinking": true
+    },
+    "sidebar_side": "right",
     "dock": "right",
     "favorite_models": [],
     "model_parameters": []
