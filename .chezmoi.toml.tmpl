@@ -8,7 +8,7 @@ format = "yaml"
 {{-   $osid = printf "%s-%s" .chezmoi.os .chezmoi.osRelease.id -}}
 {{- end -}}
 {{- $location := "other" -}}
-{{- if and (eq $osid "linux-debian") (eq .chezmoi.fqdnHostname "d9" "d12") -}}
+{{- if and (eq $osid "linux-debian") (eq .chezmoi.fqdnHostname "d12") -}}
 {{-   $location = "work" -}}
 {{- else if (eq .chezmoi.fqdnHostname "nb0408") }}
 {{-   $location = "work" -}}
@@ -31,7 +31,6 @@ format = "yaml"
   is_macos = {{ eq .chezmoi.os "darwin" }}
   no_fonts = {{ or (eq $location "other") (eq .chezmoi.os "darwin") }}
   config_dir = "{{.chezmoi.homeDir}}/.config"
-  on_d9 = {{ and (eq $location "work") (eq .chezmoi.fqdnHostname "d9") }}
   devbox_beam = {{ ne $location "other" }}
 
 [data.git]

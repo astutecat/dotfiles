@@ -1,7 +1,5 @@
 {{- if eq .location "other" -}}
 {{-   template "other/mise/config.toml" -}}
-{{- else if .on_d9 -}}
-{{-   template "d9/mise/config.toml" -}}
 {{- else -}}
 {{-   template "mise/config.toml" -}}
 {{- end -}}
