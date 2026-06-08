@@ -360,10 +360,8 @@ return {
       vim.lsp.enable("expert")
 
       local commands = {
-        { ":LspRestart", description = "LSP: Restart" },
-        { ":LspStart", description = "LSP: Start" },
-        { ":LspStop", description = "LSP: Stop" },
-        { ":LspInfo", description = "LSP: Show Info" },
+        { ":LspRestart", "<cmd>lsp restart<cr>", description = "LSP: Restart" },
+        { ":LspInfo", "<cmd>checkhealth vim.lsp<cr>", description = "LSP: Show Info" },
         { ":Mason", description = "Show Mason" },
       }
       local kopts = { noremap = true, silent = true }
