@@ -7,6 +7,12 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "languages": {
+    "Erlang": {
+      "show_edit_predictions": true
+    }
+  },
+  "show_edit_predictions": true,
   "agent": {
     "sidebar_side": "right",
     "favorite_models": [],
@@ -18,6 +24,9 @@
   "restore_on_startup": "launchpad",
   "agent_servers": {
     "github-copilot-cli": {
+      "default_config_options": {
+        "model": "auto"
+      },
       "type": "registry"
     }
   },
