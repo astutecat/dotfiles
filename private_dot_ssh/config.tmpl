@@ -11,7 +11,7 @@ Host *
   Compression yes
   ServerAliveInterval 60
   ServerAliveCountMax 3
-{{else if and (hasKey .chezmoi.osRelease "cpeName") (contains "universal-blue" .chezmoi.osRelease.cpeName) (eq .location "personal") }}
+{{else if and (hasKey .chezmoi.osRelease "cpeName") (or (contains "universal-blue" .chezmoi.osRelease.cpeName) (contains "fedoraproject:fedora" .chezmoi.osRelease.cpeName )) }}
 Host *
   Compression yes
   AddKeysToAgent yes
@@ -28,6 +28,4 @@ Host *
   ServerAliveCountMax 3
 {{- end }}
 
-{{if ne .chezmoi.fqdnHostname "debian9.ntls.local"}}
 Include config.d/*
-{{end}}
