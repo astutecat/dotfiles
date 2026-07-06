@@ -157,6 +157,11 @@ output * bg /usr/share/backgrounds/default.jxl fill
     bindsym $mod+Control+Shift+Left move workspace to output left
     bindsym $mod+Control+Shift+Down move workspace to output down
     bindsym $mod+Control+Shift+Up move workspace to output up
+
+    bindsym $mod+Control+Shift+$right move workspace to output right
+    bindsym $mod+Control+Shift+$left move workspace to output left
+    bindsym $mod+Control+Shift+$down move workspace to output down
+    bindsym $mod+Control+Shift+$up move workspace to output up
 #
 # Layout stuff:
 #
