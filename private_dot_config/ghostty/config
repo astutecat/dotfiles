@@ -5,6 +5,11 @@ font-family-bold = "Monaspace Xenon"
 font-family-italic = "Monaspace Radon"
 font-family-bold-italic = "Monaspace Krypton"
 
+font-style = "Medium"
+font-style-bold = "Italic"
+font-style-italic= "Italic"
+font-style-bold-italic = "Regular"
+
 # Nightfox colors for Ghostty
 ## name: nightfox
 ## upstream: https://github.com/edeneast/nightfox.nvim/raw/main/extra/nightfox/nightfox.ghostty

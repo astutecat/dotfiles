@@ -4,24 +4,24 @@ return {
     priority = 1000, -- make sure to load this before all the other start plugins
     enabled = false,
     config = function()
-      require('onedark').setup {
-        style = 'cool',
+      require("onedark").setup({
+        style = "cool",
         transparent = false,
         compile = true,
 
         lualine = {
           transparent = true, -- lualine center bar transparency
         },
-      }
+      })
       -- Enable theme
-      require('onedark').load()
+      require("onedark").load()
       vim.cmd([[
       hi LspReferenceRead guibg=NONE
       hi LspReferenceText guibg=NONE
       hi LspReferenceWrite guibg=NONE
       hi LspSignatureActiveParameter gui=NONE guibg=NONE
       ]])
-    end
+    end,
   },
   {
     "EdenEast/nightfox.nvim",
@@ -33,19 +33,31 @@ return {
         styles = {
           comments = "italic",
           types = "italic",
-        }
-      }
+        },
+      },
     },
     init = function()
       vim.cmd([[
         colorscheme nightfox
         ]])
-      vim.api.nvim_set_hl(0, '@markup.strikethrough', {
+      vim.api.nvim_set_hl(0, "@markup.strikethrough", {
         strikethrough = false,
         force = true,
       })
-    end
-  }
+    end,
+  },
+  {
+    "jackplus-xyz/monaspace.nvim",
+    lazy = false,
+    opts = {
+      use_default = false,
+      style_map = {
+        italic = {
+          Comment = true,
+        },
+      },
+    },
+  },
 }
 
 -- local cs_opts = {
