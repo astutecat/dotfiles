@@ -1,0 +1,32 @@
+output eDP-1 {
+  scale 1.5
+  position 0,0
+  alias $INTERNAL
+}
+
+output HDMI-A-1 {
+  scale 1
+  position 1750,0
+  alias $EXTERNAL
+}
+
+output "Acer Technologies VG271U 0x0251929A" {
+  alias $HOME
+  scale 1
+  mode 2560x1440@143.999
+  position 1710,0
+}
+
+profile {
+  output $HOME enable
+  output $INTERNAL enable
+}
+
+profile {
+  output $INTERNAL enable
+  output $EXTERNAL enable
+}
+
+profile {
+  output $INTERNAL enable
+}
