@@ -1,7 +1,8 @@
 output eDP-1 {
+  alias $INTERNAL
   scale 1.5
   position 0,0
-  alias $INTERNAL
+  mode 2560x1600@90
 }
 
 output HDMI-A-1 {
@@ -15,6 +16,18 @@ output "Acer Technologies VG271U 0x0251929A" {
   scale 1
   mode 2560x1440@143.999
   position 1710,0
+}
+
+output "Lenovo Group Limited P27QD-40" {
+  alias $WORK
+  scale 1
+  mode 2560x1440
+}
+
+profile {
+  output $INTERNAL enable
+  output DP-6 $WORK enable position 1710,0
+  output DP-9 $WORK enable position 4270,0
 }
 
 profile {
