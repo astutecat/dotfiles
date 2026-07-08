@@ -24,18 +24,18 @@ output "Lenovo Group Limited P27QD-40" {
   mode 2560x1440
 }
 
-profile {
+profile entelios_office {
   output $INTERNAL enable
-  output DP-6 $WORK enable position 1710,0
-  output DP-9 $WORK enable position 4270,0
+  output DP-6 enable position 1710,0
+  output DP-9 enable position 4270,0
 }
 
-profile {
+profile home_office {
   output $HOME enable
   output $INTERNAL enable
 }
 
-profile {
+profile hdmi {
   output $INTERNAL enable
   output $EXTERNAL enable
 }
