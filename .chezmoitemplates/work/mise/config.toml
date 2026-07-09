@@ -14,6 +14,7 @@ disable_backends = ["asdf"]
 "cargo:cross" = "latest"
 "cargo:adrs" = "latest"
 "cargo:bluetui" = "latest"
+"cargo:cargo-update" = "latest"
 go = "latest"
 lua = "latest"
 prek = "latest"

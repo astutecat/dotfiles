@@ -11,6 +11,7 @@ disable_backends = ["asdf"]
 "cargo:cargo-cache" = "latest"
 "cargo:cargo-nextest" = "latest"
 "cargo:cargo-generate" = "latest"
+"cargo:cargo-update" = "latest"
 "cargo:cross" = "latest"
 "cargo:adrs" = "latest"
 go = "latest"
