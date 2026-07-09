@@ -1,5 +1,7 @@
 {{- if eq .location "other" -}}
 {{-   template "other/mise/config.toml" -}}
+{{- else if eq .location "work" -}}
+{{-   template "work/mise/config.toml" -}}
 {{- else -}}
 {{-   template "mise/config.toml" -}}
 {{- end -}}

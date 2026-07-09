@@ -1,0 +1,29 @@
+# vim:ft=toml.chezmoitmpl
+
+[settings]
+experimental = true
+cache_prune_age = "14d"
+disable_hints = ["python_multi", "python_precompiled"]
+disable_backends = ["asdf"]
+
+[tools]
+"cargo:cargo-binstall" = "latest"
+"cargo:cargo-cache" = "latest"
+"cargo:cargo-nextest" = "latest"
+"cargo:cargo-generate" = "latest"
+"cargo:cross" = "latest"
+"cargo:adrs" = "latest"
+"cargo:shikane" = "latest"
+"cargo:bluetui" = "latest"
+go = "latest"
+lua = "latest"
+prek = "latest"
+elixir = "latest"
+"aqua:elixir-lang/expert" = "latest"
+erlang = "latest"
+gleam = "latest"
+node = "latest"
+python = "3.13"
+rust = "latest"
+usage = "latest"
+uv = "0.10.0"

@@ -18,12 +18,6 @@ output "Acer Technologies VG271U 0x0251929A" {
   position 1710,0
 }
 
-output "Lenovo Group Limited P27QD-40" {
-  alias $WORK
-  scale 1
-  mode 2560x1440
-}
-
 profile entelios_office {
   output $INTERNAL enable
   output DP-6 enable position 1710,0
