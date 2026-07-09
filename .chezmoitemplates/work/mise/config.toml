@@ -13,7 +13,6 @@ disable_backends = ["asdf"]
 "cargo:cargo-generate" = "latest"
 "cargo:cross" = "latest"
 "cargo:adrs" = "latest"
-"cargo:shikane" = "latest"
 "cargo:bluetui" = "latest"
 go = "latest"
 lua = "latest"
