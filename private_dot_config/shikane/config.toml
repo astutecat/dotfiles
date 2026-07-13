@@ -1,0 +1,32 @@
+[[profile]]
+name = "home-office"
+
+[[profile.output]]
+enable = true
+search = ["m=VG271U", "s=0x0251929A", "v=Acer Technologies"]
+mode = "2560x1440@143.999Hz"
+position = "1828,0"
+scale = 1.0
+transform = "normal"
+adaptive_sync = false
+
+[[profile.output]]
+enable = true
+search = ["m=B145QAN01.K ", "s=0x000044B5", "v=AU Optronics"]
+mode = "2560x1600@90Hz"
+position = "0,297"
+scale = 1.3984375
+transform = "normal"
+adaptive_sync = false
+
+[[profile]]
+name = "laptop-only"
+
+[[profile.output]]
+enable = true
+search = ["m=B145QAN01.K ", "s=0x000044B5", "v=AU Optronics"]
+mode = "2560x1600@90Hz"
+position = "0,297"
+scale = 1.3984375
+transform = "normal"
+adaptive_sync = false
