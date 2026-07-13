@@ -9,10 +9,16 @@ typos.toml
 .config/zsh/.zfunc/_eza
 {{ end }}
 
+{{ if not (eq .chezmoi.os "linux") }}
+.config/shikane
+.config/kanshi
+.config/sway
+.config/waybar
+{{end}}
+
 {{ if .no_fonts }}
 .local/share/fonts
 {{ end }}
-
 
 .config/zsh
 justfile
