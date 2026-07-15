@@ -74,6 +74,10 @@ output * bg /usr/share/backgrounds/default.jxl fill
     xkb_options caps:escape,compose:ralt
   }
 
+  input "type:touchpad" {
+    natural_scroll enabled
+  }
+
 ### Key bindings
 #
 # Basics:
