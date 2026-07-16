@@ -30,3 +30,33 @@ position = "0,297"
 scale = 1.3984375
 transform = "normal"
 adaptive_sync = false
+[[profile]]
+name = "euref-1"
+
+[[profile.output]]
+enable = true
+search = ["m=P27QD-40", "s=VNACM7K7", "v=Lenovo Group Limited"]
+mode = "2560x1440@59.951Hz"
+position = "4388,0"
+scale = 1.0
+transform = "normal"
+adaptive_sync = false
+
+[[profile.output]]
+enable = true
+search = ["m=B145QAN01.K ", "s=0x000044B5", "v=AU Optronics"]
+mode = "2560x1600@90Hz"
+position = "0,297"
+scale = 1.3984375
+transform = "normal"
+adaptive_sync = false
+
+[[profile.output]]
+enable = true
+search = ["m=P27QD-40", "s=VNACWFT7", "v=Lenovo Group Limited"]
+mode = "2560x1440@59.951Hz"
+position = "1828,0"
+scale = 1.0
+transform = "normal"
+adaptive_sync = false
+
