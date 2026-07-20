@@ -7,6 +7,12 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "git_panel": {
+    "dock": "left"
+  },
+  "outline_panel": {
+    "dock": "left"
+  },
   "languages": {
     "Erlang": {
       "show_edit_predictions": true
@@ -14,7 +20,8 @@
   },
   "show_edit_predictions": true,
   "agent": {
-    "sidebar_side": "right",
+    "dock": "right",
+    "sidebar_side": "left",
     "favorite_models": [],
     "model_parameters": []
   },
