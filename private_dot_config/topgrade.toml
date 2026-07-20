@@ -226,7 +226,7 @@ arch_package_manager = "autodetect"
 
 # shelly_arguments = ""
 
-# enable_tlmgr = true
+enable_tlmgr = true
 
 # emerge_sync_flags = "-q"
 
