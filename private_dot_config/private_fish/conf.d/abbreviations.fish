@@ -8,6 +8,7 @@ abbr -a ga git add
 abbr -a gpf git fpush
 abbr -a gsw git switch
 abbr -a gsp git spr
+abbr -a gst gh stack
 abbr -a spr git spr
 abbr -a j just
 abbr -a .j just -g
