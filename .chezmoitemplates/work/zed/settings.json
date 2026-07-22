@@ -57,7 +57,7 @@
     "metrics": false
   },
   "agent_ui_font_size": 14.0,
-  "buffer_font_family": "MonoLisa",
+  "buffer_font_family": "Monaspace Argon",
   "vim_mode": false,
   "ui_font_size": 16,
   "buffer_font_size": 12.0,
