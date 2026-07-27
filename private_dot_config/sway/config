@@ -252,6 +252,7 @@ exec gsettings set org.gnome.desktop.interface icon-theme 'breeze-dark'
 exec gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
 exec lookandfeeltool -platform offscreen --apply "org.kde.breezedark.desktop"
 
+exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
 
 # Note the quoting, the $() and the arguments quoting. All the parts are equally
 # important to make the magic work. And if you want to learn the secret behind
