@@ -247,10 +247,10 @@ bindsym $mod+r mode "resize"
 #     $ echo -n > "$HOME/.config/sway/config.d/90-bar.conf"
 #
 
-exec gsettings set org.gnome.desktop.interface gtk-theme 'Breeze-Dark'
-exec gsettings set org.gnome.desktop.interface icon-theme 'breeze-dark'
-exec gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
-exec lookandfeeltool -platform offscreen --apply "org.kde.breezedark.desktop"
+# exec gsettings set org.gnome.desktop.interface gtk-theme 'Breeze-Dark'
+# exec gsettings set org.gnome.desktop.interface icon-theme 'breeze-dark'
+# exec gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
+# exec lookandfeeltool -platform offscreen --apply "org.kde.breezedark.desktop"
 
 exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
 
