@@ -11,7 +11,7 @@ Host *
   Compression yes
   ServerAliveInterval 60
   ServerAliveCountMax 3
-{{else if (or (eq "cachyos" .chezmoi.osRelease.id) (contains "fedoraproject:fedora" .chezmoi.osRelease.cpeName )) }}
+{{else if (or (eq "cachyos" .chezmoi.osRelease.id) (eq "ubuntu" .chezmoi.osRelease.id)) }}
 Host *
   Compression yes
   AddKeysToAgent yes
