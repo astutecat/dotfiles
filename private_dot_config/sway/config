@@ -267,7 +267,7 @@ exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DE
 exec blueman-applet
 exec nm-applet --indicator
 exec /usr/libexec/polkit-mate-authentication-agent-1
-
+exec --no-startup-id systemctl start --user sway-session.service
 # Note the quoting, the $() and the arguments quoting. All the parts are equally
 # important to make the magic work. And if you want to learn the secret behind
 # the trick, it's all in the `wordexp(3)`.
