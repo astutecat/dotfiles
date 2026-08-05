@@ -20,8 +20,9 @@
   },
   "show_edit_predictions": true,
   "agent": {
+    "default_profile": "minimal",
     "dock": "right",
-    "sidebar_side": "left",
+    "sidebar_side": "right",
     "favorite_models": [],
     "model_parameters": []
   },
