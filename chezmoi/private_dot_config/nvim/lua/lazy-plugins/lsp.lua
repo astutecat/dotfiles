@@ -135,6 +135,7 @@ local function conform_opts()
       dockerfile = { "dockerfmt" },
       just = { "just" },
       fish = { "fish_indent" },
+      nix = { "nixfmt" },
     },
     -- Set default options
     default_format_opts = {

@@ -17,5 +17,12 @@ commit message: apply
     git commit -m "{{ message }}"
     git push
 
+nix-apply:
+    nh home switch . -c $(whoami)@$(hostname)
+
+nix-update:
+    nix flake update
+    @just nix-apply
+
 install-hooks:
     pre-commit install
