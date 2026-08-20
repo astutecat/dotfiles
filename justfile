@@ -4,7 +4,7 @@ set shell := ["zsh", "-cu"]
 default:
     @just --justfile "{{ justfile() }}" --list
 
-@apply:
+@apply-chezmoi:
     echo -n "applying dotfiles..."
     chezmoi apply
     echo "done"
@@ -12,7 +12,7 @@ default:
 watch:
     watchexec -- just apply
 
-commit message: apply
+commit message: apply-chezmoi
     git add .
     git commit -m "{{ message }}"
     git push
@@ -23,6 +23,8 @@ nix-apply:
 nix-update:
     nix flake update
     @just nix-apply
+
+@apply: apply-chezmoi nix-update
 
 install-hooks:
     pre-commit install
