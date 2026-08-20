@@ -20,11 +20,22 @@
             system = "x86_64-linux";
             config.allowUnfree = true;
           };
-          extraSpecialArgs = { inherit inputs; };
+          extraSpecialArgs = { inherit inputs; username = "willrog"; };
           modules = [
             ./hosts/nb0408
           ];
         };
+        "astutecat@astutecachy" = home-manager.lib.homeManagerConfiguration {
+          pkgs = import nixpkgs {
+            system = "x86_64-linux";
+            config.allowUnfree = true;
+          };
+          extraSpecialArgs = { inherit inputs; username = "astutecat"; };
+          modules = [
+            ./hosts/astutecachy
+          ];
+        };
+
       };
     };
 }
