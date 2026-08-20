@@ -6,7 +6,6 @@ packages:
     - "age"
     - "awk"
     - "difftastic"
-    - "direnv"
     - "eza"
     - "fastfetch"
     - "gh"
