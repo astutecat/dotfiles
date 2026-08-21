@@ -5,7 +5,6 @@
   name = {{ .git.name }}
   email = {{ .git.email }}
   signingKey = {{ .git.signing_key }}
-{{ if ne .location "other" }}
 [diff]
   tool = difftastic
 [difftool]
@@ -14,18 +13,6 @@
   trustExitCode = true
 [difftool "difftastic"]
   cmd = difft "$LOCAL" "$REMOTE"
-[merge]
-  tool = bc3
-  conflictstyle = diff3
-[mergetool "bc3"]
-  trustExitCode = true
-[gui]
-  pruneduringfetch = true
-[smartgit "submodule"]
-  fetchalways = false
-  update = true
-  initializenew = true
-{{ end }}
 [alias]
   dft = difftool -t difftastic
   dfts = dft --staged
