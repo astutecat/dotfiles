@@ -5,6 +5,7 @@
     ./topgrade.nix
     ./atuin.nix
     ./fastfetch.nix
+    ./tealdeer.nix
   ];
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
