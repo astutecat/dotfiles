@@ -1,4 +1,9 @@
-{ pkgs, username, homeDirectory, ... }:
+{
+  pkgs,
+  username,
+  homeDirectory,
+  ...
+}:
 
 {
   imports = [
@@ -24,12 +29,39 @@
   # The home.packages option allows you to install Nix packages into your
   # environment.
   home.packages = with pkgs; [
-    nh
-    nix
+    age
+    bottom
+    cheat
+    cloc
+    difftastic
     direnv
+    dust
+    dysk
+    exercism
+    eza
+    gawk
+    gh
+    htop
+    hyperfine
+    just
+    jujutsu
+    lazygit
+    lazydocker
+    lnav
+    most
+    nh
+    nil
+    nix
     nixd
     nixfmt
-    nil
+    restic
+    sbcl
+    silver-searcher
+    sops
+    visidata
+    watchexec
+    zellij
+    zoxide
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
