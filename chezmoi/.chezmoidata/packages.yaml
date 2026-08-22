@@ -1,7 +1,6 @@
 packages:
   brews:
     - "fish"
-    - "atuin"
     - "chezmoi"
     - "age"
     - "awk"
