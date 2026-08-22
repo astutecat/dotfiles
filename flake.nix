@@ -20,7 +20,7 @@
             system = "x86_64-linux";
             config.allowUnfree = true;
           };
-          extraSpecialArgs = { inherit inputs; username = "willrog"; };
+          extraSpecialArgs = { inherit inputs; username = "willrog"; homeDirectory = "/home/willrog"; };
           modules = [
             ./hosts/nb0408
           ];
@@ -30,12 +30,21 @@
             system = "x86_64-linux";
             config.allowUnfree = true;
           };
-          extraSpecialArgs = { inherit inputs; username = "astutecat"; };
+          extraSpecialArgs = { inherit inputs; username = "astutecat"; homeDirectory = "/home/astutecat"; };
           modules = [
             ./hosts/astutecachy
           ];
         };
-
+        "astutecat@AstuteMBP" = home-manager.lib.homeManagerConfiguration {
+          pkgs = import nixpkgs {
+            system = "aarch64-darwin";
+            config.allowUnfree = true;
+          };
+          extraSpecialArgs = { inherit inputs; username = "astutecat"; homeDirectory = "/Users/astutecat"; };
+          modules = [
+            ./hosts/AstuteMBP
+          ];
+        };
       };
     };
 }
