@@ -1,4 +1,4 @@
-{ config, pkgs, username, homeDirectory, ... }:
+{ pkgs, username, homeDirectory, ... }:
 
 {
   imports = [
@@ -28,6 +28,7 @@
     nix
     direnv
     nixd
+    nixfmt
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
