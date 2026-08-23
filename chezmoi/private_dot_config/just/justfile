@@ -25,7 +25,6 @@ split-nvim:
 
 update-all:
     just -g update-fish
-    just -g update-devbox
     topgrade
     just -g update-fish-completions
 
@@ -35,11 +34,6 @@ update-flatpak:
 brewfile := `echo "$HOME/.config/homebrew/chezmoi.Brewfile"`
 update-brew:
     topgrade --only brew_formula brew_cask
-
-update-devbox:
-    [[ -n $(command -v devbox) ]] && devbox version update || :
-    [[ -n $(command -v devbox) ]] && devbox global update  || :
-    [[ -n $(command -v devbox) ]] && devbox global run -- nix store gc --extra-experimental-features nix-command || :
 
 update-chezmoi:
     chezmoi git checkout main

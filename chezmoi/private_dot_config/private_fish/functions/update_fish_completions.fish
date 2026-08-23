@@ -25,16 +25,8 @@ function update_fish_completions
         stg completion fish >$completions_dir/stg.fish
     end
 
-    if type -q devbox
-        devbox completion fish >$completions_dir/devbox.fish
-    end
-
     if type -q restic
         restic generate --fish-completion $completions_dir/restic.fish
-    end
-
-    if type -q trivy
-        trivy completion fish >$completions_dir/trivy.fish
     end
 
     if type -q jj
