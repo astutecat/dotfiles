@@ -20,7 +20,12 @@
             system = "x86_64-linux";
             config.allowUnfree = true;
           };
-          extraSpecialArgs = { inherit inputs; username = "willrog"; homeDirectory = "/home/willrog"; };
+          extraSpecialArgs = {
+            inherit inputs;
+            username = "willrog";
+            hostname = "nb0408";
+            homeDirectory = "/home/willrog";
+          };
           modules = [
             ./hosts/nb0408
           ];
@@ -30,7 +35,12 @@
             system = "x86_64-linux";
             config.allowUnfree = true;
           };
-          extraSpecialArgs = { inherit inputs; username = "astutecat"; homeDirectory = "/home/astutecat"; };
+          extraSpecialArgs = {
+            inherit inputs;
+            username = "astutecat";
+            hostname = "astutecachy";
+            homeDirectory = "/home/astutecat";
+          };
           modules = [
             ./hosts/astutecachy
           ];
@@ -40,7 +50,12 @@
             system = "aarch64-darwin";
             config.allowUnfree = true;
           };
-          extraSpecialArgs = { inherit inputs; username = "astutecat"; homeDirectory = "/Users/astutecat"; };
+          extraSpecialArgs = {
+            inherit inputs;
+            username = "astutecat";
+            hostname = "AstuteMBP";
+            homeDirectory = "/Users/astutecat";
+          };
           modules = [
             ./hosts/AstuteMBP
           ];

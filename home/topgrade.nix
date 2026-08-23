@@ -1,4 +1,6 @@
-{ ... }:
+{
+  ...
+}:
 {
   programs.topgrade = {
     enable = true;
@@ -11,6 +13,7 @@
           "waydroid"
           "nix"
           "toolbx"
+          "home-manager"
         ];
         first = [ "chezmoi" ];
         ignore_failures = [
