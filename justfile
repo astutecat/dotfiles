@@ -17,8 +17,8 @@ commit message: apply-chezmoi
     git commit -m "{{ message }}"
     git push
 
-nix-apply:
-    nh home switch . -c $(whoami)@$(hostname)
+nix-apply *args:
+    nh home switch . -c $(whoami)@$(hostname) {{ args }}
 
 nix-update:
     nix flake update
