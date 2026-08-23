@@ -49,10 +49,6 @@ if status is-interactive
         set -gx VISUAL nvim
     end
 
-    if type -q direnv
-        direnv hook fish | source
-    end
-
     if type -q atuin
         atuin init fish | source
     end
@@ -61,5 +57,9 @@ if status is-interactive
         set -x _ZO_RESOLVE_SYMLINKS 0
         set -x _ZO_EXCLUDE_DIRS '/var/mnt/games/repos/*'
         zoxide init fish | source
+    end
+
+    if type -q direnv
+        direnv hook fish | source
     end
 end
