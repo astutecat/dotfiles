@@ -13,7 +13,7 @@
           "waydroid"
           "nix"
           "toolbx"
-          "home-manager"
+          "home_manager"
         ];
         first = [ "chezmoi" ];
         ignore_failures = [
