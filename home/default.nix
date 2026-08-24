@@ -4,7 +4,17 @@
   homeDirectory,
   ...
 }:
-
+let
+  isDarwin = pkgs.stdenv.hostPlatform.isDarwin;
+  platformSpecificPackages = (
+    if isDarwin then
+      [ ]
+    else
+      [
+        pkgs.bluetui
+      ]
+  );
+in
 {
   imports = [
     ./topgrade.nix
@@ -30,40 +40,47 @@
 
   # The home.packages option allows you to install Nix packages into your
   # environment.
-  home.packages = with pkgs; [
-    age
-    bottom
-    cheat
-    cloc
-    difftastic
-    direnv
-    dust
-    dysk
-    exercism
-    eza
-    gawk
-    gh
-    htop
-    hyperfine
-    just
-    jujutsu
-    lazygit
-    lazydocker
-    lnav
-    most
-    nil
-    nix
-    nixd
-    nixfmt
-    restic
-    sbcl
-    silver-searcher
-    sops
-    visidata
-    watchexec
-    zellij
-    zoxide
-  ];
+  home.packages =
+    with pkgs;
+    [
+      adrs
+      age
+      bottom
+      cheat
+      cloc
+      difftastic
+      direnv
+      dust
+      dysk
+      exercism
+      eza
+      gawk
+      gh
+      htop
+      hyperfine
+      just
+      jujutsu
+      lazygit
+      lazydocker
+      lnav
+      lua
+      most
+      nil
+      nix
+      nixd
+      nixfmt
+      prek
+      restic
+      sbcl
+      silver-searcher
+      sops
+      usage
+      visidata
+      watchexec
+      zellij
+      zoxide
+    ]
+    ++ platformSpecificPackages;
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
