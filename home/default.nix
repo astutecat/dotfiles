@@ -9,12 +9,13 @@ let
 in
 {
   imports = [
-    ./topgrade.nix
-    ./atuin.nix
-    ./fastfetch.nix
-    ./tealdeer.nix
-    ./nh.nix
-    ./direnv.nix
+    ../configs/atuin.nix
+    ../configs/direnv.nix
+    ../configs/fastfetch.nix
+    ../configs/nh.nix
+    ../configs/tealdeer.nix
+    ../configs/topgrade.nix
+    ../configs/pert.nix
   ];
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
@@ -57,6 +58,7 @@ in
       lnav
       lua
       most
+      mr
       nil
       nix
       nixd
@@ -65,9 +67,11 @@ in
       restic
       sbcl
       silver-searcher
+      tombi
       tree-sitter
       sops
       unzip
+      update-nix-fetchgit
       usage
       visidata
       watchexec
@@ -128,6 +132,15 @@ in
   #
   home.sessionVariables = {
     # EDITOR = "emacs";
+  };
+
+  xdg.configFile = {
+    "cheat/cheatsheets/community" = {
+      source = fetchGit {
+        url = "https://github.com/cheat/cheatsheets";
+        rev = "36bdb99dcfadde210503d8c2dcf94b34ee950e1d";
+      };
+    };
   };
 
   programs = {
