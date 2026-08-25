@@ -41,6 +41,7 @@ in
     [
       adrs
       age
+      babelfish
       bottom
       cheat
       cloc
@@ -134,7 +135,7 @@ in
   #  /etc/profiles/per-user/willrog/etc/profile.d/hm-session-vars.sh
   #
   home.sessionVariables = {
-    # EDITOR = "emacs";
+
   };
 
   xdg.configFile = {

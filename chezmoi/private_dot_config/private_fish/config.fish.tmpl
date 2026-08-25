@@ -66,4 +66,12 @@ if status is-interactive
     if type -q direnv
         direnv hook fish | source
     end
+
+    if test -e '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.fish'
+      . '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.fish'
+    end
+
+    if test -e $HOME/.nix-profile/etc/profile.d/hm-session-vars.sh
+        cat $HOME/.nix-profile/etc/profile.d/hm-session-vars.sh | babelfish | source
+    end
 end

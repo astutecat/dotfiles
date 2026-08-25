@@ -1,7 +1,13 @@
 {
+  username,
+  hostname,
+  homeDirectory,
   ...
 }:
 {
+  home.sessionVariables = {
+    NH_HOME_FLAKE = "${homeDirectory}/repos/dotfiles";
+  };
   programs.topgrade = {
     enable = true;
     settings = {
@@ -13,7 +19,6 @@
           "waydroid"
           "nix"
           "toolbx"
-          "home_manager"
         ];
         first = [ "chezmoi" ];
         ignore_failures = [
@@ -28,6 +33,7 @@
         ask_retry = false;
         cleanup = true;
         notify_end = "always";
+        nix_handler = "nh";
       };
       brew = {
         autoremove = true;
@@ -35,6 +41,10 @@
       linux = {
         arch_package_manager = "autodetect";
         enable_tlmgr = true;
+        home_manager_arguments = [
+          "-c"
+          "${username}@${hostname}"
+        ];
       };
       firmware = {
         upgrade = true;
