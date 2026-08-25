@@ -1,13 +1,11 @@
 packages:
   brews:
-    - "fish"
     - "chezmoi"
     - "comby"
     - "git"
     - "git-delta"
     - "lazyjj"
     - "neovim"
-    - "ripgrep"
     - "stgit"
     - "tmate"
     - "tree-sitter-cli"

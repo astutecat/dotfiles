@@ -70,6 +70,7 @@ in
       nixfmt
       prek
       restic
+      ripgrep
       sbcl
       silver-searcher
       tombi
