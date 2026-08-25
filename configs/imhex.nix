@@ -32,8 +32,11 @@ let
   };
 in
 {
-  home.file.".local/share/imhex/imhex-patterns" = {
+  xdg.dataFile."imhex/imhex-patterns" = {
     source = "${imhex-patterns}/share/imhex/imhex-patterns";
     recursive = true;
   };
+  home.packages = [
+    pkgs.imhex
+  ];
 }
