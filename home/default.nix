@@ -19,6 +19,7 @@ in
     ../configs/tfg.nix
     ../configs/imhex.nix
     ../configs/cheat.nix
+    ../configs/fish.nix
   ];
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
@@ -134,8 +135,26 @@ in
   #
   #  /etc/profiles/per-user/willrog/etc/profile.d/hm-session-vars.sh
   #
-  home.sessionVariables = {
+  home.sessionPath = [
+    "/opt/homebrew/bin"
+    "/opt/homebrew/sbin"
+    "/home/linuxbrew/.linuxbrew/bin"
+    "/home/linuxbrew/.linuxbrew/sbin"
+    "$HOME/bin"
+    "$HOME/.local/bin"
+    "$HOME/.cargo/bin"
+    "$HOME/.cache/rebar3/bin"
+    "$HOME/.local/share/nvim/mason/bin"
+    "$HOME/.moon/bin"
+    "$HOME/.fly/bin"
+    "/Applications/Obsidian.app/Contents/MacOS"
+    "$HOME/.config/emacs/bin"
+  ];
 
+  home.sessionVariables = {
+    EDITOR = "nvim";
+    VISUAL = "nvim";
+    PAGER = "most";
   };
 
   xdg.configFile = {
