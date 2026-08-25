@@ -32,7 +32,6 @@ in
 {
   xdg.configFile."cheat/cheatsheets/community" = {
     source = "${community-cheatsheets}/share/cheat/cheatsheets";
-    recursive = true;
   };
   home.packages = [
     pkgs.cheat

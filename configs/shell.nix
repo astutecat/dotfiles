@@ -1,8 +1,46 @@
 {
   pkgs,
+  lib,
   ...
 }:
+
+let
+  # ── Shared commands (work in both bash and zsh) ───────────────
+  sharedCommands = ''
+  '';
+
+  bashOnlyCommands = "";
+
+  zshOnlyCommands = "";
+
+  # ── Fish exec guard ──────────────────────────────────────────
+  # Runs last. Execs into nix-managed fish for interactive sessions.
+  fishExec = ''
+    if [[ $- == *i* ]] && [[ -z "''${NIX_FISH_EXEC-}" ]]; then
+      export NIX_FISH_EXEC=1
+      exec ${pkgs.fish}/bin/fish
+    fi
+  '';
+
+  # Concatenated init: shared + shell-specific + fish exec guard
+  bashInit = sharedCommands + bashOnlyCommands + fishExec;
+  zshInit = sharedCommands + zshOnlyCommands + fishExec;
+
+in
 {
+  programs.bash = {
+    enable = true;
+    initExtra = bashInit;
+    profileExtra = ''
+      [[ -f ~/.bashrc ]] && . ~/.bashrc
+    '';
+  };
+
+  programs.zsh = {
+    enable = true;
+    initContent = lib.mkOrder 1000 zshInit;
+  };
+
   programs.fish = {
     enable = true;
 
@@ -19,13 +57,10 @@
       if type -q brew
           brew shellenv | source
       end
-      if type -q direnv   # belt-and-braces; programs.direnv covers it
-          direnv hook fish | source
-      end
     '';
 
     interactiveShellInit = ''
-      set --global tide_left_prompt_items pwd jj git newline character
+      set --global tide_left_prompt_items pwd git newline character
       set --global tide_right_prompt_items status cmd_duration context jobs direnv bun node python rustc java php pulumi ruby go gcloud kubectl distrobox toolbox terraform aws nix_shell crystal elixir zig
       set --global tide_character_icon λ
       set --global tide_character_color FF4F00
@@ -105,15 +140,6 @@
     };
 
     functions = {
-      "_tide_item_jj".body = ''
-        function _tide_item_jj
-          if command -sq jj; and jj root --quiet &>/dev/null
-            set vcs_info (jj log --ignore-working-copy --no-graph --color always -r @ -T 'separate( " ", change_id.shortest(), commit_id.shortest(), bookmarks.join(", "), if(empty, "(∅)"), if(conflict, "(conflict)"), if(divergent, "(divergent)"), if(hidden, "(hidden)"), coalesce( surround( "\"", "\"", if( description.first_line().substr(0, 30).starts_with(description.first_line()), description.first_line().substr(0, 30), description.first_line().substr(0, 29) ++ "…" ) ), "(no desc)" ) )')
-            \_tide_print_item jj $tide_jj_icon $vcs_info
-          end
-        end
-      '';
-
       last_history_item.body = "echo $history[1]";
 
       fish_greeting.body = ''

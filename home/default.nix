@@ -10,16 +10,17 @@ in
 {
   imports = [
     ../configs/atuin.nix
+    ../configs/cheat.nix
     ../configs/direnv.nix
     ../configs/fastfetch.nix
-    ../configs/nh.nix
-    ../configs/tealdeer.nix
-    ../configs/topgrade.nix
-    ../configs/pert.nix
-    ../configs/tfg.nix
     ../configs/imhex.nix
-    ../configs/cheat.nix
-    ../configs/fish.nix
+    ../configs/nh.nix
+    ../configs/pert.nix
+    ../configs/shell.nix
+    ../configs/tealdeer.nix
+    ../configs/tfg.nix
+    ../configs/topgrade.nix
+    ../configs/zoxide.nix
   ];
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
