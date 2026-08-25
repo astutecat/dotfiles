@@ -7,18 +7,7 @@ disable_hints = ["python_multi", "python_precompiled"]
 disable_backends = ["asdf"]
 
 [tools]
-"cargo:cargo-binstall" = "latest"
-"cargo:cargo-cache" = "latest"
-"cargo:cargo-nextest" = "latest"
-"cargo:cargo-generate" = "latest"
-"cargo:cargo-update" = "latest"
-"cargo:cross" = "latest"
 go = "latest"
-elixir = "latest"
-"aqua:elixir-lang/expert" = "latest"
-erlang = "latest"
-gleam = "latest"
 node = "latest"
 python = "3.13"
-rust = "latest"
 uv = "0.10.0"

@@ -6,14 +6,6 @@
 }:
 let
   isDarwin = pkgs.stdenv.hostPlatform.isDarwin;
-  platformSpecificPackages = (
-    if isDarwin then
-      [ ]
-    else
-      [
-        pkgs.bluetui
-      ]
-  );
 in
 {
   imports = [
@@ -73,14 +65,35 @@ in
       restic
       sbcl
       silver-searcher
+      tree-sitter
       sops
+      unzip
       usage
       visidata
       watchexec
       zellij
       zoxide
+
+      beam29Packages.erlang
+      beam29Packages.elixir_1_20
+      beam29Packages.expert
+      erlang-language-platform
+      gleam
+
+      rustup
+      cargo-binstall
+      cargo-cache
+      cargo-update
+      cargo-nextest
+      cargo-generate
+      cargo-cross
     ]
-    ++ platformSpecificPackages;
+    ++ lib.optionals isDarwin [
+
+    ]
+    ++ lib.optionals (!isDarwin) [
+      pkgs.bluetui
+    ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
