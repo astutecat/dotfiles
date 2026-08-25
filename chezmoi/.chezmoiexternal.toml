@@ -1,14 +1,4 @@
 # vim:ft=toml.chezmoitmpl
-
-[".local/share/imhex/imhex-patterns"]
-type = "git-repo"
-url = "git@github.com:WerWolv/ImHex-Patterns.git"
-refreshPeriod = "672h"
-[".local/share/imhex/imhex-patterns".clone]
-args = ["--depth", "1", "--quiet"]
-[".local/share/imhex/imhex-patterns".pull]
-args = ["--quiet"]
-
 [".config/emacs"]
 type = "git-repo"
 url = "https://github.com/doomemacs/doomemacs"
