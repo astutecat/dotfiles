@@ -18,6 +18,7 @@ in
     ../configs/pert.nix
     ../configs/tfg.nix
     ../configs/imhex.nix
+    ../configs/cheat.nix
   ];
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
@@ -137,14 +138,6 @@ in
   };
 
   xdg.configFile = {
-    "cheat/cheatsheets/community" = {
-      source = pkgs.fetchFromGitHub {
-        owner = "cheat";
-        repo = "cheatsheets";
-        rev = "36bdb99dcfadde210503d8c2dcf94b34ee950e1d";
-        sha256 = "0yzj15zkn7zfwspr07qfq9xqrkiakd1z2cgnb8r2nk2qz6ng9yq1";
-      };
-    };
   };
 
   programs = {
