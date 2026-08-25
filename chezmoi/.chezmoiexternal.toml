@@ -7,12 +7,3 @@ refreshPeriod = "672h"
 args = ["--depth", "1", "--quiet"]
 [".config/emacs".pull]
 args = ["--quiet"]
-
-
-{{ if not .is_macos }}
-[".local/bin/git-squash"]
-  type = "file"
-  url = "https://raw.githubusercontent.com/sheerun/git-squash/master/git-squash"
-  refreshPeriod = "672h"
-  executable = true
-{{ end }}
