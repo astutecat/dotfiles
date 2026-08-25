@@ -1,5 +1,10 @@
-{ ... }:
-
+{
+  pkgs,
+  ...
+}:
+let
+  isDarwin = pkgs.stdenv.hostPlatform.isDarwin;
+in
 {
   programs = {
     direnv = {
@@ -7,5 +12,5 @@
       nix-direnv.enable = true;
     };
   };
-  services.lorri.enable = true;
+  services.lorri.enable = (!isDarwin);
 }
