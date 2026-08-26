@@ -28,6 +28,8 @@ in
     ../configs/tfg.nix
     ../configs/topgrade.nix
     ../configs/wezterm.nix
+    ../configs/yamllint.nix
+    ../configs/zathura.nix
     ../configs/zoxide.nix
   ];
 
