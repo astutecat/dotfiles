@@ -8,6 +8,8 @@ let
   isDarwin = pkgs.stdenv.hostPlatform.isDarwin;
 in
 {
+  nixpkgs.config.allowUnfree = true;
+
   imports = [
     ../configs/atuin.nix
     ../configs/cheat.nix
@@ -18,6 +20,7 @@ in
     ../configs/ghostty.nix
     ../configs/imhex.nix
     ../configs/just
+    ../configs/keymapp.nix
     ../configs/lazygit.nix
     ../configs/pert.nix
     ../configs/shell.nix
@@ -28,8 +31,12 @@ in
     ../configs/zoxide.nix
   ];
 
-  programs.nh.enable = true;
-  programs.man.enable = true;
+  programs = {
+    # Let Home Manager install and manage itself.
+    home-manager.enable = true;
+    nh.enable = true;
+    man.enable = true;
+  };
 
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
@@ -166,11 +173,6 @@ in
   };
 
   xdg.configFile = {
-  };
-
-  programs = {
-    # Let Home Manager install and manage itself.
-    home-manager.enable = true;
   };
 
   nix = {
