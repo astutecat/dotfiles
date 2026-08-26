@@ -40,6 +40,7 @@ in
     home-manager.enable = true;
     nh.enable = true;
     man.enable = true;
+    fd.enable = true;
   };
 
   # Home Manager needs a bit of information about you and the paths it should

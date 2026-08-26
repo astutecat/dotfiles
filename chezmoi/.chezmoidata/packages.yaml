@@ -8,8 +8,6 @@ packages:
     - "neovim"
     - "stgit"
     - "tmate"
-    - "tree-sitter-cli"
-    - "zsh"
     - "qman"
     - "universal-ctags"
     - "tombi"
@@ -22,7 +20,6 @@ packages:
     - "sleek"
     - "yazi"
     - "fzf"
-    - "fd"
   casks:
     - "raycast"
     - "rstudio"
