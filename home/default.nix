@@ -12,6 +12,7 @@ in
     ../configs/atuin.nix
     ../configs/cheat.nix
     ../configs/direnv.nix
+    ../configs/editorconfig.nix
     ../configs/fastfetch.nix
     ../configs/imhex.nix
     ../configs/nh.nix
