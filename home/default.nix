@@ -23,6 +23,7 @@ in
     ../configs/just
     ../configs/keymapp.nix
     ../configs/lazygit.nix
+    ../configs/opencode.nix
     ../configs/pert.nix
     ../configs/shell.nix
     ../configs/tealdeer.nix
