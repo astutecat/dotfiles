@@ -14,15 +14,23 @@ in
     ../configs/direnv.nix
     ../configs/editorconfig.nix
     ../configs/fastfetch.nix
+    ../configs/fortune.nix
+    ../configs/ghostty.nix
     ../configs/imhex.nix
-    ../configs/nh.nix
+    ../configs/just
+    ../configs/lazygit.nix
     ../configs/pert.nix
     ../configs/shell.nix
     ../configs/tealdeer.nix
     ../configs/tfg.nix
     ../configs/topgrade.nix
+    ../configs/wezterm.nix
     ../configs/zoxide.nix
   ];
+
+  programs.nh.enable = true;
+  programs.man.enable = true;
+
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
   home.username = username;
@@ -58,10 +66,7 @@ in
       gh
       htop
       hyperfine
-      just
       jujutsu
-      lazygit
-      lazydocker
       lnav
       lua
       most

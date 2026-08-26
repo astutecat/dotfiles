@@ -31,7 +31,6 @@ update-all:
 update-flatpak:
     topgrade --only flatpak --yes
 
-brewfile := `echo "$HOME/.config/homebrew/chezmoi.Brewfile"`
 update-brew:
     topgrade --only brew_formula brew_cask
 
@@ -81,7 +80,7 @@ lazygit:
       echo "Error: lazygit not on PATH."
     fi
 
-fortune +args="-s":
+fortune:
     #!/bin/zsh
     if (( $+commands[fortune] )); then
       fortune -s ~/.local/share/fortunes/ | fmt
