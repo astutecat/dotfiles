@@ -34,6 +34,7 @@
         cleanup = true;
         notify_end = "always";
         nix_handler = "nh";
+        pre_sudo = true;
       };
       brew = {
         autoremove = true;
