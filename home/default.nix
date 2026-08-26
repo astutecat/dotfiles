@@ -18,6 +18,7 @@ in
     ../configs/fastfetch.nix
     ../configs/fortune.nix
     ../configs/ghostty.nix
+    ../configs/helix.nix
     ../configs/imhex.nix
     ../configs/just
     ../configs/keymapp.nix
