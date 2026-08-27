@@ -19,6 +19,7 @@
           "waydroid"
           "nix"
           "toolbx"
+          "doom"
         ];
         first = [ "chezmoi" ];
         ignore_failures = [
@@ -53,9 +54,6 @@
       containers = {
         runtime = "podman";
         system_prune = false;
-      };
-      doom = {
-        aot = true;
       };
     };
   };

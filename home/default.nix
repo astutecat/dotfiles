@@ -14,6 +14,7 @@ in
     ../configs/atuin.nix
     ../configs/cheat.nix
     ../configs/direnv.nix
+    ../configs/doom-emacs.nix
     ../configs/editorconfig.nix
     ../configs/fastfetch.nix
     ../configs/fortune.nix
@@ -171,7 +172,6 @@ in
     "$HOME/.moon/bin"
     "$HOME/.fly/bin"
     "/Applications/Obsidian.app/Contents/MacOS"
-    "$HOME/.config/emacs/bin"
   ];
 
   home.sessionVariables = {
