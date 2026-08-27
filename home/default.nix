@@ -40,7 +40,9 @@ in
     # Let Home Manager install and manage itself.
     home-manager.enable = true;
     nh.enable = true;
-    man.enable = true;
+    man = {
+      enable = (!isDarwin);
+    };
     fd.enable = true;
   };
 
