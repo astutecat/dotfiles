@@ -17,6 +17,7 @@ in
     ../configs/editorconfig.nix
     ../configs/fastfetch.nix
     ../configs/fortune.nix
+    ../configs/git.nix
     ../configs/ghostty.nix
     ../configs/helix.nix
     ../configs/imhex.nix
