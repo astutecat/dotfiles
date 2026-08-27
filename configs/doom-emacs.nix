@@ -339,6 +339,9 @@ in
   programs.doom-emacs = {
     enable = true;
 
+    # Terminal-only build (no GUI toolkit dependencies)
+    emacs = pkgs.emacs-nox;
+
     doomDir = "${doomDir}";
     # Must be an absolute path; Unstraightened expands ~ itself
     doomLocalDir = "${config.xdg.dataHome}/doom";
