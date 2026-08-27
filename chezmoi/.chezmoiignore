@@ -12,8 +12,6 @@ typos.toml
 {{ if not (eq .chezmoi.os "linux") }}
 .config/shikane
 .config/kanshi
-.config/sway
-.config/waybar
 {{end}}
 
 {{ if .no_fonts }}
