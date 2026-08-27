@@ -1,12 +1,12 @@
 # vim: ft=just:
-set shell := ["zsh", "-c"]
+set shell := ["bash", "-c"]
 
 [private]
 default:
     @just --justfile "{{ justfile() }}" --list
 
 @zellij:
-    [ $ZELLIJ != 0 ] && [ ${UID} != 0 ] && zellij || :
+    [ "$ZELLIJ" != 0 ] && [ "${UID}" != 0 ] && zellij || :
 
 dir_leaf := `echo "${PWD##*/}"`
 alias trn := tab-rename
@@ -81,7 +81,7 @@ lazygit:
     fi
 
 fortune:
-    #!/bin/zsh
-    if (( $+commands[fortune] )); then
+    #!/bin/bash
+    if command -v fortune >/dev/null; then
       fortune -s ~/.local/share/fortunes/ | fmt
     fi
