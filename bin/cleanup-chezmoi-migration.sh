@@ -36,6 +36,11 @@ PATHS=(
   .config/fish/functions/_tide_item_jj.fish
   .config/fish/functions/_tide_item_jj.fish.backup
 
+  # fish leftovers not managed by chezmoi or home-manager
+  .config/fish/config.fish.backup
+  .config/fish/fish_variablesmGB2EbnEFr
+  .config/fish/conf.d/fish_frozen_key_bindings.fish
+
   # apps dropped entirely or now configured elsewhere (lazygit/tealdeer use
   # ~/Library/Application Support on macOS via home-manager)
   .config/kitty
@@ -68,19 +73,36 @@ PATHS=(
 backup="${XDG_DATA_HOME:-$HOME/.local/share}/chezmoi-migration-backup-$(date +%Y%m%d-%H%M%S)"
 
 count=0
-for rel in "${PATHS[@]}"; do
-  target="$HOME/$rel"
-  [[ -e "$target" || -L "$target" ]] || continue
+
+remove() {
+  local target="$1" label="$2"
+  [[ -e "$target" || -L "$target" ]] || return 0
 
   if [[ "$DELETE" -eq 1 ]]; then
     rm -rf "$target"
-    printf 'deleted %s\n' "$rel"
+    printf 'deleted %s\n' "$label"
   else
-    mkdir -p "$backup/$(dirname "$rel")"
-    mv "$target" "$backup/$rel"
-    printf 'moved   %s\n' "$rel"
+    mkdir -p "$backup/$(dirname "$label")"
+    mv "$target" "$backup/$label"
+    printf 'moved   %s\n' "$label"
   fi
   count=$((count + 1))
+}
+
+for rel in "${PATHS[@]}"; do
+  remove "$HOME/$rel" "$rel"
+done
+
+# Stale tide/fisher function copies left in the user functions dir; the user
+# dir comes first in $fish_function_path, so these shadow the nix-store
+# plugin loaded via configs/shell.nix. Custom items (_tide_item_git_or_jj)
+# and home-manager symlinks are kept.
+for f in "$HOME"/.config/fish/functions/_tide_*.fish \
+         "$HOME"/.config/fish/functions/configure_tide.fish \
+         "$HOME"/.config/fish/functions/fisher.fish \
+         "$HOME"/.config/fish/functions/*.backup; do
+  [[ "$f" == *_tide_item_git_or_jj.fish ]] && continue
+  remove "$f" "${f#"$HOME"/}"
 done
 
 printf 'done: %d path(s)\n' "$count"

@@ -69,7 +69,10 @@ in
       set --universal tide_character_icon λ
       set --universal tide_character_color FF4F00
       set --universal tide_git_truncation_length 30
-      set --universal fish_key_bindings fish_default_key_bindings
+      # fish 4.3+ keeps this in global scope and no longer loads it from
+      # universal vars; export it so tide's non-interactive prompt child
+      # inherits it (otherwise the character item renders vi-mode icons).
+      set --global --export fish_key_bindings fish_default_key_bindings
     '';
 
     shellAbbrs = {
