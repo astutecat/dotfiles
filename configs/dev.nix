@@ -3,7 +3,6 @@ let
   generalTools = with pkgs; [
     adrs
     cloc
-    # comby
     gh
     jujutsu
     stgit
