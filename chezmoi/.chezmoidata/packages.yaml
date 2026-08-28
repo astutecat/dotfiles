@@ -1,22 +1,8 @@
 packages:
   brews:
     - "chezmoi"
-    - "comby"
-    - "git"
-    - "lazyjj"
     - "neovim"
-    - "stgit"
-    - "tmate"
     - "qman"
-    - "universal-ctags"
-    - "typos-lsp"
-    - "stylua"
-    - "shellcheck"
-    - "shellharden"
-    - "luacheck"
-    - "sleek"
-    - "yazi"
-    - "fzf"
   casks:
     - "raycast"
     - "rstudio"

@@ -1,13 +1,23 @@
 { lib, pkgs, ... }:
 let
   generalTools = with pkgs; [
-    gh
-    cloc
     adrs
+    cloc
+    # comby
+    gh
+    jujutsu
+    stgit
+    tmate
+    typos-lsp
     universal-ctags
   ];
 
-  beam = with pkgs; [
+  bashPkgs = with pkgs; [
+    shellcheck
+    shellharden
+  ];
+
+  beamPkgs = with pkgs; [
     beam29Packages.erlang
     beam29Packages.elixir_1_20
     beam29Packages.expert
@@ -15,7 +25,13 @@ let
     gleam
   ];
 
-  python = with pkgs; [
+  luaPkgs = with pkgs; [
+    lua
+    stylua
+    luaPackages.luacheck
+  ];
+
+  pythonPkgs = with pkgs; [
     (python313.withPackages (
       ps: with ps; [
         neovim
@@ -24,7 +40,7 @@ let
     ))
   ];
 
-  rust = with pkgs; [
+  rustPkgs = with pkgs; [
     rustup
     cargo-binstall
     cargo-cache
@@ -34,7 +50,12 @@ let
     cargo-cross
   ];
 
-  nix = with pkgs; [
+  sqlPkgs = with pkgs; [
+    sleek
+    lazysql
+  ];
+
+  nixPkgs = with pkgs; [
     nil
     nixd
     nixfmt
@@ -56,10 +77,13 @@ in
 
   home.packages = lib.flatten [
     generalTools
-    beam
-    python
-    rust
-    nix
+    bashPkgs
+    beamPkgs
+    luaPkgs
+    pythonPkgs
+    rustPkgs
+    sqlPkgs
+    nixPkgs
 #
     pkgs.go
     pkgs.nodejs
@@ -67,6 +91,5 @@ in
     pkgs.tombi
     pkgs.tree-sitter
     pkgs.uv
-    pkgs.lua
   ];
 }

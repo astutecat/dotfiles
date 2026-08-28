@@ -47,6 +47,7 @@ in
       enable = (!isDarwin);
     };
     fd.enable = true;
+    fzf.enable = true;
   };
 
   # Home Manager needs a bit of information about you and the paths it should
@@ -72,7 +73,6 @@ in
       babelfish
       bottom
       cheat
-      difftastic
       dust
       dysk
       exercism
@@ -80,7 +80,7 @@ in
       gawk
       htop
       hyperfine
-      jujutsu
+
       lnav
       most
       mr
