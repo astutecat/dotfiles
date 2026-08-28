@@ -6,13 +6,13 @@
 let
   imhex-patterns = pkgs.stdenv.mkDerivation {
     pname = "imhex-patterns";
-    version = "unstable-2026-08-25";
+    version = "unstable-2026-08-27";
 
     src = pkgs.fetchFromGitHub {
       owner = "WerWolv";
       repo = "ImHex-Patterns";
-      rev = "65b2323014c04c1a45db7001b9cea86a89d7c588";
-      sha256 = "0c7p3hzwvg83ns0sl2m755wfcm8511ph9bvq85f77jhdkdfvf0ka";
+      rev = "4b25356eb7bec31ad33d6b196e8173c832b195f1";
+      sha256 = "1znx68rfa9s3db0bxm6dr2f2js9dgk05adsdsl9pm277zmyh32z1";
     };
 
     # The repo is pure data — no build phase, no dependencies.
