@@ -6,6 +6,7 @@
 }:
 let
   isDarwin = pkgs.stdenv.hostPlatform.isDarwin;
+  isLinux = pkgs.stdenv.hostPlatform.isLinux;
 in
 {
   nixpkgs.config.allowUnfree = true;
@@ -45,7 +46,7 @@ in
     home-manager.enable = true;
     nh.enable = true;
     man = {
-      enable = (!isDarwin);
+      enable = isLinux;
     };
     fd.enable = true;
     fzf.enable = true;
@@ -69,41 +70,44 @@ in
   # environment.
   home.packages =
     with pkgs;
-    [
-      age
-      babelfish
-      bottom
-      cheat
-      dust
-      dysk
-      exercism
-      eza
-      gawk
-      htop
-      hyperfine
+    lib.concatLists [
+      [
+        age
+        babelfish
+        bottom
+        cheat
+        dust
+        dysk
+        exercism
+        eza
+        gawk
+        htop
+        hyperfine
 
-      lnav
-      most
-      mr
-      nix
-      prek
-      restic
-      ripgrep
-      silver-searcher
-      sops
-      unzip
-      usage
-      visidata
-      watchexec
-      zellij
-      zoxide
+        lnav
+        most
+        mr
+        nix
+        prek
+        restic
+        ripgrep
+        silver-searcher
+        sops
+        unzip
+        usage
+        visidata
+        watchexec
+        zellij
+        zoxide
 
-    ]
-    ++ lib.optionals isDarwin [
-
-    ]
-    ++ lib.optionals (!isDarwin) [
-      pkgs.bluetui
+      ]
+      (lib.optionals isDarwin [
+        # Darwin specific packages go here.
+      ])
+      (lib.optionals isLinux [
+        # Linux specific packages go here.
+        pkgs.bluetui
+      ])
     ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
