@@ -64,6 +64,10 @@ PATHS=(
   .local/bin/tfg
   .local/bin/tfg.py
 
+  # ssh config.d split retired by the nix migration; the github.com block now
+  # lives in programs.ssh and ~/.ssh/config is a home-manager symlink
+  .ssh/config.d
+
   # misc
   .default-python-packages
   .wezterm.lua

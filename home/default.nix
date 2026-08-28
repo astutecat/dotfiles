@@ -23,7 +23,8 @@ in
     ../editors/imhex.nix
     ../configs/fastfetch.nix
     ../configs/fortune.nix
-    ../configs/git.nix
+    ../configs/scm.nix
+    ../configs/ssh.nix
     ../configs/ghostty.nix
     ../configs/just
     ../configs/keymapp.nix
@@ -32,6 +33,7 @@ in
     ../configs/opencode.nix
     ../configs/pert.nix
     ../configs/shell.nix
+    ../configs/ssh.nix
     ../configs/tealdeer.nix
     ../configs/tfg.nix
     ../configs/topgrade.nix

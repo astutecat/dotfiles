@@ -1,0 +1,161 @@
+{
+  pkgs,
+  lib,
+  homeDirectory,
+  ...
+}:
+
+let
+  aenergiRemotePatterns = [
+    "https://github.com/aenergi/**"
+    "git@github.com:aenergi/*"
+  ];
+
+  aenergiIdentity = {
+    user = {
+      name = "Will Rogers";
+      email = "william.rogers@entelios.com";
+      signingKey = "469E3543DCF12EB0";
+    };
+    core.sshCommand = "ssh -i ${homeDirectory}/.ssh/id_entelios.pub -o IdentitiesOnly=yes";
+  };
+
+  aenergiIncludes = map (remote: {
+    condition = "hasconfig:remote.*.url:${remote}";
+    contentSuffix = "aenergi-gitconfig";
+    contents = aenergiIdentity;
+  }) aenergiRemotePatterns;
+in
+{
+  programs.git = {
+    enable = true;
+
+    settings = {
+      user = {
+        name = "Will Rogers";
+        email = "github@astutecat.dev";
+      };
+      commit.gpgSign = false;
+      diff.tool = "difftastic";
+      difftool.prompt = false;
+      difftool.bc3.trustExitCode = true;
+      difftool.difftastic.cmd = "difft \"$LOCAL\" \"$REMOTE\"";
+      alias = {
+        dft = "difftool -t difftastic";
+        dfts = "dft --staged";
+        fpush = "push --force-with-lease --force-if-includes";
+        shhh = "fpush";
+        sw = "switch";
+        res = "restore";
+        prune-branches = "!git remote prune origin && git branch -vv | grep ': gone]' | awk '{print $1}' | xargs -r git branch -d";
+        prune-branches-force = "!git remote prune origin && git branch -vv | grep ': gone]' | awk '{print $1}' | xargs -r git branch -D";
+      };
+      gc.autoDetach = false;
+      init = {
+        defaultBranch = "main";
+        templateDir = "${homeDirectory}/.git-template";
+      };
+      core = {
+        editor = "nvim";
+        pager = "delta";
+      };
+      advice = {
+        detachedHead = false;
+        skippedCherryPicks = false;
+      };
+      rebase = {
+        autoStash = true;
+        updateRefs = true;
+        autoSquash = true;
+      };
+      push = {
+        recurseSubmodules = "check";
+        default = "current";
+        autoSetupRemote = true;
+      };
+      pull = {
+        rebase = true;
+        useForceIfIncludes = true;
+      };
+      column.ui = "auto";
+      branch.sort = "-committerdate";
+      rerere = {
+        enabled = true;
+        autoUpdate = true;
+      };
+      absorb.autoStageIfNothingStaged = true;
+      checkout = {
+        defaultRemote = "origin";
+        workers = -1;
+      };
+    };
+
+    signing.key = "3BD453E1C45430E8";
+
+    includes = aenergiIncludes;
+  };
+
+  programs.jujutsu = {
+    enable = true;
+
+    settings = {
+      user = {
+        name = "Will Rogers";
+        email = "github@astutecat.dev";
+      };
+      ui = {
+        pager = "cat";
+        default-command = [
+          "log"
+          "--reversed"
+        ];
+      };
+      aliases = {
+        fetch = [
+          "git"
+          "fetch"
+        ];
+        rlog = [
+          "log"
+          "--reversed"
+        ];
+      };
+      remotes.origin.auto-track-created-bookmarks = "*";
+    };
+  };
+
+  programs.delta = {
+    enable = true;
+    enableGitIntegration = true;
+    options = {
+      line-numbers = true;
+      hunk-header-decoration-style = "";
+      file-decoration-style = "";
+      hunk-header-style = "syntax";
+      hunk-header-file-style = "brightblue";
+      file-style = "brightblue";
+      minus-style = "syntax \"#37222c\"";
+      minus-non-emph-style = "syntax \"#37222c\"";
+      minus-emph-style = "syntax \"#713137\"";
+      minus-empty-line-marker-style = "syntax \"#37222c\"";
+      line-numbers-minus-style = "#b2555b";
+      plus-style = "syntax \"#20303b\"";
+      plus-non-emph-style = "syntax \"#20303b\"";
+      plus-emph-style = "syntax \"#2c5a66\"";
+      plus-empty-line-marker-style = "syntax \"#20303b\"";
+      line-numbers-plus-style = "#266d6a";
+      line-numbers-zero-style = "#3b4261";
+    };
+  };
+
+  programs.difftastic = {
+    enable = true;
+    jujutsu.enable = true;
+  };
+
+  home.activation.gitconfigMigration = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
+    touch "$HOME/.gitconfig"
+    "${pkgs.git}/bin/git" config --global --unset-all include.path '^.*/gitconfig-chezmoi$' 2>/dev/null || true
+    rm -f "$HOME/.config/git/gitconfig-chezmoi"
+  '';
+}
