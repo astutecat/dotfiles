@@ -40,6 +40,7 @@ in
     ../configs/wezterm.nix
     ../configs/yamllint.nix
     ../configs/zathura.nix
+    ../configs/zellij
     ../configs/zoxide.nix
   ];
 
