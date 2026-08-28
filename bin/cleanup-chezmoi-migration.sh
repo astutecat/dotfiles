@@ -24,6 +24,18 @@ PATHS=(
   .config/fish/functions/update_fish_completions.fish
   .config/fish/functions/y.fish
 
+  # tide plugin files from the old fisher install (incl. ~47 functions/
+  # _tide_*.fish); tide now loads from the nix store via configs/shell.nix
+  .config/fish/fish_plugins
+  .config/fish/completions/tide.fish
+  .config/fish/conf.d/_tide_init.fish
+  .config/fish/functions/fish_prompt.fish
+  .config/fish/functions/fish_mode_prompt.fish
+  .config/fish/functions/tide
+  .config/fish/functions/tide.fish
+  .config/fish/functions/_tide_item_jj.fish
+  .config/fish/functions/_tide_item_jj.fish.backup
+
   # apps dropped entirely or now configured elsewhere (lazygit/tealdeer use
   # ~/Library/Application Support on macOS via home-manager)
   .config/kitty

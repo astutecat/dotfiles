@@ -46,7 +46,10 @@ in
     plugins = [
       {
         name = "tide";
-        src = pkgs.fishPlugins.tide;
+        # The built plugin uses share/fish/vendor_*, which home-manager's
+        # plugin loader doesn't understand; the source tree has the expected
+        # functions/, conf.d/ and completions/ at the top level.
+        src = pkgs.fishPlugins.tide.src;
       }
     ];
 
@@ -59,12 +62,14 @@ in
     '';
 
     interactiveShellInit = ''
-      set --global tide_left_prompt_items pwd git newline character
-      set --global tide_right_prompt_items status cmd_duration context jobs direnv bun node python rustc java php pulumi ruby go gcloud kubectl distrobox toolbox terraform aws nix_shell crystal elixir zig
-      set --global tide_character_icon λ
-      set --global tide_character_color FF4F00
-      set --global tide_git_truncation_length 30
-      set --global fish_key_bindings fish_default_key_bindings
+      # Tide renders the prompt in a non-interactive child fish, so config must
+      # be in universal scope to be visible there.
+      set --universal tide_left_prompt_items pwd git newline character
+      set --universal tide_right_prompt_items status cmd_duration context jobs direnv bun node python rustc java php pulumi ruby go gcloud kubectl distrobox toolbox terraform aws nix_shell crystal elixir zig
+      set --universal tide_character_icon λ
+      set --universal tide_character_color FF4F00
+      set --universal tide_git_truncation_length 30
+      set --universal fish_key_bindings fish_default_key_bindings
     '';
 
     shellAbbrs = {
