@@ -17,14 +17,15 @@ in
     ../configs/comby.nix
     ../configs/dev.nix
     ../configs/direnv.nix
-    ../configs/doom-emacs.nix
+    ../configs/direnv.nix
     ../configs/editorconfig.nix
+    ../editors/doom-emacs.nix
+    ../editors/helix.nix
+    ../editors/imhex.nix
     ../configs/fastfetch.nix
     ../configs/fortune.nix
     ../configs/git.nix
     ../configs/ghostty.nix
-    ../configs/helix.nix
-    ../configs/imhex.nix
     ../configs/just
     ../configs/keymapp.nix
     ../configs/lazygit.nix
