@@ -13,6 +13,7 @@ in
   imports = [
     ../configs/atuin.nix
     ../configs/cheat.nix
+    ../configs/dev.nix
     ../configs/direnv.nix
     ../configs/doom-emacs.nix
     ../configs/editorconfig.nix
@@ -25,6 +26,7 @@ in
     ../configs/just
     ../configs/keymapp.nix
     ../configs/lazygit.nix
+    ../configs/mise.nix
     ../configs/opencode.nix
     ../configs/pert.nix
     ../configs/shell.nix
@@ -66,60 +68,35 @@ in
   home.packages =
     with pkgs;
     [
-      adrs
       age
       babelfish
       bottom
       cheat
-      cloc
       difftastic
-      direnv
       dust
       dysk
       exercism
       eza
       gawk
-      gh
       htop
       hyperfine
       jujutsu
       lnav
-      lua
       most
       mr
-      nil
       nix
-      nixd
-      nixfmt
       prek
       restic
       ripgrep
-      sbcl
       silver-searcher
-      tombi
-      tree-sitter
       sops
       unzip
-      update-nix-fetchgit
       usage
       visidata
       watchexec
       zellij
       zoxide
 
-      beam29Packages.erlang
-      beam29Packages.elixir_1_20
-      beam29Packages.expert
-      erlang-language-platform
-      gleam
-
-      rustup
-      cargo-binstall
-      cargo-cache
-      cargo-update
-      cargo-nextest
-      cargo-generate
-      cargo-cross
     ]
     ++ lib.optionals isDarwin [
 

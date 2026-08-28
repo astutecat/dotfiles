@@ -7,7 +7,3 @@ disable_hints = ["python_multi", "python_precompiled"]
 disable_backends = ["asdf"]
 
 [tools]
-go = "latest"
-node = "latest"
-python = "3.13"
-uv = "0.10.0"
