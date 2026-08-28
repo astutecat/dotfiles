@@ -17,7 +17,6 @@ in
     ../configs/comby.nix
     ../configs/dev.nix
     ../configs/direnv.nix
-    ../configs/direnv.nix
     ../configs/editorconfig.nix
     ../editors/doom-emacs.nix
     ../editors/helix.nix
