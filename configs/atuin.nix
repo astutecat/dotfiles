@@ -15,7 +15,7 @@
       enter_accept = true;
       inline_height = 0;
       show_preview = true;
-      history_filter = [];
+      history_filter = [ ];
       dotfiles = {
         enabled = true;
       };

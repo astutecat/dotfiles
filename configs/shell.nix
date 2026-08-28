@@ -6,8 +6,7 @@
 
 let
   # ── Shared commands (work in both bash and zsh) ───────────────
-  sharedCommands = ''
-  '';
+  sharedCommands = "";
 
   bashOnlyCommands = "";
 

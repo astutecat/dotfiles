@@ -19,9 +19,8 @@
       selection-foreground = "#cdcecf";
       cursor-color = "#cdcecf";
 
-
       palette = [
-      # normal
+        # normal
         "0=#393b44"
         "1=#c94f6d"
         "2=#81b29a"
@@ -30,7 +29,7 @@
         "5=#9d79d6"
         "6=#63cdcf"
         "7=#dfdfe0"
-      # bright
+        # bright
         "8=#575860"
         "9=#d16983"
         "10=#8ebaa4"
@@ -39,7 +38,7 @@
         "13=#baa1e2"
         "14=#7ad5d6"
         "15=#e4e4e5"
-      # extended colors
+        # extended colors
         "16=#f4a261"
       ];
 

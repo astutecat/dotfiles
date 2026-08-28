@@ -8,7 +8,16 @@
         nerdFontsVersion = "3";
         spinner = {
           frames = [
-            "⠋" "⠙" "⠹" "⠸" "⠼" "⠴" "⠦" "⠧" "⠇" "⠏"
+            "⠋"
+            "⠙"
+            "⠹"
+            "⠸"
+            "⠼"
+            "⠴"
+            "⠦"
+            "⠧"
+            "⠇"
+            "⠏"
           ];
           rate = 100;
         };
@@ -30,8 +39,7 @@
       };
 
       os = {
-        copyToClipboardCmd = ''
-          printf "\033]52;c;$(printf {{text}} | base64 -w 0)\a" > /dev/tty'';
+        copyToClipboardCmd = ''printf "\033]52;c;$(printf {{text}} | base64 -w 0)\a" > /dev/tty'';
       };
     };
   };
