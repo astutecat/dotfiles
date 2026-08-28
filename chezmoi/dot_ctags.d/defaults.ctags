@@ -1,9 +1,0 @@
---recurse=yes
---exclude=*.git*
---exclude=*.hg*
---exclude=*.pyc
---exclude=*.pyo
---exclude=.DS_Store
---exclude=*.md
---exclude=*.mkd
---exclude=*.beam

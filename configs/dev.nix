@@ -4,6 +4,7 @@ let
     gh
     cloc
     adrs
+    universal-ctags
   ];
 
   beam = with pkgs; [
@@ -41,6 +42,18 @@ let
   ];
 in
 {
+  home.file.".ctags.d/defaults.ctags".text = ''
+    --recurse=yes
+    --exclude=*.git*
+    --exclude=*.hg*
+    --exclude=*.pyc
+    --exclude=*.pyo
+    --exclude=.DS_Store
+    --exclude=*.md
+    --exclude=*.mkd
+    --exclude=*.beam
+  '';
+
   home.packages = lib.flatten [
     generalTools
     beam
