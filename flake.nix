@@ -35,7 +35,7 @@
           home-manager.lib.homeManagerConfiguration {
             inherit pkgs;
             extraSpecialArgs = {
-              inherit inputs pkgs;
+              inherit inputs;
               username = "willrog";
               hostname = "nb0408";
               homeDirectory = "/home/willrog";
@@ -54,7 +54,7 @@
           home-manager.lib.homeManagerConfiguration {
             inherit pkgs;
             extraSpecialArgs = {
-              inherit inputs pkgs;
+              inherit inputs;
               username = "astutecat";
               hostname = "astutecachy";
               homeDirectory = "/home/astutecat";
@@ -73,7 +73,7 @@
           home-manager.lib.homeManagerConfiguration {
             inherit pkgs;
             extraSpecialArgs = {
-              inherit inputs pkgs;
+              inherit inputs;
               username = "astutecat";
               hostname = "AstuteMBP";
               homeDirectory = "/Users/astutecat";
