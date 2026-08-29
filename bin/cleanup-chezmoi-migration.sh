@@ -109,6 +109,33 @@ for f in "$HOME"/.config/fish/functions/_tide_*.fish \
   remove "$f" "${f#"$HOME"/}"
 done
 
+# Homebrew packages now provided by nix via home-manager (all hosts; includes
+# linuxbrew equivalents like bluetui/zathura/lorri used on the Linux boxes).
+# Only uninstalls formulae/casks that are actually installed. ghostty is
+# deliberately NOT removed: programs.ghostty.package = null (installed
+# externally); wezterm is disabled, not nix-provided. Formulae with brew
+# dependents (e.g. gawk, unzip) are refused by brew and left alone.
+if command -v brew >/dev/null 2>&1; then
+  comm -12 <(brew list --formula | sort) \
+    <(printf '%s\n' age adrs atuin babelfish bash bluetui bottom \
+      cargo-binstall cargo-cache cargo-generate cargo-nextest cargo-update \
+      cheat cloc comby cross difftastic direnv dust dysk elixir emacs eza \
+      exercism fastfetch fd fish fzf fortune gawk gh git git-delta gleam go \
+      helix htop hyperfine just jujutsu lazysql lnav lua luacheck mise most \
+      mr nix nix-direnv nixd nixfmt nh nodejs nil opencode prek python@3.13 \
+      restic ripgrep rustup sbcl shellcheck shellharden sops sleek stgit \
+      stylua tealdeer the_silver_searcher tmate tombi topgrade tree-sitter \
+      typos-lsp universal-ctags unzip update-nix-fetchgit usage uv visidata \
+      watchexec zathura zellij zoxide zsh | sort) \
+    | xargs brew uninstall --formula || true
+  comm -12 <(brew list --cask | sort) \
+    <(printf '%s\n' imhex keymapp | sort) \
+    | xargs brew uninstall --cask || true
+
+  # Prune old versions and stale downloads left behind by the uninstalls
+  brew cleanup || true
+fi
+
 printf 'done: %d path(s)\n' "$count"
 if [[ "$DELETE" -eq 0 && "$count" -gt 0 ]]; then
   printf 'backup: %s\n' "$backup"
