@@ -1,8 +1,5 @@
 { ... }:
 {
-  imports = [
-    ../../home
-    ../../configs/systemd.nix
-  ];
+  imports = [ ../../home ];
   targets.genericLinux.enable = true;
 }

@@ -25,51 +25,63 @@
     }:
     {
       homeConfigurations = {
-        "willrog@nb0408" = home-manager.lib.homeManagerConfiguration {
-          pkgs = import nixpkgs {
-            system = "x86_64-linux";
-            config.allowUnfree = true;
+        "willrog@nb0408" =
+          let
+            pkgs = import nixpkgs {
+              system = "x86_64-linux";
+              config.allowUnfree = true;
+            };
+          in
+          home-manager.lib.homeManagerConfiguration {
+            inherit pkgs;
+            extraSpecialArgs = {
+              inherit inputs pkgs;
+              username = "willrog";
+              hostname = "nb0408";
+              homeDirectory = "/home/willrog";
+            };
+            modules = [
+              ./hosts/nb0408
+            ];
           };
-          extraSpecialArgs = {
-            inherit inputs;
-            username = "willrog";
-            hostname = "nb0408";
-            homeDirectory = "/home/willrog";
+        "astutecat@astutecachy" =
+          let
+            pkgs = import nixpkgs {
+              system = "x86_64-linux";
+              config.allowUnfree = true;
+            };
+          in
+          home-manager.lib.homeManagerConfiguration {
+            inherit pkgs;
+            extraSpecialArgs = {
+              inherit inputs pkgs;
+              username = "astutecat";
+              hostname = "astutecachy";
+              homeDirectory = "/home/astutecat";
+            };
+            modules = [
+              ./hosts/astutecachy
+            ];
           };
-          modules = [
-            ./hosts/nb0408
-          ];
-        };
-        "astutecat@astutecachy" = home-manager.lib.homeManagerConfiguration {
-          pkgs = import nixpkgs {
-            system = "x86_64-linux";
-            config.allowUnfree = true;
+        "astutecat@AstuteMBP" =
+          let
+            pkgs = import nixpkgs {
+              system = "aarch64-darwin";
+              config.allowUnfree = true;
+            };
+          in
+          home-manager.lib.homeManagerConfiguration {
+            inherit pkgs;
+            extraSpecialArgs = {
+              inherit inputs pkgs;
+              username = "astutecat";
+              hostname = "AstuteMBP";
+              homeDirectory = "/Users/astutecat";
+            };
+            modules = [
+              ./hosts/AstuteMBP
+            ];
           };
-          extraSpecialArgs = {
-            inherit inputs;
-            username = "astutecat";
-            hostname = "astutecachy";
-            homeDirectory = "/home/astutecat";
-          };
-          modules = [
-            ./hosts/astutecachy
-          ];
-        };
-        "astutecat@AstuteMBP" = home-manager.lib.homeManagerConfiguration {
-          pkgs = import nixpkgs {
-            system = "aarch64-darwin";
-            config.allowUnfree = true;
-          };
-          extraSpecialArgs = {
-            inherit inputs;
-            username = "astutecat";
-            hostname = "AstuteMBP";
-            homeDirectory = "/Users/astutecat";
-          };
-          modules = [
-            ./hosts/AstuteMBP
-          ];
-        };
       };
     };
 }

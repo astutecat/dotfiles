@@ -1,5 +1,6 @@
 {
   pkgs,
+  lib,
   username,
   homeDirectory,
   ...
@@ -11,37 +12,45 @@ in
 {
   nixpkgs.config.allowUnfree = true;
 
-  imports = [
-    ../configs/atuin.nix
-    ../configs/cheat.nix
-    ../configs/comby.nix
-    ../configs/dev.nix
-    ../configs/direnv.nix
-    ../configs/editorconfig.nix
-    ../editors/doom-emacs.nix
-    ../editors/helix.nix
-    ../editors/imhex.nix
-    ../configs/fastfetch.nix
-    ../configs/fortune.nix
-    ../configs/scm.nix
-    ../configs/ssh.nix
-    ../configs/ghostty.nix
-    ../configs/just
-    ../configs/keymapp.nix
-    ../configs/lazygit.nix
-    ../configs/mise.nix
-    ../configs/opencode.nix
-    ../configs/pert.nix
-    ../configs/shell.nix
-    ../configs/ssh.nix
-    ../configs/tealdeer.nix
-    ../configs/tfg.nix
-    ../configs/topgrade.nix
-    ../configs/wezterm.nix
-    ../configs/yamllint.nix
-    ../configs/zathura.nix
-    ../configs/zellij
-    ../configs/zoxide.nix
+  imports = lib.concatLists [
+    [
+      ../configs/atuin.nix
+      ../configs/cheat.nix
+      ../configs/comby.nix
+      ../configs/dev.nix
+      ../configs/direnv.nix
+      ../configs/editorconfig.nix
+      ../editors/doom-emacs.nix
+      ../editors/helix.nix
+      ../editors/imhex.nix
+      ../configs/fastfetch.nix
+      ../configs/fortune.nix
+      ../configs/scm.nix
+      ../configs/ssh.nix
+      ../configs/ghostty.nix
+      ../configs/just
+      ../configs/keymapp.nix
+      ../configs/lazygit.nix
+      ../configs/mise.nix
+      ../configs/opencode.nix
+      ../configs/pert.nix
+      ../configs/shell.nix
+      ../configs/ssh.nix
+      ../configs/tealdeer.nix
+      ../configs/tfg.nix
+      ../configs/topgrade.nix
+      ../configs/wezterm.nix
+      ../configs/yamllint.nix
+      ../configs/zathura.nix
+      ../configs/zellij
+      ../configs/zoxide.nix
+    ]
+    (lib.optionals isLinux [
+      ../configs/systemd.nix
+    ])
+    (lib.optionals isDarwin [
+      ../configs/launchd.nix
+    ])
   ];
 
   programs = {
