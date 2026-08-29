@@ -25,10 +25,31 @@ let
     contentSuffix = "aenergi-gitconfig";
     contents = aenergiIdentity;
   }) aenergiRemotePatterns;
+
+  repoDir = p: "${homeDirectory}/repos/${p}";
+  gitRepoExists = p: builtins.pathExists (repoDir p + "/.git");
+
+  existingRepos = builtins.filter gitRepoExists [
+    (repoDir "dotfiles")
+    (repoDir "astutecat_infrastructure")
+    (repoDir "kiezburn/public")
+    (repoDir "kiezburn/deployments")
+    (repoDir "eto-rts")
+  ];
 in
 {
+  programs.mr = {
+    enable = true;
+  };
+
   programs.git = {
     enable = true;
+    package = pkgs.gitFull;
+
+    maintenance = {
+      enable = true;
+      repositories = existingRepos;
+    };
 
     settings = {
       user = {
