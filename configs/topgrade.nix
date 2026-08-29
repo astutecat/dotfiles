@@ -19,7 +19,7 @@
           "waydroid"
           "nix"
           "toolbx"
-          "doom"
+          "emacs"
         ];
         first = [ "chezmoi" ];
         ignore_failures = [
