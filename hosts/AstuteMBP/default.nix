@@ -1,4 +1,7 @@
 { ... }:
 {
-  imports = [ ../../home ];
+  imports = [
+    ../../home
+    ../../configs/launchd.nix
+  ];
 }
