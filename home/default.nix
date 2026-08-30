@@ -114,6 +114,7 @@ in
       (lib.optionals isLinux [
         # Linux specific packages go here.
         pkgs.bluetui
+        pkgs.wl-clipboard
       ])
     ];
 
