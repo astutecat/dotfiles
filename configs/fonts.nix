@@ -19,13 +19,9 @@ let
     '';
   };
 
-  # Replaces run_after_download_fonts.zsh (gh release download of
-  # ryanoasis/nerd-fonts): IosevkaTerm, Monaspace, Iosevka,
-  # NerdFontsSymbolsOnly, Noto.
   nerdFonts = with pkgs.nerd-fonts; [
     iosevka
     iosevka-term
-    monaspace
     noto
     symbols-only
   ];
@@ -36,6 +32,7 @@ in
     pkgs.b612
     pkgs.ibm-plex
     pkgs.noto-fonts-color-emoji
+    pkgs.monaspace
   ]
   ++ nerdFonts;
 
