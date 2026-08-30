@@ -68,6 +68,18 @@ PATHS=(
   # lives in programs.ssh and ~/.ssh/config is a home-manager symlink
   .ssh/config.d
 
+  # configs migrated to home-manager modules (configs/mise.nix,
+  # configs/shikane.nix on nb0408, configs/dircolors.nix); home-manager
+  # manages these paths now and activation would fail on stale copies
+  .config/mise/config.toml
+  .config/shikane/config.toml
+  .dir_colors
+
+  # fonts now come from nix packages via configs/fonts.nix (b612, IBM Plex,
+  # nerd fonts formerly fetched by run_after_download_fonts, ...); fontconfig
+  # scans this dir too, so leftovers would duplicate the nix-installed fonts
+  .local/share/fonts
+
   # misc
   .default-python-packages
   .wezterm.lua

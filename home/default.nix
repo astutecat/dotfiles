@@ -17,8 +17,10 @@ in
     ../configs/cheat.nix
     ../configs/comby.nix
     ../configs/dev.nix
+    ../configs/dircolors.nix
     ../configs/direnv.nix
     ../configs/editorconfig.nix
+    ../configs/fonts.nix
     ../editors/doom-emacs.nix
     ../editors/helix.nix
     ../editors/imhex.nix
