@@ -38,9 +38,15 @@
             config.allowUnfree = true;
           };
           extraSpecialArgs = {
-            inherit inputs username hostname homeDirectory isWorkMachine;
+            inherit
+              inputs
+              username
+              hostname
+              homeDirectory
+              isWorkMachine
+              ;
           };
-          modules = [ ./hosts/${hostname} ];
+          modules = [ (nixpkgs.lib.path.append ./hosts hostname) ];
         };
     in
     {
