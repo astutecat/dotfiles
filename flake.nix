@@ -23,65 +23,45 @@
       home-manager,
       ...
     }:
+    let
+      mkHome =
+        {
+          system ? "x86_64-linux",
+          username ? "astutecat",
+          hostname,
+          homeDirectory,
+          isWorkMachine ? false,
+        }:
+        home-manager.lib.homeManagerConfiguration {
+          pkgs = import nixpkgs {
+            inherit system;
+            config.allowUnfree = true;
+          };
+          extraSpecialArgs = {
+            inherit inputs username hostname homeDirectory isWorkMachine;
+          };
+          modules = [ ./hosts/${hostname} ];
+        };
+    in
     {
       homeConfigurations = {
-        "willrog@nb0408" =
-          let
-            pkgs = import nixpkgs {
-              system = "x86_64-linux";
-              config.allowUnfree = true;
-            };
-          in
-          home-manager.lib.homeManagerConfiguration {
-            inherit pkgs;
-            extraSpecialArgs = {
-              inherit inputs;
-              username = "willrog";
-              hostname = "nb0408";
-              homeDirectory = "/home/willrog";
-            };
-            modules = [
-              ./hosts/nb0408
-            ];
-          };
-        "astutecat@astutecachy" =
-          let
-            pkgs = import nixpkgs {
-              system = "x86_64-linux";
-              config.allowUnfree = true;
-            };
-          in
-          home-manager.lib.homeManagerConfiguration {
-            inherit pkgs;
-            extraSpecialArgs = {
-              inherit inputs;
-              username = "astutecat";
-              hostname = "astutecachy";
-              homeDirectory = "/home/astutecat";
-            };
-            modules = [
-              ./hosts/astutecachy
-            ];
-          };
-        "astutecat@AstuteMBP" =
-          let
-            pkgs = import nixpkgs {
-              system = "aarch64-darwin";
-              config.allowUnfree = true;
-            };
-          in
-          home-manager.lib.homeManagerConfiguration {
-            inherit pkgs;
-            extraSpecialArgs = {
-              inherit inputs;
-              username = "astutecat";
-              hostname = "AstuteMBP";
-              homeDirectory = "/Users/astutecat";
-            };
-            modules = [
-              ./hosts/AstuteMBP
-            ];
-          };
+        "willrog@nb0408" = mkHome {
+          username = "willrog";
+          hostname = "nb0408";
+          homeDirectory = "/home/willrog";
+          isWorkMachine = true;
+        };
+
+        "astutecat@astutecachy" = mkHome {
+          hostname = "astutecachy";
+          homeDirectory = "/home/astutecat";
+        };
+
+        "astutecat@AstuteMBP" = mkHome {
+          system = "aarch64-darwin";
+          hostname = "AstuteMBP";
+          homeDirectory = "/Users/astutecat";
+        };
       };
     };
 }

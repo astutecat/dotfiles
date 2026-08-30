@@ -121,16 +121,27 @@ in
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
   home.file = {
-    # # Building this configuration will create a copy of 'dotfiles/screenrc' in
-    # # the Nix store. Activating the configuration will then make '~/.screenrc' a
-    # # symlink to the Nix store copy.
-    # ".screenrc".source = dotfiles/screenrc;
+    ".typos.toml".text = ''
+      [default]
+      extend-ignore-re = [
+        "(?Rm)^.*(%|#|//)\\s*spellcheck:disable-line$",  # spellcheck:disable-line
+        "(?s)(%|#|//)\\s*spellcheck:off.*?\\n\\s*(%|#|//)\\s*spellcheck:on",  # spellcheck:<on|off>
+        "(?s)(%|#|//)\\s*spellcheck:off\n?.*",  # spellcheck:off open ended
+        "(?s).*(%|#|//)\\s*spellcheck:disable-file\n?.*",  # spellcheck:disable-file
+      ]
 
-    # # You can also set the file content immediately.
-    # ".gradle/gradle.properties".text = ''
-    #   org.gradle.console=verbose
-    #   org.gradle.daemon.idletimeout=3600000
-    # '';
+      [default.extend-identifiers]
+
+      [default.extend-words]
+
+      [files]
+      extend-exclude = ["CHANGELOG.md"]
+    '';
+
+    ".latexmkrc".text = ''
+      $pdf_mode = 5;
+      $clean_ext = "synctex.gz nav snm thm soc loc glg acn";
+    '';
   };
 
   # Home Manager can also manage your environment variables through
