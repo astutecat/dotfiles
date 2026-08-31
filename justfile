@@ -26,7 +26,7 @@ nix-darwin-apply *args:
     :
 
 nix-apply *args:
-    nh home switch . -c $(whoami)@$(hostname) {{ args }}
+    nh home switch . -c $(whoami)@$(hostname) --accept-flake-config {{ args }}
 
 nix-update:
     nix flake update
