@@ -17,6 +17,14 @@ commit message: apply-chezmoi
     git commit -m "{{ message }}"
     git push
 
+[macos]
+nix-darwin-apply *args:
+    nh darwin switch . {{ args }}
+
+[linux]
+nix-darwin-apply *args:
+    :
+
 nix-apply *args:
     nh home switch . -c $(whoami)@$(hostname) {{ args }}
 

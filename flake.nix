@@ -3,8 +3,13 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-26.05";
+
+    nix-darwin.url = "github:nix-darwin/nix-darwin/nix-darwin-26.05";
+    nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
+
     home-manager.url = "github:nix-community/home-manager/release-26.05";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
+
     nix-doom-emacs-unstraightened = {
       url = "github:marienz/nix-doom-emacs-unstraightened";
       inputs = {
@@ -21,9 +26,15 @@
       self,
       nixpkgs,
       home-manager,
+      nix-darwin,
       ...
     }:
     let
+      darwin = {
+        # Set Git commit hash for darwin-version.
+        system.configurationRevision = self.rev or self.dirtyRev or null;
+      };
+
       mkHome =
         {
           system ? "x86_64-linux",
@@ -46,10 +57,33 @@
               isWorkMachine
               ;
           };
-          modules = [ (nixpkgs.lib.path.append ./hosts hostname) ];
+          modules = [ (nixpkgs.lib.path.append ./hosts "${hostname}/home.nix") ];
+        };
+
+      mkDarwin =
+        {
+          username ? "astutecat",
+          hostname,
+        }:
+        nix-darwin.lib.darwinSystem {
+          specialArgs = {
+            inherit
+              inputs
+              username
+              hostname
+              ;
+          };
+          modules = [
+            darwin
+            (nixpkgs.lib.path.append ./hosts "${hostname}/darwin.nix")
+          ];
         };
     in
     {
+      # Build darwin flake using:
+      # $ darwin-rebuild switch --flake .
+      darwinConfigurations."AstuteMBP" = mkDarwin { hostname = "AstuteMBP"; };
+
       homeConfigurations = {
         "willrog@nb0408" = mkHome {
           username = "willrog";
