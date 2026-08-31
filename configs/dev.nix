@@ -1,4 +1,4 @@
-{ lib, pkgs, ... }:
+{ lib, pkgs, config, ... }:
 let
   generalTools = with pkgs; [
     adrs
@@ -35,7 +35,7 @@ let
       ps: with ps; [
         neovim
         numpy
-      ]
+      ] ++ config.dev.extraPythonPackages
     ))
   ];
 
@@ -62,33 +62,41 @@ let
   ];
 in
 {
-  home.file.".ctags.d/defaults.ctags".text = ''
-    --recurse=yes
-    --exclude=*.git*
-    --exclude=*.hg*
-    --exclude=*.pyc
-    --exclude=*.pyo
-    --exclude=.DS_Store
-    --exclude=*.md
-    --exclude=*.mkd
-    --exclude=*.beam
-  '';
+  options.dev.extraPythonPackages = lib.mkOption {
+    type = lib.types.listOf lib.types.package;
+    default = [ ];
+    description = "Extra Python packages added to the shared python313 environment.";
+  };
 
-  home.packages = lib.flatten [
-    generalTools
-    bashPkgs
-    beamPkgs
-    luaPkgs
-    pythonPkgs
-    rustPkgs
-    sqlPkgs
-    nixPkgs
-    #
-    pkgs.go
-    pkgs.nodejs
-    pkgs.sbcl
-    pkgs.tombi
-    pkgs.tree-sitter
-    pkgs.uv
-  ];
+  config = {
+    home.file.".ctags.d/defaults.ctags".text = ''
+      --recurse=yes
+      --exclude=*.git*
+      --exclude=*.hg*
+      --exclude=*.pyc
+      --exclude=*.pyo
+      --exclude=.DS_Store
+      --exclude=*.md
+      --exclude=*.mkd
+      --exclude=*.beam
+    '';
+
+    home.packages = lib.flatten [
+      generalTools
+      bashPkgs
+      beamPkgs
+      luaPkgs
+      pythonPkgs
+      rustPkgs
+      sqlPkgs
+      nixPkgs
+      #
+      pkgs.go
+      pkgs.nodejs
+      pkgs.sbcl
+      pkgs.tombi
+      pkgs.tree-sitter
+      pkgs.uv
+    ];
+  };
 }
