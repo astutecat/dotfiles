@@ -34,7 +34,11 @@ let
     (repoDir "astutecat_infrastructure")
     (repoDir "kiezburn/public")
     (repoDir "kiezburn/deployments")
+    (repoDir "demand-response-rs")
+    (repoDir "entag-development")
     (repoDir "eto-rts")
+    (repoDir "eto-sentinel")
+    (repoDir "eto-services")
   ];
 in
 {
