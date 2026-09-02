@@ -30,7 +30,7 @@ nix-apply *args:
 
 nix-update:
     nix flake update
-    @just nix-apply
+    update-nix-fetchgit **/*.nix
 
 @apply: apply-chezmoi nix-update
 
