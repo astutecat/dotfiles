@@ -8,12 +8,9 @@ let
   generalTools = with pkgs; [
     adrs
     cloc
-    gh
-    jujutsu
-    stgit
     tmate
-    typos-lsp
     universal-ctags
+    exercism
   ];
 
   bashPkgs = with pkgs; [

@@ -86,7 +86,6 @@ in
         cheat
         dust
         dysk
-        exercism
         eza
         gawk
         htop
@@ -94,10 +93,7 @@ in
 
         lnav
         most
-        mr
         nix
-        prek
-        restic
         ripgrep
         silver-searcher
         sops

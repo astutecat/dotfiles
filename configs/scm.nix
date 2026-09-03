@@ -43,6 +43,12 @@ let
   ];
 in
 {
+  home.packages = with pkgs; [
+    prek
+    gh
+    stgit
+  ];
+
   programs.mr = {
     enable = true;
   };
