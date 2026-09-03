@@ -28,18 +28,22 @@ let
   }) aenergiRemotePatterns;
 
   repoDir = p: "${homeDirectory}/repos/${p}";
-  gitRepoExists = p: builtins.pathExists (repoDir p + "/.git");
 
-  existingRepos = builtins.filter gitRepoExists [
-    (repoDir "dotfiles")
-    (repoDir "astutecat_infrastructure")
-    (repoDir "kiezburn/public")
-    (repoDir "kiezburn/deployments")
-    (repoDir "demand-response-rs")
-    (repoDir "entag-development")
-    (repoDir "eto-rts")
-    (repoDir "eto-sentinel")
-    (repoDir "eto-services")
+  # Repos that should be registered for `git maintenance` if/when they are
+  # checked out on this machine. Existence can't reliably be checked at Nix
+  # evaluation time (flake evaluation is pure and can't see the real
+  # filesystem), so the actual filtering happens at Home Manager activation
+  # time instead (see the gitMaintenanceRepos activation script below).
+  maintenanceCandidateRepos = map repoDir [
+    "dotfiles"
+    "astutecat_infrastructure"
+    "kiezburn/public"
+    "kiezburn/deployments"
+    "demand-response-rs"
+    "entag-development"
+    "eto-rts"
+    "eto-sentinel"
+    "eto-services"
   ];
 in
 {
@@ -59,7 +63,6 @@ in
 
     maintenance = {
       enable = true;
-      repositories = existingRepos;
     };
 
     settings = {
@@ -185,9 +188,32 @@ in
     jujutsu.enable = true;
   };
 
-  home.activation.gitconfigMigration = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
-    touch "$HOME/.gitconfig"
-    "${pkgs.git}/bin/git" config --global --unset-all include.path '^.*/gitconfig-chezmoi$' 2>/dev/null || true
-    rm -f "$HOME/.config/git/gitconfig-chezmoi"
+  # `git config --global maintenance.repo` can't be set declaratively based on
+  # whether a repo actually exists (Nix evaluation is pure and can't see the
+  # real filesystem), so register only the repos that exist on this machine
+  # here instead, at activation time.
+  home.activation.gitMaintenanceRepos = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
+    gitCommand="${pkgs.git}/bin/git"
+    maintenanceRepos=(
+      ${lib.concatMapStringsSep "\n" lib.escapeShellArg maintenanceCandidateRepos}
+    )
+
+    # Print configured repositories that are absent from maintenanceRepos:
+    # -F treats paths literally, -x matches complete lines, and -v excludes matches.
+    unmanagedMaintenanceRepos=$(
+      "$gitCommand" config --global --get-all maintenance.repo 2>/dev/null \
+        | grep -vFxf <(printf '%s\n' "''${maintenanceRepos[@]}") \
+        || true
+    )
+    if [ "$unmanagedMaintenanceRepos" != "" ]; then
+      warnEcho "The following git maintenance.repo entries are not managed by Nix and will be removed: $(printf '%s\n' "$unmanagedMaintenanceRepos" | tr '\n' ' ')"
+    fi
+
+    "$gitCommand" config --global --unset-all maintenance.repo 2>/dev/null || true
+    for repo in "''${maintenanceRepos[@]}"; do
+      if [ -d "$repo/.git" ]; then
+        "$gitCommand" config --global --add maintenance.repo "$repo"
+      fi
+    done
   '';
 }
