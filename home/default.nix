@@ -22,7 +22,7 @@ in
     ../configs/editorconfig.nix
     ../configs/fonts.nix
     ../editors/doom-emacs.nix
-    ../editors/helix.nix
+    ../editors/helix
     ../editors/imhex.nix
     ../configs/fastfetch.nix
     ../configs/fortune.nix

@@ -1,0 +1,47 @@
+{ ... }:
+# let
+#   full-terminal = command: [
+#     ":write-all"
+#     ":insert-output ${command}"
+#     ":redraw"
+#     ":reload-all"
+#   ];
+#   full-terminal-interactive = command: full-terminal "zsh -ic \"${command}\" >/dev/tty 2>&1";
+# in
+{
+  programs.helix = {
+    settings.keys = {
+      normal = {
+        C-w = {
+          s = "vsplit";
+          C-s = "vsplit";
+          v = "hsplit";
+          C-v = "hsplit";
+        };
+
+        # Mark line and move with them up/down
+        # https://github.com/helix-editor/helix/discussions/5764#discussioncomment-4840408
+        C-j = [
+          "extend_to_line_bounds"
+          "delete_selection"
+          "paste_after"
+        ];
+        C-k = [
+          "extend_to_line_bounds"
+          "delete_selection"
+          "move_line_up"
+          "paste_before"
+        ];
+        ## Leader
+        space = {
+          w = {
+            s = "vsplit";
+            C-s = "vsplit";
+            v = "hsplit";
+            C-v = "hsplit";
+          };
+        };
+      };
+    };
+  };
+}
