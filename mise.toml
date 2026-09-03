@@ -1,3 +1,0 @@
-[tools]
-lua = "latest"
-prek = { version = "latest", postinstall = "prek install" }
