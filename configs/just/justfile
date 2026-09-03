@@ -19,10 +19,6 @@ alias srn := session-rename
 @session-rename name=dir_leaf: zellij
     zellij action rename-tab {{ name }}
 
-alias ns := split-nvim
-split-nvim:
-    zellij --layout nvim_split
-
 update-all:
     just -g update-fish
     topgrade

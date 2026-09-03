@@ -169,7 +169,6 @@ in
     "$HOME/.local/bin"
     "$HOME/.cargo/bin"
     "$HOME/.cache/rebar3/bin"
-    "$HOME/.local/share/nvim/mason/bin"
     "$HOME/.moon/bin"
     "$HOME/.fly/bin"
     "/Applications/Obsidian.app/Contents/MacOS"

@@ -1,7 +1,5 @@
 packages:
   brews:
-    - "chezmoi"
-    - "neovim"
     - "qman"
   casks:
     - "raycast"

@@ -1,9 +1,0 @@
-# vim:ft=toml.chezmoitmpl
-
-[settings]
-experimental = true
-cache_prune_age = "14d"
-disable_hints = ["python_multi", "python_precompiled"]
-disable_backends = ["asdf"]
-
-[tools]
