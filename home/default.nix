@@ -1,6 +1,7 @@
 {
   pkgs,
   lib,
+  config,
   username,
   homeDirectory,
   ...
@@ -121,6 +122,11 @@ in
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
   home.file = {
+    "${config.xdg.binHome}/thisisfine.sh" = {
+      source = ./thisisfine.sh;
+      executable = true;
+    };
+
     ".typos.toml".text = ''
       [default]
       extend-ignore-re = [
@@ -166,7 +172,6 @@ in
     "/home/linuxbrew/.linuxbrew/bin"
     "/home/linuxbrew/.linuxbrew/sbin"
     "$HOME/bin"
-    "$HOME/.local/bin"
     "$HOME/.cargo/bin"
     "$HOME/.cache/rebar3/bin"
     "$HOME/.moon/bin"
@@ -176,6 +181,11 @@ in
 
   home.sessionVariables = {
     PAGER = "most";
+  };
+
+  xdg = {
+    enable = true;
+    localBinInPath = true;
   };
 
   xdg.configFile = {
