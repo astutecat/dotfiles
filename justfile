@@ -13,7 +13,7 @@ nix-darwin-apply *args:
 
 [linux]
 nix-darwin-apply *args:
-    :
+    @:
 
 nix-apply *args:
     nh home switch . -c $(whoami)@$(hostname) --accept-flake-config {{ args }}
