@@ -39,7 +39,7 @@ in
 
   # cheat configuration (migrated from chezmoi conf.yml.tmpl)
   xdg.configFile."cheat/conf.yml".text = ''
-    editor: nvim
+    editor: ${config.home.sessionVariables.EDITOR}
     colorize: true
     style: onedark
     formatter: terminal256

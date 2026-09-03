@@ -1,4 +1,5 @@
 {
+  config,
   pkgs,
   lib,
   homeDirectory,
@@ -81,7 +82,7 @@ in
         templateDir = "${homeDirectory}/.git-template";
       };
       core = {
-        editor = "nvim";
+        editor = config.home.sessionVariables.EDITOR;
         pager = "delta";
       };
       advice = {

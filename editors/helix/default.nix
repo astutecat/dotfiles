@@ -42,9 +42,11 @@
           render = true;
         };
 
-        end-of-line-diagnostics = "error";
+        end-of-line-diagnostics = "disable";
         inline-diagnostics = {
-          cursor-line = "info";
+          cursor-line = "hint";
+          prefix-len = 1;
+          max-diagnostics = 3;
         };
 
         file-picker.hidden = false;

@@ -176,8 +176,6 @@ in
   ];
 
   home.sessionVariables = {
-    EDITOR = "nvim";
-    VISUAL = "nvim";
     PAGER = "most";
   };
 

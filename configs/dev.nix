@@ -1,4 +1,9 @@
-{ lib, pkgs, config, ... }:
+{
+  lib,
+  pkgs,
+  config,
+  ...
+}:
 let
   generalTools = with pkgs; [
     adrs
@@ -20,7 +25,6 @@ let
     beam29Packages.erlang
     beam29Packages.elixir_1_20
     beam29Packages.expert
-    erlang-language-platform
     gleam
   ];
 
@@ -32,10 +36,12 @@ let
 
   pythonPkgs = with pkgs; [
     (python313.withPackages (
-      ps: with ps; [
-        neovim
+      ps:
+      with ps;
+      [
         numpy
-      ] ++ config.dev.extraPythonPackages
+      ]
+      ++ config.dev.extraPythonPackages
     ))
   ];
 
@@ -55,8 +61,6 @@ let
   ];
 
   nixPkgs = with pkgs; [
-    nil
-    nixd
     nixfmt
     update-nix-fetchgit
   ];
@@ -94,7 +98,6 @@ in
       pkgs.go
       pkgs.nodejs
       pkgs.sbcl
-      pkgs.tombi
       pkgs.tree-sitter
       pkgs.uv
     ];

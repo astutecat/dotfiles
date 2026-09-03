@@ -12,13 +12,6 @@
   programs.helix = {
     settings.keys = {
       normal = {
-        C-w = {
-          s = "vsplit";
-          C-s = "vsplit";
-          v = "hsplit";
-          C-v = "hsplit";
-        };
-
         # Mark line and move with them up/down
         # https://github.com/helix-editor/helix/discussions/5764#discussioncomment-4840408
         C-j = [
@@ -32,14 +25,8 @@
           "move_line_up"
           "paste_before"
         ];
-        ## Leader
         space = {
-          w = {
-            s = "vsplit";
-            C-s = "vsplit";
-            v = "hsplit";
-            C-v = "hsplit";
-          };
+          l = ":toggle inline-diagnostics.cursor-line hint disable";
         };
       };
     };
