@@ -42,6 +42,8 @@
 
         indent-guides = {
           render = true;
+          character = "┆";
+          skip-levels = 1;
         };
 
         end-of-line-diagnostics = "disable";
@@ -52,6 +54,12 @@
         };
 
         file-picker.hidden = false;
+
+        gutters = {
+          line-numbers = {
+            min-width = 4;
+          };
+        };
 
         auto-save = {
           focus-lost = true;
@@ -85,6 +93,16 @@
             "position"
             "position-percentage"
             "file-type"
+          ];
+          diagnostics = [
+            "hint"
+            "warning"
+            "error"
+          ];
+          workspace-diagnostics = [
+            "hint"
+            "warning"
+            "error"
           ];
         };
       };
