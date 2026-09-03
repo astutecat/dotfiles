@@ -24,37 +24,52 @@
   # Set the primary user for nix-darwin:
   system.primaryUser = username;
 
-  # homebrew = {
-  #   enable = true;
-  #   onActivation = {
-  #     cleanup = "zap";
-  #
-  #     extraFlags = [
-  #       "--force-cleanup"
-  #     ];
-  #   };
-  #
-  #   taps =
-  #     lib.map
-  #       (tap: {
-  #         name = tap;
-  #         trusted = true;
-  #         force_auto_update = true;
-  #       })
-  #       [
-  #         "qmk/qmk"
-  #         "osx-cross/arm" # required by qmk/qmk/qmk
-  #         "osx-cross/avr" # required by qmk/qmk/qmk
-  #       ];
-  #
-  #   brews = [
-  #     "choose-gui"
-  #     "qmk/qmk/qmk"
-  #   ];
-  #
-  #   casks = [
-  #   ];
-  # };
+  homebrew = {
+    enable = true;
+    onActivation = {
+      cleanup = "zap";
+
+      extraFlags = [
+        "--force-cleanup"
+      ];
+    };
+
+    # taps =
+    #   lib.map
+    #     (tap: {
+    #       name = tap;
+    #       trusted = true;
+    #       force_auto_update = true;
+    #     })
+    #     [
+    #       "qmk/qmk"
+    #       "osx-cross/arm" # required by qmk/qmk/qmk
+    #       "osx-cross/avr" # required by qmk/qmk/qmk
+    #     ];
+
+    brews = [
+      # "choose-gui"
+      # "qmk/qmk/qmk"
+      # "qman"
+    ];
+
+    casks = [
+      "raycast"
+      "rstudio"
+      "1password-cli"
+      "r-app"
+      "anki"
+      "calibre"
+      "dangerzone"
+      "ghostty"
+      "qflipper"
+      "gqrx"
+      "skim"
+      "scribus"
+      "trackerzapper"
+      "josm"
+    ];
+  };
 
   # Add ability to use TouchID for sudo authentication in terminal:
   security.pam.services.sudo_local.touchIdAuth = true;

@@ -4,18 +4,8 @@ set shell := ["bash", "-cu"]
 default:
     @just --justfile "{{ justfile() }}" --list
 
-@apply-chezmoi:
-    echo -n "applying dotfiles..."
-    chezmoi apply
-    echo "done"
-
 watch:
     watchexec -- just apply
-
-commit message: apply-chezmoi
-    git add .
-    git commit -m "{{ message }}"
-    git push
 
 [macos]
 nix-darwin-apply *args:
@@ -32,7 +22,7 @@ nix-update:
     nix flake update
     update-nix-fetchgit **/*.nix
 
-@apply: apply-chezmoi nix-update
+@apply: nix-darwin-apply nix-apply
 
 install-hooks:
     pre-commit install

@@ -26,6 +26,8 @@
           120
         ];
 
+        completion-replace = true;
+
         cursor-shape = {
           insert = "bar";
           normal = "block";
