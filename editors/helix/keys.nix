@@ -27,6 +27,13 @@ _:
         ];
         space = {
           l = ":toggle inline-diagnostics.cursor-line hint disable";
+          # Other file:
+          o = [
+            ":sh rm -f /tmp/helix-other-file-selection-result"
+            ":insert-output other-file %{buffer_name} /tmp/helix-other-file-selection-result 1>/dev/tty 2>&1"
+            ":open %sh{cat /tmp/helix-other-file-selection-result}"
+            ":redraw"
+          ];
         };
       };
     };
