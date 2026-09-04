@@ -61,6 +61,7 @@
               homeDirectory
               isWorkMachine
               ;
+            schemar-private-fonts = inputs.schemar-private-fonts;
           };
           modules = [ (nixpkgs.lib.path.append ./hosts "${hostname}/home.nix") ];
         };

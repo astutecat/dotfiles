@@ -1,5 +1,6 @@
 {
   pkgs,
+  schemar-private-fonts,
   ...
 }:
 let
@@ -12,6 +13,8 @@ in
     pkgs.noto-fonts-color-emoji
     pkgs.monaspace
     pkgs.nerd-fonts.symbols-only
+
+    schemar-private-fonts.packages.${pkgs.stdenv.hostPlatform.system}.default
   ];
 
   # Linux: let fontconfig discover fonts installed through home.packages.
