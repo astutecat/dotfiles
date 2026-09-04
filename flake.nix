@@ -10,6 +10,11 @@
     home-manager.url = "github:nix-community/home-manager/release-26.05";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
+    schemar-private-fonts = {
+      url = "git+ssh://git@github.com/schemar/fonts.git";
+      flake = true;
+    };
+
     nix-doom-emacs-unstraightened = {
       url = "github:marienz/nix-doom-emacs-unstraightened";
       inputs = {

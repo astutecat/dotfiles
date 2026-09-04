@@ -138,12 +138,47 @@
         "type": "github"
       }
     },
+    "nixpkgs_2": {
+      "locked": {
+        "lastModified": 1781577229,
+        "narHash": "sha256-lrp67w8AulE9Ks53n27I45ADSzbOCn4H+CNW1Ck8B+8=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "567a49d1913ce81ac6e9582e3553dd90a955875f",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "ref": "nixos-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
         "home-manager": "home-manager",
         "nix-darwin": "nix-darwin",
         "nix-doom-emacs-unstraightened": "nix-doom-emacs-unstraightened",
-        "nixpkgs": "nixpkgs"
+        "nixpkgs": "nixpkgs",
+        "schemar-private-fonts": "schemar-private-fonts"
+      }
+    },
+    "schemar-private-fonts": {
+      "inputs": {
+        "nixpkgs": "nixpkgs_2"
+      },
+      "locked": {
+        "lastModified": 1782227791,
+        "narHash": "sha256-LTURu90XzRQPYJUA+VijDidNA2RWSEKEMXMcaLhegNk=",
+        "ref": "refs/heads/main",
+        "rev": "12dcd0f5d506acd57b8b41d4a963318d1cd97db0",
+        "revCount": 3,
+        "type": "git",
+        "url": "ssh://git@github.com/schemar/fonts.git"
+      },
+      "original": {
+        "type": "git",
+        "url": "ssh://git@github.com/schemar/fonts.git"
       }
     },
     "systems": {

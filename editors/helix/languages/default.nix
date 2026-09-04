@@ -14,4 +14,14 @@
     ./toml.nix
     ./yaml.nix
   ];
+
+  programs.helix.languages = {
+    use-grammars = {
+      except = [
+        "go"
+        "gotmpl"
+        "git-config"
+      ];
+    };
+  };
 }
