@@ -30,6 +30,7 @@ in
     ../configs/gitlint.nix
     ../configs/scm.nix
     ../services/nix-gc.nix
+    ../services/restic.nix
     ../configs/ssh.nix
     ../configs/ghostty.nix
     ../configs/just
@@ -92,7 +93,6 @@ in
 
           lnav
           most
-          nix
           ripgrep
           silver-searcher
           sops
@@ -159,18 +159,23 @@ in
     #
     #  /etc/profiles/per-user/willrog/etc/profile.d/hm-session-vars.sh
     #
-    sessionPath = [
-      "/opt/homebrew/bin"
-      "/opt/homebrew/sbin"
-      "/home/linuxbrew/.linuxbrew/bin"
-      "/home/linuxbrew/.linuxbrew/sbin"
-      "$HOME/bin"
-      "$HOME/.cargo/bin"
-      "$HOME/.cache/rebar3/bin"
-      "$HOME/.moon/bin"
-      "$HOME/.fly/bin"
-      "/Applications/Obsidian.app/Contents/MacOS"
-    ];
+    sessionPath =
+      lib.optionals isDarwin [
+        "/opt/homebrew/bin"
+        "/opt/homebrew/sbin"
+        "/Applications/Obsidian.app/Contents/MacOS"
+      ]
+      ++ lib.optionals isLinux [
+        "/home/linuxbrew/.linuxbrew/bin"
+        "/home/linuxbrew/.linuxbrew/sbin"
+      ]
+      ++ [
+        "$HOME/bin"
+        "$HOME/.cargo/bin"
+        "$HOME/.cache/rebar3/bin"
+        "$HOME/.moon/bin"
+        "$HOME/.fly/bin"
+      ];
 
     sessionVariables = {
       PAGER = "most";
@@ -188,8 +193,6 @@ in
     package = pkgs.nix;
 
     settings = {
-      accept-flake-config = true;
-
       # While you're here, add the nix-community cache:
       substituters = [
         "https://cache.nixos.org/"

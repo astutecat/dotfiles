@@ -16,10 +16,10 @@ nix-darwin-apply *args:
     @:
 
 nix-apply *args:
-    nh home switch . -c $(whoami)@$(hostname) --accept-flake-config {{ args }}
+    nh home switch . -c $(whoami)@$(hostname -s) --accept-flake-config {{ args }}
 
 nix-update:
     nix flake update
-    update-nix-fetchgit **/*.nix
+    fd -e nix -x update-nix-fetchgit
 
 @apply: nix-darwin-apply nix-apply

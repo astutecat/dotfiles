@@ -3,7 +3,6 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-26.05";
-    flake-utils.url = "github:numtide/flake-utils";
 
     nix-darwin.url = "github:nix-darwin/nix-darwin/nix-darwin-26.05";
     nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
@@ -19,6 +18,10 @@
     schemar-private-fonts = {
       url = "git+ssh://git@github.com/schemar/fonts.git";
       flake = true;
+
+      # Keep the private fonts flake on the same nixpkgs as everything else
+      # instead of letting it pin its own copy of nixpkgs-unstable.
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     nix-doom-emacs-unstraightened = {
@@ -38,10 +41,16 @@
       nixpkgs,
       home-manager,
       nix-darwin,
-      flake-utils,
       ...
     }:
     let
+      systems = [
+        "aarch64-darwin"
+        "x86_64-darwin"
+        "aarch64-linux"
+        "x86_64-linux"
+      ];
+
       darwin = {
         # Set Git commit hash for darwin-version.
         system.configurationRevision = self.rev or self.dirtyRev or null;
@@ -119,48 +128,49 @@
             nix-flake-check = {
               enable = true;
               name = "nix flake check";
-              entry = "nix flake check";
+              entry = "nix flake check --all-systems";
               language = "system";
               pass_filenames = false;
             };
           };
         };
+      # Strips the explicit --config git-hooks.nix bakes into the prek hook
+      # shims, so prek's hook-impl doesn't print "Using config file: ..." on
+      # every commit.
+      stripShimConfigHook = ''
+        find .git/hooks -maxdepth 1 -type f ! -name '*.sample' \
+          -exec sed -i 's/ --config="[^"]*"//' {} +
+      '';
     in
-    flake-utils.lib.eachDefaultSystem (
-      system:
-      let
-        pkgs = import nixpkgs {
-          inherit system;
-          config.allowUnfree = true;
-        };
-        preCommit = mkPreCommit system pkgs;
+    {
+      devShells = nixpkgs.lib.genAttrs systems (
+        system:
+        let
+          pkgs = import nixpkgs {
+            inherit system;
+            config.allowUnfree = true;
+          };
+          preCommit = mkPreCommit system pkgs;
+        in
+        {
+          default = pkgs.mkShell {
+            buildInputs = [
+              # Dev tools
+              pkgs.just
+              pkgs.direnv
+              pkgs.prek
+            ]
+            ++ preCommit.enabledPackages;
 
-        # Strips the explicit --config git-hooks.nix bakes into the prek hook
-        # shims, so prek's hook-impl doesn't print "Using config file: ..." on
-        # every commit.
-        stripShimConfigHook = ''
-          find .git/hooks -maxdepth 1 -type f ! -name '*.sample' \
-            -exec sed -i 's/ --config="[^"]*"//' {} +
-        '';
-      in
-      {
-        devShells.default = pkgs.mkShell {
-          buildInputs = [
-            # Dev tools
-            pkgs.just
-            pkgs.direnv
-            pkgs.prek
-          ]
-          ++ preCommit.enabledPackages;
-
-          # Generates .pre-commit-config.yaml and installs hooks with prek
-          shellHook = ''
-            ${preCommit.shellHook}
-            ${stripShimConfigHook}
-          '';
-        };
-      }
-    )
+            # Generates .pre-commit-config.yaml and installs hooks with prek
+            shellHook = ''
+              ${preCommit.shellHook}
+              ${stripShimConfigHook}
+            '';
+          };
+        }
+      );
+    }
     // {
       # Build darwin flake using:
       # $ darwin-rebuild switch --flake .

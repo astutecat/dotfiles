@@ -4,43 +4,23 @@
   ...
 }:
 
-let
-  isDarwin = pkgs.stdenv.hostPlatform.isDarwin;
-  isLinux = pkgs.stdenv.hostPlatform.isLinux;
-
-  serviceName = "nix-collect-garbage";
-  gcCmd = "${pkgs.nix}/bin/${serviceName}";
-in
-{
-  launchd.agents."${serviceName}" = lib.mkIf isDarwin {
-    enable = true;
-    config = {
-      ProgramArguments = [ gcCmd ];
-      RunAtLoad = true;
-      StartCalendarInterval = [
-        {
-          Hour = 3;
-          Minute = 0;
-        }
-      ];
-      StandardOutPath = "/tmp/${serviceName}.out.log";
-      StandardErrorPath = "/tmp/${serviceName}.err.log";
-    };
-  };
-
-  systemd.user.services."${serviceName}" = lib.mkIf isLinux {
+# User-level garbage collection for Linux hosts. On Darwin, root-level GC runs
+# via nix-darwin's nix.gc (see hosts/AstuteMBP/darwin.nix) instead, since a
+# user launchd agent can't collect daemon-owned store paths.
+lib.mkIf pkgs.stdenv.hostPlatform.isLinux {
+  systemd.user.services.nix-collect-garbage = {
     Unit = {
-      Description = "Run ${serviceName}";
+      Description = "Run nix-collect-garbage";
     };
     Service = {
       Type = "oneshot";
-      ExecStart = gcCmd;
+      ExecStart = "${pkgs.nix}/bin/nix-collect-garbage --delete-older-than 30d";
     };
   };
 
-  systemd.user.timers."${serviceName}" = lib.mkIf isLinux {
+  systemd.user.timers.nix-collect-garbage = {
     Unit = {
-      Description = "Run ${serviceName} daily";
+      Description = "Run nix-collect-garbage daily";
     };
     Timer = {
       OnCalendar = "daily";

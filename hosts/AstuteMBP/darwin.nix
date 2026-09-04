@@ -19,6 +19,17 @@
     ];
   };
 
+  # Root-level garbage collection via launchd (the user-level systemd timer in
+  # services/nix-gc.nix only applies to Linux hosts).
+  nix.gc = {
+    automatic = true;
+    interval = {
+      Hour = 3;
+      Minute = 0;
+    };
+    options = "--delete-older-than 30d";
+  };
+
   # Used for backwards compatibility, please read the changelog before changing.
   # $ darwin-rebuild changelog
   system.stateVersion = 7;
