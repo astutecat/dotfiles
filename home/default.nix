@@ -27,6 +27,7 @@ in
     ../editors/imhex.nix
     ../configs/fastfetch.nix
     ../configs/fortune.nix
+    ../configs/gitlint.nix
     ../configs/scm.nix
     ../services/nix-gc.nix
     ../configs/ssh.nix
@@ -38,7 +39,6 @@ in
     ../configs/opencode.nix
     ../configs/pert.nix
     ../configs/shell.nix
-    ../configs/ssh.nix
     ../configs/tealdeer.nix
     ../configs/tfg.nix
     ../configs/topgrade.nix
@@ -83,7 +83,6 @@ in
           age
           babelfish
           bottom
-          cheat
           dust
           dysk
           eza
@@ -101,8 +100,6 @@ in
           usage
           visidata
           watchexec
-          zellij
-          zoxide
 
         ]
         (lib.optionals isDarwin [
@@ -185,8 +182,7 @@ in
     localBinInPath = true;
   };
 
-  xdg.configFile = {
-  };
+  xdg.configFile = { };
 
   nix = {
     package = pkgs.nix;

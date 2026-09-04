@@ -9,6 +9,10 @@
         {
           name = "erlang";
           auto-format = true;
+          language-servers = [
+            "elp"
+            "typos"
+          ];
           formatter = {
             command = "${lib.getExe pkgs.erlfmt}";
             args = [ "-" ];

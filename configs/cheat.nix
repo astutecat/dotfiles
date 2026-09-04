@@ -65,8 +65,5 @@ in
     mkdir -p "${config.xdg.dataHome}/cheat/cheatsheets/work"
   '';
 
-  home.packages = [
-    pkgs.cheat
-    pkgs.most
-  ];
+  home.packages = [ pkgs.cheat ];
 }
