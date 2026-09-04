@@ -134,6 +134,14 @@
           config.allowUnfree = true;
         };
         preCommit = mkPreCommit system pkgs;
+
+        # Strips the explicit --config git-hooks.nix bakes into the prek hook
+        # shims, so prek's hook-impl doesn't print "Using config file: ..." on
+        # every commit.
+        stripShimConfigHook = ''
+          find .git/hooks -maxdepth 1 -type f ! -name '*.sample' \
+            -exec sed -i 's/ --config="[^"]*"//' {} +
+        '';
       in
       {
         devShells.default = pkgs.mkShell {
@@ -146,7 +154,10 @@
           ++ preCommit.enabledPackages;
 
           # Generates .pre-commit-config.yaml and installs hooks with prek
-          inherit (preCommit) shellHook;
+          shellHook = ''
+            ${preCommit.shellHook}
+            ${stripShimConfigHook}
+          '';
         };
       }
     )
