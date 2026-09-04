@@ -23,6 +23,3 @@ nix-update:
     update-nix-fetchgit **/*.nix
 
 @apply: nix-darwin-apply nix-apply
-
-install-hooks:
-    pre-commit install

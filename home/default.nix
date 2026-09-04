@@ -60,123 +60,124 @@ in
     fzf.enable = true;
   };
 
-  # Home Manager needs a bit of information about you and the paths it should
-  # manage.
-  home.username = username;
-  home.homeDirectory = homeDirectory;
+  home = {
+    # Home Manager needs a bit of information about you and the paths it should
+    # manage.
+    inherit username homeDirectory;
 
-  # This value determines the Home Manager release that your configuration is
-  # compatible with. This helps avoid breakage when a new Home Manager release
-  # introduces backwards incompatible changes.
-  #
-  # You should not change this value, even if you update Home Manager. If you do
-  # want to update the value, then make sure to first check the Home Manager
-  # release notes.
-  home.stateVersion = "26.05"; # Please read the comment before changing.
+    # This value determines the Home Manager release that your configuration is
+    # compatible with. This helps avoid breakage when a new Home Manager release
+    # introduces backwards incompatible changes.
+    #
+    # You should not change this value, even if you update Home Manager. If you do
+    # want to update the value, then make sure to first check the Home Manager
+    # release notes.
+    stateVersion = "26.05"; # Please read the comment before changing.
 
-  # The home.packages option allows you to install Nix packages into your
-  # environment.
-  home.packages =
-    with pkgs;
-    lib.concatLists [
-      [
-        age
-        babelfish
-        bottom
-        cheat
-        dust
-        dysk
-        eza
-        gawk
-        htop
-        hyperfine
+    # The home.packages option allows you to install Nix packages into your
+    # environment.
+    packages =
+      with pkgs;
+      lib.concatLists [
+        [
+          age
+          babelfish
+          bottom
+          cheat
+          dust
+          dysk
+          eza
+          gawk
+          htop
+          hyperfine
 
-        lnav
-        most
-        nix
-        ripgrep
-        silver-searcher
-        sops
-        unzip
-        usage
-        visidata
-        watchexec
-        zellij
-        zoxide
+          lnav
+          most
+          nix
+          ripgrep
+          silver-searcher
+          sops
+          unzip
+          usage
+          visidata
+          watchexec
+          zellij
+          zoxide
 
-      ]
-      (lib.optionals isDarwin [
-        # Darwin specific packages go here.
-      ])
-      (lib.optionals isLinux [
-        # Linux specific packages go here.
-        pkgs.bluetui
-        pkgs.wl-clipboard
-      ])
-    ];
+        ]
+        (lib.optionals isDarwin [
+          # Darwin specific packages go here.
+        ])
+        (lib.optionals isLinux [
+          # Linux specific packages go here.
+          pkgs.bluetui
+          pkgs.wl-clipboard
+        ])
+      ];
 
-  # Home Manager is pretty good at managing dotfiles. The primary way to manage
-  # plain files is through 'home.file'.
-  home.file = {
-    "${config.xdg.binHome}/thisisfine.sh" = {
-      source = ./thisisfine.sh;
-      executable = true;
+    # Home Manager is pretty good at managing dotfiles. The primary way to manage
+    # plain files is through 'home.file'.
+    file = {
+      "${config.xdg.binHome}/thisisfine.sh" = {
+        source = ./thisisfine.sh;
+        executable = true;
+      };
+
+      ".typos.toml".text = ''
+        [default]
+        extend-ignore-re = [
+          "(?Rm)^.*(%|#|//)\\s*spellcheck:disable-line$",  # spellcheck:disable-line
+          "(?s)(%|#|//)\\s*spellcheck:off.*?\\n\\s*(%|#|//)\\s*spellcheck:on",  # spellcheck:<on|off>
+          "(?s)(%|#|//)\\s*spellcheck:off\n?.*",  # spellcheck:off open ended
+          "(?s).*(%|#|//)\\s*spellcheck:disable-file\n?.*",  # spellcheck:disable-file
+        ]
+
+        [default.extend-identifiers]
+
+        [default.extend-words]
+
+        [files]
+        extend-exclude = ["CHANGELOG.md"]
+      '';
+
+      ".latexmkrc".text = ''
+        $pdf_mode = 5;
+        $clean_ext = "synctex.gz nav snm thm soc loc glg acn";
+      '';
     };
 
-    ".typos.toml".text = ''
-      [default]
-      extend-ignore-re = [
-        "(?Rm)^.*(%|#|//)\\s*spellcheck:disable-line$",  # spellcheck:disable-line
-        "(?s)(%|#|//)\\s*spellcheck:off.*?\\n\\s*(%|#|//)\\s*spellcheck:on",  # spellcheck:<on|off>
-        "(?s)(%|#|//)\\s*spellcheck:off\n?.*",  # spellcheck:off open ended
-        "(?s).*(%|#|//)\\s*spellcheck:disable-file\n?.*",  # spellcheck:disable-file
-      ]
+    # Home Manager can also manage your environment variables through
+    # 'home.sessionVariables'. These will be explicitly sourced when using a
+    # shell provided by Home Manager. If you don't want to manage your shell
+    # through Home Manager then you have to manually source 'hm-session-vars.sh'
+    # located at either
+    #
+    #  ~/.nix-profile/etc/profile.d/hm-session-vars.sh
+    #
+    # or
+    #
+    #  ~/.local/state/nix/profiles/profile/etc/profile.d/hm-session-vars.sh
+    #
+    # or
+    #
+    #  /etc/profiles/per-user/willrog/etc/profile.d/hm-session-vars.sh
+    #
+    sessionPath = [
+      "/opt/homebrew/bin"
+      "/opt/homebrew/sbin"
+      "/home/linuxbrew/.linuxbrew/bin"
+      "/home/linuxbrew/.linuxbrew/sbin"
+      "$HOME/bin"
+      "$HOME/.cargo/bin"
+      "$HOME/.cache/rebar3/bin"
+      "$HOME/.moon/bin"
+      "$HOME/.fly/bin"
+      "/Applications/Obsidian.app/Contents/MacOS"
+    ];
 
-      [default.extend-identifiers]
-
-      [default.extend-words]
-
-      [files]
-      extend-exclude = ["CHANGELOG.md"]
-    '';
-
-    ".latexmkrc".text = ''
-      $pdf_mode = 5;
-      $clean_ext = "synctex.gz nav snm thm soc loc glg acn";
-    '';
-  };
-
-  # Home Manager can also manage your environment variables through
-  # 'home.sessionVariables'. These will be explicitly sourced when using a
-  # shell provided by Home Manager. If you don't want to manage your shell
-  # through Home Manager then you have to manually source 'hm-session-vars.sh'
-  # located at either
-  #
-  #  ~/.nix-profile/etc/profile.d/hm-session-vars.sh
-  #
-  # or
-  #
-  #  ~/.local/state/nix/profiles/profile/etc/profile.d/hm-session-vars.sh
-  #
-  # or
-  #
-  #  /etc/profiles/per-user/willrog/etc/profile.d/hm-session-vars.sh
-  #
-  home.sessionPath = [
-    "/opt/homebrew/bin"
-    "/opt/homebrew/sbin"
-    "/home/linuxbrew/.linuxbrew/bin"
-    "/home/linuxbrew/.linuxbrew/sbin"
-    "$HOME/bin"
-    "$HOME/.cargo/bin"
-    "$HOME/.cache/rebar3/bin"
-    "$HOME/.moon/bin"
-    "$HOME/.fly/bin"
-    "/Applications/Obsidian.app/Contents/MacOS"
-  ];
-
-  home.sessionVariables = {
-    PAGER = "most";
+    sessionVariables = {
+      PAGER = "most";
+    };
   };
 
   xdg = {

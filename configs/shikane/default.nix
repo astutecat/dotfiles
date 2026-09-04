@@ -1,4 +1,4 @@
-{ ... }: {
+_: {
   # shikane: dynamic wayland output configuration; the systemd user service
   # is wired to the sway session target (sway module sets systemd.enable).
   services.shikane.enable = true;

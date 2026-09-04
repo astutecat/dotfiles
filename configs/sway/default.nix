@@ -1,4 +1,4 @@
-{ ... }:
+_:
 let
   mod = "Mod4";
   menuCmd = "rofi -terminal 'ghostty' -show combi -combi-modes drun#run -modes combi";

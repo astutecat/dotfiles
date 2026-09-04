@@ -53,139 +53,143 @@ in
     stgit
   ];
 
-  programs.mr = {
-    enable = true;
-  };
-
-  programs.git = {
-    enable = true;
-    package = pkgs.gitFull;
-
-    maintenance = {
+  programs = {
+    mr = {
       enable = true;
     };
 
-    settings = {
-      user = {
-        name = "Will Rogers";
-        email = "github@astutecat.dev";
+    git = {
+      enable = true;
+      package = pkgs.gitFull;
+
+      maintenance = {
+        enable = true;
       };
-      commit.gpgSign = false;
-      diff.tool = "difftastic";
-      difftool.prompt = false;
-      difftool.bc3.trustExitCode = true;
-      difftool.difftastic.cmd = "difft \"$LOCAL\" \"$REMOTE\"";
-      alias = {
-        dft = "difftool -t difftastic";
-        dfts = "dft --staged";
-        fpush = "push --force-with-lease --force-if-includes";
-        shhh = "fpush";
-        sw = "switch";
-        res = "restore";
-        prune-branches = "!git remote prune origin && git branch -vv | grep ': gone]' | awk '{print $1}' | xargs -r git branch -d";
-        prune-branches-force = "!git remote prune origin && git branch -vv | grep ': gone]' | awk '{print $1}' | xargs -r git branch -D";
+
+      settings = {
+        user = {
+          name = "Will Rogers";
+          email = "github@astutecat.dev";
+        };
+        commit.gpgSign = false;
+        diff.tool = "difftastic";
+        difftool = {
+          prompt = false;
+          bc3.trustExitCode = true;
+          difftastic.cmd = "difft \"$LOCAL\" \"$REMOTE\"";
+        };
+        alias = {
+          dft = "difftool -t difftastic";
+          dfts = "dft --staged";
+          fpush = "push --force-with-lease --force-if-includes";
+          shhh = "fpush";
+          sw = "switch";
+          res = "restore";
+          prune-branches = "!git remote prune origin && git branch -vv | grep ': gone]' | awk '{print $1}' | xargs -r git branch -d";
+          prune-branches-force = "!git remote prune origin && git branch -vv | grep ': gone]' | awk '{print $1}' | xargs -r git branch -D";
+        };
+        gc.autoDetach = false;
+        init = {
+          defaultBranch = "main";
+          templateDir = "${homeDirectory}/.git-template";
+        };
+        core = {
+          editor = config.home.sessionVariables.EDITOR;
+          pager = "delta";
+        };
+        advice = {
+          detachedHead = false;
+          skippedCherryPicks = false;
+        };
+        rebase = {
+          autoStash = true;
+          updateRefs = true;
+          autoSquash = true;
+        };
+        push = {
+          recurseSubmodules = "check";
+          default = "current";
+          autoSetupRemote = true;
+        };
+        pull = {
+          rebase = true;
+          useForceIfIncludes = true;
+        };
+        column.ui = "auto";
+        branch.sort = "-committerdate";
+        rerere = {
+          enabled = true;
+          autoUpdate = true;
+        };
+        absorb.autoStageIfNothingStaged = true;
+        checkout = {
+          defaultRemote = "origin";
+          workers = -1;
+        };
       };
-      gc.autoDetach = false;
-      init = {
-        defaultBranch = "main";
-        templateDir = "${homeDirectory}/.git-template";
-      };
-      core = {
-        editor = config.home.sessionVariables.EDITOR;
-        pager = "delta";
-      };
-      advice = {
-        detachedHead = false;
-        skippedCherryPicks = false;
-      };
-      rebase = {
-        autoStash = true;
-        updateRefs = true;
-        autoSquash = true;
-      };
-      push = {
-        recurseSubmodules = "check";
-        default = "current";
-        autoSetupRemote = true;
-      };
-      pull = {
-        rebase = true;
-        useForceIfIncludes = true;
-      };
-      column.ui = "auto";
-      branch.sort = "-committerdate";
-      rerere = {
-        enabled = true;
-        autoUpdate = true;
-      };
-      absorb.autoStageIfNothingStaged = true;
-      checkout = {
-        defaultRemote = "origin";
-        workers = -1;
+
+      signing.key = "3BD453E1C45430E8";
+
+      includes = aenergiIncludes;
+    };
+
+    jujutsu = {
+      enable = true;
+
+      settings = {
+        user = {
+          name = "Will Rogers";
+          email = "github@astutecat.dev";
+        };
+        ui = {
+          pager = "cat";
+          default-command = [
+            "log"
+            "--reversed"
+          ];
+        };
+        aliases = {
+          fetch = [
+            "git"
+            "fetch"
+          ];
+          rlog = [
+            "log"
+            "--reversed"
+          ];
+        };
+        remotes.origin.auto-track-created-bookmarks = "*";
       };
     };
 
-    signing.key = "3BD453E1C45430E8";
-
-    includes = aenergiIncludes;
-  };
-
-  programs.jujutsu = {
-    enable = true;
-
-    settings = {
-      user = {
-        name = "Will Rogers";
-        email = "github@astutecat.dev";
+    delta = {
+      enable = true;
+      enableGitIntegration = true;
+      options = {
+        line-numbers = true;
+        hunk-header-decoration-style = "";
+        file-decoration-style = "";
+        hunk-header-style = "syntax";
+        hunk-header-file-style = "brightblue";
+        file-style = "brightblue";
+        minus-style = "syntax \"#37222c\"";
+        minus-non-emph-style = "syntax \"#37222c\"";
+        minus-emph-style = "syntax \"#713137\"";
+        minus-empty-line-marker-style = "syntax \"#37222c\"";
+        line-numbers-minus-style = "#b2555b";
+        plus-style = "syntax \"#20303b\"";
+        plus-non-emph-style = "syntax \"#20303b\"";
+        plus-emph-style = "syntax \"#2c5a66\"";
+        plus-empty-line-marker-style = "syntax \"#20303b\"";
+        line-numbers-plus-style = "#266d6a";
+        line-numbers-zero-style = "#3b4261";
       };
-      ui = {
-        pager = "cat";
-        default-command = [
-          "log"
-          "--reversed"
-        ];
-      };
-      aliases = {
-        fetch = [
-          "git"
-          "fetch"
-        ];
-        rlog = [
-          "log"
-          "--reversed"
-        ];
-      };
-      remotes.origin.auto-track-created-bookmarks = "*";
     };
-  };
 
-  programs.delta = {
-    enable = true;
-    enableGitIntegration = true;
-    options = {
-      line-numbers = true;
-      hunk-header-decoration-style = "";
-      file-decoration-style = "";
-      hunk-header-style = "syntax";
-      hunk-header-file-style = "brightblue";
-      file-style = "brightblue";
-      minus-style = "syntax \"#37222c\"";
-      minus-non-emph-style = "syntax \"#37222c\"";
-      minus-emph-style = "syntax \"#713137\"";
-      minus-empty-line-marker-style = "syntax \"#37222c\"";
-      line-numbers-minus-style = "#b2555b";
-      plus-style = "syntax \"#20303b\"";
-      plus-non-emph-style = "syntax \"#20303b\"";
-      plus-emph-style = "syntax \"#2c5a66\"";
-      plus-empty-line-marker-style = "syntax \"#20303b\"";
-      line-numbers-plus-style = "#266d6a";
-      line-numbers-zero-style = "#3b4261";
+    difftastic = {
+      enable = true;
+      jujutsu.enable = true;
     };
-  };
-
-  programs.difftastic = {
-    enable = true;
-    jujutsu.enable = true;
   };
 
   # `git config --global maintenance.repo` can't be set declaratively based on

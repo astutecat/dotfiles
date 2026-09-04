@@ -1,5 +1,7 @@
 tags
 tags.*
 .DS_Store
+.direnv
+.pre-commit-config.yaml
 result
 result-*

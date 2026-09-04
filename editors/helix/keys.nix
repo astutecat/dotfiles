@@ -1,4 +1,4 @@
-{ ... }:
+_:
 # let
 #   full-terminal = command: [
 #     ":write-all"

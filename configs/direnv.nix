@@ -12,5 +12,8 @@ in
       nix-direnv.enable = true;
     };
   };
-  services.lorri.enable = (!isDarwin);
+  services.lorri.enable = !isDarwin;
+  home.sessionVariables = {
+    DIRENV_WARN_TIMEOUT = "1m";
+  };
 }

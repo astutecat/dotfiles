@@ -305,22 +305,7 @@ let
   # ;;; $DOOMDIR/packages.el -*- no-byte-compile: t; -*-
   #
   # All user packages formerly declared via (package! ...) now live in
-  # programs.doom-emacs.extraPackages below. sly-highlight is a custom GitHub
-  # package not present in emacs-overlay/nixpkgs, so it is built here directly.
-
-  slyHighlight =
-    epkgs:
-    epkgs.melpaBuild {
-      pname = "sly-highlight";
-      version = "9999snapshot1";
-      packageRequires = [ epkgs.sly ];
-      src = pkgs.fetchFromGitHub {
-        owner = "ralii";
-        repo = "sly-highlight";
-        rev = "21095d284c7091e4f70f95f500a76bb9a1848d70";
-        hash = "sha256-ig1Sw8PEpABDleMZLs+3Fi0fyrM//t1DjV4wlo5Vpnc=";
-      };
-    };
+  # programs.doom-emacs.extraPackages below.
 
   doomDir = pkgs.linkFarm "doom-dir" {
     "init.el" = pkgs.writeTextFile {
@@ -354,7 +339,6 @@ in
     # listing them here keeps every formerly-declared package explicit.
     extraPackages = epkgs: [
       epkgs.treesit-grammars.with-all-grammars
-
       epkgs.wakatime-mode
       epkgs.affe
       epkgs.all-the-icons

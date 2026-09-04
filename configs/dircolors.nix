@@ -1,4 +1,4 @@
-{ ... }: {
+_: {
   # migrated from chezmoi dot_dir_colors; generates ~/.dir_colors and sets
   # LS_COLORS via shell integration (module also injects the standard
   # dircolors database defaults, overridden by the entries below).
