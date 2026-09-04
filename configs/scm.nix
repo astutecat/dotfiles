@@ -193,7 +193,7 @@ in
   # real filesystem), so register only the repos that exist on this machine
   # here instead, at activation time.
   home.activation.gitMaintenanceRepos = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
-    gitCommand="${pkgs.git}/bin/git"
+    gitCommand="${lib.getExe pkgs.git}"
     maintenanceRepos=(
       ${lib.concatMapStringsSep "\n" lib.escapeShellArg maintenanceCandidateRepos}
     )
