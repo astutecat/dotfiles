@@ -337,7 +337,7 @@ in
   imports = [ inputs.nix-doom-emacs-unstraightened.homeModule ];
 
   programs.doom-emacs = {
-    enable = true;
+    enable = false;
 
     # Terminal-only build (no GUI toolkit dependencies)
     emacs = pkgs.emacs-nox;
@@ -356,8 +356,6 @@ in
       epkgs.treesit-grammars.with-all-grammars
 
       epkgs.wakatime-mode
-      epkgs.sly
-      (slyHighlight epkgs)
       epkgs.affe
       epkgs.all-the-icons
       epkgs.all-the-icons-completion

@@ -91,6 +91,7 @@
             "register"
             "separator"
             "position"
+            "total-line-numbers"
             "position-percentage"
             "file-type"
           ];

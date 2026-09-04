@@ -7,10 +7,17 @@
     package = null; # Installed externally
 
     settings = {
-      font-family = "Monaspace Argon";
+      font-family = [
+        "Monaspace Argon"
+        "Symbols Nerd Font Mono"
+      ];
       font-feature = "calt, cv01 2";
       font-size = 11;
       font-family-italic = "Monaspace Radon";
+
+      bell-features = "no-title";
+
+      window-decroration = "none";
 
       # Nightfox colors
       background = "#192330";
