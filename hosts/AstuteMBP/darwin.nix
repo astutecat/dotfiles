@@ -6,6 +6,8 @@
   nix.settings = {
     experimental-features = "nix-command flakes";
 
+    trusted-users = [ username ];
+
     substituters = [
       "https://cache.nixos.org/"
       "https://nix-community.cachix.org"
