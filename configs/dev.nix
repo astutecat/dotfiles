@@ -58,6 +58,7 @@ let
   ];
 
   nixPkgs = with pkgs; [
+    omnix
     nixfmt
     update-nix-fetchgit
   ];
