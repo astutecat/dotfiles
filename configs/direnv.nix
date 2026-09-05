@@ -5,6 +5,6 @@
   };
 
   home.sessionVariables = {
-    DIRENV_WARN_TIMEOUT = "1m";
+    DIRENV_WARN_TIMEOUT = "2m";
   };
 }
