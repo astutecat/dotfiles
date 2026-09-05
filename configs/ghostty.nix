@@ -17,8 +17,6 @@ _:
 
       bell-features = "no-title";
 
-      window-decroration = "none";
-
       # Nightfox colors
       background = "#192330";
       foreground = "#cdcecf";
