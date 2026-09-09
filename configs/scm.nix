@@ -291,11 +291,11 @@ in
   # after linkGeneration so that managed files have already been (re)linked.
   home.activation = {
     gitMaintenanceRepos = lib.hm.dag.entryAfter [ "linkGeneration" ] ''
-      ${gitMaintenanceUpdate} ${lib.escapeShellArgs maintenanceCandidateRepos}
+      ${lib.getExe gitMaintenanceUpdate} ${lib.escapeShellArgs maintenanceCandidateRepos}
     '';
 
     myReposConfig = lib.hm.dag.entryAfter [ "linkGeneration" ] ''
-      ${myReposUpdate} \
+      ${lib.getExe myReposUpdate} \
         "$HOME/.mrconfig" \
         "${myReposBaseline}" \
         ${lib.escapeShellArgs myReposSections}
