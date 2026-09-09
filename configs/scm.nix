@@ -29,22 +29,107 @@ let
 
   repoDir = p: "${homeDirectory}/repos/${p}";
 
-  # Repos that should be registered for `git maintenance` if/when they are
-  # checked out on this machine. Existence can't reliably be checked at Nix
-  # evaluation time (flake evaluation is pure and can't see the real
+  # Repos that should be registered for `git maintenance` and, when
+  # `myReposInclude` is true (default false), for `mr` (myrepos) if/when they
+  # are checked out on this machine. Existence can't reliably be checked at
+  # Nix evaluation time (flake evaluation is pure and can't see the real
   # filesystem), so the actual filtering happens at Home Manager activation
-  # time instead (see the gitMaintenanceRepos activation script below).
-  maintenanceCandidateRepos = map repoDir [
-    "dotfiles"
-    "astutecat_infrastructure"
-    "kiezburn/public"
-    "kiezburn/deployments"
-    "demand-response-rs"
-    "entag-development"
-    "eto-rts"
-    "eto-sentinel"
-    "eto-services"
+  # time instead (see the myReposUpdate and gitMaintenanceUpdate scripts
+  # below).
+  mkRepo =
+    path:
+    {
+      myReposInclude ? false,
+    }:
+    {
+      path = repoDir path;
+      # mr resolves section names against the directory containing
+      # ~/.mrconfig, so relative names keep working wherever $HOME points.
+      myReposSection = "repos/${path}";
+      inherit myReposInclude;
+    };
+
+  candidateRepos = [
+    (mkRepo "dotfiles" { myReposInclude = true; })
+    (mkRepo "astutecat_infrastructure" { })
+    (mkRepo "kiezburn/public" { })
+    (mkRepo "kiezburn/deployments" { })
+    (mkRepo "demand-response-rs" { })
+    (mkRepo "entag-development" { })
+    (mkRepo "eto-rts" { })
+    (mkRepo "eto-sentinel" { })
+    (mkRepo "eto-services" { })
   ];
+
+  maintenanceCandidateRepos = map (repo: repo.path) candidateRepos;
+
+  myReposSections = map (repo: repo.myReposSection) (
+    lib.filter (repo: repo.myReposInclude) candidateRepos
+  );
+
+  # The static sections of ~/.mrconfig come from programs.mr.settings; this
+  # is the generated baseline the mr module links into place.
+  myReposBaseline = config.home.file.".mrconfig".source;
+
+  # Registers every listed repo with a .git directory for `git maintenance`
+  # and removes maintenance.repo entries not managed here.
+  gitMaintenanceUpdate = pkgs.writers.writeFishBin "update-git-maintenance" ''
+    # Usage: update-git-maintenance REPO...
+    set -x PATH $PATH ${lib.makeBinPath [ pkgs.git ]}
+
+    set -l candidates $argv
+    set -l unmanaged
+    for repo in (git config --global --get-all maintenance.repo 2>/dev/null)
+      if not contains $repo $candidates
+        set -a unmanaged $repo
+      end
+    end
+    if set -q unmanaged[1]
+      echo "warning: The following git maintenance.repo entries are not managed by Nix and will be removed: "(string join ' ' $unmanaged) >&2
+    end
+
+    # Rebuild the list so repos removed from the config or deleted from disk
+    # drop out. --unset-all fails when the key doesn't exist yet.
+    git config --global --unset-all maintenance.repo 2>/dev/null; or true
+
+    for repo in $candidates
+      if test -d $repo/.git
+        git config --global --add maintenance.repo $repo; or exit 1
+      end
+    end
+  '';
+
+  # Rebuilds ~/.mrconfig from the declarative baseline plus a managed
+  # section per checked-out repo. Bare sections let mr auto-detect the VCS,
+  # and skip = lazy makes mr skip any repo that disappears before the next
+  # activation instead of erroring.
+  myReposUpdate = pkgs.writers.writeFishBin "update-mrconfig" ''
+    # Usage: update-mrconfig MRCONFIG BASELINE SECTION...
+    set -x PATH $PATH ${lib.makeBinPath [ pkgs.coreutils ]}
+
+    set -l mrconfig $argv[1]
+    set -l baseline $argv[2]
+    set -l sections $argv[3..]
+
+    # Build the file next to the target so the final mv is an atomic rename
+    # on the same filesystem. The fixed temp name self-heals: a stale file
+    # left by a crashed run is removed here and never accumulates.
+    set -l tmp $mrconfig.tmp
+    rm -f $tmp; or exit 1
+
+    cat $baseline > $tmp; or exit 1
+    if test -s $tmp
+      printf '\n' >> $tmp; or exit 1
+    end
+
+    for section in $sections
+      if test -d $HOME/$section/.git
+        printf '[%s]\nskip = lazy\n\n' $section >> $tmp; or exit 1
+      end
+    end
+
+    mv $tmp $mrconfig; or exit 1
+  '';
 in
 {
   home.packages = with pkgs; [
@@ -56,6 +141,9 @@ in
   programs = {
     mr = {
       enable = true;
+      # Static sections of ~/.mrconfig. The dynamic per-repo sections are
+      # added by the myReposConfig activation script below, which rebuilds
+      # the file wholesale.
     };
 
     git = {
@@ -196,28 +284,21 @@ in
   # whether a repo actually exists (Nix evaluation is pure and can't see the
   # real filesystem), so register only the repos that exist on this machine
   # here instead, at activation time.
-  home.activation.gitMaintenanceRepos = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
-    gitCommand="${lib.getExe pkgs.git}"
-    maintenanceRepos=(
-      ${lib.concatMapStringsSep "\n" lib.escapeShellArg maintenanceCandidateRepos}
-    )
+  #
+  # mr registration has the same problem: ~/.mrconfig is a store symlink that
+  # linkGeneration replaces wholesale, so the myReposConfig script rebuilds
+  # the whole file from the programs.mr.settings baseline. Both scripts run
+  # after linkGeneration so that managed files have already been (re)linked.
+  home.activation = {
+    gitMaintenanceRepos = lib.hm.dag.entryAfter [ "linkGeneration" ] ''
+      ${gitMaintenanceUpdate} ${lib.escapeShellArgs maintenanceCandidateRepos}
+    '';
 
-    # Print configured repositories that are absent from maintenanceRepos:
-    # -F treats paths literally, -x matches complete lines, and -v excludes matches.
-    unmanagedMaintenanceRepos=$(
-      "$gitCommand" config --global --get-all maintenance.repo 2>/dev/null \
-        | grep -vFxf <(printf '%s\n' "''${maintenanceRepos[@]}") \
-        || true
-    )
-    if [ "$unmanagedMaintenanceRepos" != "" ]; then
-      warnEcho "The following git maintenance.repo entries are not managed by Nix and will be removed: $(printf '%s\n' "$unmanagedMaintenanceRepos" | tr '\n' ' ')"
-    fi
-
-    "$gitCommand" config --global --unset-all maintenance.repo 2>/dev/null || true
-    for repo in "''${maintenanceRepos[@]}"; do
-      if [ -d "$repo/.git" ]; then
-        "$gitCommand" config --global --add maintenance.repo "$repo"
-      fi
-    done
-  '';
+    myReposConfig = lib.hm.dag.entryAfter [ "linkGeneration" ] ''
+      ${myReposUpdate} \
+        "$HOME/.mrconfig" \
+        "${myReposBaseline}" \
+        ${lib.escapeShellArgs myReposSections}
+    '';
+  };
 }
