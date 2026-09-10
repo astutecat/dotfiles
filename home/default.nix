@@ -25,6 +25,7 @@ in
     ../editors/doom-emacs.nix
     ../editors/helix
     ../editors/imhex.nix
+    ../editors/zed.nix
     ../configs/fastfetch.nix
     ../configs/fortune.nix
     ../configs/gitlint.nix
