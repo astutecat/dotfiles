@@ -7,7 +7,7 @@
     package = null;
 
     userSettings = {
-      format_on_save = "on";
+      format_on_save = "modifications_if_available";
       agent_servers = {
         github-copilot-cli.type = "registry";
         opencode.type = "registry";
@@ -23,9 +23,12 @@
       project_panel.dock = "left";
 
       icon_theme = "Zed (Default)";
-      buffer_font_family = "Monaspace";
+      buffer_font_family = "MonoLisa";
       ui_font_size = 16;
       buffer_font_size = 12;
+
+      preferred_line_length = 120;
+      tab_size = 2;
 
       theme = {
         mode = "dark";
