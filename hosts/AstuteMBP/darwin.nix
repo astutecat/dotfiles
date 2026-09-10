@@ -81,7 +81,6 @@
       "scribus"
       "trackerzapper"
       "josm"
-      "zed"
     ];
   };
 

@@ -1,10 +1,74 @@
-{
-  # Zed itself is managed outside home-manager (e.g. via its own updater or
-  # Homebrew); only the core user settings are managed here. Extensions are
-  # installed dynamically per machine and left untouched.
+{ pkgs, ... }: {
+  # Zed and its language servers are managed by home-manager; the wrapped
+  # "zeditor" binary gets the language servers below on its PATH (without
+  # polluting the interactive shell PATH). Extensions are still installed
+  # dynamically per machine and left untouched.
+  #
+  # The list mirrors the language servers configured for Helix in
+  # editors/helix/languages.
   programs.zed-editor = {
     enable = true;
-    package = null;
+
+    extraPackages = with pkgs; [
+      # Global (spell/style checkers)
+      typos-lsp
+
+      # bash
+      bash-language-server
+
+      # css, html, json
+      vscode-langservers-extracted
+
+      # elixir
+      beam29Packages.expert
+
+      # erlang
+      erlang-language-platform
+
+      # gleam
+      gleam
+
+      # git-commit (gitlint via efm-langserver)
+      efm-langserver
+
+      # just
+      just-lsp
+
+      # javascript
+      typescript-language-server
+
+      # latex
+      texlab
+
+      # lua
+      lua-language-server
+
+      # markdown
+      marksman
+
+      # nickel
+      nls
+
+      # nix
+      nixd
+      statix
+
+      # python
+      python313Packages.jedi
+      ruff
+      ty
+
+      # rust
+      rust-analyzer
+      rustfmt
+
+      # toml
+      taplo
+
+      # yaml
+      yamlfmt
+      yaml-language-server
+    ];
 
     userSettings = {
       format_on_save = "modifications_if_available";
