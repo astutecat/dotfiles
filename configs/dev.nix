@@ -93,6 +93,7 @@ in
       sqlPkgs
       nixPkgs
       #
+      pkgs.nickel
       pkgs.go
       pkgs.nodejs
       pkgs.sbcl

@@ -10,62 +10,42 @@
     enable = true;
 
     extraPackages = with pkgs; [
-      # Global (spell/style checkers)
       typos-lsp
 
-      # bash
       bash-language-server
 
-      # css, html, json
       vscode-langservers-extracted
 
-      # elixir
       beam29Packages.expert
-
-      # erlang
       erlang-language-platform
-
-      # gleam
       gleam
 
-      # git-commit (gitlint via efm-langserver)
       efm-langserver
 
-      # just
       just-lsp
 
-      # javascript
       typescript-language-server
 
-      # latex
       texlab
 
-      # lua
       lua-language-server
 
-      # markdown
       marksman
 
-      # nickel
       nls
 
-      # nix
       nixd
       statix
 
-      # python
       python313Packages.jedi
       ruff
       ty
 
-      # rust
       rust-analyzer
       rustfmt
 
-      # toml
       taplo
 
-      # yaml
       yamlfmt
       yaml-language-server
     ];
