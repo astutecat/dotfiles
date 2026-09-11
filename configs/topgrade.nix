@@ -41,7 +41,7 @@
       };
       linux = {
         arch_package_manager = "autodetect";
-        enable_tlmgr = true;
+        enable_tlmgr = false;
         home_manager_arguments = [
           "-c"
           "${username}@${hostname}"
