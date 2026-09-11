@@ -132,12 +132,6 @@ let
   '';
 in
 {
-  home.packages = with pkgs; [
-    prek
-    gh
-    stgit
-  ];
-
   programs = {
     mr = {
       enable = true;
@@ -280,25 +274,37 @@ in
     };
   };
 
-  # `git config --global maintenance.repo` can't be set declaratively based on
-  # whether a repo actually exists (Nix evaluation is pure and can't see the
-  # real filesystem), so register only the repos that exist on this machine
-  # here instead, at activation time.
-  #
-  # mr registration has the same problem: ~/.mrconfig is a store symlink that
-  # linkGeneration replaces wholesale, so the myReposConfig script rebuilds
-  # the whole file from the programs.mr.settings baseline. Both scripts run
-  # after linkGeneration so that managed files have already been (re)linked.
-  home.activation = {
-    gitMaintenanceRepos = lib.hm.dag.entryAfter [ "linkGeneration" ] ''
-      ${lib.getExe gitMaintenanceUpdate} ${lib.escapeShellArgs maintenanceCandidateRepos}
-    '';
+  home = {
+    packages = with pkgs; [
+      prek
+      gh
+      stgit
+    ];
 
-    myReposConfig = lib.hm.dag.entryAfter [ "linkGeneration" ] ''
-      ${lib.getExe myReposUpdate} \
-        "$HOME/.mrconfig" \
-        "${myReposBaseline}" \
-        ${lib.escapeShellArgs myReposSections}
-    '';
+    # The activation script below rewrites ~/.mrconfig after linkGeneration,
+    # so force the relink on the next switch; the script rebuilds it anyway.
+    file.".mrconfig".force = true;
+
+    # `git config --global maintenance.repo` can't be set declaratively based on
+    # whether a repo actually exists (Nix evaluation is pure and can't see the
+    # real filesystem), so register only the repos that exist on this machine
+    # here instead, at activation time.
+    #
+    # mr registration has the same problem: ~/.mrconfig is a store symlink that
+    # linkGeneration replaces wholesale, so the myReposConfig script rebuilds
+    # the whole file from the programs.mr.settings baseline. Both scripts run
+    # after linkGeneration so that managed files have already been (re)linked.
+    activation = {
+      gitMaintenanceRepos = lib.hm.dag.entryAfter [ "linkGeneration" ] ''
+        ${lib.getExe gitMaintenanceUpdate} ${lib.escapeShellArgs maintenanceCandidateRepos}
+      '';
+
+      myReposConfig = lib.hm.dag.entryAfter [ "linkGeneration" ] ''
+        ${lib.getExe myReposUpdate} \
+          "$HOME/.mrconfig" \
+          "${myReposBaseline}" \
+          ${lib.escapeShellArgs myReposSections}
+      '';
+    };
   };
 }
