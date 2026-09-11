@@ -79,7 +79,7 @@
               ;
             inherit (inputs) schemar-private-fonts;
           };
-          modules = [ (nixpkgs.lib.path.append ./hosts "${hostname}/home.nix") ];
+          modules = [ ./hosts/${hostname}/home.nix ];
         };
 
       mkDarwin =
@@ -97,7 +97,7 @@
           };
           modules = [
             darwin
-            (nixpkgs.lib.path.append ./hosts "${hostname}/darwin.nix")
+            ./hosts/${hostname}/darwin.nix
           ];
         };
 
@@ -170,6 +170,8 @@
           };
         }
       );
+
+      formatter = nixpkgs.lib.genAttrs systems (system: nixpkgs.legacyPackages.${system}.nixfmt);
     }
     // {
       # Build darwin flake using:

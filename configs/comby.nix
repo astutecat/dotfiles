@@ -1,7 +1,9 @@
 { lib, pkgs, ... }:
 
 let
-  isLinux = pkgs.stdenv.hostPlatform.isLinux;
+  # The upstream fallback binary below is only published for x86_64-linux, so
+  # on any other platform a broken nixpkgs comby means no comby at all.
+  hasUpstreamBinary = pkgs.stdenv.hostPlatform.isx86_64 && pkgs.stdenv.hostPlatform.isLinux;
   version = "1.8.1";
 
   # upstream binary wants libpcre.so.3 (Debian soname); nixpkgs ships .so.1
@@ -53,5 +55,5 @@ let
       pkgs.comby;
 in
 {
-  home.packages = lib.optionals (isLinux || !pkgs.comby.meta.broken) [ comby ];
+  home.packages = lib.optionals (!pkgs.comby.meta.broken || hasUpstreamBinary) [ comby ];
 }

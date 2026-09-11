@@ -11,8 +11,6 @@ let
   isLinux = pkgs.stdenv.hostPlatform.isLinux;
 in
 {
-  nixpkgs.config.allowUnfree = true;
-
   imports = [
     ../configs/atuin.nix
     ../configs/cheat.nix
