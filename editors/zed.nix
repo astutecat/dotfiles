@@ -1,54 +1,9 @@
-{ pkgs, ... }: {
-  # Zed and its language servers are managed by home-manager; the wrapped
-  # "zeditor" binary gets the language servers below on its PATH (without
-  # polluting the interactive shell PATH). Extensions are still installed
-  # dynamically per machine and left untouched.
-  #
-  # The list mirrors the language servers configured for Helix in
-  # editors/helix/languages.
+_: {
+  # LSPs live in ./lsp.nix (shared with Helix).
   programs.zed-editor = {
     enable = true;
 
-    extraPackages = with pkgs; [
-      typos-lsp
-
-      bash-language-server
-
-      vscode-langservers-extracted
-
-      beam29Packages.expert
-      erlang-language-platform
-      gleam
-
-      efm-langserver
-
-      just-lsp
-
-      typescript-language-server
-
-      texlab
-
-      lua-language-server
-
-      marksman
-
-      nls
-
-      nixd
-      statix
-
-      python313Packages.jedi
-      ruff
-      ty
-
-      rust-analyzer
-      rustfmt
-
-      taplo
-
-      yamlfmt
-      yaml-language-server
-    ];
+    package = null;
 
     userSettings = {
       format_on_save = "modifications_if_available";

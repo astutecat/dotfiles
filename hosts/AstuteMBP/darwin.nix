@@ -67,6 +67,7 @@
     ];
 
     casks = [
+      "zed"
       "raycast"
       "rstudio"
       "1password-cli"
