@@ -79,7 +79,7 @@
               ;
             inherit (inputs) schemar-private-fonts;
           };
-          modules = [ ./hosts/${hostname}/home.nix ];
+          modules = [ (./hosts + "/${hostname}/home.nix") ];
         };
 
       mkDarwin =
@@ -97,7 +97,7 @@
           };
           modules = [
             darwin
-            ./hosts/${hostname}/darwin.nix
+            (./hosts + "/${hostname}/darwin.nix")
           ];
         };
 
