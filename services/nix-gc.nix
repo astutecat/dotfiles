@@ -5,10 +5,12 @@
 # hosts/AstuteMBP/darwin.nix) instead, since a user launchd agent can't collect
 # daemon-owned store paths.
 lib.mkIf pkgs.stdenv.hostPlatform.isLinux {
+  nix.settings.auto-optimise-store = true;
+
   nix.gc = {
     automatic = true;
     dates = "daily";
     randomizedDelaySec = "1h";
-    options = "--delete-older-than 30d";
+    options = "--delete-older-than 14d";
   };
 }

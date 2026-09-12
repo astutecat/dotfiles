@@ -27,7 +27,7 @@
       Hour = 3;
       Minute = 0;
     };
-    options = "--delete-older-than 30d";
+    options = "--delete-older-than 14d";
   };
 
   # Used for backwards compatibility, please read the changelog before changing.
