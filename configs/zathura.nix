@@ -1,7 +1,7 @@
 { lib, pkgs, ... }:
 
 {
-  programs.zathura = lib.mkIf pkgs.stdenv.isLinux {
+  programs.zathura = lib.mkIf pkgs.stdenv.hostPlatform.isLinux {
     enable = true;
 
     # Tokyonight color theme

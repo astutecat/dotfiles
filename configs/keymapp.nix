@@ -7,7 +7,7 @@
 
   # Linux: create a .desktop entry. macOS: .app bundles are handled
   # automatically by Home Manager if the package ships one.
-  xdg.desktopEntries.keymapp = lib.mkIf pkgs.stdenv.isLinux {
+  xdg.desktopEntries.keymapp = lib.mkIf pkgs.stdenv.hostPlatform.isLinux {
     name = "Keymapp";
     genericName = "Keyboard Configuration Tool";
     exec = "${pkgs.keymapp}/bin/keymapp";
