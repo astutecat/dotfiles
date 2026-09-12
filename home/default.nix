@@ -58,7 +58,10 @@ in
       enable = isLinux;
     };
     fd.enable = true;
-    fzf.enable = true;
+    fzf = {
+      enable = true;
+      historyWidget.command = "";
+    };
   };
 
   home = {
@@ -94,7 +97,7 @@ in
           lnav
           most
           ripgrep
-          silver-searcher
+          silver-searcher-ng
           sops
           unzip
           usage
