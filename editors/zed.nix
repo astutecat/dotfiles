@@ -62,6 +62,15 @@ _: {
       # Needed so the "Nightfox - opaque" theme resolves on a fresh machine.
       auto_install_extensions = {
         nvim-nightfox = true;
+        elixir = true;
+        erlang = true;
+        html = true;
+        just = true;
+        latex = true;
+        nickel = true;
+        nix = true;
+        rainbow-csv = true;
+        ssh-config = true;
       };
     };
   };
