@@ -59,6 +59,7 @@ let
     (mkRepo "eto-rts" { })
     (mkRepo "eto-sentinel" { })
     (mkRepo "eto-services" { })
+    (mkRepo "albuinn" { })
   ];
 
   maintenanceCandidateRepos = map (repo: repo.path) candidateRepos;
