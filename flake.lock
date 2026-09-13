@@ -57,11 +57,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1789214507,
-        "narHash": "sha256-blKWyXtovWzVKizemEffx7OiRk6CFVHCVGlWaHeOD9U=",
+        "lastModified": 1789304964,
+        "narHash": "sha256-qidqGtwQjVgmN4qZBBuM+g/LHuBQwdjcYupL8AhXb1Y=",
         "owner": "nix-community",
         "repo": "emacs-overlay",
-        "rev": "650c68f5a631587030933a1ae60cc8708279a634",
+        "rev": "779b1bd730f2866cc7fb70c3b20b94bdc75e301e",
         "type": "github"
       },
       "original": {
@@ -192,11 +192,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1789273010,
-        "narHash": "sha256-E7dWx+utzZPpqQsBUd5sMimKTWMEEbTKFD+ya99Shps=",
+        "lastModified": 1789320570,
+        "narHash": "sha256-1Js4AJiWLV7U1SF3ok0J2tKbBEJYE5YpElGU+7fMbfo=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "fdc36b12804b0179b24a5ffd282e4c95c37072e2",
+        "rev": "87b3c74df02a2b2e691a24f3c82774f48a70c1bd",
         "type": "github"
       },
       "original": {
@@ -217,11 +217,11 @@
         "oas3-gen-src": "oas3-gen-src"
       },
       "locked": {
-        "lastModified": 1789322140,
-        "narHash": "sha256-WjUR25B/K/3WK/A3/7Ji36WvFlj7FNQCjaGdsxwx0SM=",
+        "lastModified": 1789322979,
+        "narHash": "sha256-mLXZpm8r1SXl5ZqD5JwGL1nhaHkGLXOTRfpUHiYw+fk=",
         "ref": "refs/heads/main",
-        "rev": "07114e7c89c0ca30a4bab05023ae4edd41437668",
-        "revCount": 118,
+        "rev": "1d676673843e761b5949dfabf0906e8984f7e66c",
+        "revCount": 119,
         "type": "git",
         "url": "ssh://git@github.com/astutecat/moneymoney-to-ynab-rs"
       },
@@ -261,11 +261,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1789215203,
-        "narHash": "sha256-U8uqyuu5++ZFxmTHwriKUuDoZYe8H8O7s+Yn8rGQNTA=",
+        "lastModified": 1789305657,
+        "narHash": "sha256-XSlgitqh1XpSpnZgGKP7JQOVurP45AM1E9yw9pybKG4=",
         "owner": "marienz",
         "repo": "nix-doom-emacs-unstraightened",
-        "rev": "de1f6b1a249f9fa8217849b9be0789113efee353",
+        "rev": "f06f526c2fc9eff1f66882c337bc4f127b0ee4fc",
         "type": "github"
       },
       "original": {
@@ -276,11 +276,11 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1789073787,
-        "narHash": "sha256-xfX/toC2QV707s06GbP4II/TxYF0fNQj7s5/LClNDKc=",
+        "lastModified": 1789264731,
+        "narHash": "sha256-llGJbC0CcU8DfROr6mZjRJgMLQd/SKwfpzxJH/2lHO4=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "aff8a0b28396750446e5537a96461bc4facdb287",
+        "rev": "02f5696b0e6097e589076d886b317b83ff0437d7",
         "type": "github"
       },
       "original": {
