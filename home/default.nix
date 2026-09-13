@@ -197,14 +197,16 @@ in
     package = pkgs.nix;
 
     settings = {
-      # While you're here, add the nix-community cache:
       substituters = [
         "https://cache.nixos.org/"
         "https://nix-community.cachix.org"
+        # Fenix's Rust toolchains (separate from the nix-community cache):
+        "https://fenix.cachix.org"
       ];
       trusted-public-keys = [
         "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
         "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
+        "fenix.cachix.org-1:ecJhr+RdYEdcVgUkjruiYhjbBloIEGov7bos90cZi0Q="
       ];
 
       experimental-features = [
