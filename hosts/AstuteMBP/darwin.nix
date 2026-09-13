@@ -88,6 +88,14 @@
     ];
   };
 
+  # Rotate the moneymoney-to-ynab sync logs. The agent that writes them is
+  # defined per-user in hosts/AstuteMBP/moneymoney-to-ynab.nix.
+  environment.etc."newsyslog.d/moneymoney-to-ynab.conf".text = ''
+    # logfilename                                                          [owner:group]    mode count size when flags
+    /Users/${username}/Library/Scripts/mm_export/log/sync.stdout  ${username}:staff 750  1     2048    $D0
+    /Users/${username}/Library/Scripts/mm_export/log/sync.stderr  ${username}:staff 750  1     2048    $D0
+  '';
+
   # Add ability to use TouchID for sudo authentication in terminal:
   security.pam.services.sudo_local.touchIdAuth = true;
   # This fixes Touch ID for sudo not working inside tmux and screen:

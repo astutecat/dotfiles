@@ -27,6 +27,15 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    moneymoney-to-ynab = {
+      url = "git+ssh://git@github.com/astutecat/moneymoney-to-ynab-rs";
+      flake = true;
+
+      # Built by the app flake with crane; reuse our nixpkgs so it is not
+      # rebuilt against a second copy of unstable.
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     nix-doom-emacs-unstraightened = {
       url = "github:marienz/nix-doom-emacs-unstraightened";
       inputs = {

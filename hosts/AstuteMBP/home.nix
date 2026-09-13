@@ -1,3 +1,6 @@
 {
-  imports = [ ../../home ];
+  imports = [
+    ../../home
+    ./moneymoney-to-ynab.nix
+  ];
 }
