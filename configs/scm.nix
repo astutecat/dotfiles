@@ -64,6 +64,11 @@ let
 
   maintenanceCandidateRepos = map (repo: repo.path) candidateRepos;
 
+  # Generated fragment holding the `maintenance.repo` entries. It sits next to
+  # the managed ~/.config/git/config and is pulled in via an include; see
+  # gitMaintenanceUpdate below for why it can't go in that file directly.
+  maintenanceConfigPath = "${homeDirectory}/.config/git/maintenance";
+
   myReposSections = map (repo: repo.myReposSection) (
     lib.filter (repo: repo.myReposInclude) candidateRepos
   );
@@ -72,31 +77,39 @@ let
   # is the generated baseline the mr module links into place.
   myReposBaseline = config.home.file.".mrconfig".source;
 
-  # Registers every listed repo with a .git directory for `git maintenance`
-  # and removes maintenance.repo entries not managed here.
+  # Registers every listed repo with a .git directory for `git maintenance`.
+  #
+  # The entries can't be written into ~/.config/git/config itself: that file is
+  # a read-only symlink into the Nix store, so `git config --global` can't lock
+  # it and writes to ~/.gitconfig instead. Regenerating a separate fragment
+  # under ~/.config/git keeps the entries in the XDG config directory (via the
+  # include added to programs.git.includes) while still filtering against the
+  # real filesystem at activation time.
   gitMaintenanceUpdate = pkgs.writers.writeFishBin "update-git-maintenance" ''
     # Usage: update-git-maintenance REPO...
     set -x PATH $PATH ${lib.makeBinPath [ pkgs.git ]}
 
     set -l candidates $argv
-    set -l unmanaged
-    for repo in (git config --global --get-all maintenance.repo 2>/dev/null)
-      if not contains $repo $candidates
-        set -a unmanaged $repo
-      end
-    end
-    if set -q unmanaged[1]
-      echo "warning: The following git maintenance.repo entries are not managed by Nix and will be removed: "(string join ' ' $unmanaged) >&2
-    end
+    set -l target ${maintenanceConfigPath}
+    set -l tmp $target.tmp
 
-    # Rebuild the list so repos removed from the config or deleted from disk
-    # drop out. --unset-all fails when the key doesn't exist yet.
-    git config --global --unset-all maintenance.repo 2>/dev/null; or true
+    # Build next to the target so the final mv is an atomic rename on the same
+    # filesystem; the fixed temp name self-heals after a crashed run.
+    rm -f $tmp; or exit 1
+    printf '[maintenance]\n' > $tmp; or exit 1
 
     for repo in $candidates
       if test -d $repo/.git
-        git config --global --add maintenance.repo $repo; or exit 1
+        printf '\trepo = %s\n' $repo >> $tmp; or exit 1
       end
+    end
+
+    mv $tmp $target; or exit 1
+
+    # Earlier revisions wrote these entries into ~/.gitconfig through
+    # `git config --global`; drop them so the list has a single managed source.
+    if test -f $HOME/.gitconfig
+      git config --global --unset-all maintenance.repo 2>/dev/null; or true
     end
   '';
 
@@ -213,7 +226,7 @@ in
 
       signing.key = "3BD453E1C45430E8";
 
-      includes = aenergiIncludes;
+      includes = aenergiIncludes ++ [ { path = maintenanceConfigPath; } ];
     };
 
     jujutsu = {
@@ -286,15 +299,14 @@ in
     # so force the relink on the next switch; the script rebuilds it anyway.
     file.".mrconfig".force = true;
 
-    # `git config --global maintenance.repo` can't be set declaratively based on
-    # whether a repo actually exists (Nix evaluation is pure and can't see the
-    # real filesystem), so register only the repos that exist on this machine
-    # here instead, at activation time.
-    #
-    # mr registration has the same problem: ~/.mrconfig is a store symlink that
-    # linkGeneration replaces wholesale, so the myReposConfig script rebuilds
-    # the whole file from the programs.mr.settings baseline. Both scripts run
-    # after linkGeneration so that managed files have already been (re)linked.
+    # Maintenance and mr registration can't be expressed declaratively:
+    # `git maintenance.repo` only applies to repos that actually exist, and
+    # existence can't be checked at Nix evaluation time (flake evaluation is
+    # pure and can't see the real filesystem). Both are therefore generated at
+    # activation time after linkGeneration, once managed files have been
+    # (re)linked. The maintenance entries land in ~/.config/git/maintenance
+    # (included by the managed git config) because ~/.config/git/config itself
+    # is a read-only store symlink.
     activation = {
       gitMaintenanceRepos = lib.hm.dag.entryAfter [ "linkGeneration" ] ''
         ${lib.getExe gitMaintenanceUpdate} ${lib.escapeShellArgs maintenanceCandidateRepos}
