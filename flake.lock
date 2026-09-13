@@ -189,17 +189,17 @@
         ]
       },
       "locked": {
-        "lastModified": 1782227791,
-        "narHash": "sha256-LTURu90XzRQPYJUA+VijDidNA2RWSEKEMXMcaLhegNk=",
+        "lastModified": 1789296614,
+        "narHash": "sha256-hh/g18k/LpF0t1BjAc0DoXRxxX4/EdD6iIYhk0eoOe0=",
         "ref": "refs/heads/main",
-        "rev": "12dcd0f5d506acd57b8b41d4a963318d1cd97db0",
-        "revCount": 3,
+        "rev": "33d823c0de8747e5be4f959fbdfb7bcf2c343ea5",
+        "revCount": 5,
         "type": "git",
-        "url": "ssh://git@github.com/schemar/fonts.git"
+        "url": "ssh://git@git.sr.ht/~schemar/fonts"
       },
       "original": {
         "type": "git",
-        "url": "ssh://git@github.com/schemar/fonts.git"
+        "url": "ssh://git@git.sr.ht/~schemar/fonts"
       }
     }
   },

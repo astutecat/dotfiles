@@ -19,7 +19,7 @@
     };
 
     schemar-private-fonts = {
-      url = "git+ssh://git@github.com/schemar/fonts.git";
+      url = "git+ssh://git@git.sr.ht/~schemar/fonts";
       flake = true;
 
       # Keep the private fonts flake on the same nixpkgs as everything else
