@@ -6,6 +6,11 @@ _: {
     package = null;
 
     userSettings = {
+      use_system_prompts = false;
+      language_models.opencode = {
+        show_zen_models = false;
+        show_go_models = false;
+      };
       format_on_save = "modifications_if_available";
       cli_default_open_behavior = "existing_window";
       restore_on_startup = "launchpad";
