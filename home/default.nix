@@ -13,6 +13,7 @@ in
 {
   imports = [
     ../configs/atuin.nix
+    ../configs/agent-skills.nix
     ../configs/cheat.nix
     ../configs/comby.nix
     ../configs/dev.nix

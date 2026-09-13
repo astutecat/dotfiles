@@ -22,7 +22,12 @@ _: {
       languages.Erlang.show_edit_predictions = true;
       agent_servers = {
         github-copilot-cli.type = "registry";
-        opencode.type = "registry";
+        opencode = {
+          type = "registry";
+          default_config_options = {
+            model = "opencode-go/glm-5.3-flash";
+          };
+        };
       };
 
       agent = {
