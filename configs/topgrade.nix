@@ -20,6 +20,10 @@
           "nix"
           "toolbx"
           "emacs"
+          # topgrade hardcodes `mr --directory $HOME`, which finds nothing
+          # because ~/repos is a symlink out of $HOME on some machines;
+          # replaced by the myrepos command below.
+          "myrepos"
         ];
         first = [ "chezmoi" ];
         ignore_failures = [
@@ -38,6 +42,9 @@
       };
       brew = {
         autoremove = true;
+      };
+      commands = {
+        "myrepos" = "mr --directory ${homeDirectory}/repos update";
       };
       linux = {
         arch_package_manager = "autodetect";
