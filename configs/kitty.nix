@@ -1,5 +1,4 @@
 {
-  lib,
   pkgs,
   ...
 }:
@@ -21,7 +20,9 @@ in
       # hide_window_decorations = "titlebar-only";
       confirm_os_window_close = 0;
 
-      font_size = lib.mkIf isDarwin 13.0;
+      initial_window_size = "110x35";
+
+      font_size = if isDarwin then 13.0 else 10.0;
       font_family = "Monaspace Argon Var";
       bold_font = "Monaspace Argon Var";
       italic_font = "Monaspace Radon Var";
