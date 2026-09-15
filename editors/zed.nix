@@ -45,7 +45,7 @@ _: {
       project_panel.dock = "left";
 
       icon_theme = "Zed (Default)";
-      buffer_font_family = "Monaspace Argon";
+      buffer_font_family = "Monaspace Argon Var";
       ui_font_size = 16;
       buffer_font_size = 12;
 

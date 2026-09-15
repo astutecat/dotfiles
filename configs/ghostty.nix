@@ -8,12 +8,12 @@ _:
 
     settings = {
       font-family = [
-        "Monaspace Argon"
+        "Monaspace Argon Var"
         "Symbols Nerd Font Mono"
       ];
       font-feature = "calt, cv01 2";
       font-size = 11;
-      font-family-italic = "Monaspace Radon";
+      font-family-italic = "Monaspace Radon Var";
 
       bell-features = "no-title";
 
