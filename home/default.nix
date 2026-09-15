@@ -187,6 +187,10 @@ in
     };
   };
 
+  # Running HM on non-NixOS distros (e.g. CachyOS): wires up XDG_DATA_DIRS
+  # (desktop entries, icons, mime) and env plumbing for the nix profile.
+  targets.genericLinux.enable = lib.mkIf isLinux true;
+
   xdg = {
     enable = true;
     localBinInPath = true;
