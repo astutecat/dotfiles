@@ -22,6 +22,7 @@ let
     beam29Packages.erlang
     beam29Packages.elixir_1_20
     beam29Packages.expert
+    beam29Packages.erlfmt
     gleam
   ];
 
