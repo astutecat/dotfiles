@@ -36,6 +36,7 @@ in
     ../configs/ghostty.nix
     ../configs/just
     ../configs/keymapp.nix
+    ../configs/kitty.nix
     ../configs/lazygit.nix
     ../configs/mise.nix
     ../configs/opencode.nix
