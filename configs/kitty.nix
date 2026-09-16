@@ -17,7 +17,7 @@ in
     };
 
     settings = {
-      # hide_window_decorations = "titlebar-only";
+      hide_window_decorations = "titlebar-only";
       confirm_os_window_close = 0;
 
       initial_window_size = "110x35";
