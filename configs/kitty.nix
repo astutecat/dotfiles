@@ -23,9 +23,14 @@ in
       initial_window_size = "110x35";
 
       font_size = if isDarwin then 13.0 else 10.0;
-      font_family = "Monaspace Argon Var";
-      bold_font = "Monaspace Argon Var";
-      italic_font = "Monaspace Radon Var";
+      # Only the "Frozen" builds of Monaspace actually ligate under kitty:
+      # their ligature substitutions live directly in calt; the static/Var
+      # builds gate ligatures behind ss sets that kitty doesn't pass through.
+      # cv01 (slashed zero) etc. aren't exposed in Frozen; ghostty handles
+      # those instead (see configs/ghostty.nix).
+      font_family = "Monaspace Argon Frozen";
+      bold_font = "Monaspace Argon Frozen";
+      italic_font = "Monaspace Radon Frozen";
     };
   };
 }

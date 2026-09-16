@@ -16,6 +16,7 @@ in
     ../configs/agent-skills.nix
     ../configs/cheat.nix
     ../configs/comby.nix
+    ../configs/contour.nix
     ../configs/dev.nix
     ../configs/dircolors.nix
     ../configs/direnv.nix
