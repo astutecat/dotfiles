@@ -6,23 +6,9 @@
 let
   isLinux = pkgs.stdenv.hostPlatform.isLinux;
 
-  # Monaspace ligature sets ss01-ss10 (matching ghostty/wezterm); cv01=2
-  # selects the slashed zero.
-  fontFeatures = [
-    "calt" # texture healing
-    "liga" # spacing of repeated patterns like ///
-    "ss01" # equals-family ligatures: != === =~ ~~ &=
-    "ss02" # greater/less-or-equal: <= >=
-    "ss03" # arrows: -> <-> --> ~> <~>
-    "ss04" # markup: </ /> <!-->
-    "ss05" # F# pipe operators: |> <|
-    "ss06" # repeats of # + _ = &: ## ### __ ===
-    "ss07" # colons: :: =:= <:
-    "ss08" # period combos: ..= .- .=
-    "ss09" # greater/less + equals combos: <=> >> =<<
-    "ss10" # other tags: #[ #(
-    "cv01=2" # slashed zero (1 plain, 2 slash, 3 reverse slash, 4 cut-out)
-  ];
+  # Iosevka's default zero is already slashed, so no OpenType features
+  # (Monaspace's ss01-ss10 / cv01 sets only apply to Monaspace).
+  fontFeatures = [ ];
 
   yamlList = lib.concatStringsSep "\n" (map (f: "                - ${f}") fontFeatures);
 in
@@ -87,9 +73,11 @@ in
             render_mode: gray
             builtin_box_drawing: true
             regular:
-              family: "Monaspace Argon"
+              family: "Iosevka Extended"
               features:
                 ${yamlList}
+            italic:
+              family: "Iosevka Extended"
             emoji: "emoji"
     '';
   };

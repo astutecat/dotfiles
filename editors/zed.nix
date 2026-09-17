@@ -1,22 +1,6 @@
 _:
-let
-  # Monaspace gates its ligatures behind stylistic sets ss01-ss10
-  # (matching ghostty/contour/wezterm); cv01 = 2 selects the slashed zero.
-  # Zed takes an OpenType feature map (bool or index value).
-  monaspaceFeatures = {
-    ss01 = true; # equals-family ligatures: != === =~ ~~ &=
-    ss02 = true; # greater/less-or-equal: <= >=
-    ss03 = true; # arrows: -> <-> --> ~> <~>
-    ss04 = true; # markup: </ /> <!-->
-    ss05 = true; # F# pipe operators: |> <|
-    ss06 = true; # repeats of # + _ = &: ## ### __ ===
-    ss07 = true; # colons: :: =:= <:
-    ss08 = true; # period combos: ..= .- .=
-    ss09 = true; # greater/less + equals combos: <=> >> =<<
-    ss10 = true; # other tags: #[ #(
-    cv01 = 2; # slashed zero (1 plain, 2 slash, 3 reverse slash, 4 cut-out)
-  };
-in
+# Iosevka's default zero is already slashed, so no OpenType feature like
+# Monaspace's cv01=2 or MonoLisa's `zero` is needed here.
 {
   # LSPs live in ./lsp.nix (shared with Helix).
   programs.zed-editor = {
@@ -64,15 +48,12 @@ in
       project_panel.dock = "left";
 
       icon_theme = "Zed (Default)";
-      buffer_font_family = "Monaspace Argon";
-      buffer_font_features = monaspaceFeatures;
+      buffer_font_family = "Iosevka Extended";
       ui_font_size = 16;
       buffer_font_size = 12;
 
       terminal = {
-        font_family = "Monaspace Argon";
-        # Same feature map for the built-in terminal.
-        font_features = monaspaceFeatures;
+        font_family = "Iosevka Extended";
       };
 
       preferred_line_length = 120;

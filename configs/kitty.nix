@@ -25,29 +25,10 @@ in
 
       font_size = if isDarwin then 13.0 else 10.0;
 
-      font_family = "Monaspace Argon";
-      bold_font = ''family="Monaspace Argon" style=SemiBold'';
-      bold_italic_font = ''family="Monaspace Radon" style="SemiBold Italic"'';
-      italic_font = "Monaspace Radon";
+      font_family = "Iosevka Extended";
+      bold_font = ''family="Iosevka Extended" style=Bold'';
+      bold_italic_font = ''family="Iosevka Extended" style="Bold Italic"'';
+      italic_font = ''family="Iosevka Extended" style=Italic'';
     };
-    # font_features is keyed by PostScript name. The stylistic sets are
-    # Monaspace's ligature gate (calt/liga alone only give texture healing):
-    #   ss01 equals-family ligatures: != === =~ ~~ &=
-    #   ss02 greater/less-or-equal: <= >=
-    #   ss03 arrows: -> <-> --> ~> <~>
-    #   ss04 markup: </ /> <!-->
-    #   ss05 F# pipe operators: |> <|
-    #   ss06 repeats of # + _ = &: ## ### __ ===
-    #   ss07 colons: :: =:= <:
-    #   ss08 period combos: ..= .- .=
-    #   ss09 greater/less + equals combos: <=> >> =<<
-    #   ss10 other tags: #[ #(
-    # cv01=2 selects the slashed zero (default zero is plain)
-    extraConfig = ''
-      font_features MonaspaceArgon-Regular +ss01 +ss02 +ss03 +ss04 +ss05 +ss06 +ss07 +ss08 +ss09 +ss10 +cv01=2
-      font_features MonaspaceArgon-SemiBold +cv01=2
-      font_features MonaspaceRadon-Italic +cv01=2
-      font_features MonaspaceRadon-SemiBoldItalic +cv01=2
-    '';
   };
 }

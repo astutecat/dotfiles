@@ -10,6 +10,7 @@ in
   home.packages = [
     pkgs.b612
     pkgs.ibm-plex
+    pkgs.iosevka
     pkgs.noto-fonts-color-emoji
     pkgs.monaspace
     pkgs.nerd-fonts.symbols-only

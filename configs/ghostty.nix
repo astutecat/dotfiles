@@ -1,21 +1,3 @@
-{ lib, ... }:
-let
-  # Monaspace gates all of its ligatures behind stylistic sets ss01-ss10
-  # (calt/liga alone only give texture healing); cv01 2 selects the slashed
-  # zero. Ghostty wants HarfBuzz-style "name" / "index value" syntax.
-  stySets = lib.concatStringsSep ", " [
-    "ss01" # equals-family ligatures: != === =~ ~~ &=
-    "ss02" # greater/less-or-equal: <= >=
-    "ss03" # arrows: -> <-> --> ~> <~>
-    "ss04" # markup: </ /> <!-->
-    "ss05" # F# pipe operators: |> <|
-    "ss06" # repeats of # + _ = &: ## ### __ ===
-    "ss07" # colons: :: =:= <:
-    "ss08" # period combos: ..= .- .=
-    "ss09" # greater/less + equals combos: <=> >> =<<
-    "ss10" # other tags: #[ #(
-  ];
-in
 {
   programs.ghostty = {
     enable = true;
@@ -24,12 +6,11 @@ in
 
     settings = {
       font-family = [
-        "Monaspace Argon"
+        "Iosevka Extended"
         "Symbols Nerd Font Mono"
       ];
-      font-feature = "calt, liga, ${stySets}, cv01 2";
       font-size = 11;
-      font-family-italic = "Monaspace Radon";
+      font-family-italic = "Iosevka Extended";
 
       bell-features = "no-title";
 
