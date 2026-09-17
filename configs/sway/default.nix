@@ -1,7 +1,7 @@
 _:
 let
   mod = "Mod4";
-  menuCmd = "rofi -terminal 'ghostty' -show combi -combi-modes drun#run -modes combi";
+  menuCmd = "rofi -terminal 'kitty' -show combi -combi-modes drun#run -modes combi";
 in
 {
   wayland.windowManager.sway = {
@@ -22,7 +22,7 @@ in
 
     config = {
       modifier = mod;
-      terminal = "ghostty";
+      terminal = "kitty";
       menu = menuCmd;
 
       fonts = {
@@ -51,7 +51,7 @@ in
       };
 
       keybindings = {
-        "${mod}+Return" = "exec ghostty";
+        "${mod}+Return" = "exec kitty";
         "${mod}+d" = menuCmd;
         "${mod}+Shift+q" = "kill";
         "${mod}+p" = "exec grim -g \"$(slurp)\" - | swappy -f -";
