@@ -27,8 +27,7 @@ in
 
       fonts = {
         names = [
-          "MonoLisaText"
-          "Monaspace Neon"
+          "Iosevka"
           "Symbols Nerd Font Mono"
           "Noto Color Emoji"
         ];
