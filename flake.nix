@@ -18,14 +18,14 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    schemar-private-fonts = {
-      url = "git+ssh://git@git.sr.ht/~schemar/fonts";
-      flake = true;
+    # schemar-private-fonts = {
+    #   url = "git+ssh://git@git.sr.ht/~schemar/fonts";
+    #   flake = true;
 
-      # Keep the private fonts flake on the same nixpkgs as everything else
-      # instead of letting it pin its own copy of nixpkgs-unstable.
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    #   # Keep the private fonts flake on the same nixpkgs as everything else
+    #   # instead of letting it pin its own copy of nixpkgs-unstable.
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    # };
 
     moneymoney-to-ynab = {
       url = "git+ssh://git@github.com/astutecat/moneymoney-to-ynab-rs";

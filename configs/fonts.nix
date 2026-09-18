@@ -1,6 +1,5 @@
 {
   pkgs,
-  schemar-private-fonts,
   ...
 }:
 let
@@ -9,13 +8,12 @@ in
 {
   home.packages = [
     pkgs.b612
+    pkgs.font-awesome
     pkgs.ibm-plex
     pkgs.iosevka
     pkgs.noto-fonts-color-emoji
     pkgs.monaspace
     pkgs.nerd-fonts.symbols-only
-
-    schemar-private-fonts.packages.${pkgs.stdenv.hostPlatform.system}.default
   ];
 
   # Linux: let fontconfig discover fonts installed through home.packages.

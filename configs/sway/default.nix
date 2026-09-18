@@ -55,7 +55,7 @@ in
         "${mod}+Shift+q" = "kill";
         "${mod}+p" = "exec grim -g \"$(slurp)\" - | swappy -f -";
         "${mod}+Shift+p" = "exec grim - | swappy -f -";
-        "${mod}+Shift+c" = "reload";
+        "${mod}+Shift+c" = "reload; exec shikanectl reload";
         "${mod}+Shift+e" = ''
           exec swaynag -t warning \
             -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' \
@@ -153,7 +153,12 @@ in
           # equivalent of `swaybar_command waybar`
           command = "waybar";
           fonts = {
-            names = [ "monospace" ];
+            names = [
+              "Iosevka"
+              "monospace"
+              "Symbols Nerd Font Mono"
+              "Noto Color Emoji"
+            ];
             size = 8.0;
           };
         }

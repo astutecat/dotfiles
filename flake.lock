@@ -314,8 +314,7 @@
         "moneymoney-to-ynab": "moneymoney-to-ynab",
         "nix-darwin": "nix-darwin",
         "nix-doom-emacs-unstraightened": "nix-doom-emacs-unstraightened",
-        "nixpkgs": "nixpkgs",
-        "schemar-private-fonts": "schemar-private-fonts"
+        "nixpkgs": "nixpkgs"
       }
     },
     "rust-analyzer-src": {
@@ -333,26 +332,6 @@
         "ref": "nightly",
         "repo": "rust-analyzer",
         "type": "github"
-      }
-    },
-    "schemar-private-fonts": {
-      "inputs": {
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1789296614,
-        "narHash": "sha256-hh/g18k/LpF0t1BjAc0DoXRxxX4/EdD6iIYhk0eoOe0=",
-        "ref": "refs/heads/main",
-        "rev": "33d823c0de8747e5be4f959fbdfb7bcf2c343ea5",
-        "revCount": 5,
-        "type": "git",
-        "url": "ssh://git@git.sr.ht/~schemar/fonts"
-      },
-      "original": {
-        "type": "git",
-        "url": "ssh://git@git.sr.ht/~schemar/fonts"
       }
     },
     "systems": {
