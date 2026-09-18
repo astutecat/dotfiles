@@ -3,6 +3,7 @@
   pkgs,
   lib,
   homeDirectory,
+  isWorkMachine,
   ...
 }:
 
@@ -226,7 +227,9 @@ in
 
       signing.key = "3BD453E1C45430E8";
 
-      includes = aenergiIncludes ++ [ { path = maintenanceConfigPath; } ];
+      includes = lib.optionals isWorkMachine aenergiIncludes ++ [
+        { path = maintenanceConfigPath; }
+      ];
     };
 
     jujutsu = {

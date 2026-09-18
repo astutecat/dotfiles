@@ -1,6 +1,7 @@
 {
   pkgs,
   lib,
+  isWorkMachine,
   ...
 }:
 
@@ -30,26 +31,35 @@ in
     enable = true;
     enableDefaultConfig = false;
 
-    settings = {
-      "github.com" = lib.hm.dag.entryBefore [ "*" ] {
-        ControlMaster = "auto";
-        ControlPath = "~/.ssh/github.sock";
-        ControlPersist = "30s";
-        ServerAliveInterval = 0;
-      };
+    settings =
+      {
+        "github.com" = lib.hm.dag.entryBefore [ "*" ] {
+          ControlMaster = "auto";
+          ControlPath = "~/.ssh/github.sock";
+          ControlPersist = "30s";
+          ServerAliveInterval = 0;
+        };
 
-      "git.sr.ht" = lib.hm.dag.entryBefore [ "*" ] {
-        IdentityFile = "~/.ssh/id_sourcehut.pub";
-        IdentitiesOnly = true;
-      };
+        "git.sr.ht" = lib.hm.dag.entryBefore [ "*" ] {
+          IdentityFile = "~/.ssh/id_sourcehut.pub";
+          IdentitiesOnly = true;
+        };
 
-      "*" = hostDefaults;
-    };
+        "*" = hostDefaults;
+      }
+      // lib.optionalAttrs isWorkMachine {
+        "*.dcb.ntls *.dcc.ntls *.entelios.zz" = lib.hm.dag.entryBefore [ "*" ] {
+          IdentityFile = "~/.ssh/id_entelios.pub";
+          IdentitiesOnly = true;
+        };
+      };
   };
 
-  home.file.".ssh/id_entelios.pub".text = ''
-    ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIA7FBkqrvwbjN4hnmi0NGYU627I0s7m/Dm7IJKqWKiZ2
-  '';
+  home.file.".ssh/id_entelios.pub" = lib.mkIf isWorkMachine {
+    text = ''
+      ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIA7FBkqrvwbjN4hnmi0NGYU627I0s7m/Dm7IJKqWKiZ2
+    '';
+  };
 
   home.file.".ssh/id_sourcehut.pub".text = ''
     ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIByaYbjqPG4VP+TvNrmkGIwY1Le3jCtDoaesIdI6IV2o
