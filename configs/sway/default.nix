@@ -1,7 +1,7 @@
 _:
 let
   mod = "Mod4";
-  menuCmd = "rofi -terminal 'kitty' -show combi -combi-modes drun#run -modes combi";
+  menuCmd = "exec rofi -terminal 'kitty' -show combi -combi-modes drun#run -modes combi";
 in
 {
   wayland.windowManager.sway = {
