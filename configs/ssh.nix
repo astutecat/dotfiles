@@ -31,28 +31,27 @@ in
     enable = true;
     enableDefaultConfig = false;
 
-    settings =
-      {
-        "github.com" = lib.hm.dag.entryBefore [ "*" ] {
-          ControlMaster = "auto";
-          ControlPath = "~/.ssh/github.sock";
-          ControlPersist = "30s";
-          ServerAliveInterval = 0;
-        };
-
-        "git.sr.ht" = lib.hm.dag.entryBefore [ "*" ] {
-          IdentityFile = "~/.ssh/id_sourcehut.pub";
-          IdentitiesOnly = true;
-        };
-
-        "*" = hostDefaults;
-      }
-      // lib.optionalAttrs isWorkMachine {
-        "*.dcb.ntls *.dcc.ntls *.entelios.zz" = lib.hm.dag.entryBefore [ "*" ] {
-          IdentityFile = "~/.ssh/id_entelios.pub";
-          IdentitiesOnly = true;
-        };
+    settings = {
+      "github.com" = lib.hm.dag.entryBefore [ "*" ] {
+        ControlMaster = "auto";
+        ControlPath = "~/.ssh/github.sock";
+        ControlPersist = "30s";
+        ServerAliveInterval = 0;
       };
+
+      "git.sr.ht" = lib.hm.dag.entryBefore [ "*" ] {
+        IdentityFile = "~/.ssh/id_sourcehut.pub";
+        IdentitiesOnly = true;
+      };
+
+      "*" = hostDefaults;
+    }
+    // lib.optionalAttrs isWorkMachine {
+      "*.dcb.ntls *.dcc.ntls *.entelios.zz" = lib.hm.dag.entryBefore [ "*" ] {
+        IdentityFile = "~/.ssh/id_entelios.pub";
+        IdentitiesOnly = true;
+      };
+    };
   };
 
   home.file.".ssh/id_entelios.pub" = lib.mkIf isWorkMachine {
