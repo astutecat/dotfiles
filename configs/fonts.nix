@@ -10,7 +10,7 @@ in
     pkgs.b612
     pkgs.font-awesome
     pkgs.ibm-plex
-    pkgs.iosevka
+    pkgs.iosevka-bin
     pkgs.noto-fonts-color-emoji
     pkgs.monaspace
     pkgs.nerd-fonts.symbols-only
