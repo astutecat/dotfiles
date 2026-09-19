@@ -23,6 +23,9 @@ in
       initial_window_width = if isDarwin then "120c" else "110c";
       initial_window_height = if isDarwin then "45c" else "35c";
 
+      # macOS rounded corners clip text at the window's bottom edge
+      window_padding_width = if isDarwin then "0 0 6 0" else "0";
+
       font_size = if isDarwin then 13.0 else 10.0;
 
       font_family = "Iosevka Extended";

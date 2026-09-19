@@ -96,8 +96,11 @@
     /Users/${username}/Library/Scripts/mm_export/log/sync.stderr  ${username}:staff 750  1     2048    $D0
   '';
 
-  # Add ability to use TouchID for sudo authentication in terminal:
-  security.pam.services.sudo_local.touchIdAuth = true;
-  # This fixes Touch ID for sudo not working inside tmux and screen:
-  security.pam.services.sudo_local.reattach = true;
+  # Touch ID + Apple Watch locally; over SSH both fail fast (pam_reattach
+  # skips $SSH_CONNECTION sessions) and sudo falls back to the password.
+  security.pam.services.sudo_local = {
+    touchIdAuth = true;
+    watchIdAuth = true;
+    reattach = true;
+  };
 }
